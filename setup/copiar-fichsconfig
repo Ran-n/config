@@ -1,0 +1,23 @@
+#! /bin/sh
+#+ Autor:	Ran#
+#+ Creado:	22/04/2020 00:23:18
+#+ Editado:	23/04/2020 14:23:01
+
+# Script que copia of ficheiros de configuración da máquina na que estou
+
+printf "Copiando os ficheiros de configuración...\t"
+
+# configuración de vim
+cp -r ~/.vim/. setup/media/cnfiles/.vim/
+
+# configuración de neovim
+cp -r ~/.config/nvim/. setup/media/cnfiles/.config/nvim/
+
+# bashrc
+cp -r ~/.bashrc setup/media/cnfiles/
+
+# bash_aliases
+cp -r ~/.bash_aliases setup/media/cnfiles/
+
+#cp -r setup/media/cnfiles/. ~
+printf "OK\n"

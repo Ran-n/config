@@ -1,0 +1,24 @@
+#! /bin/sh
+#+ Autor:	Ran#
+#+ Creado:	09/07/2019 19:47:42
+#+ Editado:	14/06/2020 14:25:32
+
+# se mete só unha entrada -> sacamos datos da ligazón
+[ $# -eq 1 ] && {
+	usrep=$(echo "$1"|cut -d'/' -f 4-5)
+	fich=$(echo "$1"|cut -d'/' -f 7-)
+
+	wget https://raw.githubusercontent.com/$usrep/$fich
+	exit 0
+}
+
+# senón ten que meter Usuario Repo Fich nesa orde 
+[ $# -eq 3 ] && {
+	wget https://raw.githubusercontent.com/"$1"/"$2"/master/"$3"
+	exit 0
+}
+
+
+echo "Erro"
+echo "Opción 1 de entrada: Ligazón do ficheiro en git (1 entrada)"
+echo "Opción 2 de entrada: Nome Usuario | Nome repositorio github | Nome Ficheiro (3 entradas)"

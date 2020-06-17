@@ -1,0 +1,33 @@
+#! /bin/sh
+#+ Autor:	Ran#
+#+ Creado:	08/03/2020 00:13:08
+#+ Editado:	22/04/2020 00:56:39
+
+# se non meten variable pois pon mensaxe e sae
+if [ -z $1 ]; then
+	echo copias ou pegas ficheiros?
+	exit 1
+fi
+
+# se queremos pegar os arquivos do reposito á maquina
+if [ $1 = "pega" ]; then
+	# modificamos o nome das carpetas
+	./setup/carpetas
+
+	# pegamos os ficheiros de configuración dende o repositorio
+	./setup/pegar-fichsconfig
+
+	# copiamos os scripts
+	#./cp-scripts
+	# é mala práctica poñer sudo. Executar o xeral como sudo de comentar a liña.
+	sudo ./setup/pegar-scripts
+
+# se queremos copiar os arquivos da máquina ao repositorio
+elif [ $1 = "copia" ]; then
+	# copiamos os ficheiros de configuración ao repositorio
+	./setup/copiar-fichsconfig
+
+# se non mete ningunha das opcións
+else
+	echo copia ou pega
+fi

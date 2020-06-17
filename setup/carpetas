@@ -1,0 +1,32 @@
+#! /bin/sh
+#+ Autor:	Ran#
+#+ Creado:	08/03/2020 13:31:26
+#+ Editado:	04/05/2020 20:01:26
+
+printf "Creando ou modificando os nomes das carpetas...\t"
+
+mv ~/Desktop ~/Escritorio 2> /dev/null
+mkdir -p ~/Escritorio
+
+mv ~/Documents ~/Documentos 2> /dev/null
+mkdir -p ~/Documentos
+
+mv ~/Downloads ~/Descargas 2> /dev/null
+mkdir -p ~/Descargas
+
+mv ~/Music ~/Música 2> /dev/null
+mkdir -p ~/Música
+
+mv ~/Pictures ~/Imaxes 2> /dev/null
+mkdir -p ~/Imaxes
+
+mv ~/Public ~/Público 2> /dev/null
+mkdir -p ~/Público
+
+mv ~/Software ~/Programas 2> /dev/null
+mkdir -p ~/Programas
+
+mv ~/Videos ~/Vídeos 2> /dev/null
+mkdir -p ~/Vídeos
+
+printf "OK\n"

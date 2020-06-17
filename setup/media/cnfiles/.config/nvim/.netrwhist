@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/home/ran/Documentos/FrIC/abd/prácticas/TTs/TT1/csvs/tempada'
+let g:netrw_dirhist_2='/home/ran/.config/ranger'
+let g:netrw_dirhist_1='/home/ran/Descargas/Telegram Desktop/Bad Boys II (2003)'
