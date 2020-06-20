@@ -1,0 +1,10 @@
+"--------------------------------------"
+"----- Configuración Vim por Ran# -----"
+"--------------------------------------"
+
+" mostrar números
+set nu
+" definir largura das tabulacións
+set tabstop=4
+"autocmd Filetype css setlocal tabstop=4
+

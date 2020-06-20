@@ -1,7 +1,7 @@
 #! ALIASES
 #+ Autor:	Ran#
 #+ Creado:	03/2020
-#+ Editado:	20/06/2020 13:00:51
+#+ Editado:	20/06/2020 15:41:24
 
 ## para poder usar os alias co sudo
 sudo() { if alias "$1" &> /dev/null ; then $(type "$1" | sed -E 's/^.*`(.*).$/\1/') "${@:2}" ; else command sudo $@ ; fi }
@@ -17,7 +17,7 @@ alias cpwd='pwd | xargs echo -n | xclip -selection clipboard'
 alias rbash='source ~/.bashrc'
 
 ### pacman
-alias update='sudo pacman -Syu --noconfirm'
+alias actual='sudo pacman -Syu --noconfirm'
 alias limpar='sudo pacman -Rsn $(pacman -Qdtq) --noconfirm'
 
 ## comandos programas
@@ -42,6 +42,8 @@ alias md='metadata'
 alias mdm='metadata -m'
 alias mde='metadata -e'
 alias mdc='metadata -c'
+
+alias rconfig='~/Programas/config/rconfig'
 
 ## cds no sistema
 ### Carpetas base
