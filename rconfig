@@ -1,7 +1,7 @@
 #! /bin/sh
 #+ Autor:	Ran#
 #+ Creado:	08/03/2020 00:13:08
-#+ Editado:	22/04/2020 00:56:39
+#+ Editado:	20/06/2020 13:12:23
 
 # se non meten variable pois pon mensaxe e sae
 if [ -z $1 ]; then
@@ -18,7 +18,7 @@ if [ $1 = "pega" ]; then
 	./pegar-fichsconfig
 
 	# copiamos os scripts
-	#./cp-scripts
+	#./baixar-scripts
 	# é mala práctica poñer sudo. Executar o xeral como sudo de comentar a liña.
 	sudo ./baixar-scripts
 

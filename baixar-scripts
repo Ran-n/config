@@ -1,14 +1,13 @@
 #! /bin/sh
 #+ Autor:	Ran#
 #+ Creado:	19/06/2020 22:17:35
-#+ Editado:	20/06/2020 12:28:56
+#+ Editado:	20/06/2020 13:12:41
 
 DISTRO=$(lsb_release -a | sed -n '2,+0p' | cut -d: -f2 | tr -ds '\t' '')
 RUTA_INI=$(pwd)
 
 # vamos á carpeta
-cd ~/proba
-#cd /usr/local/bin
+cd /usr/local/bin
 
 # baixamos os scripts
 echo '> Baixando os scripts: '
@@ -38,6 +37,6 @@ case $DISTRO in
 		echo "> Baixando os scripts básicos para Arch Linux: "
 		$RUTA_INI/gdf ran-n scripts arch/pacma
 		$RUTA_INI/gdf ran-n scripts arch/update-grub
-		echo '< BON'
+		echo '< BO'
 		;;
 esac
