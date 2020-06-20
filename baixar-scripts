@@ -1,13 +1,14 @@
 #! /bin/sh
 #+ Autor:	Ran#
 #+ Creado:	19/06/2020 22:17:35
-#+ Editado:	20/06/2020 13:12:41
+#+ Editado:	20/06/2020 14:01:50
 
 DISTRO=$(lsb_release -a | sed -n '2,+0p' | cut -d: -f2 | tr -ds '\t' '')
 RUTA_INI=$(pwd)
+CARPETA=/usr/local/bin/
 
 # vamos á carpeta
-cd /usr/local/bin
+cd $CARPETA
 
 # baixamos os scripts
 echo '> Baixando os scripts: '
@@ -40,3 +41,6 @@ case $DISTRO in
 		echo '< BO'
 		;;
 esac
+
+# dámoslle permisos de execución a todo o da carpeta
+chmod +x $CARPETA*
