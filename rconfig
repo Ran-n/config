@@ -12,20 +12,20 @@ fi
 # se queremos pegar os arquivos do reposito á maquina
 if [ $1 = "pega" ]; then
 	# modificamos o nome das carpetas
-	./setup/carpetas
+	./carpetas
 
 	# pegamos os ficheiros de configuración dende o repositorio
-	./setup/pegar-fichsconfig
+	./pegar-fichsconfig
 
 	# copiamos os scripts
 	#./cp-scripts
 	# é mala práctica poñer sudo. Executar o xeral como sudo de comentar a liña.
-	sudo ./setup/pegar-scripts
+	sudo ./baixar-scripts
 
 # se queremos copiar os arquivos da máquina ao repositorio
 elif [ $1 = "copia" ]; then
 	# copiamos os ficheiros de configuración ao repositorio
-	./setup/copiar-fichsconfig
+	./copiar-fichsconfig
 
 # se non mete ningunha das opcións
 else

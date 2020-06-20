@@ -1,7 +1,7 @@
 #! /bin/sh
 #+ Autor:	Ran#
 #+ Creado:	08/03/2020 13:31:26
-#+ Editado:	04/05/2020 20:01:26
+#+ Editado:	20/06/2020 12:29:20
 
 printf "Creando ou modificando os nomes das carpetas...\t"
 
@@ -29,4 +29,4 @@ mkdir -p ~/Programas
 mv ~/Videos ~/Vídeos 2> /dev/null
 mkdir -p ~/Vídeos
 
-printf "OK\n"
+echo 'BO'

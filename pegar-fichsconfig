@@ -1,13 +1,13 @@
 #! /bin/sh
 #+ Autor:	Ran#
 #+ Creado:	07/03/2020 22:33:09
-#+ Editado:	22/04/2020 00:24:07
+#+ Editado:	20/06/2020 12:28:42
 
 # Script que me permite meter os meus ficheiros de configuración en calquera máquina na que esté a trabalhar
 
 printf "Pegando os ficheiros de configuración...\t"
-cp -r setup/media/cnfiles/. ~
+cp -r media/cnfiles/. ~
 # da igual que faga iso porque o script corre no seu propio shell o cal fai que non teña efecto logo no resto de shells que teña abertos
 #source ~/.bashrc
 # usando isto saltamonos a restricción dita arriba, pq reemplaza o proceso bash cun novo pero destrue calquer variable ou semellante posta pola usuario manualmente
-printf "OK\n"
+echo "BO"

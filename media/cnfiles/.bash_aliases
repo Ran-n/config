@@ -18,6 +18,7 @@ alias rbash='source ~/.bashrc'
 
 ### pacman
 alias update='sudo pacman -Syu --noconfirm'
+alias limpar='sudo pacman -Rsn $(pacman -Qdtq) --noconfirm'
 
 ## comandos programas
 ### programas externos
@@ -55,6 +56,8 @@ alias csw='cd ~/Programas; ls'
 
 alias cscripts='cd ~/Programas/scripts; ls'
 alias sc='cd ~/Programas/scripts; ls'
+alias cconfig='cd ~/Programas/config; ls'
+alias cnf='cd ~/Programas/config; ls'
 alias ctutos='cd ~/Programas/tutos; ls'
 alias cledo='cd ~/Programas/ledo; ls'
 
