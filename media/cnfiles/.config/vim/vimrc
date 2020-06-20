@@ -5,6 +5,6 @@
 " mostrar números
 set nu
 " definir largura das tabulacións
-set tabstop=4
+set tabstop=8
 "autocmd Filetype css setlocal tabstop=4
 

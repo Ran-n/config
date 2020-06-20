@@ -23,7 +23,7 @@ alias limpar='sudo pacman -Rsn $(pacman -Qdtq) --noconfirm'
 ## comandos programas
 ### programas externos
 alias r='ranger'
-alias v='vim'
+alias v='vim -u ~/.config/vim/vimrc'
 alias sv='sudo vim'
 alias nv='nvim'
 alias snv='sudo nvim'
