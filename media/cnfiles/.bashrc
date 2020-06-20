@@ -1,7 +1,7 @@
 #! BASHRC
 #+ Autor:	Ran#
 #+ Creado:	03/2020
-#+ Editado:	13/03/2020 08:04:33
+#+ Editado:	20/06/2020 14:03:08
 #
 # ~/.bashrc
 #
