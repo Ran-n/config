@@ -144,8 +144,6 @@ ex ()
 
 # export PATH="/home/ran/Software/anaconda3/bin:$PATH"  # commented out by conda initialize  # commented out by conda initialize  # commented out by conda initialize
 
-
-
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/ran/Programas/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
@@ -164,15 +162,22 @@ unset __conda_setup
 conda deactivate
 # para activala sería conda activate
 
-# EU
-## non gardar duplicados
+# ------------------------------------------------------------------------------
+
+#| EU
+##| non gardar duplicados
 export HISTCONTROL=ignore:erasedups
 
-## meter o ficheiro de aliases
+##| meter o ficheiro de aliases
 if [ -f ~/.bash_aliases ]; then
 . ~/.bash_aliases
 fi
 
-## editor por defecto
+##| editor por defecto
 export VISUAL=nvim
 export EDITOR="$VISUAL"
+
+##| melloras do shell
+###| autocd coa ruta
+shopt -s autocd			# autoiniciar a funcionalidade
+exec {BASH_XTRACEFD}>/dev/null 	# para que non mostre a saída
