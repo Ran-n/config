@@ -8,16 +8,16 @@
 printf "> Copiando os ficheiros de configuración...\t"
 
 # configuración de vim
-cp -r ~/.config/vim/. media/cnfiles/.config/vim/ #está ahi porque usamos vim -u path para abrir vim
+cp -r ~/.config/vim/. cnfiles/.config/vim/ #está ahi porque usamos vim -u path para abrir vim
 
 # configuración de neovim
-cp -r ~/.config/nvim/. media/cnfiles/.config/nvim/
+cp -r ~/.config/nvim/. cnfiles/.config/nvim/
 
 # bashrc
-cp -r ~/.bashrc media/cnfiles/
+cp -r ~/.bashrc cnfiles/
 
 # bash_aliases
-cp -r ~/.bash_aliases media/cnfiles/
+cp -r ~/.bash_aliases cnfiles/
 
 #cp -r setup/media/cnfiles/. ~
 echo '< BO'

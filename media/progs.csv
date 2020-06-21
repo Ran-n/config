@@ -1,7 +1,7 @@
 #!
 #+ Autor:	Ran#
 #+ Creado:	15/03/2020 14:37:28
-#+ Editado:	23/03/2020 21:36:39
+#+ Editado:	20/06/2020 23:40:05
 
 # TAGS:
 # 		> Transplataforma.
@@ -43,6 +43,8 @@
 ,posterazor,corta unha imaxe ou pdf nas dimensións desexadas (pe: mural con D4)
 ,mlocate,comando locate e updatedb
 ,tree,programa para ver a estrutura de carpetas
+,figlet,para facer letras con símbolos
+,lynx,buscador de internet no terminal
 arch,perl-rename,comando que permite facer renomeamentos en masa
 debian,rename,comando que permite facer renomeamentos en masa
 arch,mkvtoolnix-cli,ferramentas de edición de ficheiros mkv

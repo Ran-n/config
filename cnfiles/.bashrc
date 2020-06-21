@@ -1,9 +1,13 @@
 #! BASHRC
 #+ Autor:	Ran#
 #+ Creado:	03/2020
-#+ Editado:	20/06/2020 14:03:08
-#
-# ~/.bashrc
+#+ Editado:	21/06/2020 11:36:06
+
+#        ___               _
+#       / / |__   __ _ ___| |__  _ __ ___
+#  /\/|/ /| '_ \ / _` / __| '_ \| '__/ __|
+# |/\// /_| |_) | (_| \__ \ | | | | | (__
+#    /_/(_)_.__/ \__,_|___/_| |_|_|  \___|
 #
 
 [[ $- != *i* ]] && return
@@ -95,10 +99,10 @@ fi
 unset use_color safe_term match_lhs sh
 
 #alias cp="cp -i"			   # confirm before overwritting something
-alias df='df -h'                          # human-readable sizes
-alias free='free -m'                      # show sizes in MB
-alias np='nano -w PKGBUILD'
-alias more=less
+#alias df='df -h'                          # human-readable sizes
+#alias free='free -m'                      # show sizes in MB
+#alias np='nano -w PKGBUILD'
+#alias more=less
 
 xhost +local:root > /dev/null 2>&1
 

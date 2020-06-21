@@ -6,7 +6,7 @@
 # Script que me permite meter os meus ficheiros de configuración en calquera máquina na que esté a trabalhar
 
 printf "> Pegando os ficheiros de configuración...\t\t"
-cp -r media/cnfiles/. ~
+cp -r cnfiles/. ~
 # da igual que faga iso porque o script corre no seu propio shell o cal fai que non teña efecto logo no resto de shells que teña abertos
 #source ~/.bashrc
 # usando isto saltamonos a restricción dita arriba, pq reemplaza o proceso bash cun novo pero destrue calquer variable ou semellante posta pola usuario manualmente

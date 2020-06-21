@@ -1,16 +1,24 @@
 #! ALIASES
 #+ Autor:	Ran#
 #+ Creado:	03/2020
-#+ Editado:	20/06/2020 15:41:24
+#+ Editado:	21/06/2020 11:36:02
+
+#        ___               _              _ _
+#       / / |__   __ _ ___| |__      __ _| (_) __ _ ___  ___  ___
+#  /\/|/ /| '_ \ / _` / __| '_ \    / _` | | |/ _` / __|/ _ \/ __|
+# |/\// /_| |_) | (_| \__ \ | | |  | (_| | | | (_| \__ \  __/\__ \
+#    /_/(_)_.__/ \__,_|___/_| |_|___\__,_|_|_|\__,_|___/\___||___/
+#                              |_____|
 
 ## para poder usar os alias co sudo
 sudo() { if alias "$1" &> /dev/null ; then $(type "$1" | sed -E 's/^.*`(.*).$/\1/') "${@:2}" ; else command sudo $@ ; fi }
 
-## aforro comandos basicos
+## comandos básicos
 alias s='sudo'
 alias lsa='ls -a'
 alias lsl='ls -l'
 alias lsla='ls -la'
+alias more=less
 
 alias cpwd='pwd | xargs echo -n | xclip -selection clipboard'
 #alias proba="f() { echo "$a" }"
