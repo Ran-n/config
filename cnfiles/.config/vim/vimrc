@@ -2,9 +2,11 @@
 "----- Configuración Vim por Ran# -----"
 "--------------------------------------"
 
+" modo non compatible para que mostre no modo que está (flag -N fai o mesmo)
+set nocompatible
 " mostrar números
 set nu
 " definir largura das tabulacións
-set tabstop=8
+set tabstop=4
 "autocmd Filetype css setlocal tabstop=4
 

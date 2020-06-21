@@ -40,7 +40,7 @@ alias 7ze='7z e'
 alias locate='sudo updatedb; locate'
 
 alias condad='conda deactivate'
-alias condaa='conda activate; ls'
+alias condaa='conda activate'
 
 alias rmzip='rm *zip*'
 alias rm7z='rm *7z*'
@@ -51,7 +51,8 @@ alias mdm='metadata -m'
 alias mde='metadata -e'
 alias mdc='metadata -c'
 
-alias rconfig='~/Programas/config/rconfig'
+#alias rconfig='~/Programas/config/rconfig'
+alias gfolder='pwd | rev | cut -d/ -f1 | rev | copia'
 
 ## cds no sistema
 ### Carpetas base
