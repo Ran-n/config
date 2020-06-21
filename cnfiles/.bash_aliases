@@ -96,3 +96,4 @@ alias ficxt='cd ~/Documentos/FrIC/cxt; ls'
 alias fictfg='cd ~/Documentos/FrIC/tfg; ls'
 
 alias toxtrac='conda activate toxtrac; ls'
+
