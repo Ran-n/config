@@ -3,8 +3,7 @@
 #+ Creado:	08/03/2020 00:13:08
 #+ Editado:	21/06/2020 23:45:33
 
-#CARPETA=/home/ran/Programas/config
-CARPETA=.
+# O primeiro case sempre, a menos que se queira
 
 # se non meten variable pois pon mensaxe e sae
 if [ -z $1 ]; then
@@ -15,20 +14,20 @@ fi
 # se queremos pegar os arquivos do reposito á maquina
 if [ $1 = "pega" ]; then
 	# modificamos o nome das carpetas
-	$CARPETA/carpetas
+	./carpetas
 
 	# pegamos os ficheiros de configuración dende o repositorio
-	$CARPETA/pegar-fichsconfig
+	./pegar-fichsconfig
 
 	# copiamos os scripts
 	#./baixar-scripts
 	# é mala práctica poñer sudo. Executar o xeral como sudo de comentar a liña.
-	sudo $CARPETA/baixar-scripts
+	sudo ./baixar-scripts
 
 # se queremos copiar os arquivos da máquina ao repositorio
 elif [ $1 = "copia" ]; then
 	# copiamos os ficheiros de configuración ao repositorio
-	$CARPETA/copiar-fichsconfig
+	./copiar-fichsconfig
 
 # se non mete ningunha das opcións
 else

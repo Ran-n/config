@@ -58,7 +58,6 @@ alias mdm='metadata -m'
 alias mde='metadata -e'
 alias mdc='metadata -c'
 
-#alias rconfig='~/Programas/config/rconfig'
 alias gfolder='pwd | rev | cut -d/ -f1 | rev | copia'
 
 ## cds no sistema
