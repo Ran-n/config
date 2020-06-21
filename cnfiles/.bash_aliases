@@ -11,13 +11,20 @@
 #                              |_____|
 
 ## para poder usar os alias co sudo
-sudo() { if alias "$1" &> /dev/null ; then $(type "$1" | sed -E 's/^.*`(.*).$/\1/') "${@:2}" ; else command sudo $@ ; fi }
+sudo() { 
+    if alias "$1" &> /dev/null ; then 
+        $(type "$1" | sed -E 's/^.*`(.*).$/\1/') "${@:2}"
+    else 
+        command sudo "$@"
+    fi 
+}
 
 ## comandos básicos
 alias s='sudo'
-alias lsa='ls -a'
-alias lsl='ls -l'
-alias lsla='ls -la'
+alias ls='ls --color=always'
+alias la='ls -a --color=always'
+alias ll='ls -l --color=always'
+alias lsla='ls -la --color=always'
 alias more=less
 
 alias cpwd='pwd | xargs echo -n | xclip -selection clipboard'
@@ -56,14 +63,14 @@ alias gfolder='pwd | rev | cut -d/ -f1 | rev | copia'
 
 ## cds no sistema
 ### Carpetas base
-alias cdocs='cd ~/Documentos; ls'
-alias cdes='cd ~/Descargas; ls'
-alias cmus='cd ~/Música; ls'
-alias cmusa='cd ~/Música/Audio; ls'
-alias cmusv='cd ~/Música/VideoClips; ls'
-alias cfot='cd ~/Imaxes; ls'
-alias cvid='cd ~/Vídeos; ls'
-alias csw='cd ~/Programas; ls'
+alias docs='cd ~/Documentos; ls'
+alias des='cd ~/Descargas; ls'
+alias mus='cd ~/Música; ls'
+alias musa='cd ~/Música/Audio; ls'
+alias musv='cd ~/Música/VideoClips; ls'
+alias imxs='cd ~/Imaxes; ls'
+alias vids='cd ~/Vídeos; ls'
+alias sw='cd ~/Programas; ls'
 
 alias cscripts='cd ~/Programas/scripts; ls'
 alias sc='cd ~/Programas/scripts; ls'
@@ -83,11 +90,10 @@ alias ctorrent='cd ~/Descargas/Torrente; ls'
 
 ### clase
 alias fric='cd ~/Documentos/FrIC; ls'
-alias cfric='cd ~/Documentos/FrIC; ls'
-alias ficcp='cd ~/Documentos/FrIC/cp; ls'
+alias ficp='cd ~/Documentos/FrIC/cp; ls'
 alias ficid='cd ~/Documentos/FrIC/id; ls'
 alias ficabd='cd ~/Documentos/FrIC/abd; ls'
-alias ficcxt='cd ~/Documentos/FrIC/cxt; ls'
+alias ficxt='cd ~/Documentos/FrIC/cxt; ls'
 alias fictfg='cd ~/Documentos/FrIC/tfg; ls'
 
 alias toxtrac='conda activate toxtrac; ls'
