@@ -9,9 +9,13 @@
 
 " modo non compatible para que mostre no modo que está (flag -N fai o mesmo)
 set nocompatible
+
 " mostrar números
 set nu
+
 " definir largura das tabulacións
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 "autocmd Filetype css setlocal tabstop=4
 
+" para que non cree o documeento .netrwhist
+let g:netrw_dirhistmax = 0

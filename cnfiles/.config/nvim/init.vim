@@ -10,6 +10,10 @@
 
 " para que aparezan os números á dereita
 set nu
+
 " para os tabuladores 
 set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
 "autocmd Filetype css setlocal tabstop=4
+
+" para que non saia o ficheiro .netrwhist
+let g:netrw_dirhistmax = 0
