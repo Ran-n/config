@@ -1,0 +1,19 @@
+#! /bin/sh
+#+ Autor:	Ran#
+#+ Creado:	22/06/2020 14:42:29
+#+ Editado:	22/06/2020 14:45:28
+
+# PROGRAMA PRA MIN PARA PODER TER OS CAMBIOS AOS FICHEIROS AO DÍA MOI FACILMENTE 
+
+# ruta onde está o repositorio
+cd ~/Programas/config
+
+
+# se meto ini fago o link e saio
+[ $1 = "ini" ] && sudo ln -sf ~/Programas/config/rconfig_ran /usr/local/bin/rconfig && exit 0
+
+
+# corremos o programa
+./rconfig $1
+# se meto copia despois de iniciar o programa fago commit
+[ $1 = "copia" ] && gc
