@@ -60,6 +60,8 @@ alias mdc='metadata -c'
 
 alias gfolder='pwd | rev | cut -d/ -f1 | rev | copia'
 
+alias rcc='rconfig copia' # só ten sentido pra min
+
 ## cds no sistema
 ### Carpetas base
 alias docs='cd ~/Documentos; ls'
