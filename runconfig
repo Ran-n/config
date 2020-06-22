@@ -11,5 +11,16 @@
 # o uso normal será simplemente baixalo, executar o pegar e borrar o git
 
 cd /home/ran/Programas/config
-./rconfig $1
-gc
+
+case "$1" in
+		copia)
+				./rconfig $1
+				gc
+				;;
+		pega)
+				./rconfig $1
+				;;
+		inicia)
+				sudo ln -sf $(pwd)/runconfig /usr/local/bin/rconfig
+				;;
+esac
