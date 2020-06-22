@@ -16,4 +16,4 @@ cd ~/Programas/config
 # corremos o programa
 ./rconfig $1
 # se meto copia despois de iniciar o programa fago commit
-[ $1 = "copia" ] && gc
+[ $1 = "copia" ] && echo "" && gc
