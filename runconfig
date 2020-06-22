@@ -12,3 +12,4 @@
 
 cd /home/ran/Programas/config
 ./rconfig $1
+gc
