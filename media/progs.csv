@@ -45,6 +45,7 @@
 ,tree,programa para ver a estrutura de carpetas
 ,figlet,para facer letras con símbolos
 ,lynx,buscador de internet no terminal
+,pdftk,ferramenta para modificar pdfs
 arch,perl-rename,comando que permite facer renomeamentos en masa
 debian,rename,comando que permite facer renomeamentos en masa
 arch,mkvtoolnix-cli,ferramentas de edición de ficheiros mkv
