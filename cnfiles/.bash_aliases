@@ -73,21 +73,21 @@ alias imxs='cd ~/Imaxes; ls'
 alias vids='cd ~/Vídeos; ls'
 alias sw='cd ~/Programas; ls'
 
-alias cscripts='cd ~/Programas/scripts; ls'
+alias scripts='cd ~/Programas/scripts; ls'
 alias sc='cd ~/Programas/scripts; ls'
-alias cconfig='cd ~/Programas/config; ls'
+alias congit='cd ~/Programas/config; ls'
 alias cnf='cd ~/Programas/config; ls'
-alias ctutos='cd ~/Programas/tutos; ls'
-alias cledo='cd ~/Programas/ledo; ls'
+alias tutos='cd ~/Programas/tutos; ls'
+#alias ledo='cd ~/Programas/ledo; ls'
 
 alias ulb="cd /usr/local/bin; ls"
 
 # Carpetas de Descargas específicas
-alias ctelegram='cd ~/Descargas/Telegram\ Desktop; ls'
-alias ctele='cd ~/Descargas/Telegram\ Desktop; ls'
-alias cbrave='cd ~/Descargas/Brave; ls'
-alias ctorrente='cd ~/Descargas/Torrente; ls'
-alias ctorrent='cd ~/Descargas/Torrente; ls'
+alias telegram='cd ~/Descargas/Telegram\ Desktop; ls'
+alias tele='cd ~/Descargas/Telegram\ Desktop; ls'
+alias brave='cd ~/Descargas/Brave; ls'
+alias torrente='cd ~/Descargas/Torrente; ls'
+alias torrent='cd ~/Descargas/Torrente; ls'
 
 ### clase
 alias fric='cd ~/Documentos/FrIC; ls'
