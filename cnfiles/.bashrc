@@ -185,3 +185,5 @@ export EDITOR="$VISUAL"
 ###| autocd coa ruta
 shopt -s autocd			# autoiniciar a funcionalidade
 exec {BASH_XTRACEFD}>/dev/null 	# para que non mostre a saída
+###| modo vim do shell
+set -o vi
