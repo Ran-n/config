@@ -1,13 +1,12 @@
 #! /bin/sh
 #+ Autor:	Ran#
 #+ Creado:	22/06/2020 14:42:29
-#+ Editado:	22/06/2020 14:45:28
+#+ Editado:	24/06/2020 21:17:36
 
 # PROGRAMA PRA MIN PARA PODER TER OS CAMBIOS AOS FICHEIROS AO DÍA MOI FACILMENTE 
 
 # ruta onde está o repositorio
 cd ~/Programas/config
-
 
 # se meto ini fago o link e saio
 [ $1 = "ini" ] && sudo ln -sf ~/Programas/config/rconfig_ran /usr/local/bin/rconfig && exit 0
@@ -15,5 +14,6 @@ cd ~/Programas/config
 
 # corremos o programa
 ./rconfig $1
+
 # se meto copia despois de iniciar o programa fago commit
 [ $1 = "copia" ] && echo "> Facendo a subida dos novos datos." && { &>/dev/null gc & } && echo "< BO" || echo "< MAL"
