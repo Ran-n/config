@@ -169,6 +169,11 @@ conda deactivate
 # ------------------------------------------------------------------------------
 
 #| EU
+
+##| Cambios de teclas
+###| Escape <-> Bloq_Maiúsculas
+setxkbmap -option caps:swapescape
+
 ##| non gardar duplicados
 export HISTCONTROL=ignore:erasedups
 
@@ -185,5 +190,6 @@ export EDITOR="$VISUAL"
 ###| autocd coa ruta
 shopt -s autocd			# autoiniciar a funcionalidade
 exec {BASH_XTRACEFD}>/dev/null 	# para que non mostre a saída
+
 ###| modo vim do shell
 set -o vi
