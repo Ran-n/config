@@ -170,10 +170,6 @@ conda deactivate
 
 #| EU
 
-##| Cambios de teclas
-###| Escape <-> Bloq_Maiúsculas
-setxkbmap -option caps:swapescape
-
 ##| non gardar duplicados
 export HISTCONTROL=ignore:erasedups
 
@@ -193,3 +189,10 @@ exec {BASH_XTRACEFD}>/dev/null 	# para que non mostre a saída
 
 ###| modo vim do shell
 set -o vi
+
+#| Cambios por Ran
+
+##| Cambios de teclas
+###| Escape <-> Bloq_Maiúsculas
+
+setxkbmap -option caps:swapescape
