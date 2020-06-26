@@ -6,10 +6,14 @@
 "| '_ \ / _ \/ _ \ \ / / | '_ ` _ \
 "| | | |  __/ (_) \ V /| | | | | | |
 "|_| |_|\___|\___/ \_/ |_|_| |_| |_|
+"   
+"
 "-----------------------------------------"
 
 " para que aparezan os números á dereita
 set nu
+" para que sexan os números relativos
+set relativenumber
 
 " para os tabuladores 
 set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
