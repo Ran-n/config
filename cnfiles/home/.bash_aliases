@@ -47,6 +47,7 @@ alias snv='sudo nvim'
 alias xclip='xargs echo -n | xclip -selection clipboard'
 alias 7ze='7z e'
 alias locate='sudo updatedb; locate'
+alias pixt='pixterm -s 2'
 
 alias condad='conda deactivate'
 alias condaa='conda activate'
