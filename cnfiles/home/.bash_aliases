@@ -26,6 +26,9 @@ alias la='ls -a --color=always'
 alias ll='ls -l --color=always'
 alias lsla='ls -la --color=always'
 alias more=less
+mkcdir () {
+    mkdir -p -- "$1" && cd -P -- "$1"
+}
 
 alias cpwd='pwd | xargs echo -n | xclip -selection clipboard'
 #alias proba="f() { echo "$a" }"
