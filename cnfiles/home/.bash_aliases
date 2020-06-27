@@ -91,10 +91,7 @@ alias torrent='cd ~/Descargas/Torrente; ls'
 
 ### clase
 alias fric='cd ~/Documentos/FrIC; ls'
-alias ficp='cd ~/Documentos/FrIC/cp; ls'
-alias ficid='cd ~/Documentos/FrIC/id; ls'
-alias ficabd='cd ~/Documentos/FrIC/abd; ls'
-alias ficxt='cd ~/Documentos/FrIC/cxt; ls'
+alias fic6='cd ~/Documentos/FrIC/6º\ ano; ls'
 alias fictfg='cd ~/Documentos/FrIC/tfg; ls'
 
 alias toxtrac='conda activate toxtrac; ls'
