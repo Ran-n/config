@@ -11,7 +11,9 @@
 set nocompatible
 
 " mostrar números
-set nu
+" set nu
+" para que sexan os números relativos
+set relativenumber
 
 " definir largura das tabulacións
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
