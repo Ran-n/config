@@ -30,7 +30,6 @@ sudo() {
 }
 
 alias cpwd='pwd | xargs echo -n | xclip -selection clipboard'
-#alias proba="f() { echo "$a" }"
 alias rbash='source ~/.bashrc'
 
 ### pacman

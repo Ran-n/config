@@ -16,11 +16,13 @@
 " Plugins
     call plug#begin('~/local/share/nvim/plugged')
     Plug 'junegunn/goyo.vim'
+    Plug 'scrooloose/nerdtree'
     call plug#end()
 " Fin dos plugins
 
 " Mapeo das letras para comandos de vim
     map <leader>f :Goyo \| set linebreak<CR>
+    map <leader>t :NERDTreeToggle<CR>
 
 " para que aparezan os números á dereita
     set nu
