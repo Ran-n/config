@@ -1,7 +1,7 @@
 #! /bin/sh
 #+ Autor:	Ran#
 #+ Creado:	22/04/2020 00:23:18
-#+ Editado:	24/06/2020 21:16:10
+#+ Editado:	29/06/2020 23:07:20
 
 # Script que copia of ficheiros de configuración da máquina na que estou
 
@@ -12,6 +12,9 @@ cp -r ~/.config/vim/. cnfiles/home/.config/vim/ #está ahi porque usamos vim -u 
 
 # configuración de neovim
 cp -r ~/.config/nvim/. cnfiles/home/.config/nvim/
+
+# configuración de neovim
+cp -r ~/.config/calcurse/. cnfiles/home/.config/calcurse/
 
 # bashrc
 cp -r ~/.bashrc cnfiles/home/
