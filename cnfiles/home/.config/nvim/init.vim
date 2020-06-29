@@ -14,7 +14,7 @@
     let mapleader =" "
 
 " Plugins
-    call plug#begin('~/local/share/nvim/plugged')
+    call plug#begin('~/.local/share/nvim/plugged')
     Plug 'junegunn/goyo.vim'
     Plug 'scrooloose/nerdtree'
     call plug#end()

@@ -1,7 +1,7 @@
 #! ALIASES
 #+ Autor:	Ran#
 #+ Creado:	03/2020
-#+ Editado:	29/06/2020 17:56:38
+#+ Editado:	29/06/2020 18:47:53
 
 #        ___               _              _ _
 #       / / |__   __ _ ___| |__      __ _| (_) __ _ ___  ___  ___
@@ -18,9 +18,11 @@ alias la='ls -a --color=always'
 alias ll='ls -l --color=always'
 alias lsla='ls -la --color=always'
 alias more=less
+
 mkcdir () {
     mkdir -p -- "$1" && cd -P -- "$1"
 }
+
 sudo() { 
     if alias "$1" &> /dev/null ; then 
         $(type "$1" | sed -E 's/^.*`(.*).$/\1/') "${@:2}"
@@ -29,8 +31,10 @@ sudo() {
     fi 
 }
 
+# útieis propios
 alias cpwd='pwd | xargs echo -n | xclip -selection clipboard'
 alias rbash='source ~/.bashrc'
+alias cantf='ls | wc -l'
 
 ### pacman
 alias actual='sudo pacman -Syu --noconfirm'
