@@ -48,6 +48,7 @@
 ,pdftk,ferramenta para modificar pdfs
 ,enscript,converte ficheiros ascii a outras extensións
 ,chafa,visor de imaxes no terminal
+,ipython,shell de python interactivo
 arch,perl-rename,comando que permite facer renomeamentos en masa
 debian,rename,comando que permite facer renomeamentos en masa
 arch,mkvtoolnix-cli,ferramentas de edición de ficheiros mkv
