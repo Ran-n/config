@@ -13,7 +13,7 @@
 " para que aparezan os números á dereita
 set nu
 " para que sexan os números relativos
-set relativenumber
+set relativenumber "set rnu
 
 " para os tabuladores 
 set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
