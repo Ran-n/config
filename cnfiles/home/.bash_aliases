@@ -58,7 +58,7 @@ alias condaa='conda activate'
 alias rmzip='rm *zip*'
 alias rm7z='rm *7z*'
 
-alias calcurse='calcurse; rconfig copia'
+alias calcurse='calcurse; rconfig copia 2&>/dev/null'
 
 ### programas e scripts propios
 alias md='metadata'
