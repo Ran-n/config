@@ -16,5 +16,6 @@ cd ~/Programas/config
 ./rconfig $1
 
 # se meto copia despois de iniciar o programa fago commit
-[ $1 = "copia" ] && echo "> Facendo a subida dos novos datos." && { &>/dev/null gc & } && echo "< BO" || echo "< MAL"
-
+[ $1 = "copia" ] && echo "> Facendo a subida dos novos datos." && {
+    { &>/dev/null gc & } && echo "< BO" || echo "< MAL"
+}
