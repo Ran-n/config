@@ -6,7 +6,7 @@
 # Script que me permite meter os meus ficheiros de configuración en calquera máquina na que esté a trabalhar
 
 printf "> Pegando os ficheiros de configuración...\t\t"
-7z x ./cnfiles/home/.local/share/calcurse_encriptado
+#7z x ./cnfiles/home/.local/share/calcurse_encriptado.7z -o'./cnfiles/home/.local/share/'
 cp -r cnfiles/home/. ~
 cp -r cnfiles/root/. /
 # da igual que faga iso porque o script corre no seu propio shell o cal fai que non teña efecto logo no resto de shells que teña abertos
