@@ -1,7 +1,7 @@
 #! /bin/sh
 #+ Autor:	Ran#
 #+ Creado:	22/06/2020 14:42:29
-#+ Editado:	24/06/2020 21:17:36
+#+ Editado:	30/06/2020 21:33:26
 
 # PROGRAMA PRA MIN PARA PODER TER OS CAMBIOS AOS FICHEIROS AO DÍA MOI FACILMENTE 
 
@@ -16,5 +16,5 @@ cd ~/Programas/config
 ./rconfig $1
 
 # se meto copia despois de iniciar o programa fago commit
-[ $1 = "copia" ] && echo "> Facendo a subida dos novos datos." && { &>/dev/null gc & } && echo "< BO" || echo "< MAL"
+[ $1 = "copia" ] && {echo "> Facendo a subida dos novos datos."; {&>/dev/null gc &} && echo "< BO" || echo "< MAL"}
 

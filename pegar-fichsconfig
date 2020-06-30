@@ -12,11 +12,12 @@ echo "> Pegando os ficheiros de configuración..."
 read -p "> Extraer documentos privados (contrasinal se si, intro se non): " contrasinal
 
 # se a poñen extraemos, senón pasamos
-[ -z $contrasinal ] && echo '< BO, Sen arquivos privados' || 7z x ./cnfiles/home/.local/share/calcurse_encriptado.7z -o'./cnfiles/home/.local/share/' -aoa -p$contrasinal 2&> /dev/null 
-#[ -z $contrasinal ] && echo '< BO, Sen arquivos privados' || 7z x ./cnfiles/home/.local/share/calcurse_encriptado.7z -o'./cnfiles/home/.local/share/' -aoa -p$contrasinal
+[ -z $contrasinal ] && echo '< Sen arquivos privados' || &>/dev/null 7z x ./cnfiles/home/.local/share/calcurse_encriptado.7z -o'./cnfiles/home/.local/share/' -aoa -p$contrasinal
+#[ -z $contrasinal ] && echo '< Sen arquivos privados' || 7z x ./cnfiles/home/.local/share/calcurse_encriptado.7z -o'./cnfiles/home/.local/share/' -aoa -p$contrasinal
 
 cp -r cnfiles/home/. ~
 rm -f ~/.local/share/calcurse_encriptado.7z
-cp -r cnfiles/root/. /
+rm -rf cnfiles/home/.local/share/calcurse/
+sudo cp -r cnfiles/root/. /
 
 echo "< BO"
