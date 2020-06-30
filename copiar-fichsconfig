@@ -25,7 +25,7 @@ cp -r ~/.config/calcurse/. cnfiles/home/.config/calcurse/
 # notas e citas de calcurse
 cp -r ~/.local/share/calcurse/. cnfiles/home/.local/share/calcurse/
 # vámolos encriptar
-7z a cnfiles/home/.local/share/calcurse cnfiles/home/.local/share/calcurse_encriptado -p
+7z a ./cnfiles/home/.local/share/calcurse_encriptado ./cnfiles/home/.local/share/calcurse -p -mhe=on
 
 # bashrc
 cp -r ~/.bashrc cnfiles/home/
