@@ -1,11 +1,12 @@
 #! /bin/sh
 #+ Autor:	Ran#
 #+ Creado:	07/03/2020 22:33:09
-#+ Editado:	24/06/2020 21:15:56
+#+ Editado:	30/06/2020 18:24:13
 
 # Script que me permite meter os meus ficheiros de configuración en calquera máquina na que esté a trabalhar
 
 printf "> Pegando os ficheiros de configuración...\t\t"
+7z x ./cnfiles/home/.local/share/calcurse_encriptado
 cp -r cnfiles/home/. ~
 cp -r cnfiles/root/. /
 # da igual que faga iso porque o script corre no seu propio shell o cal fai que non teña efecto logo no resto de shells que teña abertos
