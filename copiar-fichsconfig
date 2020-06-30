@@ -1,11 +1,18 @@
 #! /bin/sh
 #+ Autor:	Ran#
 #+ Creado:	22/04/2020 00:23:18
-#+ Editado:	30/06/2020 13:08:08
+#+ Editado:	30/06/2020 13:11:03
 
 # Script que copia of ficheiros de configuración da máquina na que estou
 
 printf "> Copiando os ficheiros de configuración...\t"
+
+# creamos as carpetas que precisaremos se non existen
+mkdir -p ./cnfiles/home/.config/vim/
+mkdir -p ./cnfiles/home/.config/nvim/
+mkdir -p ./cnfiles/home/.config/calcurse/
+mkdir -p ./cnfiles/home/.local/share/calcurse/
+mkdir -p ./cnfiles/root/etc/
 
 # configuración de vim
 cp -r ~/.config/vim/. cnfiles/home/.config/vim/ #está ahi porque usamos vim -u path para abrir vim
