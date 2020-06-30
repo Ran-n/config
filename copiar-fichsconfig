@@ -1,11 +1,14 @@
 #! /bin/sh
 #+ Autor:	Ran#
 #+ Creado:	22/04/2020 00:23:18
-#+ Editado:	30/06/2020 18:31:19
+#+ Editado:	30/06/2020 20:26:11
 
 # Script que copia of ficheiros de configuración da máquina na que estou
 
-printf "> Copiando os ficheiros de configuración...\t"
+echo "> Copiando os ficheiros de configuración..."
+
+#read -sp "> Inserte o contrasinal para os arquivos privados: " contrasinal
+read -p "> Inserte o contrasinal para os arquivos privados: " contrasinal
 
 # creamos as carpetas que precisaremos se non existen
 mkdir -p ./cnfiles/home/.config/vim/
@@ -17,24 +20,32 @@ mkdir -p ./cnfiles/root/etc/
 # configuración de vim
 cp -r ~/.config/vim/. cnfiles/home/.config/vim/ #está ahi porque usamos vim -u path para abrir vim
 
+
 # configuración de neovim
 cp -r ~/.config/nvim/. cnfiles/home/.config/nvim/
+
 
 # calcurse #
 # configuración de calcurse
 cp -r ~/.config/calcurse/. cnfiles/home/.config/calcurse/
-# notas e citas de calcurse
+
+# copiamos notas e citas de calcurse
 cp -r ~/.local/share/calcurse/. cnfiles/home/.local/share/calcurse/
-# vámolos encriptar
-#7z a ./cnfiles/home/.local/share/calcurse_encriptado ./cnfiles/home/.local/share/calcurse -p -mhe=on
-# eliminamos a carpeta cos datos en plano
-#rm -rf ./cnfiles/home/.local/share/calcurse
+# eliminamos calquer encriptado previo
+rm -f ./cnfiles/home/.local/share/calcurse_encriptado.7z
+# vámolos encriptar co contrasinal dado
+7z a ./cnfiles/home/.local/share/calcurse_encriptado ./cnfiles/home/.local/share/calcurse -p$contrasinal -mhe=on 2&>/dev/null
+# e eliminamos a carpeta cos datos en plano
+rm -rf ./cnfiles/home/.local/share/calcurse
+
 
 # bashrc
 cp -r ~/.bashrc cnfiles/home/
 
+
 # bash_aliases
 cp -r ~/.bash_aliases cnfiles/home/
+
 
 # /etc/profile
 cp -r /etc/profile cnfiles/root/etc/

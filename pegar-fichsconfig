@@ -5,11 +5,18 @@
 
 # Script que me permite meter os meus ficheiros de configuración en calquera máquina na que esté a trabalhar
 
-printf "> Pegando os ficheiros de configuración...\t\t"
-#7z x ./cnfiles/home/.local/share/calcurse_encriptado.7z -o'./cnfiles/home/.local/share/'
+echo "> Pegando os ficheiros de configuración..."
+
+# pedimos o contrasinal para os arquivos privados
+#read -ps "> Extraer documentos privados (contrasinal se si, intro se non): " contrasinal
+read -p "> Extraer documentos privados (contrasinal se si, intro se non): " contrasinal
+
+# se a poñen extraemos, senón pasamos
+[ -z $contrasinal ] && echo '< BO, Sen arquivos privados' || 7z x ./cnfiles/home/.local/share/calcurse_encriptado.7z -o'./cnfiles/home/.local/share/' -aoa -p$contrasinal 2&> /dev/null 
+#[ -z $contrasinal ] && echo '< BO, Sen arquivos privados' || 7z x ./cnfiles/home/.local/share/calcurse_encriptado.7z -o'./cnfiles/home/.local/share/' -aoa -p$contrasinal
+
 cp -r cnfiles/home/. ~
+rm -f ~/.local/share/calcurse_encriptado.7z
 cp -r cnfiles/root/. /
-# da igual que faga iso porque o script corre no seu propio shell o cal fai que non teña efecto logo no resto de shells que teña abertos
-#source ~/.bashrc
-# usando isto saltamonos a restricción dita arriba, pq reemplaza o proceso bash cun novo pero destrue calquer variable ou semellante posta pola usuario manualmente
+
 echo "< BO"
