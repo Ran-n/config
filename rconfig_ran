@@ -17,4 +17,3 @@ cd ~/Programas/config
 
 # se meto copia despois de iniciar o programa fago commit
 [ $1 = "copia" ] && {echo "> Facendo a subida dos novos datos."; {&>/dev/null gc &} && echo "< BO" || echo "< MAL"}
-
