@@ -13,11 +13,14 @@
 
 ## comandos básicos
 alias s='sudo'
-alias ls='ls --color=always'
+alias ls='ls --color=auto'
 alias la='ls -a --color=always'
 alias ll='ls -l --color=always'
 alias lsla='ls -la --color=always'
 alias more=less
+alias grep='grep -colour=auto'
+alias egrep='egrep -colour=auto'
+alias fgrep='fgrep -colour=auto'
 
 mkcdir () {
     mkdir -p -- "$1" && cd -P -- "$1"

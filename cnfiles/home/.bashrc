@@ -82,11 +82,6 @@ if ${use_color} ; then
 	else
 		PS1='\[\033[01;32m\][\u@\h\[\033[01;37m\] \W\[\033[01;32m\]]\$\[\033[00m\] '
 	fi
-
-	alias ls='ls --color=auto'
-	alias grep='grep --colour=auto'
-	alias egrep='egrep --colour=auto'
-	alias fgrep='fgrep --colour=auto'
 else
 	if [[ ${EUID} == 0 ]] ; then
 		# show root@ when we don't have colors
@@ -167,27 +162,28 @@ conda deactivate
 # para activala sería conda activate
 
 # ------------------------------------------------------------------------------
-
-#| EU
-
-##| non gardar duplicados
+# non gardar duplicados
 export HISTCONTROL=ignore:erasedups
+HISTSIZE= HISTFILESIZE= #historial infinito
 
-##| meter o ficheiro de aliases
+# meter o ficheiro de aliases
 if [ -f ~/.bash_aliases ]; then
 . ~/.bash_aliases
 fi
 
-##| editor por defecto
+# editor por defecto
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 
-##| melloras do shell
-###| autocd coa ruta
-shopt -s autocd			# autoiniciar a funcionalidade
+# melloras do shell
+# autocd coa ruta
+shopt -s autocd		        	# autoiniciar a funcionalidade
 exec {BASH_XTRACEFD}>/dev/null 	# para que non mostre a saída
 
-###| modo vim do shell
+# deshabilitar ctrl+c ctrl+q por defecto do shell
+stty -ixon
+
+# modo vim do shell
 set -o vi
 
 setxkbmap -option caps:swapescape
