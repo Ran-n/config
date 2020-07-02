@@ -38,3 +38,7 @@
 
 " para que cando abras un split vertical se poña á dereita e horizontal abaixo
     set splitbelow splitright 
+
+" notas de calcurse lidas en markdown por defecto
+    autocmd BufRead,BufNewFile /tmp/calcurse* set filetype=markdown
+    autocmd BufRead,BufNewFile ~/.calcurse/notes/* set filetype=markdown
