@@ -163,7 +163,9 @@ conda deactivate
 
 # ------------------------------------------------------------------------------
 # non gardar duplicados
-export HISTCONTROL=ignore:erasedups
+#export HISTCONTROL=ignore:erasedups
+export HISTCONTROL=ignoredups
+shopt -s histappend
 HISTSIZE= HISTFILESIZE= #historial infinito
 
 # meter o ficheiro de aliases
