@@ -11,6 +11,25 @@
 #
 
 # abrir terminal
-
 control + alt + t
 	alacritty
+
+# explorador de internet
+super + b
+	brave
+
+# abrir calcurse
+mod4 + c
+	alacritty -e calcurse
+
+# abrir ranger
+super + r
+	$TERMINAL -e ranger ~
+
+# abrir nvim
+super + v
+	$TERMINAL -e nvim
+
+# dmenu
+super + d
+	dmenu_run

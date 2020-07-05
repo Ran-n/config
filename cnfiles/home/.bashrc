@@ -176,6 +176,7 @@ fi
 # editor por defecto
 export VISUAL=nvim
 export EDITOR="$VISUAL"
+export TERMINAL=alacritty
 
 # melloras do shell
 # autocd coa ruta
@@ -189,4 +190,4 @@ stty -ixon
 set -o vi
 
 setxkbmap -option caps:swapescape
-&> /dev/null sxhkd & 
+#&> /dev/null sxhkd & 
