@@ -1,10 +1,10 @@
 #!
 #+ Autor:	Ran#
 #+ Creado:	15/03/2020 14:37:28
-#+ Editado:	20/06/2020 23:40:05
+#+ Editado:	05/07/2020 22:02:29
 
 # TAGS:
-# 		> Transplataforma.
+# 		    > Transplataforma.
 # arch		> Exclusivo dos tipos Arch.
 # aur		> Baixalo do Arch User Repository.
 # debian	> Exclusivo dos tipo Debian.
@@ -50,6 +50,7 @@
 ,chafa,visor de imaxes no terminal
 ,ipython,shell de python interactivo
 ,calcurse,organizador persoal en formato texto
+,sxhkd,ligador de teclas con comandos
 arch,perl-rename,comando que permite facer renomeamentos en masa
 debian,rename,comando que permite facer renomeamentos en masa
 arch,mkvtoolnix-cli,ferramentas de edición de ficheiros mkv
