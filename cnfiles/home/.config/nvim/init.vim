@@ -10,6 +10,7 @@
 "
 "-----------------------------------------"
 
+" Plugins {{{
 " tecla maestra para poder facer comandos de vim
     let mapleader =" "
 
@@ -19,21 +20,37 @@
     Plug 'scrooloose/nerdtree'
     call plug#end()
 " Fin dos plugins
+" }}}
 
+
+
+" Mapeos {{{
 " Mapeo das letras para comandos de vim
     map <leader>f :Goyo \| set linebreak<CR>
     map <leader>t :NERDTreeToggle<CR>
 
+" autocompilar
+    map <leader>c :w! <bar> !compiler <c-r>%<CR><CR>
+    map <leader>p :!opout <c-r>%<CR><CR>
+
+" copiar e pegar global
+    vnoremap <C-c> "*y :let @+=@*<CR>
+    map <C-v> "*P :let @+=@*<CR>
+
+" abrir este ficheiro dende o calquer editor
+    nnoremap <leader>ev :vsp $MYVIMRC<CR>
+    nnoremap <leader>sv :up <bar> :source $MYVIMRC <bar> :doautocmd BufRead<CR>
+" }}}
+
+
 
 " UI {{{
+" Para mostrar ambos o número de linha e número relativo
+"    set number relativenumber
+     set nu rnu 
 
-" para que aparezan os números á dereita
-    set nu
-" para que sexan os números relativos
-    set relativenumber "set rnu
 " para que se mostre a linha do cursor
 "    set cursorline
-
 " }}}
 
 
@@ -52,9 +69,8 @@
     autocmd BufRead,BufNewFile /tmp/calcurse* set filetype=markdown
     autocmd BufRead,BufNewFile ~/.calcurse/notes/* set filetype=markdown
 
-" abrir este ficheiro dende o calquer editor
-    nnoremap <leader>ev :vsp $MYVIMRC<CR>
-    nnoremap <leader>sv :source $MYVIMRC <bar> :doautocmd BufRead<CR>
+" autorestart
+    autocmd BufWritePost *sxhkdrc !killall sxhkd; setsid sxhkd &
 
 " folding
 "    set foldmethod=indent
