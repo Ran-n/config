@@ -13,7 +13,6 @@ read -p "> Extraer documentos privados (contrasinal se si, intro se non): " cont
 
 # se a poñen extraemos, senón pasamos
 [ -z $contrasinal ] && echo '< Sen arquivos privados' || &>/dev/null 7z x ./cnfiles/home/.local/share/calcurse_encriptado.7z -o'./cnfiles/home/.local/share/' -aoa -p$contrasinal
-#[ -z $contrasinal ] && echo '< Sen arquivos privados' || 7z x ./cnfiles/home/.local/share/calcurse_encriptado.7z -o'./cnfiles/home/.local/share/' -aoa -p$contrasinal
 
 cp -r cnfiles/home/. ~
 rm -f ~/.local/share/calcurse_encriptado.7z

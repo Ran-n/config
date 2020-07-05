@@ -1,7 +1,7 @@
 #! /bin/sh
 #+ Autor:	Ran#
 #+ Creado:	22/04/2020 00:23:18
-#+ Editado:	30/06/2020 21:54:21
+#+ Editado:	05/07/2020 22:39:51
 
 # Script que copia of ficheiros de configuración da máquina na que estou
 
@@ -13,17 +13,25 @@ read -p "> Inserte o contrasinal para os arquivos privados: " contrasinal
 # creamos as carpetas que precisaremos se non existen
 mkdir -p ./cnfiles/home/.config/vim/
 mkdir -p ./cnfiles/home/.config/nvim/
+mkdir -p ./cnfiles/home/.config/sxhkd/
 mkdir -p ./cnfiles/home/.config/calcurse/
 mkdir -p ./cnfiles/home/.local/share/calcurse/
 mkdir -p ./cnfiles/root/etc/
 
-# configuración de vim
+# bashrc
+cp -r ~/.bashrc cnfiles/home/
+
+# bash_aliases
+cp -r ~/.bash_aliases cnfiles/home/
+
+# vim
 cp -r ~/.config/vim/. cnfiles/home/.config/vim/ #está ahi porque usamos vim -u path para abrir vim
 
-
-# configuración de neovim
+# neovim
 cp -r ~/.config/nvim/. cnfiles/home/.config/nvim/
 
+# sxhkd
+cp -r ~/.config/sxhkd/. cnfiles/home/.config/sxhkd/
 
 # calcurse #
 # configuración de calcurse
@@ -37,18 +45,11 @@ rm -f ./cnfiles/home/.local/share/calcurse_encriptado.7z
 7z a ./cnfiles/home/.local/share/calcurse_encriptado ./cnfiles/home/.local/share/calcurse -p$contrasinal -mhe=on 2&>/dev/null
 # e eliminamos a carpeta cos datos en plano
 rm -rf ./cnfiles/home/.local/share/calcurse
-
-
-# bashrc
-cp -r ~/.bashrc cnfiles/home/
-
-
-# bash_aliases
-cp -r ~/.bash_aliases cnfiles/home/
-
+# calcurse #
 
 # /etc/profile
 cp -r /etc/profile cnfiles/root/etc/
 
 #cp -r setup/media/cnfiles/. ~
+
 echo '< BO'

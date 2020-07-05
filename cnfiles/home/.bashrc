@@ -189,3 +189,4 @@ stty -ixon
 set -o vi
 
 setxkbmap -option caps:swapescape
+&> /dev/null sxhkd & 
