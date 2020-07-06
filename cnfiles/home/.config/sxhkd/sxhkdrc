@@ -1,7 +1,7 @@
 #!
 #+ Autor:	Ran#
 #+ Creado:	05/07/2020 22:13:57
-#+ Editado:	06/07/2020 11:21:17
+#+ Editado:	06/07/2020 12:39:56
 #          _     _       _
 # _____  _| |__ | | ____| |_ __ ___
 #/ __\ \/ / '_ \| |/ / _` | '__/ __|
@@ -15,5 +15,5 @@ control + alt + t
 	alacritty
 
 # abrir programas
-super + o; {b,c,r,v,d}
+super + o;{b,c,r,v,d}
 	{brave,$TERMINAL -e calcurse,$TERMINAL -e ranger,$TERMINAL -e nvim,dmenu_run}
