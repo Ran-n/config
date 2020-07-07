@@ -27,3 +27,12 @@ super + c
 
 super + r
 	$TERMINAL -e ranger
+
+super + b
+	brave
+
+super + d
+	dmenu_run
+
+
+
