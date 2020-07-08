@@ -1,7 +1,7 @@
 #! BASHRC
 #+ Autor:	Ran#
 #+ Creado:	03/2020
-#+ Editado:	21/06/2020 23:02:05
+#+ Editado:	08/07/2020 19:36:24
 
 #        ___               _
 #       / / |__   __ _ ___| |__  _ __ ___
@@ -189,5 +189,5 @@ stty -ixon
 # modo vim do shell
 set -o vi
 
-setxkbmap -option caps:swapescape
+#setxkbmap -option caps:swapescape
 #&> /dev/null sxhkd & 
