@@ -1,7 +1,7 @@
 #! /bin/sh
 #+ Autor:	Ran#
 #+ Creado:	19/06/2020 22:17:35
-#+ Editado:	20/06/2020 14:01:50
+#+ Editado:	10/07/2020 12:11:25
 
 DISTRO=$(lsb_release -a | sed -n '2,+0p' | cut -d: -f2 | tr -ds '\t' '')
 RUTA_INI=$(pwd)
@@ -30,6 +30,7 @@ $RUTA_INI/gdf ran-n scripts gfolder
 $RUTA_INI/gdf ran-n scripts wifipass
 $RUTA_INI/gdf ran-n scripts teras
 $RUTA_INI/gdf ran-n scripts crono
+$RUTA_INI/gdf ran-n scripts vivo
 echo '< BO'
 
 case $DISTRO in
