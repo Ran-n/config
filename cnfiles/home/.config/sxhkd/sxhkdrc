@@ -19,17 +19,17 @@ super + o ; {b,c,r,v,d,s}
 	{brave,$TERMINAL -e calcurse,$TERMINAL -e ranger,$TERMINAL -e nvim,dmenu_run,sqlitebrowser}
 
 # vim
-#super + v
-#	$TERMINAL -e nvim
-#super + c
-#	$TERMINAL -e calcurse
-#super + r
-#	$TERMINAL -e ranger
-#super + b
-#	brave
-#super + d
-#	dmenu_run
-#super + b
-#	brave
-#super + s
-#	sqlitebrowser
+super + v
+	$TERMINAL -e nvim
+super + c
+	$TERMINAL -e calcurse
+super + r
+	$TERMINAL -e ranger
+super + b
+	brave
+super + d
+	dmenu_run
+super + b
+	brave
+super + s
+	sqlitebrowser
