@@ -189,5 +189,5 @@ stty -ixon
 # modo vim do shell
 set -o vi
 
-#setxkbmap -option caps:swapescape
+setxkbmap -option caps:swapescape
 #&> /dev/null sxhkd & 
