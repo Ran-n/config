@@ -41,6 +41,7 @@
 " abrir este ficheiro dende o calquer editor
     nnoremap <leader>ev :vsp $MYVIMRC<CR>
     nnoremap <leader>sv :up <bar> :source $MYVIMRC <bar> :doautocmd BufRead<CR>
+    nnoremap <leader>me :w! <bar> !metadata -e <c-r>%<CR> <bar> :e <CR>
 " }}}
 
 

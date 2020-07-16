@@ -13,10 +13,10 @@
 
 ## comandos básicos
 alias s='sudo'
-alias ls='ls --color=auto'
-alias la='ls -a --color=always'
-alias ll='ls -l --color=always'
-alias lsla='ls -la --color=always'
+alias ls='ls --color=auto --group-directories-first'
+alias la='ls -a --color=always --group-directories-first'
+alias ll='ls -l --color=always --group-directories-first'
+alias lsla='ls -la --color=always --group-directories-first'
 alias more=less
 alias grep='grep --colour=auto'
 alias egrep='egrep --colour=auto'
