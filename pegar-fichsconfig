@@ -1,7 +1,7 @@
 #! /bin/sh
 #+ Autor:	Ran#
 #+ Creado:	07/03/2020 22:33:09
-#+ Editado:	30/06/2020 21:54:19
+#+ Editado:	18/07/2020 11:36:09
 
 # Script que me permite meter os meus ficheiros de configuración en calquera máquina na que esté a trabalhar
 
@@ -11,12 +11,22 @@ echo "> Pegando os ficheiros de configuración..."
 #read -ps "> Extraer documentos privados (contrasinal se si, intro se non): " contrasinal
 read -p "> Extraer documentos privados (contrasinal se si, intro se non): " contrasinal
 
+# calcurse
 # se a poñen extraemos, senón pasamos
 [ -z $contrasinal ] && echo '< Sen arquivos privados' || &>/dev/null 7z x ./cnfiles/home/.local/share/calcurse_encriptado.7z -o'./cnfiles/home/.local/share/' -aoa -p$contrasinal
 
+# joplin
+# se a poñen extraemos, senón pasamos
+[ -z $contrasinal ] && echo '< Sen arquivos privados' || &>/dev/null 7z x ./cnfiles/home/.config/joplin_encriptado.7z -o'./cnfiles/home/.config/' -aoa -p$contrasinal
+
 cp -r cnfiles/home/. ~
+# calcurse
 rm -f ~/.local/share/calcurse_encriptado.7z
 rm -rf cnfiles/home/.local/share/calcurse/
+# joplin
+rm -f ~/.config/joplin_encriptado.7z
+rm -rf cnfiles/home/.config/joplin/
+ln -sf ~/.config/joplin/  ~/.config/joplin-desktop
 sudo cp -r cnfiles/root/. /
 
 echo "< BO"
