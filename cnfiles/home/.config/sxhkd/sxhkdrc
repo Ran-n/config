@@ -33,3 +33,5 @@ super + b
 	brave
 super + s
 	sqlitebrowser
+super + j
+	$TERMINAL -e joplin
