@@ -1,4 +1,4 @@
-![GitHub](https://img.shields.io/github/license/ran-n/scripts.svg)
+[![GitHub license](https://img.shields.io/github/license/Ran-n/config)](https://github.com/Ran-n/config/blob/master/LICENSE)
 ![PowerShell Gallery](https://img.shields.io/badge/plataforma-LiGNUx-lightgrey)
 # Configuration
 
