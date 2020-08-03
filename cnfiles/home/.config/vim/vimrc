@@ -20,4 +20,4 @@
 "autocmd Filetype css setlocal tabstop=4
 
 " para que non cree o documeento .netrwhist
-    set g:netrw_dirhistmax = 0
+    let g:netrw_dirhistmax=0
