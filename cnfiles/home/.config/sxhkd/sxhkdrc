@@ -1,7 +1,7 @@
 #!
 #+ Autor:	Ran#
 #+ Creado:	05/07/2020 22:13:57
-#+ Editado:	08/07/2020 19:36:21
+#+ Editado:	13/08/2020 19:47:22
 #          _     _       _
 # _____  _| |__ | | ____| |_ __ ___
 #/ __\ \/ / '_ \| |/ / _` | '__/ __|
@@ -12,7 +12,7 @@
 
 # abrir terminal
 control + alt + t
-	alacritty
+	kitty
 
 # abrir programas
 super + o ; {b,c,r,v,d,s}
