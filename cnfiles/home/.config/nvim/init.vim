@@ -10,59 +10,14 @@
 "
 "-----------------------------------------"
 
-" PLUGINS {{{
-    call plug#begin('~/.local/share/nvim/plugged')
-    Plug 'junegunn/goyo.vim'
-    Plug 'scrooloose/nerdtree'
-    Plug 'kovetskiy/sxhkd-vim' 
-    call plug#end()
-" }}}
+" tódolos plugins usados
+source modulos/plugins.vim
 
+" tódolos mapeos
+source modulos/mapeos.vim
 
-" MAPEOS {{{
-" tecla maestra para poder facer comandos de vim
-    let mapleader =" "
-
-" Mapeo das letras para comandos de vim
-    map <leader>f :Goyo \| set linebreak<CR>
-    map <leader>t :NERDTreeToggle<CR>
-
-" autocompilar
-    map <leader>c :w! <bar> !compiler <c-r>%<CR><CR>
-    map <leader>p :!opout <c-r>%<CR><CR>
-
-" autocommitear en git
-    map <leader>gc :w! <bar> !gc <c-r>%<CR><CR>
-
-" editar a metadata co meu script
-    nnoremap <leader>me :w! <bar> !metadata -e <c-r>%<CR> <bar> :e <CR>
-
-" copiar e pegar global
-    vnoremap <C-c> "*y :let @+=@*<CR>
-    map <C-v> "*P :let @+=@*<CR>
-
-" abrir este ficheiro dende o calquer editor
-    nnoremap <leader>ev :vsp $MYVIMRC<CR>
-    nnoremap <leader>sv :up <bar> :source $MYVIMRC <bar> :doautocmd BufRead<CR>
-" }}}
-
-
-" UI {{{
-" Para mostrar ambos o número de linha e número relativo
-"    set number relativenumber
-     set nu rnu 
-
-" para que se mostre a linha do cursor
-"    set cursorline
-
-" para que sempre mostre a sintaxe
-    syntax on
-
-" esquema de cor por defecto
-    ""colorscheme mysticaltutor
-    colo pablo
-" }}}
-
+" relativo a como se ve o editor
+source modulos/ui.vim
 
 " para os tabuladores 
     set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
@@ -76,15 +31,8 @@
     "set splitbelow splitright 
 
 
-" CONSIDERACIONS FICHS {{{
-" notas de calcurse lidas en markdown por defecto
-    autocmd BufRead,BufNewFile /tmp/calcurse* set filetype=markdown
-    autocmd BufRead,BufNewFile ~/.calcurse/notes/* set filetype=markdown
-
-" autorestart
-    autocmd BufWritePost *sxhkdrc !killall sxhkd; setsid sxhkd &
-" }}}
-
+" consideracións para ficheiros
+source modulos/fichs.vim
 
 " folding
 "    set foldmethod=indent
