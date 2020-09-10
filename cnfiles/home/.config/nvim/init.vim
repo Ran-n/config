@@ -10,22 +10,19 @@
 "
 "-----------------------------------------"
 
-" Plugins {{{
-" tecla maestra para poder facer comandos de vim
-    let mapleader =" "
-
-" Plugins
+" PLUGINS {{{
     call plug#begin('~/.local/share/nvim/plugged')
     Plug 'junegunn/goyo.vim'
     Plug 'scrooloose/nerdtree'
     Plug 'kovetskiy/sxhkd-vim' 
     call plug#end()
-" Fin dos plugins
 " }}}
 
 
+" MAPEOS {{{
+" tecla maestra para poder facer comandos de vim
+    let mapleader =" "
 
-" Mapeos {{{
 " Mapeo das letras para comandos de vim
     map <leader>f :Goyo \| set linebreak<CR>
     map <leader>t :NERDTreeToggle<CR>
@@ -50,7 +47,6 @@
 " }}}
 
 
-
 " UI {{{
 " Para mostrar ambos o número de linha e número relativo
 "    set number relativenumber
@@ -58,6 +54,13 @@
 
 " para que se mostre a linha do cursor
 "    set cursorline
+
+" para que sempre mostre a sintaxe
+    syntax on
+
+" esquema de cor por defecto
+    ""colorscheme mysticaltutor
+    colo pablo
 " }}}
 
 
@@ -72,12 +75,16 @@
     set splitbelow
     "set splitbelow splitright 
 
+
+" CONSIDERACIONS FICHS {{{
 " notas de calcurse lidas en markdown por defecto
     autocmd BufRead,BufNewFile /tmp/calcurse* set filetype=markdown
     autocmd BufRead,BufNewFile ~/.calcurse/notes/* set filetype=markdown
 
 " autorestart
     autocmd BufWritePost *sxhkdrc !killall sxhkd; setsid sxhkd &
+" }}}
+
 
 " folding
 "    set foldmethod=indent
@@ -88,7 +95,6 @@
 "syntax enable
 "filetype plugin on
 "set termguicolors
-"colorscheme mysticaltutor
 "hi Normal ctermbg=none
 "hi Terminal ctermbg=none
 "hi Terminal guibg=none
