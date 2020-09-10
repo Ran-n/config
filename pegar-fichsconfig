@@ -28,6 +28,7 @@ rm -rf cnfiles/home/.local/share/calcurse/
 # joplin
 rm -f ~/.config/joplin_encriptado.7z
 rm -rf cnfiles/home/.config/joplin/
+## para que joplin-desktop teña o mesmo contido ca joplin de terminal
 ln -sf ~/.config/joplin/  ~/.config/joplin-desktop
 sudo cp -r cnfiles/root/. /
 
