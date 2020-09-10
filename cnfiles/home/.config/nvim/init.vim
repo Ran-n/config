@@ -11,13 +11,13 @@
 "-----------------------------------------"
 
 " tódolos plugins usados
-source modulos/plugins.vim
+source ~/.config/nvim/modulos/plugins.vim
 
 " tódolos mapeos
-source modulos/mapeos.vim
+source ~/.config/nvim/modulos/mapeos.vim
 
 " relativo a como se ve o editor
-source modulos/ui.vim
+source ~/.config/nvim/modulos/ui.vim
 
 " para os tabuladores 
     set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
@@ -32,7 +32,7 @@ source modulos/ui.vim
 
 
 " consideracións para ficheiros
-source modulos/fichs.vim
+source ~/.config/nvim/modulos/fichs.vim
 
 " folding
 "    set foldmethod=indent
