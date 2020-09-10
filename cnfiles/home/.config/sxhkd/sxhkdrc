@@ -12,7 +12,7 @@
 
 # abrir terminal
 control + alt + t
-	kitty
+	alacritty
 
 # abrir programas
 super + o ; {b,c,r,v,d,s}
