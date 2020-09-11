@@ -76,11 +76,11 @@ cp -r ~/.config/alacritty/. cnfiles/home/.config/alacritty
 cp -r /etc/profile cnfiles/root/etc/
 
 # basrc
-cp /root/.bashrc cnfiles/root/root/
+sudo cp /root/.bashrc cnfiles/root/root/
 # zshrc
 cp /root/.zshrc cnfiles/root/root/
 # aliasrc
-cp /root/.config/aliasrc cnfiles/root/root/.config
+cp /root/.config/aliasrc cnfiles/root/root/.config/
 
 ## FIN ROOT ##
 
