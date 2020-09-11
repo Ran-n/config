@@ -73,6 +73,6 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
-[ -f ~/config/aliasrc ] && source ~/.config/aliasrc || echo 'Erro de alias'
+[ -f ~/.config/aliasrc ] && source ~/.config/aliasrc || echo 'Erro de alias'
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
