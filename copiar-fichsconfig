@@ -1,7 +1,7 @@
 #! /bin/sh
 #+ Autor:	Ran#
 #+ Creado:	22/04/2020 00:23:18
-#+ Editado:	11/09/2020 18:35:43
+#+ Editado:	11/09/2020 18:53:31
 
 # Script que copia of ficheiros de configuración da máquina na que estou
 
@@ -11,6 +11,7 @@ echo "> Copiando os ficheiros de configuración..."
 read -p "> Inserte o contrasinal para os arquivos privados: " contrasinal
 
 # creamos as carpetas que precisaremos se non existen
+mkdir -p ./cnfiles/home/.config/zsh/plugins
 mkdir -p ./cnfiles/home/.config/vim/
 mkdir -p ./cnfiles/home/.config/nvim/
 mkdir -p ./cnfiles/home/.config/sxhkd/
@@ -18,6 +19,7 @@ mkdir -p ./cnfiles/home/.config/calcurse/
 mkdir -p ./cnfiles/home/.local/share/calcurse/
 mkdir -p ./cnfiles/home/.config/joplin/
 mkdir -p ./cnfiles/home/.config/alacritty/
+
 mkdir -p ./cnfiles/root/etc/
 mkdir -p ./cnfiles/root/root/
 mkdir -p ./cnfiles/root/root/.config
@@ -28,6 +30,7 @@ cp ~/.bashrc cnfiles/home/
 
 # zshrc
 cp ~/.zshrc cnfiles/home/
+cp -r ~/.config/zsh/. cnfiles/home/.config/zsh/
 
 # aliasrc
 cp ~/.config/aliasrc cnfiles/home/.config/

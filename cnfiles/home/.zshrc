@@ -75,4 +75,4 @@ bindkey '^e' edit-command-line
 
 [ -f ~/.config/aliasrc ] && source ~/.config/aliasrc || echo 'Erro de alias'
 
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
