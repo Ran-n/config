@@ -30,7 +30,7 @@ cp ~/.bashrc cnfiles/home/
 
 # zshrc
 cp ~/.zshrc cnfiles/home/
-cp -r ~/.config/zsh/. cnfiles/home/.config/zsh/
+cp -r ~/.config/zsh/. cnfiles/home/.config/zsh/ 2&>/dev/null
 
 # aliasrc
 cp ~/.config/aliasrc cnfiles/home/.config/
