@@ -1,7 +1,7 @@
 #! BASHRC
 #+ Autor:	Ran#
 #+ Creado:	03/2020
-#+ Editado:	08/07/2020 19:36:24
+#+ Editado:	11/09/2020 18:17:42
 
 #        ___               _
 #       / / |__   __ _ ___| |__  _ __ ___
@@ -169,10 +169,7 @@ shopt -s histappend
 HISTSIZE= HISTFILESIZE= #historial infinito
 
 # meter o ficheiro de aliases
-if [ -f ~/.bash_aliases ]; then
-. ~/.bash_aliases
-fi
-
+[ -f ~/.config/aliasrc ] && source ~/.config/aliasrc || print 'Erro de alias'
 # editor por defecto
 export VISUAL=nvim
 export EDITOR="$VISUAL"

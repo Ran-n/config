@@ -13,5 +13,6 @@ set cursorline
 syntax on
 
 " esquema de cor por defecto
-colorscheme mysticaltutor
+"colorscheme mysticaltutor
 "colo pablo
+colo gruvbox
