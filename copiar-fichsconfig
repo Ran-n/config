@@ -1,7 +1,7 @@
 #! /bin/sh
 #+ Autor:	Ran#
 #+ Creado:	22/04/2020 00:23:18
-#+ Editado:	11/09/2020 14:55:38
+#+ Editado:	11/09/2020 18:19:01
 
 # Script que copia of ficheiros de configuración da máquina na que estou
 
@@ -23,8 +23,11 @@ mkdir -p ./cnfiles/root/etc/
 # bashrc
 cp -r ~/.bashrc cnfiles/home/
 
-# bash_aliases
-cp -r ~/.bash_aliases cnfiles/home/
+# zshrc
+cp -r ~/.zshrc cnfiles/home/
+
+# aliasrc
+cp -r ~/.config/aliasrc cnfiles/home/.config/
 
 # vim
 cp -r ~/.config/vim/. cnfiles/home/.config/vim/ #está ahi porque usamos vim -u path para abrir vim
