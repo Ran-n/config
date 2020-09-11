@@ -7,11 +7,11 @@
 set nu rnu 
 
 " para que se mostre a linha do cursor
-"set cursorline
+set cursorline
 
 " para que sempre mostre a sintaxe
 syntax on
 
 " esquema de cor por defecto
-"colorscheme mysticaltutor
-colo pablo
+colorscheme mysticaltutor
+"colo pablo
