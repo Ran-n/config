@@ -176,7 +176,8 @@ fi
 # editor por defecto
 export VISUAL=nvim
 export EDITOR="$VISUAL"
-export TERMINAL=kitty
+#export TERMINAL=kitty
+export TERMINAL=alacritty
 
 # melloras do shell
 # autocd coa ruta
