@@ -17,6 +17,7 @@ mkdir -p ./cnfiles/home/.config/sxhkd/
 mkdir -p ./cnfiles/home/.config/calcurse/
 mkdir -p ./cnfiles/home/.local/share/calcurse/
 mkdir -p ./cnfiles/home/.config/joplin/
+mkdir -p ./cnfiles/home/.config/alacritty/
 mkdir -p ./cnfiles/root/etc/
 
 # bashrc
@@ -58,6 +59,9 @@ rm -f ./cnfiles/home/.config/joplin_encriptado.7z
 # e eliminamos a carpeta cos datos en plano
 rm -rf ./cnfiles/home/.config/joplin
 # joplin #
+
+# alacritty
+cp -r ~/.config/alacritty/. cnfiles/home/.config/alacritty
 
 # /etc/profile
 cp -r /etc/profile cnfiles/root/etc/
