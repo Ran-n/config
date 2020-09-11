@@ -1,7 +1,7 @@
 #! /bin/sh
 #+ Autor:	Ran#
 #+ Creado:	07/03/2020 22:33:09
-#+ Editado:	10/09/2020 17:52:00
+#+ Editado:	11/09/2020 14:58:35
 
 # Script que me permite meter os meus ficheiros de configuración en calquera máquina na que esté a trabalhar
 
@@ -19,15 +19,21 @@ read -p "> Extraer documentos privados (contrasinal se si, intro se non): " cont
 # se a poñen extraemos, senón pasamos
 [ -z $contrasinal ] && echo '< Sen arquivos privados' || &>/dev/null 7z x ./cnfiles/home/.config/joplin_encriptado.7z -o'./cnfiles/home/.config/' -aoa -p$contrasinal
 
+
+# tódolos ficheiros do home
 cp -r cnfiles/home/. ~
+
 # calcurse (se non se descomprime non pasa nada que non fai nada)
 rm -f ~/.local/share/calcurse_encriptado.7z
 rm -rf cnfiles/home/.local/share/calcurse/
-# joplin
+
+# joplin (se non se descomprime non pasa nada que non fai nada)
 rm -f ~/.config/joplin_encriptado.7z
 rm -rf cnfiles/home/.config/joplin/
-## para que joplin-desktop teña o mesmo contido ca joplin de terminal
+# para que joplin-desktop teña o mesmo contido ca joplin de terminal
 ln -sf ~/.config/joplin/  ~/.config/joplin-desktop
+
+# tódolos ficheiros do root
 sudo cp -r cnfiles/root/. /
 
 echo "< BO"
