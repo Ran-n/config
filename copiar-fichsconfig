@@ -78,9 +78,9 @@ cp -r /etc/profile cnfiles/root/etc/
 # basrc
 sudo cp /root/.bashrc cnfiles/root/root/
 # zshrc
-cp /root/.zshrc cnfiles/root/root/
+sudo cp /root/.zshrc cnfiles/root/root/
 # aliasrc
-cp /root/.config/aliasrc cnfiles/root/root/.config/
+sudo cp /root/.config/aliasrc cnfiles/root/root/.config/
 
 ## FIN ROOT ##
 
