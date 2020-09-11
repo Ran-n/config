@@ -1,7 +1,7 @@
 #! /bin/sh
 #+ Autor:	Ran#
 #+ Creado:	22/04/2020 00:23:18
-#+ Editado:	11/09/2020 18:19:01
+#+ Editado:	11/09/2020 18:30:58
 
 # Script que copia of ficheiros de configuración da máquina na que estou
 
@@ -19,15 +19,18 @@ mkdir -p ./cnfiles/home/.local/share/calcurse/
 mkdir -p ./cnfiles/home/.config/joplin/
 mkdir -p ./cnfiles/home/.config/alacritty/
 mkdir -p ./cnfiles/root/etc/
+mkdir -p ./cnfiles/root/root/
+mkdir -p ./cnfiles/root/root/.config
 
+## USUARIO ##
 # bashrc
-cp -r ~/.bashrc cnfiles/home/
+cp ~/.bashrc cnfiles/home/
 
 # zshrc
-cp -r ~/.zshrc cnfiles/home/
+cp ~/.zshrc cnfiles/home/
 
 # aliasrc
-cp -r ~/.config/aliasrc cnfiles/home/.config/
+cp ~/.config/aliasrc cnfiles/home/.config/
 
 # vim
 cp -r ~/.config/vim/. cnfiles/home/.config/vim/ #está ahi porque usamos vim -u path para abrir vim
@@ -66,9 +69,19 @@ rm -rf ./cnfiles/home/.config/joplin
 # alacritty
 cp -r ~/.config/alacritty/. cnfiles/home/.config/alacritty
 
+## FIN USUARIO ##
+
+## ROOT ##
 # /etc/profile
 cp -r /etc/profile cnfiles/root/etc/
 
-#cp -r setup/media/cnfiles/. ~
+# basrc
+cp .bashrc cnfiles/root/root/
+# zshrc
+cp .zshrc cnfiles/root/root/
+# aliasrc
+cp .config/aliasrc cnfiles/root/root/.config
+
+## FIN ROOT ##
 
 echo '< BO'
