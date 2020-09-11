@@ -1,7 +1,7 @@
 #! /bin/sh
 #+ Autor:	Ran#
 #+ Creado:	22/04/2020 00:23:18
-#+ Editado:	11/09/2020 18:30:58
+#+ Editado:	11/09/2020 18:35:43
 
 # Script que copia of ficheiros de configuración da máquina na que estou
 
@@ -76,11 +76,11 @@ cp -r ~/.config/alacritty/. cnfiles/home/.config/alacritty
 cp -r /etc/profile cnfiles/root/etc/
 
 # basrc
-cp .bashrc cnfiles/root/root/
+cp /root/.bashrc cnfiles/root/root/
 # zshrc
-cp .zshrc cnfiles/root/root/
+cp /root/.zshrc cnfiles/root/root/
 # aliasrc
-cp .config/aliasrc cnfiles/root/root/.config
+cp /root/.config/aliasrc cnfiles/root/root/.config
 
 ## FIN ROOT ##
 
