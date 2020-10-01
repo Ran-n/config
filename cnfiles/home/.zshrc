@@ -1,7 +1,7 @@
 #! ZSHRC
 #+ Autor:	Ran#
 #+ Creado:	11/09/2020 16:55:34
-#+ Editado:	11/09/2020 18:17:32
+#+ Editado:	16/09/2020 10:33:52
 
 #
 #            _
@@ -75,5 +75,10 @@ bindkey '^e' edit-command-line
 
 [ -f ~/.config/aliasrc ] && source ~/.config/aliasrc || echo 'Erro de alias'
 
+export VISUAL=nvim
+export EDITOR="$VISUAL"
+export TERMINAL=alacritty
+
+# plugins
 source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
 source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null

@@ -1,7 +1,7 @@
 #!
 #+ Autor:	Ran#
 #+ Creado:	05/07/2020 22:13:57
-#+ Editado:	13/08/2020 19:47:22
+#+ Editado:	01/10/2020 19:10:20
 #          _     _       _
 # _____  _| |__ | | ____| |_ __ ___
 #/ __\ \/ / '_ \| |/ / _` | '__/ __|
@@ -16,23 +16,33 @@ control + alt + t
 
 # abrir programas
 super + o ; {b,c,r,v,d,s}
-	{brave,$TERMINAL -e calcurse,$TERMINAL -e ranger,$TERMINAL -e nvim,dmenu_run,sqlitebrowser}
+	{brave, $TERMINAL -e calcurse, $TERMINAL -e ranger, $TERMINAL -e nvim, dmenu_run, sqlitebrowser}
 
 # vim
 super + v
 	$TERMINAL -e nvim
+
 super + c
 	$TERMINAL -e calcurse
+
 super + r
 	$TERMINAL -e ranger
+
 super + b
 	brave
+
 super + d
 	dmenu_run
+
 super + b
 	brave
+
 super + s
 	sqlitebrowser
+
 super + j
 	$TERMINAL -e joplin
+
+super + l
+	slock
 
