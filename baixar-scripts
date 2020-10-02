@@ -41,6 +41,12 @@ case $DISTRO in
 		$RUTA_INI/gdf ran-n scripts arch/update-grub
 		echo '< BO'
 		;;
+	Arch)
+		echo ""
+		echo "> Baixando os scripts básicos para Arch Linux: "
+		$RUTA_INI/gdf ran-n scripts arch/pacma
+		$RUTA_INI/gdf ran-n scripts arch/update-grub
+		echo '< BO'
 esac
 
 # dámoslle permisos de execución a todo o da carpeta
