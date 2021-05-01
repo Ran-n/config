@@ -1,7 +1,7 @@
 #! ZSHRC
 #+ Autor:	Ran#
 #+ Creado:	11/09/2020 16:55:34
-#+ Editado:	16/09/2020 10:33:52
+#+ Editado:	11/09/2020 18:34:27
 
 #
 #            _
@@ -13,7 +13,7 @@
 
 # as cores do prompt
 autoload -U colors && colors
-PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%1~%{$fg[red]%}]%{$reset_color%}$%b "
+PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 
 # para a historia de comandos
 HISTSIZE=10000
@@ -73,12 +73,7 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
-[ -f ~/.config/aliasrc ] && source ~/.config/aliasrc || echo 'Erro de alias'
+#[ -f /root/.config/aliasrc ] && source /root/.config/aliasrc || echo a
+source ~/.config/aliasrc
 
-export VISUAL=nvim
-export EDITOR="$VISUAL"
-export TERMINAL=alacritty
-
-# plugins
-source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
-source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null

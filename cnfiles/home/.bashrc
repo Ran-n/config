@@ -1,7 +1,7 @@
 #! BASHRC
 #+ Autor:	Ran#
 #+ Creado:	03/2020
-#+ Editado:	11/09/2020 18:17:42
+#+ Editado:	11/09/2020 18:34:24
 
 #        ___               _
 #       / / |__   __ _ ___| |__  _ __ ___
@@ -82,6 +82,11 @@ if ${use_color} ; then
 	else
 		PS1='\[\033[01;32m\][\u@\h\[\033[01;37m\] \W\[\033[01;32m\]]\$\[\033[00m\] '
 	fi
+
+	alias ls='ls --color=auto'
+	alias grep='grep --colour=auto'
+	alias egrep='egrep --colour=auto'
+	alias fgrep='fgrep --colour=auto'
 else
 	if [[ ${EUID} == 0 ]] ; then
 		# show root@ when we don't have colors
@@ -162,30 +167,25 @@ conda deactivate
 # para activala sería conda activate
 
 # ------------------------------------------------------------------------------
-# non gardar duplicados
-#export HISTCONTROL=ignore:erasedups
-export HISTCONTROL=ignoredups
-shopt -s histappend
-HISTSIZE= HISTFILESIZE= #historial infinito
 
-# meter o ficheiro de aliases
-[ -f ~/.config/aliasrc ] && source ~/.config/aliasrc || print 'Erro de alias'
-# editor por defecto
+#| EU
+
+##| non gardar duplicados
+export HISTCONTROL=ignore:erasedups
+
+##| meter o ficheiro de aliases
+[ -f /root/.config/aliasrc ] && source /root/.config/aliasrc || echo 'Erro cos alias'
+
+##| editor por defecto
 export VISUAL=nvim
 export EDITOR="$VISUAL"
-#export TERMINAL=kitty
-export TERMINAL=alacritty
 
-# melloras do shell
-# autocd coa ruta
-shopt -s autocd		        	# autoiniciar a funcionalidade
+##| melloras do shell
+###| autocd coa ruta
+shopt -s autocd			# autoiniciar a funcionalidade
 exec {BASH_XTRACEFD}>/dev/null 	# para que non mostre a saída
 
-# deshabilitar ctrl+c ctrl+q por defecto do shell
-stty -ixon
-
-# modo vim do shell
+###| modo vim do shell
 set -o vi
 
 setxkbmap -option caps:swapescape
-#&> /dev/null sxhkd & 

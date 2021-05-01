@@ -15,12 +15,9 @@
 " para que sexan os números relativos
     set number relativenumber
 
-" para que a sintaxe se autopoña
-    syntax on
-
 " definir largura das tabulacións
     set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 "autocmd Filetype css setlocal tabstop=4
 
 " para que non cree o documeento .netrwhist
-    let g:netrw_dirhistmax=0
+    set g:netrw_dirhistmax = 0
