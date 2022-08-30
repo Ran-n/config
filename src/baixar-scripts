@@ -37,7 +37,7 @@ case $LINGUA in
 esac
 
 # crear (se non existe) a carpeta e ponherse nela
-sudo mkdir -p $CARPETA_DESTINO
+mkdir -p $CARPETA_DESTINO
 cd $CARPETA_DESTINO
 
 
