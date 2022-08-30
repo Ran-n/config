@@ -1,0 +1,56 @@
+#! /bin/sh
+#+ Autor:	Ran#
+#+ Creado:	08/03/2020 13:31:26
+#+ Editado:	30/08/2022 18:32:00
+
+LINGUA=$(grep -w "lang" $(pwd)/.config | cut -d= -f2)
+
+case $LINGUA in
+    gz)
+        printf "> Creando ou modificando os nomes das carpetas...\t"
+        ;;
+    en)
+        printf "> Creating our modifying the names of the folders...\t"
+        ;;
+    cas)
+        printf "> Creando o modificando los nombres de las carpetas...\t"
+        ;;
+esac
+
+
+mv ~/Desktop ~/Escritorio 2> /dev/null
+mkdir -p ~/Escritorio
+
+mv ~/Documents ~/Documentos 2> /dev/null
+mkdir -p ~/Documentos
+
+mv ~/Downloads ~/Descargas 2> /dev/null
+mkdir -p ~/Descargas
+
+mv ~/Music ~/Música 2> /dev/null
+mkdir -p ~/Música
+
+mv ~/Pictures ~/Imaxes 2> /dev/null
+mkdir -p ~/Imaxes
+
+mv ~/Public ~/Público 2> /dev/null
+mkdir -p ~/Público
+
+mv ~/Software ~/Programas 2> /dev/null
+mkdir -p ~/Programas
+
+mv ~/Videos ~/Vídeos 2> /dev/null
+mkdir -p ~/Vídeos
+
+
+case $LINGUA in
+    gz)
+        echo '< BO'
+        ;;
+    en)
+        echo '< OK'
+        ;;
+    cas)
+        echo '< OK'
+        ;;
+esac
