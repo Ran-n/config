@@ -1,0 +1,35 @@
+#!
+#+ Autor:	Ran#
+#+ Creado:	29/08/2022 18:09:51
+#+ Editado:	29/08/2022 18:48:10
+
+# TAGS:
+# 		    > Transplataforma.
+# arch		> Exclusivo dos tipos Arch.
+# manjaro   > Exclusivo dos tipos Arch.
+
+#usuario, repositorio, ficheiro
+,ran-n,scripts,ydl
+,ran-n,scripts,metadata
+,ran-n,scripts,rmswaps
+,ran-n,scripts,2ogg
+,ran-n,scripts,2pdf
+,ran-n,scripts,gc
+,ran-n,scripts,gdf
+,ran-n,scripts,gl
+,ran-n,scripts,pomodoro
+,ran-n,scripts,aleatorio
+,ran-n,scripts,conversor
+,ran-n,scripts,copia
+,ran-n,scripts,csview
+,ran-n,scripts,info
+,ran-n,scripts,wifipass
+,ran-n,scripts,teras
+,ran-n,scripts,crono
+,ran-n,scripts,vivo
+
+Arch,ran-n,scripts,arch/update-grub
+
+ManjaroLinux,ran-n,scripts,arch/update-grub
+
+ArcoLinux,ran-n,scripts,arch/update-grub

@@ -1,0 +1,69 @@
+#! /bin/sh
+#+ Autor:	Ran#
+#+ Creado:	19/06/2020 22:17:35
+#+ Editado:	30/08/2022 16:59:55
+
+# mirar se o script se executa como root
+# de non, facer que así sexa
+if [[ $(/usr/bin/id -u) != 0 ]]; then
+    if whereis sudo &>/dev/null; then
+        # correr o script de novo como sudo e cos parametros dados
+        sudo $0 $*
+        # para que non se execute dúas veces
+        exit 0
+    else
+        # saída con erro
+        exit 1
+    fi
+fi
+
+CARPETA_DESTINO="/usr/local/scripts/"
+
+FICH=$(pwd)"/media/scripts.csv"
+DISTRO=$(lsb_release -a | sed -n '2,+0p' | cut -d: -f2 | tr -ds '\t' '')
+LINGUA=$(grep -w "lang" $(pwd)/.config | cut -d= -f2)
+
+# mensaxe de inicio
+case $LINGUA in
+    gz)
+        echo '> Baixando os scripts:'
+        ;;
+    en)
+        echo '> Downloading the scripts:'
+        ;;
+    cas)
+        echo '> Bajando los scripts:'
+        ;;
+esac
+
+# crear (se non existe) a carpeta e ponherse nela
+sudo mkdir -p $CARPETA_DESTINO
+cd $CARPETA_DESTINO
+
+
+# loop polas filas do script
+while read line; do
+    if [[ $line = ,* || $line = $DISTRO* ]]; then
+        USUARIO=$(echo "$line" | cut -d, -f2)
+        REPOSITORIO=$(echo "$line" | cut -d, -f3)
+        NOME=$(echo "$line" | cut -d, -f4)
+
+        # estes dous comandos precisan de sudo, correrase o script como sudo
+        wget -N https://raw.githubusercontent.com/"$USUARIO"/"$REPOSITORIO"/master/"$NOME" -q --show-progress
+        chmod +x $(echo $NOME | rev | cut -d/ -f1 | rev)
+    fi
+done < $FICH
+
+
+# mensaxe de fin
+case $LINGUA in
+    gz)
+        echo '< BO'
+        ;;
+    en)
+        echo '< OK'
+        ;;
+    cas)
+        echo '< OK'
+        ;;
+esac
