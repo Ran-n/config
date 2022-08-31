@@ -1,7 +1,7 @@
 #! /bin/sh
 #+ Autor:	Ran#
 #+ Creado:	08/03/2020 13:31:26
-#+ Editado:	2022/08/31 21:48:52.122191
+#+ Editado:	2022/08/31 22:00:42.419085
 
 # mirar se o script se executa como root
 # de non, facer que así sexa
@@ -48,7 +48,7 @@ mv ~/Videos ~/Vídeos 2> /dev/null
 
 
 while read line; do
-    if [ $VERBOSE -eq 1 ]; then
+    if [ $VERBOSE ] && [ $VERBOSE -eq 1 ]; then
         echo $line
     fi
     mkdir -p $line

@@ -1,12 +1,11 @@
 #! /bin/sh
 #+ Autor:	Ran#
 #+ Creado:	08/03/2020 00:13:08
-#+ Editado:	2022/08/31 18:06:48.385730
+#+ Editado:	2022/08/31 19:40:30.367977
 
 LINGUA=$(grep -w "lang" $(pwd)/.config | cut -d= -f2)
 
-# se non meten variable pois pon mensaxe e sae
-if [ -z $1 ]; then
+mensaxe_axuda(){
     case $LINGUA in
         gz)
             echo 'Hai que indicar se a operación é de copiado(-c) ou de pegado(-p)'
@@ -18,21 +17,27 @@ if [ -z $1 ]; then
             echo 'Hay que indicar si es una operación de copiado(-c) o pegado(-p)'
             ;;
     esac
+}
+
+# se non meten variable pois pon mensaxe e sae
+if [ -z $1 ]; then
+    mensaxe_axuda
+    exit 1
 fi
 
 case $1 in
-    -c)
+    -c|--copiar|--copy)
         echo copy
         ;;
-    -p)
+    -p|--pegar|--paste)
         echo paste
+        
         ;;
     *)
-        echo non soportado
+        mensaxe_axuda
         ;;
 esac
 
-exit 0
 
 # se queremos pegar os arquivos do reposito á maquina
 #if [ $1 = "pega" ]; then
