@@ -1,56 +1,67 @@
 #! /bin/sh
 #+ Autor:	Ran#
 #+ Creado:	08/03/2020 13:31:26
-#+ Editado:	30/08/2022 18:32:00
+#+ Editado:	2022/08/31 21:48:52.122191
+
+# mirar se o script se executa como root
+# de non, facer que así sexa
+if [[ $(/usr/bin/id -u) != 0 ]]; then
+    if whereis sudo &>/dev/null; then
+        # correr o script de novo como sudo e cos parametros dados
+        sudo $0 $*
+        # para que non se execute dúas veces
+        exit 0
+    else
+        # saída con erro
+        exit 1
+    fi
+fi
 
 LINGUA=$(grep -w "lang" $(pwd)/.config | cut -d= -f2)
+VERBOSE=$(grep -w "verbose" $(pwd)/.config | cut -d= -f2)
+FICH=$(pwd)"/media/carpetas.csv"
 
 case $LINGUA in
     gz)
-        printf "> Creando ou modificando os nomes das carpetas...\t"
+        echo "► Creando ou modificando os nomes das carpetas"
         ;;
     en)
-        printf "> Creating our modifying the names of the folders...\t"
+        echo "► Creating our modifying the names of the folders"
         ;;
     cas)
-        printf "> Creando o modificando los nombres de las carpetas...\t"
+        echo "► Creando o modificando los nombres de las carpetas"
         ;;
 esac
 
 
+# rename dos nomes usuais por defecto
 mv ~/Desktop ~/Escritorio 2> /dev/null
-mkdir -p ~/Escritorio
-
 mv ~/Documents ~/Documentos 2> /dev/null
-mkdir -p ~/Documentos
-
 mv ~/Downloads ~/Descargas 2> /dev/null
-mkdir -p ~/Descargas
-
 mv ~/Music ~/Música 2> /dev/null
-mkdir -p ~/Música
-
 mv ~/Pictures ~/Imaxes 2> /dev/null
-mkdir -p ~/Imaxes
-
-mv ~/Public ~/Público 2> /dev/null
-mkdir -p ~/Público
-
+#mv ~/Public ~/Público 2> /dev/null
+#mkdir -p ~/Público
+rm -rf ~/Public
 mv ~/Software ~/Programas 2> /dev/null
-mkdir -p ~/Programas
-
 mv ~/Videos ~/Vídeos 2> /dev/null
-mkdir -p ~/Vídeos
 
+
+while read line; do
+    if [ $VERBOSE -eq 1 ]; then
+        echo $line
+    fi
+    mkdir -p $line
+done < $FICH
 
 case $LINGUA in
     gz)
-        echo '< BO'
+        echo "◄ BO"
         ;;
     en)
-        echo '< OK'
+        echo "◄ OK"
         ;;
     cas)
-        echo '< OK'
+        echo "◄ OK"
         ;;
 esac
