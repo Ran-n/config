@@ -10,7 +10,7 @@
 
 #usuario, repositorio, ficheiro
 ,ran-n,scripts,ydl
-,ran-n,scripts,metadata
+#,ran-n,scripts,metadata
 ,ran-n,scripts,rmswaps
 ,ran-n,scripts,2ogg
 ,ran-n,scripts,2pdf
@@ -27,6 +27,7 @@
 ,ran-n,scripts,teras
 ,ran-n,scripts,crono
 ,ran-n,scripts,vivo
+,ran-n,metadatos,metadatos.py
 
 Arch,ran-n,scripts,arch/update-grub
 

@@ -1,0 +1,59 @@
+#! /bin/sh
+#+ Autor:	Ran#
+#+ Creado:	08/03/2020 00:13:08
+#+ Editado:	30/08/2022 18:44:28
+
+LINGUA=$(grep -w "lang" $(pwd)/.config | cut -d= -f2)
+
+# se non meten variable pois pon mensaxe e sae
+if [ -z $1 ]; then
+    case $LINGUA in
+        gz)
+            echo 'Hai que indicar se a operación é de copiado(-c) ou de pegado(-p)'
+            ;;
+        en)
+            echo 'Indicating the weather the operation is of copy(-c) or paste(-p) is mandatory'
+            ;;
+        cas)
+            echo 'Hay que indicar si es una operación de copiado(-c) o pegado(-p)'
+            ;;
+    esac
+fi
+
+case $1 in
+    -c)
+        echo copy
+        ;;
+    -p)
+        echo paste
+        ;;
+    *)
+        echo non soportado
+        ;;
+esac
+
+exit 0
+
+# se queremos pegar os arquivos do reposito á maquina
+if [ $1 = "pega" ]; then
+	# modificamos o nome das carpetas
+	./carpetas
+
+	# pegamos os ficheiros de configuración dende o repositorio
+	#./pegar-fichsconfig
+	# é mala práctica poñer sudo. Executar o xeral como sudo de comentar a liña.
+	./pegar-fichsconfig
+
+	# copiamos os scripts
+	#./baixar-scripts
+    sudo ./baixar-scripts
+
+# se queremos copiar os arquivos da máquina ao repositorio
+elif [ $1 = "copia" ]; then
+    # copiamos os ficheiros de configuración ao repositorio
+	./copiar-fichsconfig
+
+# se non mete ningunha das opcións
+else
+	echo inserta copia ou pega
+fi
