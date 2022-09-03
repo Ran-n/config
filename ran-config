@@ -1,7 +1,7 @@
 #! /bin/sh
 #+ Autor:	Ran#
 #+ Creado:	08/03/2020 00:13:08
-#+ Editado:	2022/08/31 19:40:30.367977
+#+ Editado:	03/09/2022 22:50:03
 
 LINGUA=$(grep -w "lang" $(pwd)/.config | cut -d= -f2)
 
@@ -31,7 +31,10 @@ case $1 in
         ;;
     -p|--pegar|--paste)
         echo paste
-        
+        echo
+        ./src/crear-carpetas
+        echo
+        ./src/baixar-scripts
         ;;
     *)
         mensaxe_axuda
