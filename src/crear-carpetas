@@ -1,7 +1,7 @@
 #! /bin/sh
 #+ Autor:	Ran#
 #+ Creado:	08/03/2020 13:31:26
-#+ Editado:	03/09/2022 23:15:26
+#+ Editado:	2022/09/04 00:13:47.778767
 
 # mirar se o script se executa como root
 # de non, facer que así sexa
@@ -17,8 +17,8 @@ if [[ $(/usr/bin/id -u) != 0 ]]; then
     fi
 fi
 
-LINGUA=$(grep -w "lang" $(pwd)/.config | cut -d= -f2)
-VERBOSE=$(grep -w "verbose" $(pwd)/.config | cut -d= -f2)
+LINGUA=$(grep -w "lang" $(pwd)/.cnf | cut -d= -f2)
+VERBOSE=$(grep -w "verbose" $(pwd)/.cnf | cut -d= -f2)
 FICH=$(pwd)"/media/carpetas.csv"
 FOGAR=$(eval echo "~$(who -m | awk '{ print $1 }')")
 
@@ -60,7 +60,7 @@ while read line; do
         echo $line
     fi
     mkdir -p $carpeta
-    
+
 done < $FICH
 
 case $LINGUA in

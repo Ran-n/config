@@ -2,7 +2,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:  	Ran#
 #+ Creado: 	2022/08/31 21:50:39.446534
-#+ Editado:	2022/08/31 21:51:07.743650
+#+ Editado:	04/09/2022 00:09:01
 # ------------------------------------------------------------------------------
 # Non usar as palabras resevadas (antes do igual) en ningún lugar do ficheiro
 # Dont use the reserved words (before equals) on any part of the file
@@ -12,3 +12,5 @@
 lang=gz
 # 1 on
 verbose=1
+#
+passwd=

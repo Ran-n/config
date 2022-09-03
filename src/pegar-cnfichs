@@ -1,0 +1,82 @@
+#! /bin/sh
+#+ Autor:	Ran#
+#+ Creado:	07/03/2020 22:33:09
+#+ Editado:	2022/09/04 00:13:35.153446
+
+#* Script que me permite meter os meus ficheiros de configuración en calquera máquina na que esté a trabalhar
+
+# mirar se o script se executa como root
+# de non, facer que así sexa
+if [[ $(/usr/bin/id -u) != 0 ]]; then
+    if whereis sudo &>/dev/null; then
+        # correr o script de novo como sudo e cos parametros dados
+        sudo $0 $*
+        # para que non se execute dúas veces
+        exit 0
+    else
+        # saída con erro
+        exit 1
+    fi
+ fi
+
+LINGUA=$(grep -w "lang" $(pwd)/.cnf | cut -d= -f2)
+VERBOSE=$(grep -w "verbose" $(pwd)/.cnf | cut -d= -f2)
+FOGAR=$(eval echo "~$(who -m | awk '{ print $1 }')")
+
+case $LINGUA in
+    gz)
+        echo "► Pegando os ficheiros de configuración"
+        ;;
+    en)
+        echo "► Pasting the configuration files"
+        ;;
+    cas)
+        echo "► Pegando los ficheros de configuación"
+        ;;
+esac
+
+
+case $LINGUA in
+    gz)
+        echo "► BO"
+        ;;
+    en)
+        echo "► OK"
+        ;;
+    cas)
+        echo "► OK"
+        ;;
+esac
+
+
+
+
+
+# pedimos o contrasinal para os arquivos privados
+#read -ps "> Extraer documentos privados (contrasinal se si, intro se non): " contrasinal
+read -p "> Extraer documentos privados (contrasinal se si, intro se non): " contrasinal
+
+# calcurse
+# se a poñen extraemos, senón pasamos
+[ -z $contrasinal ] && echo '< Sen arquivos privados' || &>/dev/null 7z x ./cnfiles/home/.local/share/calcurse_encriptado.7z -o'./cnfiles/home/.local/share/' -aoa -p$contrasinal
+
+# joplin
+# se a poñen extraemos, senón pasamos
+[ -z $contrasinal ] && echo '< Sen arquivos privados' || &>/dev/null 7z x ./cnfiles/home/.config/joplin_encriptado.7z -o'./cnfiles/home/.config/' -aoa -p$contrasinal
+
+
+# tódolos ficheiros do home
+cp -r cnfiles/home/. ~
+
+# calcurse (se non se descomprime non pasa nada que non fai nada)
+rm -f ~/.local/share/calcurse_encriptado.7z
+rm -rf cnfiles/home/.local/share/calcurse/
+
+# joplin (se non se descomprime non pasa nada que non fai nada)
+rm -f ~/.config/joplin_encriptado.7z
+rm -rf cnfiles/home/.config/joplin/
+# para que joplin-desktop teña o mesmo contido ca joplin de terminal
+ln -sf ~/.config/joplin/  ~/.config/joplin-desktop
+
+# tódolos ficheiros do root
+sudo cp -r cnfiles/root/. /
