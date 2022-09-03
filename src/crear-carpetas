@@ -1,7 +1,7 @@
 #! /bin/sh
 #+ Autor:	Ran#
 #+ Creado:	08/03/2020 13:31:26
-#+ Editado:	2022/08/31 22:00:42.419085
+#+ Editado:	03/09/2022 23:15:26
 
 # mirar se o script se executa como root
 # de non, facer que así sexa
@@ -20,6 +20,8 @@ fi
 LINGUA=$(grep -w "lang" $(pwd)/.config | cut -d= -f2)
 VERBOSE=$(grep -w "verbose" $(pwd)/.config | cut -d= -f2)
 FICH=$(pwd)"/media/carpetas.csv"
+FOGAR=$(eval echo "~$(who -m | awk '{ print $1 }')")
+
 
 case $LINGUA in
     gz)
@@ -35,23 +37,30 @@ esac
 
 
 # rename dos nomes usuais por defecto
-mv ~/Desktop ~/Escritorio 2> /dev/null
-mv ~/Documents ~/Documentos 2> /dev/null
-mv ~/Downloads ~/Descargas 2> /dev/null
-mv ~/Music ~/Música 2> /dev/null
-mv ~/Pictures ~/Imaxes 2> /dev/null
-#mv ~/Public ~/Público 2> /dev/null
-#mkdir -p ~/Público
-rm -rf ~/Public
-mv ~/Software ~/Programas 2> /dev/null
-mv ~/Videos ~/Vídeos 2> /dev/null
+mv $FOGAR/Desktop $FOGAR/Escritorio 2> /dev/null
+mv $FOGAR/Documents $FOGAR/Documentos 2> /dev/null
+mv $FOGAR/Downloads $FOGAR/Descargas 2> /dev/null
+mv $FOGAR/Music $FOGAR/Música 2> /dev/null
+mv $FOGAR/Pictures $FOGAR/Imaxes 2> /dev/null
+#mv $FOGAR/Public $FOGAR/Público 2> /dev/null
+#mkdir -p $FOGAR/Público
+rm -rf $FOGAR/Public
+mv $FOGAR/Software $FOGAR/Programas 2> /dev/null
+mv $FOGAR/Videos $FOGAR/Vídeos 2> /dev/null
 
 
 while read line; do
+    if [[ $line = \~* ]]; then
+        carpeta=$FOGAR$(echo $line | cut -d~ -f2)
+    else
+        carpeta=$line
+    fi
+
     if [ $VERBOSE ] && [ $VERBOSE -eq 1 ]; then
         echo $line
     fi
-    mkdir -p $line
+    mkdir -p $carpeta
+    
 done < $FICH
 
 case $LINGUA in
