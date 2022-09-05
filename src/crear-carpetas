@@ -1,7 +1,7 @@
 #! /bin/sh
 #+ Autor:	Ran#
 #+ Creado:	08/03/2020 13:31:26
-#+ Editado:	2022/09/04 00:13:47.778767
+#+ Editado:	2022/09/05 22:17:19.601534
 
 # mirar se o script se executa como root
 # de non, facer que así sexa
@@ -50,17 +50,18 @@ mv $FOGAR/Videos $FOGAR/Vídeos 2> /dev/null
 
 
 while read line; do
-    if [[ $line = \~* ]]; then
-        carpeta=$FOGAR$(echo $line | cut -d~ -f2)
-    else
-        carpeta=$line
-    fi
+    if [[ $line != \#* && -n $line ]]; then
+        if [[ $line = \~* ]]; then
+            carpeta=$FOGAR$(echo $line | cut -d~ -f2)
+        else
+            carpeta=$line
+        fi
 
-    if [ $VERBOSE ] && [ $VERBOSE -eq 1 ]; then
-        echo $line
+        if [ $VERBOSE ] && [ $VERBOSE -eq 1 ]; then
+            echo $line
+        fi
+        mkdir -p $carpeta
     fi
-    mkdir -p $carpeta
-
 done < $FICH
 
 case $LINGUA in
