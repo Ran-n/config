@@ -1,7 +1,8 @@
-#!
+# ------------------------------------------------------------------------------
 #+ Autor:	Ran#
 #+ Creado:	15/03/2020 14:37:28
-#+ Editado:	05/07/2020 22:02:29
+#+ Editado:	2022/09/05 16:54:32.366185
+# ------------------------------------------------------------------------------
 
 # TAGS:
 # 		    > Transplataforma.
@@ -11,7 +12,7 @@
 # github 	> Baixalo de Github.
 # https		> Baixalo dunha páxina web
 
-#TAG,NOME,DESC
+# TAG, NOME, DESCRICIÓN
 ,pandoc,conversor entre tipos de documentos (md html latex etc)
 ,sxiv,visor de fotos
 ,mpv,visor multimedia
@@ -31,7 +32,7 @@
 ,poppler,manipula pdfs e dalles funcións
 ,telegram-desktop,aplicación de mensaxería instantánea na súa versión de escritorio
 ,sqlitebrowser,editor gráfico de bases de datos sql lite
-,speedtest-cli,ferramenta de comando para speedtest.net para facer o control da velocidade da rede 
+,speedtest-cli,ferramenta de comando para speedtest.net para facer o control da velocidade da rede
 ,jq,procesador e embelecedor do formato json en linha de comandos
 ,xorg-xdpyinfo,ferramenta de mostreo de información
 ,ranger,manexador de ficheiros visual

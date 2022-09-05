@@ -1,12 +1,13 @@
-#!
+# ------------------------------------------------------------------------------
 #+ Autor:	Ran#
 #+ Creado:	29/08/2022 18:09:51
-#+ Editado:	29/08/2022 18:48:10
+#+ Editado:	2022/09/05 16:55:09.623178
+# ------------------------------------------------------------------------------
 
 # TAGS:
 # 		    > Transplataforma.
 # arch		> Exclusivo dos tipos Arch.
-# manjaro   > Exclusivo dos tipos Arch.
+# manjaro   > Exclusivo dos tipos Manjaro Arch.
 
 #usuario, repositorio, ficheiro, nome
 ,ran-n,scripts,ydl
