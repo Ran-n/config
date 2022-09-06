@@ -1,9 +1,36 @@
 #! /bin/sh
 #+ Autor:	Ran#
 #+ Creado:	22/04/2020 00:23:18
-#+ Editado:	2022/09/05 22:32:51.742302
+#+ Editado:	2022/09/06 22:05:26.581781
 
 #* Script que copia of ficheiros de configuración da máquina na que estou
+
+crear_carpeta () {
+    if [[ ! -d $(pwd)/$CNFOLDER/$1 ]]; then
+        [[ $VERBOSE -eq 1 ]] && mkdir -vp $(pwd)/$CNFOLDER/$1 || mkdir -p $(pwd)/$CNFOLDER/$1
+        #chown $(pwd)/$CNFOLDER/$1
+    fi
+}
+
+copiar_elemento () {
+    # carpetas
+    if [[ $elemento == */ ]]; then
+        if [[ ! -d $(pwd)/$CNFOLDER/$1$ruta ]]; then
+            [[ $VERBOSE -eq 1 ]] && mkdir -vp $(pwd)/$CNFOLDER/$1$ruta || mkdir -p $(pwd)/$CNFOLDER/$1$ruta
+        fi
+        [[ $VERBOSE -eq 1 ]] && cp -vupfr $elemento. $(pwd)/$CNFOLDER/$1$ruta || cp -upfr $elemento. $(pwd)/$CNFOLDER/$1$ruta
+    # ficheiros
+    else
+        if [[ ! -d $(pwd)/$CNFOLDER/$1$(dirname $ruta) ]]; then
+            [[ $VERBOSE -eq 1 ]] && mkdir -vp $(pwd)/$CNFOLDER/$1$(dirname $ruta) || mkdir -p $(pwd)/$CNFOLDER/$1$(dirname $ruta)
+        fi
+        [[ $VERBOSE -eq 1 ]] && cp -vupfr $elemento $(pwd)/$CNFOLDER/$1$ruta || cp -upfr $elemento $(pwd)/$CNFOLDER/$1$ruta
+    fi
+}
+
+eliminar () {
+    find "$1" -name "$2" -exec rm -rf {} +
+}
 
 # mirar se o script se executa como root
 # de non, facer que así sexa
@@ -25,6 +52,9 @@ ACCEPT_ENCRIPT=1
 LINGUA=$(grep -w "lang" $(pwd)/.cnf | cut -d= -f2)
 VERBOSE=$(grep -w "verbose" $(pwd)/.cnf | cut -d= -f2)
 CONTRASINAL=$(grep -w "passwd" $(pwd)/.cnf | cut -d= -f2)
+CNFOLDER=$(grep -w "cnfolder" $(pwd)/.cnf | cut -d= -f2)
+CNFOLDER_HOME=$(grep -w "cnfolder_home" $(pwd)/.cnf | cut -d= -f2)
+CNFOLDER_ROOT=$(grep -w "cnfolder_root" $(pwd)/.cnf | cut -d= -f2)
 
 FOGAR=$(eval echo "~$(who -m | awk '{ print $1 }')")
 
@@ -40,27 +70,39 @@ case $LINGUA in
         ;;
 esac
 
-
 while read line; do
     # ignorar liñas comentadas ou baleiras
     if [[ $line != \#* && -n $line ]]; then
         encriptar=$(echo $line | cut -d, -f1)
         ruta=$(echo $line | cut -d, -f2)
+        excluir=$(echo $line | cut -d, -f3)
 
         if [[ $ruta = \~* ]]; then
-            carpeta=$FOGAR$(echo $ruta | cut -d~ -f2)
+            ruta=$(echo $ruta | cut -d~ -f2)
+            elemento=$FOGAR$ruta
+
+            copiar_elemento $CNFOLDER_HOME $excluir
+
+            [[ -n $excluir ]] && eliminar $(pwd)/$CNFOLDER/$CNFOLDER_HOME$ruta $excluir
+
+            if [[ $encriptar -eq $ACCEPT_ENCRIPT ]]; then
+                7z a $(pwd)/$CNFOLDER/$CNFOLDER_HOME$ruta $(pwd)/$CNFOLDER/$CNFOLDER_HOME$ruta -p$CONTRASINAL -mhe=on 2&>/dev/null
+            fi
         else
-            carpeta=$ruta
+            elemento=$ruta
+
+            copiar_elemento $CNFOLDER_ROOT $excluir
+
+            [[ -n $excluir ]] && eliminar $(pwd)/$CNFOLDER/$CNFOLDER_ROOT$ruta $excluir
         fi
 
-        echo $carpeta
 
-        if [[ $encriptar -eq $ACCEPT_ENCRIPT ]]; then
-            echo encriptar
-        fi
     fi
 done < $FICH
 
+# preciso cambiar isto porque se executa como root e quedaría como owner
+user=$(who -m | cut -d\  -f1)
+chown -R $user:$user $(pwd)/$CNFOLDER
 
 case $LINGUA in
     gz)
@@ -73,68 +115,3 @@ case $LINGUA in
         echo "► OK"
         ;;
 esac
-
-# creamos as carpetas que precisaremos se non existen
-#mkdir -p ./cnfiles/home/.config/zsh/plugins
-#mkdir -p ./cnfiles/home/.config/vim/
-#mkdir -p ./cnfiles/home/.config/nvim/
-#mkdir -p ./cnfiles/home/.local/share/nvim/
-#mkdir -p ./cnfiles/home/.config/sxhkd/
-#mkdir -p ./cnfiles/home/.config/calcurse/
-#mkdir -p ./cnfiles/home/.local/share/calcurse/
-#mkdir -p ./cnfiles/home/.config/joplin/
-#mkdir -p ./cnfiles/home/.config/alacritty/
-#mkdir -p ./cnfiles/root/etc/
-#mkdir -p ./cnfiles/root/root/
-#mkdir -p ./cnfiles/root/root/.config
-
-## USUARIO ##
-# bashrc
-#cp ~/.bashrc cnfiles/home/
-# zshrc
-#cp ~/.zshrc cnfiles/home/
-#cp -r ~/.config/zsh/. cnfiles/home/.config/zsh/ 2&>/dev/null
-# aliasrc
-#cp ~/.config/aliasrc cnfiles/home/.config/
-# vim
-#cp -r ~/.config/vim/. cnfiles/home/.config/vim/ #está ahi porque usamos vim -u path para abrir vim
-# neovim
-#cp -r ~/.config/nvim/. cnfiles/home/.config/nvim/
-#cp -r ~/.local/share/nvim/. cnfiles/home/.local/share/nvim/
-# sxhkd
-#cp -r ~/.config/sxhkd/. cnfiles/home/.config/sxhkd/
-# calcurse #
-# configuración de calcurse
-#cp -r ~/.config/calcurse/. cnfiles/home/.config/calcurse/
-# copiamos notas e citas de calcurse
-#cp -r ~/.local/share/calcurse/. cnfiles/home/.local/share/calcurse/
-# eliminamos calquer encriptado previo
-#rm -f ./cnfiles/home/.local/share/calcurse_encriptado.7z
-# vámolos encriptar co contrasinal dado
-#7z a ./cnfiles/home/.local/share/calcurse_encriptado ./cnfiles/home/.local/share/calcurse -p$contrasinal -mhe=on 2&>/dev/null
-# e eliminamos a carpeta cos datos en plano
-#rm -rf ./cnfiles/home/.local/share/calcurse
-# calcurse #
-# joplin #
-# copiamos config e notas
-#cp -r ~/.config/joplin/. cnfiles/home/.config/joplin/
-# eliminamos calquer encriptado previo
-#rm -f ./cnfiles/home/.config/joplin_encriptado.7z
-# vámolos encriptar co contrasinal dado
-#7z a ./cnfiles/home/.config/joplin_encriptado ./cnfiles/home/.config/joplin -p$contrasinal -mhe=on 2&>/dev/null
-# e eliminamos a carpeta cos datos en plano
-#rm -rf ./cnfiles/home/.config/joplin
-# joplin #
-# alacritty
-#cp -r ~/.config/alacritty/. cnfiles/home/.config/alacritty
-## FIN USUARIO ##
-## ROOT ##
-# /etc/profile
-#cp -r /etc/profile cnfiles/root/etc/
-# basrc
-#sudo cp /root/.bashrc cnfiles/root/root/
-# zshrc
-#sudo cp /root/.zshrc cnfiles/root/root/
-# aliasrc
-#sudo cp /root/.config/aliasrc cnfiles/root/root/.config/
-## FIN ROOT ##

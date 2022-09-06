@@ -2,7 +2,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:  	Ran#
 #+ Creado: 	2022/08/31 21:50:39.446534
-#+ Editado:	2022/09/04 00:21:53.449593
+#+ Editado:	2022/09/06 18:44:18.190872
 # ------------------------------------------------------------------------------
 # Non usar as palabras resevadas (antes do igual) en ningún lugar do ficheiro
 # Dont use the reserved words (before equals) on any part of the file
@@ -15,4 +15,8 @@ verbose=1
 #
 scripts_folder=/usr/local/scripts/
 #
-passwd=
+passwd=proba
+#
+cnfolder=proba
+cnfolder_home=home
+cnfolder_root=root
