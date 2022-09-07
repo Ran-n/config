@@ -9,12 +9,18 @@ The program uses a configuracion file ".cnf" with multiple options such as verbo
 
 Though this repository contains my particular config files (saved in the cnfiles folder) it can be used by everyone just by:
 - Removing the cnfiles folder.
-- Editing the .config file.
+- Editing the .cnf file.
 - Editing the files in the media folder containing varios types of configuration:
     - "carpetas.csv" is the file where the folders of the home directory are designed.
     - "progs.csv" are the list of programs to be installed.
     - "scripts.csv" are the list of scripts to be downloaded.
+    - "arquivos.csv" are the list of files to be saved as part of the config.
 
+## xFCR
+
+- Paste script
+- Main script
+- Test execution of main script on several paths
 
 ## [Donations 🙇🙇](https://github.com/Ran-n/doc/blob/main/doaz%C3%B3ns.md)
 
