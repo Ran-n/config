@@ -1,35 +1,28 @@
 #! /bin/sh
 #+ Autor:	Ran#
 #+ Creado:	22/04/2020 00:23:18
-#+ Editado:	2022/09/06 22:05:26.581781
+#+ Editado:	2022/09/07 16:52:59.021827
 
 #* Script que copia of ficheiros de configuración da máquina na que estou
 
-crear_carpeta () {
-    if [[ ! -d $(pwd)/$CNFOLDER/$1 ]]; then
-        [[ $VERBOSE -eq 1 ]] && mkdir -vp $(pwd)/$CNFOLDER/$1 || mkdir -p $(pwd)/$CNFOLDER/$1
-        #chown $(pwd)/$CNFOLDER/$1
-    fi
-}
-
 copiar_elemento () {
     # carpetas
-    if [[ $elemento == */ ]]; then
-        if [[ ! -d $(pwd)/$CNFOLDER/$1$ruta ]]; then
-            [[ $VERBOSE -eq 1 ]] && mkdir -vp $(pwd)/$CNFOLDER/$1$ruta || mkdir -p $(pwd)/$CNFOLDER/$1$ruta
+    if [[ $2 == */ ]]; then
+        if [[ ! -d $1 ]]; then
+            [[ $VERBOSE -eq 1 ]] && mkdir -vp $1 || mkdir -p $1
         fi
-        [[ $VERBOSE -eq 1 ]] && cp -vupfr $elemento. $(pwd)/$CNFOLDER/$1$ruta || cp -upfr $elemento. $(pwd)/$CNFOLDER/$1$ruta
+        [[ $VERBOSE -eq 1 ]] && cp -vupfr $2. $1 || cp -upfr $2. $1
     # ficheiros
     else
-        if [[ ! -d $(pwd)/$CNFOLDER/$1$(dirname $ruta) ]]; then
-            [[ $VERBOSE -eq 1 ]] && mkdir -vp $(pwd)/$CNFOLDER/$1$(dirname $ruta) || mkdir -p $(pwd)/$CNFOLDER/$1$(dirname $ruta)
+        if [[ ! -d $(dirname $1) ]]; then
+            [[ $VERBOSE -eq 1 ]] && mkdir -vp $(dirname $1) || mkdir -p $(dirname $1)
         fi
-        [[ $VERBOSE -eq 1 ]] && cp -vupfr $elemento $(pwd)/$CNFOLDER/$1$ruta || cp -upfr $elemento $(pwd)/$CNFOLDER/$1$ruta
+        [[ $VERBOSE -eq 1 ]] && cp -vupfr $2 $1 || cp -upfr $2 $1
     fi
 }
 
 eliminar () {
-    find "$1" -name "$2" -exec rm -rf {} +
+    [[ $VERBOSE -eq 1 ]] && find "$1" -name "$2" -exec rm -vrf {} + || find "$1" -name "$2" -exec rm -rf {} +
 }
 
 # mirar se o script se executa como root
@@ -78,25 +71,26 @@ while read line; do
         excluir=$(echo $line | cut -d, -f3)
 
         if [[ $ruta = \~* ]]; then
-            ruta=$(echo $ruta | cut -d~ -f2)
-            elemento=$FOGAR$ruta
-
-            copiar_elemento $CNFOLDER_HOME $excluir
-
-            [[ -n $excluir ]] && eliminar $(pwd)/$CNFOLDER/$CNFOLDER_HOME$ruta $excluir
-
-            if [[ $encriptar -eq $ACCEPT_ENCRIPT ]]; then
-                7z a $(pwd)/$CNFOLDER/$CNFOLDER_HOME$ruta $(pwd)/$CNFOLDER/$CNFOLDER_HOME$ruta -p$CONTRASINAL -mhe=on 2&>/dev/null
-            fi
+            ruta=$(echo $ruta | cut -d~ -f2 | sed 's:/*$::')
+            ruta_total=$(pwd)/$CNFOLDER/$CNFOLDER_HOME$(dirname $ruta)/$(basename $ruta)
+            ruta=$FOGAR$ruta
         else
-            elemento=$ruta
-
-            copiar_elemento $CNFOLDER_ROOT $excluir
-
-            [[ -n $excluir ]] && eliminar $(pwd)/$CNFOLDER/$CNFOLDER_ROOT$ruta $excluir
+            ruta_total=$(pwd)/$CNFOLDER/$CNFOLDER_ROOT$(dirname $ruta)/$(basename $ruta)
         fi
 
+        copiar_elemento $ruta_total $ruta
 
+        [[ -n $excluir ]] && eliminar $ruta_total $excluir
+
+        if [[ $encriptar -eq $ACCEPT_ENCRIPT ]]; then
+            if [[ $VERBOSE -eq 1 ]]; then
+                7z a $ruta_total $ruta_total -p$CONTRASINAL -mhe=on -mx=9 -bb1
+                rm -vrf $ruta_total
+            else
+                7z a $ruta_total $ruta_total -p$CONTRASINAL -mhe=on -mx=9 2&>/dev/null
+                rm -rf $ruta_total
+            fi
+        fi
     fi
 done < $FICH
 
