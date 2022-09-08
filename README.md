@@ -22,6 +22,7 @@ Though this repository contains my particular config files (saved in the cnfiles
 - Paste script
 - Main script
 - Test execution of main script on several paths
+- Create a setup script that creates the soft link to ran-config to wherever in the path you want it to be.
 
 ## Improvements
 
