@@ -1,7 +1,7 @@
 #! /bin/sh
 #+ Autor:	Ran#
 #+ Creado:	22/04/2020 00:23:18
-#+ Editado:	2022/09/07 16:52:59.021827
+#+ Editado:	2022/09/08 16:14:24.463190
 
 #* Script que copia of ficheiros de configuración da máquina na que estou
 
@@ -40,13 +40,13 @@ if [[ $(/usr/bin/id -u) != 0 ]]; then
 fi
 
 FICH=$(pwd)"/media/arquivos.csv"
-ACCEPT_ENCRIPT=1
 
 LINGUA=$(grep -w "lang" $(pwd)/.cnf | cut -d= -f2)
 VERBOSE=$(grep -w "verbose" $(pwd)/.cnf | cut -d= -f2)
+ACCEPT_ENCRIPT=$(grep -w "accept_encryption" $(pwd)/.cnf | cut -d= -f2)
 CONTRASINAL=$(grep -w "passwd" $(pwd)/.cnf | cut -d= -f2)
 CNFOLDER=$(grep -w "cnfolder" $(pwd)/.cnf | cut -d= -f2)
-CNFOLDER_HOME=$(grep -w "cnfolder_home" $(pwd)/.cnf | cut -d= -f2)
+CNFOLDER_HOME=$(grep -w "cnfolder_home" $(pwd)/.cnf | cut -d= -f1)
 CNFOLDER_ROOT=$(grep -w "cnfolder_root" $(pwd)/.cnf | cut -d= -f2)
 
 FOGAR=$(eval echo "~$(who -m | awk '{ print $1 }')")
