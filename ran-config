@@ -1,11 +1,11 @@
 #! /bin/sh
 #+ Autor:	Ran#
 #+ Creado:	08/03/2020 00:13:08
-#+ Editado:	2022/09/08 19:16:15.962971
+#+ Editado:	2022/09/08 19:36:01.941363
 
 cd $(dirname $(readlink -f $0))
 
-LINGUA=$(grep -w "lang" $(pwd)/.config | cut -d= -f2)
+LINGUA=$(grep -w "lang" $(pwd)/.cnf | cut -d= -f2)
 
 mensaxe_axuda(){
     case $LINGUA in
@@ -45,28 +45,3 @@ case $1 in
         mensaxe_axuda
         ;;
 esac
-
-
-# se queremos pegar os arquivos do reposito á maquina
-#if [ $1 = "pega" ]; then
-	# modificamos o nome das carpetas
-	#./carpetas
-
-	# pegamos os ficheiros de configuración dende o repositorio
-	#./pegar-fichsconfig
-	# é mala práctica poñer sudo. Executar o xeral como sudo de comentar a liña.
-	#./pegar-fichsconfig
-
-	# copiamos os scripts
-	#./baixar-scripts
-    #sudo ./baixar-scripts
-
-# se queremos copiar os arquivos da máquina ao repositorio
-#elif [ $1 = "copia" ]; then
-    # copiamos os ficheiros de configuración ao repositorio
-	#./copiar-fichsconfig
-
-# se non mete ningunha das opcións
-#else
-	#echo inserta copia ou pega
-# mefi
