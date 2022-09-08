@@ -1,0 +1,24 @@
+# -*- coding: utf-8 -*-
+# ------------------------------------------------------------------------------
+#+ Autor:  	Ran#
+#+ Creado: 	2022/08/31 21:50:39.446534
+#+ Editado:	2022/09/08 16:13:57.790769
+# ------------------------------------------------------------------------------
+# Non usar as palabras resevadas (antes do igual) en ningún lugar do ficheiro
+# Dont use the reserved words (before equals) on any part of the file
+# ------------------------------------------------------------------------------
+#
+# gz, en, cas
+lang=gz
+# 1 on
+verbose=1
+#
+accept_encryption=1
+#
+scripts_folder=/usr/local/scripts/
+#
+passwd=test
+#
+cnfolder=proba
+cnfolder_home=home
+cnfolder_root=root
