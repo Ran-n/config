@@ -19,6 +19,6 @@ scripts_folder=/usr/local/scripts/
 #
 passwd=test
 #
-cnfolder=proba
+cnfolder=cnfiles
 cnfolder_home=home
 cnfolder_root=root
