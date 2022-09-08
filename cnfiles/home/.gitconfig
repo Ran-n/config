@@ -1,4 +1,5 @@
 [user]
+    #signingkey = C921EDF3543D739CFB79D5B4EA1ED67961F91C12
 	signingkey = 2C425CDA7D0ABB111EE03C307502233BB040283E
 	email = anxo.ledo.arias@tutanota.com
 [gpg]

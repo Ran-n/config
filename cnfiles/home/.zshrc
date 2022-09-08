@@ -15,6 +15,8 @@
 autoload -U colors && colors
 PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 
+PATH=$PATH:/usr/local/scripts
+
 # para a historia de comandos
 HISTSIZE=10000
 SAVEHIST=10000
@@ -77,3 +79,6 @@ bindkey '^e' edit-command-line
 source ~/.config/aliasrc
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+
+eval $(ssh-agent) 2> /dev/null
+ssh-add ~/.ssh/fric 2> /dev/null

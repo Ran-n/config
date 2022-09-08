@@ -2,7 +2,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:  	Ran#
 #+ Creado: 	2022/08/31 21:50:39.446534
-#+ Editado:	2022/09/08 19:11:55.516302
+#+ Editado:	2022/09/08 19:17:18.939823
 # ------------------------------------------------------------------------------
 #
 # RENAME THIS FILE AS .cnf
@@ -21,7 +21,7 @@ accept_encryption=1
 #
 scripts_folder=/usr/local/scripts/
 #
-passwd=corsair
+passwd=
 #
 cnfolder=cnfiles
 cnfolder_home=home
