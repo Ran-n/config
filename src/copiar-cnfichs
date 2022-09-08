@@ -1,7 +1,7 @@
 #! /bin/sh
 #+ Autor:	Ran#
 #+ Creado:	22/04/2020 00:23:18
-#+ Editado:	2022/09/08 16:14:24.463190
+#+ Editado:	2022/09/08 16:57:34.403897
 
 #* Script que copia of ficheiros de configuración da máquina na que estou
 
@@ -46,7 +46,7 @@ VERBOSE=$(grep -w "verbose" $(pwd)/.cnf | cut -d= -f2)
 ACCEPT_ENCRIPT=$(grep -w "accept_encryption" $(pwd)/.cnf | cut -d= -f2)
 CONTRASINAL=$(grep -w "passwd" $(pwd)/.cnf | cut -d= -f2)
 CNFOLDER=$(grep -w "cnfolder" $(pwd)/.cnf | cut -d= -f2)
-CNFOLDER_HOME=$(grep -w "cnfolder_home" $(pwd)/.cnf | cut -d= -f1)
+CNFOLDER_HOME=$(grep -w "cnfolder_home" $(pwd)/.cnf | cut -d= -f2)
 CNFOLDER_ROOT=$(grep -w "cnfolder_root" $(pwd)/.cnf | cut -d= -f2)
 
 FOGAR=$(eval echo "~$(who -m | awk '{ print $1 }')")
@@ -71,8 +71,9 @@ while read line; do
         excluir=$(echo $line | cut -d, -f3)
 
         if [[ $ruta = \~* ]]; then
-            ruta=$(echo $ruta | cut -d~ -f2 | sed 's:/*$::')
-            ruta_total=$(pwd)/$CNFOLDER/$CNFOLDER_HOME$(dirname $ruta)/$(basename $ruta)
+            #ruta=$(echo $ruta | cut -d~ -f2 | sed 's:/*$::')
+            ruta=$(echo $ruta | cut -d~ -f2)
+            ruta_total=$(echo $(pwd)/$CNFOLDER/$CNFOLDER_HOME$(dirname $ruta)/$(basename $ruta) | sed 's/\/\//\//g')
             ruta=$FOGAR$ruta
         else
             ruta_total=$(pwd)/$CNFOLDER/$CNFOLDER_ROOT$(dirname $ruta)/$(basename $ruta)
