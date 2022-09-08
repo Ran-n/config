@@ -9,6 +9,7 @@ The program uses a configuracion file ".cnf" with multiple options such as verbo
 
 Though this repository contains my particular config files (saved in the cnfiles folder) it can be used by everyone just by:
 - Removing the cnfiles folder.
+- Renaming as .cnf the cnf file.
 - Editing the .cnf file.
 - Editing the files in the media folder containing varios types of configuration:
     - "carpetas.csv" is the file where the folders of the home directory are designed.
