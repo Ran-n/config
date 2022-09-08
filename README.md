@@ -22,7 +22,6 @@ Though this repository contains my particular config files (saved in the cnfiles
 - Paste script
 - Main script
 - Test execution of main script on several paths
-- Test several excludes on media/arquivos.csv file
 
 ## Improvements
 
