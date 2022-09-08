@@ -1,7 +1,7 @@
 #! /bin/sh
 #+ Autor:	Ran#
 #+ Creado:	07/03/2020 22:33:09
-#+ Editado:	2022/09/08 19:05:59.119423
+#+ Editado:	2022/09/08 19:56:38.462381
 
 #* Script que me permite meter os meus ficheiros de configuración en calquera máquina na que esté a trabalhar
 
@@ -55,9 +55,15 @@ while read line; do
         if [[ $line = \~* ]]; then
             line=$FOGAR$(echo $line | cut -d~ -f2)
         fi
-        7z x $(echo $line | sed 's:/*$::').7z -o$(dirname $(echo $line | sed 's:/*$::')) -aoa -p$CONTRASINAL
-        chown -R $user:$user $(echo $line | sed 's:/*$::')
-        rm $(echo $line | sed 's:/*$::').7z
+        if [[ $VERBOSE ]]; then
+            7z x $(echo $line | sed 's:/*$::').7z -o$(dirname $(echo $line | sed 's:/*$::')) -aoa -p$CONTRASINAL
+            chown -R $user:$user $(echo $line | sed 's:/*$::')
+            rm -v $(echo $line | sed 's:/*$::').7z
+        else
+            7z x $(echo $line | sed 's:/*$::').7z -o$(dirname $(echo $line | sed 's:/*$::')) -aoa -p$CONTRASINAL 2&> /dev/null
+            chown -R $user:$user $(echo $line | sed 's:/*$::')
+            rm $(echo $line | sed 's:/*$::').7z
+        fi
     fi
 done < $FICH
 
