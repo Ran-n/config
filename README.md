@@ -19,10 +19,9 @@ Though this repository contains my particular config files (saved in the cnfiles
 
 ## xFCR
 
-- Paste script
-- Main script
-- Test execution of main script on several paths
 - Create a setup script that creates the soft link to ran-config to wherever in the path you want it to be.
+- Make the autoinstall packages script
+- Divide paste into normal paste and setup so that setup makes the install of the programs and also the link and downloads the scripts.
 
 ## Improvements
 
