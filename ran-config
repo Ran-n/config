@@ -1,7 +1,7 @@
 #! /bin/sh
 #+ Autor:	Ran#
 #+ Creado:	08/03/2020 00:13:08
-#+ Editado:	2022/09/08 19:53:07.466759
+#+ Editado:	2022/09/08 22:07:21.974648
 
 cd $(dirname $(readlink -f $0))
 
@@ -10,13 +10,13 @@ LINGUA=$(grep -w "lang" $(pwd)/.cnf | cut -d= -f2)
 mensaxe_axuda(){
     case $LINGUA in
         gz)
-            echo 'Hai que indicar se a operación é de copiado(-c) ou de pegado(-p).'
+            echo 'Hai que indicar se a operación é de copiado(-c), de pegado(-p) ou de inicio(-i).'
             ;;
         en)
-            echo 'Indicating the weather the operation is of copy(-c) or paste(-p) is mandatory.'
+            echo 'Indicating the weather the operation is of copy(-c), paste(-p) or setup(-s) is mandatory.'
             ;;
         cas)
-            echo 'Hay que indicar si es una operación de copiado(-c) o pegado(-p).'
+            echo 'Hay que indicar si es una operación de copiado(-c), pegado(-p) o inicio(-i).'
             ;;
     esac
 }
@@ -29,7 +29,7 @@ mensaxe_operacion_inicio(){
                 echo
                 ;;
             en)
-                echo '=== Doing the operation of COPY ==='
+                echo '=== Doing the COPY operation ==='
                 echo
                 ;;
             cas)
@@ -44,11 +44,26 @@ mensaxe_operacion_inicio(){
                 echo
                 ;;
             en)
-                echo '=== Doing the operation of PASTE ==='
+                echo '=== Doing the PASTE operation ==='
                 echo
                 ;;
             cas)
                 echo '=== Haciendo la operación de PEGADO ==='
+                echo
+                ;;
+        esac
+    elif [[ $1 = "s" ]]; then
+        case $LINGUA in
+            gz)
+                echo '=== Realizando a operación de INICIO ==='
+                echo
+                ;;
+            en)
+                echo '=== Doing the SETUP operation ==='
+                echo
+                ;;
+            cas)
+                echo '=== Haciendo la operación de INICIO ==='
                 echo
                 ;;
         esac
@@ -64,7 +79,7 @@ mensaxe_operacion_fin(){
                 ;;
             en)
                 echo
-                echo '=== End of the operation of COPY ==='
+                echo '=== End of the COPY operation ==='
                 ;;
             cas)
                 echo
@@ -79,11 +94,26 @@ mensaxe_operacion_fin(){
                 ;;
             en)
                 echo
-                echo '=== End of the operation of PASTE ==='
+                echo '=== End of the PASTE operation ==='
                 ;;
             cas)
                 echo
                 echo '=== Fin de la operación de PEGADO ==='
+                ;;
+        esac
+    elif [[ $1 = "s" ]]; then
+        case $LINGUA in
+            gz)
+                echo
+                echo '=== Fin da operación de INICIO ==='
+                ;;
+            en)
+                echo
+                echo '=== End of the SETUP operation ==='
+                ;;
+            cas)
+                echo
+                echo '=== Fin de la operación de INICIO ==='
                 ;;
         esac
     fi
@@ -109,11 +139,20 @@ fi
 case $1 in
     -c|--copiar|--copy)
         mensaxe_operacion "inicio" "c"
+
         $(pwd)/src/copiar-cnfichs
+
         mensaxe_operacion "fin" "c"
         ;;
     -p|--pegar|--paste)
         mensaxe_operacion "inicio" "p"
+
+        $(pwd)/src/pegar-cnfichs
+
+        mensaxe_operacion "fin" "p"
+        ;;
+    -s|--setup|-i|--inicio)
+        mensaxe_operacion "inicio" "s"
 
         $(pwd)/src/crear-carpetas
         echo
@@ -121,9 +160,7 @@ case $1 in
         $(pwd)/src/baixar-scripts
         echo
 
-        $(pwd)/src/pegar-cnfichs
-
-        mensaxe_operacion "fin" "p"
+        mensaxe_operacion "fin" "s"
         ;;
     *)
         mensaxe_axuda
