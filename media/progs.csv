@@ -1,63 +1,60 @@
 # ------------------------------------------------------------------------------
 #+ Autor:	Ran#
 #+ Creado:	15/03/2020 14:37:28
-#+ Editado:	2022/09/05 16:54:32.366185
+#+ Editado:	2022/09/10 12:34:15.122875
 # ------------------------------------------------------------------------------
-
-# TAGS:
-# 		    > Transplataforma.
-# arch		> Exclusivo dos tipos Arch.
-# aur		> Baixalo do Arch User Repository.
-# debian	> Exclusivo dos tipo Debian.
-# github 	> Baixalo de Github.
-# https		> Baixalo dunha páxina web
-
-# TAG, NOME, DESCRICIÓN
-,pandoc,conversor entre tipos de documentos (md html latex etc)
-,sxiv,visor de fotos
-,mpv,visor multimedia
-,youtube-dl,descargador de vídeos
-,erlang,linguaxe de programación e interprete
-,dia,programa de creación de esquemas, diagramas, umls, etc
-,ffmpeg,programa para a edición de vídeo
-,neofetch,mostra de forma moi agradable información sobre o sistema
-,slock,candea o ordenador e permite desencadealo có constrasinal
-,dos2unix,elimina os caracteres raros ao final de linha por culpa de w2 (^M)
-,dosfstools,ferramentas para aceder a sistemas de ficheiros tipo msdos
-,libnotify,permite notificacións de escritorio
-,xwallpaper,pon o fondo de escritorio
-,xclip,permite copiar pegar texto
-,zathura,visor de pdfs
-,zathura-pdf-mupdf,permite compatibilidade dos mupdf pdf con zathura
-,poppler,manipula pdfs e dalles funcións
-,telegram-desktop,aplicación de mensaxería instantánea na súa versión de escritorio
-,sqlitebrowser,editor gráfico de bases de datos sql lite
-,speedtest-cli,ferramenta de comando para speedtest.net para facer o control da velocidade da rede
-,jq,procesador e embelecedor do formato json en linha de comandos
-,xorg-xdpyinfo,ferramenta de mostreo de información
-,ranger,manexador de ficheiros visual
-,noto-fonts-emojis,fonte de emojis
-,unicode-emoji,fonte de emojis
-,gimp,editor de fotos
-,alacritty,emulador de terminal que usa GPU para ir rápido
-,cmatrix,programa que pon na terminal un fondo basado na peli matrix
-,posterazor,corta unha imaxe ou pdf nas dimensións desexadas (pe: mural con D4)
-,mlocate,comando locate e updatedb
-,tree,programa para ver a estrutura de carpetas
-,figlet,para facer letras con símbolos
-,lynx,buscador de internet no terminal
-,pdftk,ferramenta para modificar pdfs
-,enscript,converte ficheiros ascii a outras extensións
-,chafa,visor de imaxes no terminal
-,ipython,shell de python interactivo
-,calcurse,organizador persoal en formato texto
-,sxhkd,ligador de teclas con comandos
-arch,perl-rename,comando que permite facer renomeamentos en masa
-debian,rename,comando que permite facer renomeamentos en masa
-arch,mkvtoolnix-cli,ferramentas de edición de ficheiros mkv
-arch,mkvtoolnix-gui,ferramentas de edición de ficheiros mkv
-arch,p7zip,ferramenta para a compresión e decompresión de ficheiros en diferentes extensións (zip, 7z, etc)
-aur,rambox-bin,plataforma foss para varios tipos de programas
-debian,texlive-full,editor de texto LaTeX
-arch,texlive-most,editor de texto de LaTeX
-arch,texlive-lang,paquete para LaTeX de soporte de idiomas
+# LEGEND:
+# Name          -> Name of the program.
+# Description   -> Description of the program.
+# Distro        -> Especial distro in which its installable under that name (empty non distro dependant).
+# Repository    -> In which place it can be found (empty standard repository)
+# ------------------------------------------------------------------------------
+# NAME, DESCRIPTION, DISTRO, REPOSITORY
+pandoc,conversor entre tipos de documentos (md html latex etc),,
+sxiv,visor de fotos,,
+mpv,visor multimedia,,
+youtube-dl,descargador de vídeos,,
+erlang,linguaxe de programación e interprete,,
+#dia,programa de creación de esquemas ou diagramas ou umls,,
+ffmpeg,programa para a edición de vídeo,,
+neofetch,mostra de forma moi agradable información sobre o sistema,,
+slock,candea o ordenador e permite desencadealo có constrasinal,,
+dos2unix,elimina os caracteres raros ao final de linha por culpa de w2 (^M),,
+dosfstools,ferramentas para aceder a sistemas de ficheiros tipo msdos,,
+libnotify,permite notificacións de escritorio,,
+xwallpaper,pon o fondo de escritorio,,
+xclip,permite copiar pegar texto,,
+zathura,visor de pdfs,,
+zathura-pdf-mupdf,permite compatibilidade dos mupdf pdf con zathura,,
+poppler,manipula pdfs e dalles funcións,,
+telegram-desktop,aplicación de mensaxería instantánea na súa versión de escritorio,,
+sqlitebrowser,editor gráfico de bases de datos sql lite,,
+speedtest-cli,ferramenta de comando para speedtest.net para facer o control da velocidade da rede,,
+jq,procesador e embelecedor do formato json en linha de comandos,,
+xorg-xdpyinfo,ferramenta de mostreo de información,,
+ranger,manexador de ficheiros visual,,
+noto-fonts-emoji,fonte de emojis,,
+unicode-emoji,fonte de emojis,,
+gimp,editor de fotos,,
+alacritty,emulador de terminal que usa GPU para ir rápido,,
+cmatrix,programa que pon na terminal un fondo basado na peli matrix,,
+posterazor,corta unha imaxe ou pdf nas dimensións desexadas (pe: mural con D4),,
+mlocate,comando locate e updatedb,,
+tree,programa para ver a estrutura de carpetas,,
+figlet,para facer letras con símbolos,,
+lynx,buscador de internet no terminal,,
+pdftk,ferramenta para modificar pdfs,,
+enscript,converte ficheiros ascii a outras extensións,,
+chafa,visor de imaxes no terminal,,
+ipython,shell de python interactivo,,
+calcurse,organizador persoal en formato texto,,
+sxhkd,ligador de teclas con comandos,,
+perl-rename,comando que permite facer renomeamentos en masa,ArcoLinux|Manjaro,
+rename,comando que permite facer renomeamentos en masa,Debian,
+mkvtoolnix-cli,ferramentas de edición de ficheiros mkv,ArcoLinux|Manjaro,
+mkvtoolnix-gui,ferramentas de edición de ficheiros mkv,ArcoLinux|Manjaro,
+p7zip,ferramenta para a compresión e decompresión de ficheiros en diferentes extensións como zip ou 7z,ArcoLinux|Manjaro,
+#rambox-bin,plataforma foss para varios tipos de programas,ArcoLinux|Manjaro,AUR
+texlive-full,editor de texto LaTeX,Debian,
+texlive-most,editor de texto de LaTeX,ArcoLinux|Manjaro,
+texlive-lang,paquete para LaTeX de soporte de idiomas,ArcoLinux|Manjaro,

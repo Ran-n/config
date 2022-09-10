@@ -1,0 +1,83 @@
+#! /bin/sh
+# -*- coding: utf-8 -*-
+# ------------------------------------------------------------------------------
+#+ Autor:  	Ran#
+#+ Creado: 	2022/09/09 16:41:29.164675
+#+ Editado:	2022/09/10 12:33:29.776330
+# ------------------------------------------------------------------------------
+
+# mirar se o script se executa como root
+# de non, facer que así sexa
+if [[ $(/usr/bin/id -u) != 0 ]]; then
+    if whereis sudo &>/dev/null; then
+        # correr o script de novo como sudo e cos parametros dados
+        sudo $0 $*
+        # para que non se execute dúas veces
+        exit 0
+    else
+        # saída con erro
+        exit 1
+    fi
+fi
+
+FICH=$(pwd)"/media/progs.csv"
+
+LINGUA=$(grep -w "lang" $(pwd)/.cnf | cut -d= -f2)
+VERBOSE=$(grep -w "verbose" $(pwd)/.cnf | cut -d= -f2)
+SEP=$(grep -w "csv_separator" $(pwd)/.cnf | cut -d= -f2)
+SEP2=$(grep -w "csv_separator2" $(pwd)/.cnf | cut -d= -f2)
+DISTRO=$(lsb_release -a | sed -n '2,+0p' | cut -d: -f2 | tr -ds '\t' '')
+
+install_pkg(){
+    [[ $VERBOSE -eq 1 ]] && pacman -S $1 --noconfirm --needed || pacman -S $1 --noconfirm --needed 2>&1
+}
+
+case $LINGUA in
+    gz)
+        echo '► Instalando os programas:'
+        ;;
+    en)
+        echo '► Installing the programs:'
+        ;;
+    cas)
+        echo '► Instalando los programas:'
+        ;;
+esac
+
+#pkgs=""
+
+while read line; do
+    if [[ $line != \#* && -n $line ]]; then
+        nome=$(echo $line | cut -d$SEP -f1)
+        desc=$(echo $line | cut -d$SEP -f2)
+        lst_distros=($(echo $line | cut -d$SEP -f3 | tr $SEP2 "\n"))
+        lst_repos=($(echo $line | cut -d$SEP -f4 | tr $SEP2 "\n"))
+
+        if [[ -n $lst_distros ]]; then
+            for distro in "${lst_distros[@]}"; do
+                if [[ $distro = $DISTRO ]]; then
+                    install_pkg $nome
+                    #pkgs=$pkgs" "$nome
+                    break
+                fi
+            done
+        else
+            install_pkg $nome
+            #pkgs=$pkgs" "$nome
+        fi
+    fi
+done < $FICH
+
+#install_pkg "$pkgs"
+
+case $LINGUA in
+    gz)
+        echo '◄ BO'
+        ;;
+    en)
+        echo '◄ OK'
+        ;;
+    cas)
+        echo '◄ OK'
+        ;;
+esac
