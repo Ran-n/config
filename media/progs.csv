@@ -1,7 +1,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:	Ran#
 #+ Creado:	15/03/2020 14:37:28
-#+ Editado:	2022/09/10 12:34:15.122875
+#+ Editado:	2022/09/10 22:36:46.181785
 # ------------------------------------------------------------------------------
 # LEGEND:
 # Name          -> Name of the program.
@@ -58,3 +58,4 @@ p7zip,ferramenta para a compresión e decompresión de ficheiros en diferentes e
 texlive-full,editor de texto LaTeX,Debian,
 texlive-most,editor de texto de LaTeX,ArcoLinux|Manjaro,
 texlive-lang,paquete para LaTeX de soporte de idiomas,ArcoLinux|Manjaro,
+hugo,Xerador de páxinas web estáticas,,

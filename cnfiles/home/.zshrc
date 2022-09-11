@@ -1,7 +1,7 @@
 #! ZSHRC
 #+ Autor:	Ran#
 #+ Creado:	11/09/2020 16:55:34
-#+ Editado:	11/09/2020 18:34:27
+#+ Editado:	2022/09/10 22:46:57.952034
 
 #
 #            _
@@ -74,6 +74,8 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 # editar liña nun buffer vim con ctrl+e
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
+
+export EDITOR='nvim'
 
 #[ -f /root/.config/aliasrc ] && source /root/.config/aliasrc || echo a
 source ~/.config/aliasrc
