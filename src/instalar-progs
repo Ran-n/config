@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:  	Ran#
 #+ Creado: 	2022/09/09 16:41:29.164675
-#+ Editado:	2022/09/10 12:33:29.776330
+#+ Editado:	2022/09/11 14:12:05.221270
 # ------------------------------------------------------------------------------
 
 # mirar se o script se executa como root
@@ -29,7 +29,9 @@ SEP2=$(grep -w "csv_separator2" $(pwd)/.cnf | cut -d= -f2)
 DISTRO=$(lsb_release -a | sed -n '2,+0p' | cut -d: -f2 | tr -ds '\t' '')
 
 install_pkg(){
-    [[ $VERBOSE -eq 1 ]] && pacman -S $1 --noconfirm --needed || pacman -S $1 --noconfirm --needed 2>&1
+    [[ $VERBOSE -eq 1 ]]\
+        && pacman -S $1 --noconfirm --needed\
+        || pacman -S $1 --noconfirm --needed 2>&1
 }
 
 case $LINGUA in

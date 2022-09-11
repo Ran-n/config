@@ -1,7 +1,7 @@
 #! /bin/sh
 #+ Autor:	Ran#
 #+ Creado:	08/03/2020 13:31:26
-#+ Editado:	2022/09/05 22:17:19.601534
+#+ Editado:	2022/09/11 14:11:09.234531
 
 # mirar se o script se executa como root
 # de non, facer que así sexa
@@ -57,9 +57,7 @@ while read line; do
             carpeta=$line
         fi
 
-        if [ $VERBOSE ] && [ $VERBOSE -eq 1 ]; then
-            echo $line
-        fi
+        [[ $VERBOSE -eq 1 ]] && echo $line
         mkdir -p $carpeta
     fi
 done < $FICH

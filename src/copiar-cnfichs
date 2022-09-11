@@ -1,7 +1,7 @@
 #! /bin/sh
 #+ Autor:	Ran#
 #+ Creado:	22/04/2020 00:23:18
-#+ Editado:	2022/09/08 20:17:13.373352
+#+ Editado:	2022/09/11 14:15:06.034825
 
 #* Script que copia of ficheiros de configuración da máquina na que estou
 
@@ -24,7 +24,9 @@ copiar_elemento () {
 eliminar () {
     array=($(echo $2 | tr $SEP2 "\n"))
     for fich in "${array[@]}"; do
-        [[ $VERBOSE -eq 1 ]] && find "$1" -name "$fich" -exec rm -vrf {} + || find "$1" -name "$fich" -exec rm -rf {} +
+        [[ $VERBOSE -eq 1 ]]\
+            && find "$1" -name "$fich" -exec rm -vrf {} +\
+            || find "$1" -name "$fich" -exec rm -rf {} +
     done
 }
 
