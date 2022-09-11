@@ -19,11 +19,12 @@ Though this repository contains my particular config files (saved in the cnfiles
 
 ## xFCR
 
-- Create a setup script that creates the soft link to ran-config to wherever in the path you want it to be.
 - Make the autoinstall packages script
+- Create a setup script that creates the soft link to ran-config to wherever in the path you want it to be.
+
 - Divide paste into normal paste and setup so that setup makes the install of the programs and also the link and downloads the scripts.
-- Implement whiptail (look at LARBS).
 - Set the internacionalization messages in a separate file.
+- Implement whiptail or dialog (maybe not cuz requires to be installed and all that).
 
 ## Improvements
 
