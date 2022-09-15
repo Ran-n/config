@@ -1,7 +1,7 @@
 #! /bin/sh
 #+ Autor:	Ran#
 #+ Creado:	07/03/2020 22:33:09
-#+ Editado:	2022/09/11 14:13:14.985189
+#+ Editado:	2022/09/15 20:13:07.846109
 
 #* Script que me permite meter os meus ficheiros de configuración en calquera máquina na que esté a trabalhar
 
@@ -24,7 +24,7 @@ FICH=$(pwd)"/media/arquivos.csv"
 LINGUA=$(grep -w "lang" $(pwd)/.cnf | cut -d= -f2)
 VERBOSE=$(grep -w "verbose" $(pwd)/.cnf | cut -d= -f2)
 # ellminar proba
-FOGAR=$(eval echo "~$(who -m | awk '{ print $1 }')")/proba
+FOGAR=$(eval echo "~$(who -m | awk '{ print $1 }')")
 ACCEPT_ENCRIPT=$(grep -w "accept_encryption" $(pwd)/.cnf | cut -d= -f2)
 CONTRASINAL=$(grep -w "passwd" $(pwd)/.cnf | cut -d= -f2)
 SEP=$(grep -w "csv_separator" $(pwd)/.cnf | cut -d= -f2)
@@ -45,8 +45,8 @@ case $LINGUA in
 esac
 
 [[ $VERBOSE -eq 1 ]]\
-    && cp -vupfr $(pwd)/$CNFOLDER/$CNFOLDER_HOME/. $FOGAR\
-    || cp -upfr $(pwd)/$CNFOLDER/$CNFOLDER_HOME/. $FOGAR
+    && cp -vpfr $(pwd)/$CNFOLDER/$CNFOLDER_HOME/. $FOGAR\
+    || cp -pfr $(pwd)/$CNFOLDER/$CNFOLDER_HOME/. $FOGAR
 [[ $VERBOSE -eq 1 ]]\
     && cp -vupfr $(pwd)/$CNFOLDER/$CNFOLDER_ROOT/. /\
     || cp -upfr $(pwd)/$CNFOLDER/$CNFOLDER_ROOT/. /root
