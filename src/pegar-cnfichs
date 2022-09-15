@@ -48,8 +48,8 @@ esac
     && cp -vpfr $(pwd)/$CNFOLDER/$CNFOLDER_HOME/. $FOGAR\
     || cp -pfr $(pwd)/$CNFOLDER/$CNFOLDER_HOME/. $FOGAR
 [[ $VERBOSE -eq 1 ]]\
-    && cp -vupfr $(pwd)/$CNFOLDER/$CNFOLDER_ROOT/. /\
-    || cp -upfr $(pwd)/$CNFOLDER/$CNFOLDER_ROOT/. /root
+    && cp -vpfr $(pwd)/$CNFOLDER/$CNFOLDER_ROOT/. /\
+    || cp -pfr $(pwd)/$CNFOLDER/$CNFOLDER_ROOT/. /root
 
 user=$(who -m | cut -d\  -f1)
 
