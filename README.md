@@ -30,6 +30,7 @@ Though this repository contains my particular config files (saved in the cnfiles
 
 - Instead of copying and then removing the excluded files, make it so they are not copied in the first place.
 - Check if files where changed regards to the actual version saved in 7z files.
+- Make files have an option to be distro dependant, some like /etc/pacman.conf are only needed in arch distros and non on debian based for example. Right now theres no way of discriminating by distro like there is on progs.csv.
 
 ## [Donations 🙇🙇](https://github.com/Ran-n/doc/blob/main/doaz%C3%B3ns.md)
 
