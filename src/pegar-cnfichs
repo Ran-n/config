@@ -1,9 +1,10 @@
 #! /bin/sh
 #+ Autor:	Ran#
 #+ Creado:	07/03/2020 22:33:09
-#+ Editado:	2022/09/15 20:13:07.846109
+#+ Editado:	2022/09/30 22:51:51.932085
 
 #* Script que me permite meter os meus ficheiros de configuración en calquera máquina na que esté a trabalhar
+
 
 # mirar se o script se executa como root
 # de non, facer que así sexa
@@ -21,10 +22,11 @@ fi
 
 FICH=$(pwd)"/media/arquivos.csv"
 
+USER=${SUDO_USER:-${USER}}
+
 LINGUA=$(grep -w "lang" $(pwd)/.cnf | cut -d= -f2)
 VERBOSE=$(grep -w "verbose" $(pwd)/.cnf | cut -d= -f2)
-# ellminar proba
-FOGAR=$(eval echo "~$(who -m | awk '{ print $1 }')")
+FOGAR=$(eval echo "~$USER")
 ACCEPT_ENCRIPT=$(grep -w "accept_encryption" $(pwd)/.cnf | cut -d= -f2)
 CONTRASINAL=$(grep -w "passwd" $(pwd)/.cnf | cut -d= -f2)
 SEP=$(grep -w "csv_separator" $(pwd)/.cnf | cut -d= -f2)
@@ -51,8 +53,6 @@ esac
     && cp -vpfr $(pwd)/$CNFOLDER/$CNFOLDER_ROOT/. /\
     || cp -pfr $(pwd)/$CNFOLDER/$CNFOLDER_ROOT/. /root
 
-user=$(who -m | cut -d\  -f1)
-
 while read line; do
     # ignorar todas as linhas que non comecen por 1
     if [[ $line = \1* ]]; then
@@ -62,11 +62,11 @@ while read line; do
         fi
         if [[ $VERBOSE -eq 1 ]]; then
             7z x $(echo $line | sed 's:/*$::').7z -o$(dirname $(echo $line | sed 's:/*$::')) -aoa -p$CONTRASINAL
-            chown -R $user:$user $(echo $line | sed 's:/*$::')
+            chown -R $USER:$USER $(echo $line | sed 's:/*$::')
             rm -v $(echo $line | sed 's:/*$::').7z
         else
             7z x $(echo $line | sed 's:/*$::').7z -o$(dirname $(echo $line | sed 's:/*$::')) -aoa -p$CONTRASINAL 2&> /dev/null
-            chown -R $user:$user $(echo $line | sed 's:/*$::')
+            chown -R $USER:$USER $(echo $line | sed 's:/*$::')
             rm $(echo $line | sed 's:/*$::').7z
         fi
     fi
