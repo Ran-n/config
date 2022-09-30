@@ -37,15 +37,14 @@ case $LINGUA in
         ;;
 esac
 
-# link ó ficheiro principal
-[[ $VERBOSE -eq 1 ]]\
-    && ln -sfv $(pwd)"/rconfig" $CARPETA_DESTINO\
-    || ln -sf $(pwd)"/rconfig" $CARPETA_DESTINO
-
 # crear (se non existe) a carpeta e ponherse nela
 mkdir -p $CARPETA_DESTINO
 cd $CARPETA_DESTINO
 
+# link ó ficheiro principal
+[[ $VERBOSE -eq 1 ]]\
+    && ln -sfv $(pwd)"/rconfig" $CARPETA_DESTINO\
+    || ln -sf $(pwd)"/rconfig" $CARPETA_DESTINO
 
 # loop polas filas do script
 while read line; do
