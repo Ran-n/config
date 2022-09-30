@@ -53,24 +53,28 @@ esac
     && cp -vpfr $(pwd)/$CNFOLDER/$CNFOLDER_ROOT/. /\
     || cp -pfr $(pwd)/$CNFOLDER/$CNFOLDER_ROOT/. /root
 
-while read line; do
-    # ignorar todas as linhas que non comecen por 1
-    if [[ $line = \1* ]]; then
-        line=$(echo $line | cut -d$SEP -f2)
-        if [[ $line = \~* ]]; then
-            line=$FOGAR$(echo $line | cut -d~ -f2)
+
+if [[ -n $CONTRASINAL ]]; then
+    # desencriptación
+    while read line; do
+        # ignorar todas as linhas que non comecen por 1
+        if [[ $line = \1* ]]; then
+            line=$(echo $line | cut -d$SEP -f2)
+            if [[ $line = \~* ]]; then
+                line=$FOGAR$(echo $line | cut -d~ -f2)
+            fi
+            if [[ $VERBOSE -eq 1 ]]; then
+                7z x $(echo $line | sed 's:/*$::').7z -o$(dirname $(echo $line | sed 's:/*$::')) -aoa -p$CONTRASINAL
+                chown -R $USER:$USER $(echo $line | sed 's:/*$::')
+                rm -v $(echo $line | sed 's:/*$::').7z
+            else
+                7z x $(echo $line | sed 's:/*$::').7z -o$(dirname $(echo $line | sed 's:/*$::')) -aoa -p$CONTRASINAL 2&> /dev/null
+                chown -R $USER:$USER $(echo $line | sed 's:/*$::')
+                rm $(echo $line | sed 's:/*$::').7z
+            fi
         fi
-        if [[ $VERBOSE -eq 1 ]]; then
-            7z x $(echo $line | sed 's:/*$::').7z -o$(dirname $(echo $line | sed 's:/*$::')) -aoa -p$CONTRASINAL
-            chown -R $USER:$USER $(echo $line | sed 's:/*$::')
-            rm -v $(echo $line | sed 's:/*$::').7z
-        else
-            7z x $(echo $line | sed 's:/*$::').7z -o$(dirname $(echo $line | sed 's:/*$::')) -aoa -p$CONTRASINAL 2&> /dev/null
-            chown -R $USER:$USER $(echo $line | sed 's:/*$::')
-            rm $(echo $line | sed 's:/*$::').7z
-        fi
-    fi
-done < $FICH
+    done < $FICH
+fi
 
 case $LINGUA in
     gz)
