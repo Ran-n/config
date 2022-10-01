@@ -50,22 +50,23 @@ esac
 
 while read line; do
     if [[ $line != \#* && -n $line ]]; then
-        nome=$(echo $line | cut -d$SEP -f1)
-        desc=$(echo $line | cut -d$SEP -f2)
+        id_nome=$(echo $line | cut -d$SEP -f1)
+        nome=$(echo $line | cut -d$SEP -f2)
         lst_distros=($(echo $line | cut -d$SEP -f3 | tr $SEP2 "\n"))
         lst_repos=($(echo $line | cut -d$SEP -f4 | tr $SEP2 "\n"))
 
         if [[ -n $lst_distros ]]; then
             for distro in "${lst_distros[@]}"; do
                 if [[ $distro = $DISTRO ]]; then
-                    install_pkg $nome
-                    #pkgs=$pkgs" "$nome
+                    whiptail --title "install" --infobox "Installing" 9 70
+                    install_pkg $id_nome
+                    #pkgs=$pkgs" "$id_nome
                     break
                 fi
             done
         else
-            install_pkg $nome
-            #pkgs=$pkgs" "$nome
+            install_pkg $id_nome
+            #pkgs=$pkgs" "$id_nome
         fi
     fi
 done < $FICH
