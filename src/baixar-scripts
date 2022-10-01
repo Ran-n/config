@@ -37,14 +37,16 @@ case $LINGUA in
         ;;
 esac
 
-# crear (se non existe) a carpeta e ponherse nela
+# crear (se non existe) a carpeta
 mkdir -p $CARPETA_DESTINO
-cd $CARPETA_DESTINO
 
 # link ó ficheiro principal
 [[ $VERBOSE -eq 1 ]]\
     && ln -sfv $(pwd)"/rconfig" $CARPETA_DESTINO\
     || ln -sf $(pwd)"/rconfig" $CARPETA_DESTINO
+
+# ir á carpeta onde se van descargar os scripts
+cd $CARPETA_DESTINO
 
 # loop polas filas do script
 while read line; do
