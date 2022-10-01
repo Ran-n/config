@@ -14,6 +14,7 @@ Though this repository contains my particular config files (saved in the cnfiles
 - Editing the files in the media folder containing varios types of configuration:
     - "carpetas.csv" is the file where the folders of the home directory are designed.
     - "progs.csv" are the list of programs to be installed.
+    - "progs_csv.csv" are the list of program descriptions to be installed in different languages.
     - "scripts.csv" are the list of scripts to be downloaded.
     - "arquivos.csv" are the list of files to be saved as part of the config.
 
