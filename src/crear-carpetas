@@ -17,10 +17,12 @@ if [[ $(/usr/bin/id -u) != 0 ]]; then
     fi
 fi
 
+USER=${SUDO_USER:-${USER}}
+
 LINGUA=$(grep -w "lang" $(pwd)/.cnf | cut -d= -f2)
 VERBOSE=$(grep -w "verbose" $(pwd)/.cnf | cut -d= -f2)
 FICH=$(pwd)"/media/carpetas.csv"
-FOGAR=$(eval echo "~$(who -m | awk '{ print $1 }')")
+FOGAR=$(eval echo "~$USER")
 
 
 case $LINGUA in
