@@ -1,7 +1,7 @@
 #! /bin/sh
 #+ Autor:	Ran#
 #+ Creado:	08/03/2020 00:13:08
-#+ Editado:	2022/09/11 13:50:55.014276
+#+ Editado:	2022/10/01 12:37:44.804092
 
 cd $(dirname $(readlink -f $0))
 
@@ -130,6 +130,22 @@ mensaxe_operacion(){
     esac
 }
 
+copiar(){
+    $(pwd)/src/copiar-cnfichs
+}
+
+pegar() {
+    $(pwd)/src/pegar-cnfichs
+}
+
+inicio() {
+    $(pwd)/src/crear-carpetas
+    echo
+    $(pwd)/src/baixar-scripts
+    echo
+    pegar
+}
+
 # se non meten variable pois pon mensaxe e sae
 if [ -z $1 ]; then
     mensaxe_axuda
@@ -139,29 +155,22 @@ fi
 case $1 in
     -c|--copiar|--copy)
         mensaxe_operacion "inicio" "c"
-
-        $(pwd)/src/copiar-cnfichs
-
+        copiar
         mensaxe_operacion "fin" "c"
         ;;
+
     -p|--pegar|--paste)
         mensaxe_operacion "inicio" "p"
-
-        $(pwd)/src/pegar-cnfichs
-
+        pegar
         mensaxe_operacion "fin" "p"
         ;;
+
     -s|--setup|-i|--inicio)
         mensaxe_operacion "inicio" "s"
-
-        $(pwd)/src/crear-carpetas
-        echo
-
-        $(pwd)/src/baixar-scripts
-        echo
-
+        inicio
         mensaxe_operacion "fin" "s"
         ;;
+
     *)
         mensaxe_axuda
         ;;
