@@ -7,6 +7,18 @@ BASH program made for backing up the system configuration and being able to rese
 
 The program uses a configuracion file ".cnf" with multiple options such as verbose, language of messages and a password for sensitive content you wish to protect.
 
+## Normal use
+
+On first download its important to create a .cnf file to host all the config options, the cnf file is a good base to use.
+Once its created you may use the program normally.
+Since its the first run, use the -i or -s option on rconfig for the inicial setup.
+
+Once that is done, the normal use will be:
+    - Change the config of your machine, run rconfig -c
+    - Want to paste the config previously saved over the one present, run rconfig -p
+
+## Reuse for your own personal files
+
 Though this repository contains my particular config files (saved in the cnfiles folder) it can be used by everyone just by:
 - Removing the cnfiles folder.
 - Renaming as .cnf the cnf file.
