@@ -9,6 +9,9 @@
 # ------------------------------------------------------------------------------
 #
 # Language of the output messages
+# Galician  -> gz
+# English   -> en
+# Spanish   -> cas
 # gz, en, cas
 lang=gz
 # 
