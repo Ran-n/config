@@ -8,20 +8,43 @@
 # Dont use the reserved words (before equals) on any part of the file
 # ------------------------------------------------------------------------------
 #
+# Language of the output messages
 # gz, en, cas
 lang=gz
+# 
+#
+# Show or not progress messages on the screen
 # 1 on
 verbose=
 #
+#
+# What primary and secondary separators are used in the csv files,
+# the default ones are correct unless you modify them.
 csv_separator=,
 csv_separator2=|
 #
+#
+#
 accept_encryption=1
 #
+#
+# Folder where you wish to save your personal scripts.
+# If you put a path that doesnt exist like the default one
+# it will create it.
 scripts_folder=/usr/local/scripts/
 #
+#
+# The password you want to use for both encryption and decryption of personal files.
+# This files are marked in the media/arquivos.csv file in the first field and use the
+# character decided in the accept_encryption option of this config file.
+# The default character is 1 and so is set in the media/arquivos.csv file.
 passwd=
 #
+#
+# Structure of the config folder from where the files are pulled.
+# main folder name, the one you can see in this folder.
 cnfolder=cnfiles
+# name of the folder where the user config files are at.
 cnfolder_home=home
+# name of the folder where the root config files are at.
 cnfolder_root=root
