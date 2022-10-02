@@ -143,6 +143,8 @@ inicio() {
     echo
     $(pwd)/src/baixar-scripts
     echo
+    $(pwd)/src/instalar-progs
+    echo
     pegar
 }
 
