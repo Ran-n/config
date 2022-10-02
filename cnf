@@ -25,6 +25,8 @@ verbose=
 # the default ones are correct unless you modify them.
 csv_separator=,
 csv_separator2=|
+# default indicator of a string in a csv file, inside of it you can use any characters.
+csv_string="
 #
 #
 #
