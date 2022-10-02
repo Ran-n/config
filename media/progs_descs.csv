@@ -15,13 +15,13 @@
 #
 pandoc,gz,"Conversor entre tipos de documentos como md, html, latex, etc"
 pandoc,en,"File conversor between different types of documents like md, html, latex, etc"
-pandoc,gz,"Conversor entre tipos de documentos como md, html, latex, etc"
+pandoc,cas,"Conversor entre tipos de documentos como md, html, latex, etc"
 #
 sxiv,gz,Visualizador de fotos
 #
 mpv,gz,Visualizador multimedia
 #
-youtube-dl,gz,Descargador de vídeos
+youtube-dl,gz,"Descargador de vídeos."
 #
 erlang,gz,Linguaxe de programación e intérprete
 #
@@ -43,7 +43,7 @@ xwallpaper,gz,pon o fondo de escritorio
 #
 xclip,gz,permite copiar pegar texto
 #
-zathura,gz,visor de pdfs
+zathura,gz,"Visor de pdfs."
 #
 zathura-pdf-mupdf,gz,permite compatibilidade dos mupdf pdf con zathura
 #
