@@ -12,103 +12,183 @@
 # ------------------------------------------------------------------------------
 #
 # NAME, LANGUAGE, DESCRIPTION
-#
+
 pandoc,gz,"Conversor entre tipos de documentos como md, html, latex, etc"
 pandoc,en,"File conversor between different types of documents like md, html, latex, etc"
 pandoc,cas,"Conversor entre tipos de documentos como md, html, latex, etc"
-#
-sxiv,gz,Visualizador de fotos
-#
-mpv,gz,Visualizador multimedia
-#
+
+
+sxiv,gz,"Visualizador de fotos."
+sxiv,en,"Simple X image viewer."
+sxiv,cas,"Visualizador de fotos."
+
+
+mpv,gz,"Visualizador multimedia."
+mpv,en,"Media player."
+mpv,cas,"Visualizador multimedia."
+
+
 youtube-dl,gz,"Descargador de vídeos."
-#
-erlang,gz,Linguaxe de programación e intérprete
-#
-dia,gz,Programa de creación de diagramas UMLs esquemas etc
-#
-ffmpeg,gz,Programa para a edición de vídeo
-#
-neofetch,gz,mostra de forma moi agradable información sobre o sistema
-#
-slock,gz,candea o ordenador e permite desencadealo có constrasinal
-#
+youtube-dl,en,"Video downloader."
+youtube-dl,cas,"Descargador de vídeos."
+
+
+erlang,gz,"Linguaxe e intérprete de programación."
+erlang,en,"Programming language."
+erlang,cas,"Lengua e intérprete de programación."
+
+
+dia,gz,"Programa de creación de diagramas, UMLs, esquemas, etc."
+dia,en,"Program for the creation of diagrams, UMLs, schemas, etc."
+dia,cas,"Programa de creación de diagramas, UMLs, esquemas, etc."
+
+
+ffmpeg,gz,"Programa para a conversión e gravación de audio e vídeo."
+ffmpeg,en,"Program for the conversion and recording of audio an video."
+ffmpeg,gz,"Programa para la conversión y gravación de audio y vídeo."
+
+
+neofetch,gz,"Ferramenta de mostrado da información do sistema para o terminal."
+neofetch,en,"Terminal system information tool."
+neofetch,cas,"Herramienta de mostrado de información del sistema para la terminal."
+
+
+slock,gz,"Pantalla de bloqueo minimalista."
+slock,en,"Simple lock screen."
+slock,cas,"Pantalla de bloqueo minimalista"
+
+
 dos2unix,gz,elimina os caracteres raros ao final de linha por culpa de w2 (^M)
-#
+
+
 dosfstools,gz,ferramentas para aceder a sistemas de ficheiros tipo msdos
-#
+
+
 libnotify,gz,permite notificacións de escritorio
-#
+
+
 xwallpaper,gz,pon o fondo de escritorio
-#
+
+
 xclip,gz,permite copiar pegar texto
-#
+
+
 zathura,gz,"Visor de pdfs."
-#
+
+
 zathura-pdf-mupdf,gz,permite compatibilidade dos mupdf pdf con zathura
-#
+
+
 poppler,gz,manipula pdfs e dalles funcións
-#
-telegram-desktop,gz,Aplicación de mensaxería instantánea na súa versión de escritorio
-#
+
+
+telegram-desktop,gz,"Aplicación de mensaxería instantánea, versión de escritorio."
+telegram-desktop,en,"Instant messaging app, desktop version."
+telegram-desktop,cas,"Aplicación de mensajería instantánea, versión de escritorio."
+
+
 sqlitebrowser,gz,editor gráfico de bases de datos sql lite
-#
+
+
 speedtest-cli,gz,ferramenta de comando para speedtest.net para facer o control da velocidade da rede
-#
+
+
 jq,gz,procesador e embelecedor do formato json en linha de comandos
-#
+
+
 xorg-xdpyinfo,gz,ferramenta de mostreo de información
-#
-ranger,gz,manexador de ficheiros visual
-#
+
+
+ranger,gz,"Manexador de ficheiros visual para terminal."
+ranger,en,"Terminal file manager"
+ranger,cas,"Explorador de ficheros visual para terminal."
+
+
 noto-fonts-emoji,gz,fonte de emojis
-#
+
+
 unicode-emoji,gz,fonte de emojis
-#
-gimp,gz,editor de fotos
-#
+
+
+gimp,gz,"Editor de fotos."
+gimp,en,"Photo editor."
+gimp,cas,"Editor de fotos."
+
+
 alacritty,gz,emulador de terminal que usa GPU para ir rápido
-#
-cmatrix,gz,programa que pon na terminal un fondo basado na peli matrix
-#
+
+
+cmatrix,gz,"Chuvia de letras ó estilo Matrix no terminal."
+cmatrix,en,"Letter rain Matrix style for the terminal."
+cmatrix,cas,"Lluvia de letras al estilo Matrix en el terminal"
+
+
 posterazor,gz,corta unha imaxe ou pdf nas dimensións desexadas (pe: mural con D4)
-#
+
+
 mlocate,gz,comando locate e updatedb
-#
+
+
 tree,gz,programa para ver a estrutura de carpetas
-#
-figlet,gz,para facer letras con símbolos
-#
+
+
+figlet,gz,"Programa para facer letras grandes a partir de caracteres de texto."
+figlet,en,"Program for making large letters out of ordinary text."
+figlet,cas,"Programa para hacer letras grandes a partir de caracteres de texto."
+
+
 lynx,gz,buscador de internet no terminal
-#
+
+
 pdftk,gz,ferramenta para modificar pdfs
-#
+
+
 enscript,gz,converte ficheiros ascii a outras extensións
-#
-chafa,gz,visor de imaxes no terminal
-#
-ipython,gz,shell de python interactivo
-#
+
+
+chafa,gz,"Visualizador de imaxes no terminal."
+chafa,en,"Image viewer in the terminal."
+chafa,cas,"Visualizador de imágenes en el terminal."
+
+
+ipython,gz cas,"Shell de Python interactivo."
+ipython,en,"Python interactive shell."
+ipython,cas,"Shell de Python interactivo."
+
+
 calcurse,gz,organizador persoal en formato texto
-#
+
+
 sxhkd,gz,ligador de teclas con comandos
-#
+
+
 perl-rename,gz,comando que permite facer renomeamentos en masa
-#
+
+
 rename,gz,comando que permite facer renomeamentos en masa
-#
+
+
 mkvtoolnix-cli,gz,ferramentas de edición de ficheiros mkv
-#
+
+
 mkvtoolnix-gui,gz,ferramentas de edición de ficheiros mkv
-#
+
+
 p7zip,gz,ferramenta para a compresión e decompresión de ficheiros en diferentes extensións como zip ou 7z
-#
+
+
 rambox-bin,gz,plataforma foss para varios tipos de programas
-#
+
+
 texlive-full,gz,editor de texto LaTeX
-#
+
+
 texlive-most,gz,editor de texto de LaTeX
-#
+
+
 texlive-lang,gz,paquete para LaTeX de soporte de idiomas
-#
-hugo,gz,Xerador de páxinas web estáticas
+
+
+hugo,gz,"Xerador de páxinas web estáticas."
+hugo,en,"Static website generator."
+hugo,cas,"Generador de páginas web estáticas."
