@@ -2,18 +2,19 @@
 #+ Autor:	Ran#
 #+ Creado:	03/2020
 #+ Recreado:11/09/2020 17:50:30
-#+ Editado:	11/09/2020 17:52:12
+#+ Editado:	2022/10/02 09:50:03.078718
 
 #        _ _
 #   __ _| (_) __ _ ___ _ __ ___
 #  / _` | | |/ _` / __| '__/ __|
 # | (_| | | | (_| \__ \ | | (__
 #  \__,_|_|_|\__,_|___/_|  \___|
-# 
+#
 
 
 ## comandos básicos
 alias s='sudo'
+#alias sudo='sudo '
 alias ls='ls --color=auto --group-directories-first'
 alias la='ls -a --color=always --group-directories-first'
 alias ll='ls -l --color=always --group-directories-first'
@@ -27,13 +28,13 @@ mkcdir () {
     mkdir -p -- "$1" && cd -P -- "$1"
 }
 
-sudo() { 
-    if alias "$1" &> /dev/null ; then 
-        $(type "$1" | sed -E 's/^.*`(.*).$/\1/') "${@:2}"
-    else 
-        command sudo "$@"
-    fi 
-}
+#sudo() {
+#    if alias "$1" &> /dev/null ; then
+#        $(type "$1" | sed -E 's/^.*`(.*).$/\1/') "${@:2}"
+#    else
+#        command sudo "$@"
+#    fi
+#}
 
 # útieis propios
 alias cpwd='pwd | xargs echo -n | xclip -selection clipboard'
