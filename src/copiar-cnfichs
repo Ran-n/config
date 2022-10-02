@@ -46,6 +46,8 @@ fi
 
 FICH=$(pwd)"/media/arquivos.csv"
 
+USER=${SUDO_USER:-${USER}}
+
 LINGUA=$(grep -w "lang" $(pwd)/.cnf | cut -d= -f2)
 VERBOSE=$(grep -w "verbose" $(pwd)/.cnf | cut -d= -f2)
 ACCEPT_ENCRIPT=$(grep -w "accept_encryption" $(pwd)/.cnf | cut -d= -f2)
@@ -56,7 +58,7 @@ CNFOLDER=$(grep -w "cnfolder" $(pwd)/.cnf | cut -d= -f2)
 CNFOLDER_HOME=$(grep -w "cnfolder_home" $(pwd)/.cnf | cut -d= -f2)
 CNFOLDER_ROOT=$(grep -w "cnfolder_root" $(pwd)/.cnf | cut -d= -f2)
 
-FOGAR=$(eval echo "~$(who -m | awk '{ print $1 }')")
+FOGAR=$(eval echo "~$USER")
 
 case $LINGUA in
     gz)
@@ -102,8 +104,7 @@ while read line; do
 done < $FICH
 
 # preciso cambiar isto porque se executa como root e quedaría como owner
-user=$(who -m | cut -d\  -f1)
-chown -R $user:$user $(pwd)/$CNFOLDER
+chown -R $USER:$USER $(pwd)/$CNFOLDER
 
 case $LINGUA in
     gz)
