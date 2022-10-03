@@ -45,9 +45,9 @@ install_pkg(){
         #echo $3:$NUM_PROGS
         echo "$nome"
         echo "$desc"
-        echo
 
         pacman -S $1 --noconfirm --needed > /dev/null 2>&1 
+        echo
     else
         pacman -S $1 --noconfirm --needed > /dev/null 2>&1 
     fi
