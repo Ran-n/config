@@ -29,25 +29,25 @@ SEP=$(grep -w "csv_separator" $(pwd)/.cnf | cut -d= -f2)
 SEP2=$(grep -w "csv_separator2" $(pwd)/.cnf | cut -d= -f2)
 SEP_CATEX=$(grep -w "csv_string" $(pwd)/.cnf | cut -d= -f2)
 DISTRO=$(lsb_release -a | sed -n '2,+0p' | cut -d: -f2 | tr -ds '\t' '')
-
-NUM_PROGS=$(cat $FICH | grep "^[^#;]" | wc -l)
+NUM_PROGS=$(grep "^[^#]" $FICH | grep -E ",,|$DISTRO" | wc -l)
 
 TEMP_SPACE=":-:"
 
 install_pkg(){
     if [[ $VERBOSE -eq 1 ]]; then
-
+        # o do temp_space é preciso porque senón o nome sae cortado polo espazo
         nome=$(echo $2 | cut -d$SEP_CATEX -f2 | sed 's/$TEMP_SPACE/\ /g')
         desc=$(cat $FICH2 | grep $1$SEP$LINGUA | cut -d$SEP_CATEX -f2)
+        num_paquete=$3
 
-        # mostrar ó usuario que se esta a instalar
-        echo
-        #echo $3:$NUM_PROGS
+        # mostrar ó usuario que se esta a instalar e o avance
+        [[ $num_paquete -ne 1 ]] && echo
+        echo "$num_paquete/$NUM_PROGS"
         echo "$nome"
         echo "$desc"
 
         pacman -S $1 --noconfirm --needed > /dev/null 2>&1 
-        echo
+        #pacman -S $1 --noconfirm --needed
     else
         pacman -S $1 --noconfirm --needed > /dev/null 2>&1 
     fi
@@ -66,29 +66,27 @@ case $LINGUA in
 esac
 
 #pkgs=""
-
-
-#cont=1
+cont=1
 while read line; do
     if [[ $line != \#* && -n $line ]]; then
         id_nome=$(echo $line | cut -d$SEP -f1)
+        # o do temp_space é preciso porque senón o nome sae cortado polo espazo
         nome=$(echo $line | cut -d$SEP -f2 | sed 's/\ /$TEMP_SPACE/g')
         lst_distros=($(echo $line | cut -d$SEP -f3 | tr $SEP2 "\n"))
         lst_repos=($(echo $line | cut -d$SEP -f4 | tr $SEP2 "\n"))
 
-
         if [[ -n $lst_distros ]]; then
             for distro in "${lst_distros[@]}"; do
                 if [[ $distro = $DISTRO ]]; then
-                    install_pkg $id_nome $nome
+                    install_pkg $id_nome $nome $cont
+                    let cont++
                     #pkgs=$pkgs" "$id_nome
-                    #let cont++
                     break
                 fi
             done
         else
-            install_pkg $id_nome $nome
-            #let cont++
+            install_pkg $id_nome $nome $cont
+            let cont++
             #pkgs=$pkgs" "$id_nome
         fi
     fi
