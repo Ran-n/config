@@ -17,8 +17,8 @@ lang=gz
 # 
 #
 # Show or not progress messages on the screen
-# 1 on
-verbose=
+# only equals to 1 means on
+verbose=1
 #
 #
 # What primary and secondary separators are used in the csv files,
