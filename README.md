@@ -7,17 +7,27 @@ BASH program made for backing up the system configuration and being able to rese
 
 The program uses a configuracion file ".cnf" with multiple options such as verbose, language of messages and a password for sensitive content you wish to protect.
 
-## Normal use
+## Tested on Distros
 
-On first download its important to create a .cnf file to host all the config options, the cnf file is a good base to use.
+ArcoLinux, 
+
+## Use
+### Normal use
+
+On first download its important to create a .cnf file to host all the config options.
+The cnf file is a good base to use and a simple cp command should suffice.
+``cp cnf .cnf``
 Once its created you may use the program normally.
-Since its the first run, use the -i or -s option on rconfig for the inicial setup.
+For the first run, use the -i or -s option on rconfig for the inicial setup.
+``sudo sh rconfig -i`` or ``sudo ./rconfig`` or ``sh rconfig -i`` or ``./rconfig``
 
 Once that is done, the normal use will be:
-    - Change the config of your machine, run rconfig -c
-    - Want to paste the config previously saved over the one present, run rconfig -p
+    - Change the config of your machine, ``rconfig -c``.
+    - Want to paste the config previously saved over the one present, ``rconfig -p``.
 
-## Reuse for your own personal files
+This commands can be executed while being in any part of your computer, since a softlink to this script is placed in the scripts folder.
+
+### Reuse for your own personal files
 
 Though this repository contains my particular config files (saved in the cnfiles folder) it can be used by everyone just by:
 - Removing the cnfiles folder.
@@ -30,20 +40,20 @@ Though this repository contains my particular config files (saved in the cnfiles
     - "scripts.csv" are the list of scripts to be downloaded.
     - "arquivos.csv" are the list of files to be saved as part of the config.
 
-## xFCR
+## Future
+### xFCR
 
-- Make the autoinstall packages script
-- Create a setup script that creates the soft link to ran-config to wherever in the path you want it to be.
+- [X] Make the autoinstall packages script.
+- [X] Create a soft link to rconfig to wherever in the path you want it to be.
+- [X] Divide paste into normal paste and setup so that setup makes the install of the programs and also the link and downloads the scripts.
+- [ ] Set the internacionalization messages in a separate file.
+- [ ] Implement whiptail or dialog (maybe not cuz requires to be installed and all that).
 
-- Divide paste into normal paste and setup so that setup makes the install of the programs and also the link and downloads the scripts.
-- Set the internacionalization messages in a separate file.
-- Implement whiptail or dialog (maybe not cuz requires to be installed and all that).
+### Improvements
 
-## Improvements
-
-- Instead of copying and then removing the excluded files, make it so they are not copied in the first place.
-- Check if files where changed regards to the actual version saved in 7z files.
-- Make files have an option to be distro dependant, some like /etc/pacman.conf are only needed in arch distros and non on debian based for example. Right now theres no way of discriminating by distro like there is on progs.csv.
+- [ ] Exclude Files: Instead of copying and then removing them, make it so they are not copied in the first place.
+- [ ] Check if files where changed regards to the actual version saved in 7z files before rezipping.
+- [ ] Make files have an option to be distro dependant, some like /etc/pacman.conf are only needed in arch distros and non on debian based for example. Right now theres no way of discriminating by distro like there is on progs.csv.
 
 ## [Donations 🙇🙇](https://github.com/Ran-n/doc/blob/main/doaz%C3%B3ns.md)
 
