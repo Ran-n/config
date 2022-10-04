@@ -108,7 +108,9 @@ sqlitebrowser,en,"Graphical Data Base Management System for SQLite."
 sqlitebrowser,cas,"Sistema de gestión de base de datos gráfico para SQLite."
 
 
-speedtest-cli,gz,ferramenta de comando para speedtest.net para facer o control da velocidade da rede
+speedtest-cli,gz,"Programa para terminal para testar a conexión a internet usando speedtest.net."
+speedtest-cli,en,"Program for the terminal for testing the internet conection using speedtest.net."
+speedtest-cli,cas,"Programa para terminal para testear la conexión a internet usando speedtest.net."
 
 
 jq,gz,"Procesador e embelecedor de JSON para linha de comandos."
@@ -116,7 +118,9 @@ jq,en,"Command line JSON processor and prettifier"
 jq,cas,"Procesador y embellecedor de JSON para línea de comandos."
 
 
-xorg-xdpyinfo,gz,ferramenta de mostreo de información
+xorg-xdpyinfo,gz,"Ferramenta de terminal para mostrar información do servidor X tal que as capacidades do servidor, os valores predefinidos dos parámetros usados para a comunicación servidor cliente e as pantallas e visuais existentes."
+xorg-xdpyinfo,en,"Terminal tool for showing information about a X server such as server capabilities, the predefined values of parameters used in the server client communication and the screens and visuals that are available."
+xorg-xdpyinfo,cas,"Herramienta de terminal para mostrar información del servidor X tal que las capacidades del servidor, los valores predefinidos do los parámetros usados para la comunicación servidor cliente y las pantallas y visuales existentes."
 
 
 ranger,gz,"Manexador de ficheiros visual para terminal."
@@ -124,10 +128,14 @@ ranger,en,"Terminal file manager"
 ranger,cas,"Explorador de ficheros visual para terminal."
 
 
-noto-fonts-emoji,gz,fonte de emojis
+noto-fonts-emoji,gz,"Fonte para emojis de Google."
+noto-fonts-emoji,en,"Google's emoji font."
+noto-fonts-emoji,cas,"Fuente para emojis de Google."
 
 
-unicode-emoji,gz,fonte de emojis
+unicode-emoji,gz,"Fonte para emojis de Unicode."
+unicode-emoji,gz,"Unicode's emoji font.'
+unicode-emoji,cas,"Fuente para emojis de Unicode."
 
 
 gimp,gz,"Editor de fotos."
@@ -145,10 +153,14 @@ cmatrix,en,"Letter rain Matrix style for the terminal."
 cmatrix,cas,"Lluvia de letras al estilo Matrix en el terminal"
 
 
-posterazor,gz,corta unha imaxe ou pdf nas dimensións desexadas (pe: mural con D4)
+posterazor,gz,"Programa para cortar unha imaxe ou un pdf nas dimensións desexadas para despois imprimir este resultado e conformar un poster."
+posterazor,en,"Program for cutting an image or pdf into pieces of a desired size which can afterwards be printed out and assembled into a poster."
+posterazor,gz,"Programa para cortar una image o un pdf en las dimensiones deseadas para después imprimir este resultado y conformar un poster."
 
 
-mlocate,gz,comando locate e updatedb
+mlocate,gz,"Paquete que contén os programas para terminal de locate e updatedb."
+mlocate,en,"Package containing the command line programs locate and updatedb."
+mlocate,cas,"Paquete que contiene los programas para terminal de locate y updatedb."
 
 
 tree,gz,"Programa de terminal para listar ficheiros nunha estructura de árbore."
@@ -166,7 +178,9 @@ lynx,en,"Text browser for the terminal."
 lynx,cas,"Buscador de internet tipo texto para el terminal."
 
 
-pdftk,gz,ferramenta para modificar pdfs
+pdftk,gz,"Programa de terminal para manipular pdfs."
+pdftk,en,"Terminal toolkit for manipulating pdfs."
+pdftk,cas,"Programa de terminal para manipular pdfs."
 
 
 enscript,gz,"Convertidor de ficheiros ASCII a PostScript, HTML ou RTF."
@@ -184,7 +198,9 @@ ipython,en,"Python interactive shell."
 ipython,cas,"Shell de Python interactivo."
 
 
-calcurse,gz,organizador persoal en formato texto
+calcurse,gz,"Aplicación para terminal de organización e calendario."
+calcurse,en,"Calendar and scheduling application for the command line."
+calcurse,cas,"Aplicación para terminal de organización y calendario."
 
 
 sxhkd,gz,"Ligador te combinacións de teclas a accións."
@@ -192,10 +208,14 @@ sxhkd,en,"Simple X daemon that reacts to input events by executing commands."
 sxhkd,cas,"Ligador de combinaciones de teclas a acciones."
 
 
-perl-rename,gz,comando que permite facer renomeamentos en masa
+perl-rename,gz,"Comando para o renomeo masivo de arquivos usando expresións de perl."
+perl-rename,en,"Command for mass renaming files using perl expresions."
+perl-rename,cas,"Comando apra ele renombrado masivo de ficheros usando expresiones de perl."
 
 
-rename,gz,comando que permite facer renomeamentos en masa
+rename,gz,"Commando para o renomeo masivo de arquivos."
+rename,en,"Command for mass renaming files."
+rename,cas,"Comando para el renombrado masivo de ficheros."
 
 
 mkvtoolnix-cli,gz,"Ferramentas de edición de ficheiros mkv para terminal."
@@ -218,13 +238,19 @@ rambox-bin,en,"Unifier of services for communication in a single app."
 rambox-bin,cas,"Unificador de servicios de comunicación en una sola aplicación."
 
 
-texlive-full,gz,editor de texto LaTeX
+texlive-full,gz,"Compliación de paquetes de TeX Live."
+texlive-full,en,"Package bundle of TeX Live."
+texlive-full,cas,"Compliación de paquetes de TeX Live."
 
 
-texlive-most,gz,editor de texto de LaTeX
+texlive-most,gz,"Compliación de paquetes de TeX Live."
+texlive-most,en,"Package bundle of TeX Live."
+texlive-most,cas,"Compliación de paquetes de TeX Live."
 
 
-texlive-lang,gz,paquete para LaTeX de soporte de idiomas
+texlive-lang,gz,"Compilación de paquetes de idiomas para TeX Live."
+texlive-lang,en,"Language package bundle for TeX Live."
+texlive-lang,cas,"Compilación de paquetes de idiomas para TeX Live."
 
 
 hugo,gz,"Xerador de páxinas web estáticas."
