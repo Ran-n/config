@@ -155,7 +155,7 @@ cmatrix,cas,"Lluvia de letras al estilo Matrix en el terminal"
 
 posterazor,gz,"Programa para cortar unha imaxe ou un pdf nas dimensións desexadas para despois imprimir este resultado e conformar un poster."
 posterazor,en,"Program for cutting an image or pdf into pieces of a desired size which can afterwards be printed out and assembled into a poster."
-posterazor,gz,"Programa para cortar una image o un pdf en las dimensiones deseadas para después imprimir este resultado y conformar un poster."
+posterazor,cas,"Programa para cortar una image o un pdf en las dimensiones deseadas para después imprimir este resultado y conformar un poster."
 
 
 mlocate,gz,"Paquete que contén os programas para terminal de locate e updatedb."
