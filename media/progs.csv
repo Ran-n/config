@@ -1,11 +1,11 @@
 # ------------------------------------------------------------------------------
 #+ Autor:	Ran#
 #+ Creado:	15/03/2020 14:37:28
-#+ Editado:	2022/09/10 22:36:46.181785
+#+ Editado:	2022/10/04 22:55:46.371138
 # ------------------------------------------------------------------------------
 # LEGEND:
 # Identifier    -> Identifier of the program.
-# Name          -> Name of the program.
+# Name          -> Name of the program (dont put any commas inside or the package wont install).
 # Distro        -> Especial distro in which its installable under that name (empty non distro dependant).
 # Repository    -> In which place it can be found (empty standard repository)
 # ------------------------------------------------------------------------------
@@ -58,4 +58,4 @@ xorg-xdpyinfo,"xdpyinfo",,
 xwallpaper,"XWallpaper",,
 youtube-dl,"youtube-dl",,
 zathura,"Zathura",,
-zathura-pdf-mupdf,"Zathura (pdf, mupdf)",,
+zathura-pdf-mupdf,"Zathura (pdf|mupdf)",,
