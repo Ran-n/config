@@ -45,7 +45,7 @@ dia,cas,"Programa de creación de diagramas, UMLs, esquemas, etc."
 
 ffmpeg,gz,"Programa para a conversión e gravación de audio e vídeo."
 ffmpeg,en,"Program for the conversion and recording of audio an video."
-ffmpeg,gz,"Programa para la conversión y gravación de audio y vídeo."
+ffmpeg,cas,"Programa para la conversión y gravación de audio y vídeo."
 
 
 neofetch,gz,"Ferramenta de mostrado da información do sistema para o terminal."
@@ -89,12 +89,12 @@ zathura,cas,"Visualizador de documentos."
 
 
 zathura-pdf-mupdf,gz,"Permite compatibilidade dos pdf e mupdf con Zathura."
-zathura-pdf-mupdf,gz,"Allows Zathura to read pdf and mupdf files."
+zathura-pdf-mupdf,en,"Allows Zathura to read pdf and mupdf files."
 zathura-pdf-mupdf,cas,"Permite la compatibilidad de los pdf y mupdf con Zathura."
 
 
 poppler,gz,"Manipula, previsualiza e dalle outras funcións a ficheros pdf."
-poppler,gz,"Manipulates, gives previews and gives other functions to pdf files."
+poppler,en,"Manipulates, gives previews and gives other functions to pdf files."
 poppler,cas,"Manipula, previsualiza y le da otras funciones a ficheros pdf."
 
 
@@ -134,7 +134,7 @@ noto-fonts-emoji,cas,"Fuente para emojis de Google."
 
 
 unicode-emoji,gz,"Fonte para emojis de Unicode."
-unicode-emoji,gz,"Unicode's emoji font.'
+unicode-emoji,en,"Unicode's emoji font.'
 unicode-emoji,cas,"Fuente para emojis de Unicode."
 
 
