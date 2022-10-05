@@ -256,3 +256,8 @@ texlive-lang,cas,"Compilación de paquetes de idiomas para TeX Live."
 hugo,gz,"Xerador de páxinas web estáticas."
 hugo,en,"Static website generator."
 hugo,cas,"Generador de páginas web estáticas."
+
+
+neovim,gz,"Mellora do editor de texto vim."
+neovim,en,"Hyperextensible vim based text editor."
+neovim,cas,"Mejora del editor de texto vim."
