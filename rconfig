@@ -5,6 +5,8 @@
 
 cd $(dirname $(readlink -f $0))
 
+# se non existe o fich de cnf creao da base
+[[ -f $(pwd)/.cnf ]] || cp $(pwd)/cnf $(pwd)/.cnf
 LINGUA=$(grep -w "lang" $(pwd)/.cnf | cut -d= -f2)
 
 mensaxe_axuda(){
