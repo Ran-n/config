@@ -1,0 +1,21 @@
+# -*- coding: utf-8 -*-
+# ------------------------------------------------------------------------------
+#+ Autor:  	Ran#
+#+ Creado: 	2022/10/06 20:04:53.668072
+#+ Editado:	2022/10/07 01:53:50.351944
+# ------------------------------------------------------------------------------
+
+# Legend:
+# id    -> Identifier for the text.
+# lang  -> Language of the text.
+# text  -> Text in question.
+
+# id, lang, text
+
+return.ok,gz,"◄ BO"
+return.ok,en,"◄ OK"
+return.ok,cas,"◄ OK"
+
+titulo.crear_carpetas,gz,"► Creando ou modificando os nomes das carpetas"
+titulo.crear_carpetas,en,"► Creating our modifying the names of the folders"
+titulo.crear_carpetas,cas,"► Creando o modificando los nombres de las carpetas"
