@@ -19,6 +19,10 @@ The cnf file is a good base to use and a simple cp command should suffice.
 
 ``cp cnf .cnf``
 
+There is also the option of going to execute the main script without doing this step.
+If so, the program will create the .cnf file from the cnf one and will prompt the user
+to indicate first, the language, and then if they want to use a password.
+
 Once its created you may use the program normally.
 For the first run, use the -i or -s option on rconfig for the inicial setup.
 
@@ -42,6 +46,7 @@ Though this repository contains my particular config files (saved in the cnfiles
     - "progs_csv.csv" are the list of program descriptions to be installed in different languages.
     - "scripts.csv" are the list of scripts to be downloaded.
     - "arquivos.csv" are the list of files to be saved as part of the config.
+    - "i18n.csv" internacionalization file.
 
 ## Future
 ### xFCR
