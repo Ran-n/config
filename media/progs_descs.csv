@@ -10,7 +10,7 @@
 # Description   -> Description of the program.
 #
 # ------------------------------------------------------------------------------
-#
+
 # NAME, LANGUAGE, DESCRIPTION
 
 pandoc,gz,"Conversor entre tipos de documentos como md, html, latex, etc"
@@ -193,7 +193,7 @@ chafa,en,"Image viewer in the terminal."
 chafa,cas,"Visualizador de imágenes en el terminal."
 
 
-ipython,gz cas,"Shell de Python interactivo."
+ipython,gz,"Shell de Python interactivo."
 ipython,en,"Python interactive shell."
 ipython,cas,"Shell de Python interactivo."
 
