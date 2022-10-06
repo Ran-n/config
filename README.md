@@ -16,9 +16,12 @@ ArcoLinux,
 
 On first download its important to create a .cnf file to host all the config options.
 The cnf file is a good base to use and a simple cp command should suffice.
+
 ``cp cnf .cnf``
+
 Once its created you may use the program normally.
 For the first run, use the -i or -s option on rconfig for the inicial setup.
+
 ``sudo sh rconfig -i`` or ``sudo ./rconfig`` or ``sh rconfig -i`` or ``./rconfig``
 
 Once that is done, the normal use will be:
