@@ -2,7 +2,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:  	Ran#
 #+ Creado: 	2022/10/06 20:04:53.668072
-#+ Editado:	2022/10/07 02:18:10.576956
+#+ Editado:	2022/10/07 02:29:08.929009
 # ------------------------------------------------------------------------------
 
 # Legend:
@@ -49,6 +49,11 @@ titulo.copiar_cnfichs,cas,"► Copiando los ficheros de configuración"
 titulo.instalar_progs,gz,"► Instalando os programas"
 titulo.instalar_progs,en,"► Installing the programs"
 titulo.instalar_progs,cas,"► Instalando los programas"
+
+
+titulo.pegar_cnfichs,gz,"► Pegando os ficheiros de configuración"
+titulo.pegar_cnfichs,en,"► Pasting the configuration files"
+titulo.pegar_cnfichs,cas,"► Pegando los ficheros de configuación"
 
 
 
