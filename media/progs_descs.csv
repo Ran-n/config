@@ -1,7 +1,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:	Ran#
 #+ Creado:	2022/10/01 16:08:29.411662
-#+ Editado:	2022/10/07 16:02:51.132247
+#+ Editado:	2022/10/07 16:10:49.927207
 # ------------------------------------------------------------------------------
 #
 # LEGEND:
@@ -271,3 +271,8 @@ yay,cas,"Manejador de paquetes AUR."
 python-pip,gz,"Manexador de paquetes de Python."
 python-pip,en,"Python's package installer.'
 python-pip,cas,"Manejador de paquetes de Python."
+
+
+pipreqs,gz,"Xerador do documento requirements.txt baseándose nos imports do proxecto."
+pipreqs,en,"Generator of requirements.txt based on the project's imports"
+pipreqs,cas,"Generador del documento requirements.txt basándose en los imports del proyecto."
