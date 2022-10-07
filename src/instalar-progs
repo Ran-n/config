@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:  	Ran#
 #+ Creado: 	2022/09/09 16:41:29.164675
-#+ Editado:	2022/10/07 14:00:37.609494
+#+ Editado:	2022/10/07 14:07:03.950057
 # ------------------------------------------------------------------------------
 
 # mirar se o script se executa como root
@@ -78,7 +78,7 @@ install_pkg(){
     pkg_install
 }
 
-$(pwd)/src/echo-texto -l $LINGUA -i "titulo.instalar_progs"
+$(pwd)/src/uteis/echo-texto -l $LINGUA -i "titulo.instalar_progs"
 
 #pkgs=""
 cont=1
@@ -112,4 +112,4 @@ done < $FICH
 
 #install_pkg "$pkgs"
 
-$(pwd)/src/echo-texto -l $LINGUA -i "final.ok"
+$(pwd)/src/uteis/echo-texto -l $LINGUA -i "final.ok"

@@ -1,7 +1,7 @@
 #! /bin/sh
 #+ Autor:	Ran#
 #+ Creado:	22/04/2020 00:23:18
-#+ Editado:	2022/10/07 02:18:33.029999
+#+ Editado:	2022/10/07 14:06:01.221680
 
 #* Script que copia of ficheiros de configuración da máquina na que estou
 
@@ -61,7 +61,7 @@ CNFOLDER_ROOT=$(grep -w "^cnfolder_root" $(pwd)/.cnf | cut -d= -f2)
 FOGAR=$(eval echo "~$USER")
 
 
-$(pwd)/src/echo-texto -l $LINGUA -i "titulo.copiar_cnfichs"
+$(pwd)/src/uteis/echo-texto -l $LINGUA -i "titulo.copiar_cnfichs"
 
 while read line; do
     # ignorar liñas comentadas ou baleiras
@@ -97,4 +97,4 @@ done < $FICH
 # preciso cambiar isto porque se executa como root e quedaría como owner
 chown -R $USER:$USER $(pwd)/$CNFOLDER
 
-$(pwd)/src/echo-texto -l $LINGUA -i "final.ok"
+$(pwd)/src/uteis/echo-texto -l $LINGUA -i "final.ok"

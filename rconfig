@@ -12,13 +12,13 @@ LINGUA=$(grep -w "lang" $(pwd)/.cnf | cut -d= -f2)
 mensaxe_operacion_inicio(){
     case $1 in
         c)
-            $(pwd)/src/echo-texto -l $LINGUA -i "titulo.rconfig.operacion_copiado"
+            $(pwd)/src/uteis/echo-texto -l $LINGUA -i "titulo.rconfig.operacion_copiado"
             ;;
         p)
-            $(pwd)/src/echo-texto -l $LINGUA -i "titulo.rconfig.operacion_pegado"
+            $(pwd)/src/uteis/echo-texto -l $LINGUA -i "titulo.rconfig.operacion_pegado"
             ;;
         s)
-            $(pwd)/src/echo-texto -l $LINGUA -i "titulo.rconfig.operacion_inicio"
+            $(pwd)/src/uteis/echo-texto -l $LINGUA -i "titulo.rconfig.operacion_inicio"
             ;;
     esac
 }
@@ -26,13 +26,13 @@ mensaxe_operacion_inicio(){
 mensaxe_operacion_fin(){
     case $1 in
         c)
-            $(pwd)/src/echo-texto -l $LINGUA -i "final.rconfig.operacion_copiado"
+            $(pwd)/src/uteis/echo-texto -l $LINGUA -i "final.rconfig.operacion_copiado"
             ;;
         p)
-            $(pwd)/src/echo-texto -l $LINGUA -i "final.rconfig.operacion_pegado"
+            $(pwd)/src/uteis/echo-texto -l $LINGUA -i "final.rconfig.operacion_pegado"
             ;;
         s)
-            $(pwd)/src/echo-texto -l $LINGUA -i "final.rconfig.operacion_inicio"
+            $(pwd)/src/uteis/echo-texto -l $LINGUA -i "final.rconfig.operacion_inicio"
             ;;
     esac
 }
@@ -68,7 +68,7 @@ inicio() {
 
 # se non meten variable pois pon mensaxe e sae
 if [ -z $1 ]; then
-    $(pwd)/src/echo-texto -l $LINGUA -i "info.axuda.rconfig"
+    $(pwd)/src/uteis/echo-texto -l $LINGUA -i "info.axuda.rconfig"
     exit 1
 fi
 
@@ -92,6 +92,6 @@ case $1 in
         ;;
 
     *)
-        $(pwd)/src/echo-texto -l $LINGUA -i "info.axuda.rconfig"
+        $(pwd)/src/uteis/echo-texto -l $LINGUA -i "info.axuda.rconfig"
         ;;
 esac
