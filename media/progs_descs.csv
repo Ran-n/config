@@ -1,7 +1,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:	Ran#
 #+ Creado:	2022/10/01 16:08:29.411662
-#+ Editado:	2022/10/07 13:01:59.580086
+#+ Editado:	2022/10/07 16:02:51.132247
 # ------------------------------------------------------------------------------
 #
 # LEGEND:
@@ -266,3 +266,8 @@ neovim,cas,"Mejora del editor de texto vim."
 yay,gz,"Manexador de paquetes AUR."
 yay,en,"AUR package manager."
 yay,cas,"Manejador de paquetes AUR."
+
+
+python-pip,gz,"Manexador de paquetes de Python."
+python-pip,en,"Python's package installer.'
+python-pip,cas,"Manejador de paquetes de Python."

@@ -9,7 +9,7 @@ The program uses a configuracion file ".cnf" with multiple options such as verbo
 
 ## Tested on Distros
 
-ArcoLinux, 
+ArcoLinux,
 
 ## Use
 ### Normal use
@@ -58,6 +58,7 @@ Though this repository contains my particular config files (saved in the cnfiles
 - ~~Implement whiptail or dialog (maybe not cuz requires to be installed and all that).~~
 - [X] Allow software install from the AUR.
 - [ ] Allow software install from git.
+- [ ] Allow software install from pip.
 
 ### Improvements
 
