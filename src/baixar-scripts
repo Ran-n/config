@@ -19,9 +19,9 @@ fi
 
 FICH=$(pwd)"/media/scripts.csv"
 
-LINGUA=$(grep -w "lang" $(pwd)/.cnf | cut -d= -f2)
-VERBOSE=$(grep -w "verbose" $(pwd)/.cnf | cut -d= -f2)
-CARPETA_DESTINO=$(grep -w "scripts_folder" $(pwd)/.cnf | cut -d= -f2)
+LINGUA=$(grep -w "^lang" $(pwd)/.cnf | cut -d= -f2)
+VERBOSE=$(grep -w "^verbose" $(pwd)/.cnf | cut -d= -f2)
+CARPETA_DESTINO=$(grep -w "^scripts_folder" $(pwd)/.cnf | cut -d= -f2)
 DISTRO=$(lsb_release -a | sed -n '2,+0p' | cut -d: -f2 | tr -ds '\t' '')
 
 

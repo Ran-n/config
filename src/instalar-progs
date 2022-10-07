@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:  	Ran#
 #+ Creado: 	2022/09/09 16:41:29.164675
-#+ Editado:	2022/10/07 02:26:23.181052
+#+ Editado:	2022/10/07 02:39:09.041443
 # ------------------------------------------------------------------------------
 
 # mirar se o script se executa como root
@@ -23,11 +23,11 @@ fi
 FICH=$(pwd)"/media/progs.csv"
 FICH2=$(pwd)"/media/progs_descs.csv"
 
-LINGUA=$(grep -w "lang" $(pwd)/.cnf | cut -d= -f2)
-VERBOSE=$(grep -w "verbose" $(pwd)/.cnf | cut -d= -f2)
-SEP=$(grep -w "csv_separator" $(pwd)/.cnf | cut -d= -f2)
-SEP2=$(grep -w "csv_separator2" $(pwd)/.cnf | cut -d= -f2)
-SEP_CATEX=$(grep -w "csv_string" $(pwd)/.cnf | cut -d= -f2)
+LINGUA=$(grep -w "^lang" $(pwd)/.cnf | cut -d= -f2)
+VERBOSE=$(grep -w "^verbose" $(pwd)/.cnf | cut -d= -f2)
+SEP=$(grep -w "^csv_separator" $(pwd)/.cnf | cut -d= -f2)
+SEP2=$(grep -w "^csv_separator2" $(pwd)/.cnf | cut -d= -f2)
+SEP_CATEX=$(grep -w "^csv_string" $(pwd)/.cnf | cut -d= -f2)
 DISTRO=$(lsb_release -a | sed -n '2,+0p' | cut -d: -f2 | tr -ds '\t' '')
 NUM_PROGS=$(grep "^[^#]" $FICH | grep -E ",,|$DISTRO" | wc -l)
 

@@ -48,15 +48,15 @@ FICH=$(pwd)"/media/arquivos.csv"
 
 USER=${SUDO_USER:-${USER}}
 
-LINGUA=$(grep -w "lang" $(pwd)/.cnf | cut -d= -f2)
-VERBOSE=$(grep -w "verbose" $(pwd)/.cnf | cut -d= -f2)
+LINGUA=$(grep -w "^lang" $(pwd)/.cnf | cut -d= -f2)
+VERBOSE=$(grep -w "^verbose" $(pwd)/.cnf | cut -d= -f2)
 ACCEPT_ENCRIPT=$(grep -w "^accept_encryption" $(pwd)/.cnf | cut -d= -f2)
-CONTRASINAL=$(grep -w "passwd" $(pwd)/.cnf | cut -d= -f2)
-SEP=$(grep -w "csv_separator" $(pwd)/.cnf | cut -d= -f2)
-SEP2=$(grep -w "csv_separator2" $(pwd)/.cnf | cut -d= -f2)
-CNFOLDER=$(grep -w "cnfolder" $(pwd)/.cnf | cut -d= -f2)
-CNFOLDER_HOME=$(grep -w "cnfolder_home" $(pwd)/.cnf | cut -d= -f2)
-CNFOLDER_ROOT=$(grep -w "cnfolder_root" $(pwd)/.cnf | cut -d= -f2)
+CONTRASINAL=$(grep -w "^passwd" $(pwd)/.cnf | cut -d= -f2)
+SEP=$(grep -w "^csv_separator" $(pwd)/.cnf | cut -d= -f2)
+SEP2=$(grep -w "^csv_separator2" $(pwd)/.cnf | cut -d= -f2)
+CNFOLDER=$(grep -w "^cnfolder" $(pwd)/.cnf | cut -d= -f2)
+CNFOLDER_HOME=$(grep -w "^cnfolder_home" $(pwd)/.cnf | cut -d= -f2)
+CNFOLDER_ROOT=$(grep -w "^cnfolder_root" $(pwd)/.cnf | cut -d= -f2)
 
 FOGAR=$(eval echo "~$USER")
 

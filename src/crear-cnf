@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:  	Ran#
 #+ Creado: 	2022/10/05 21:58:48.495625
-#+ Editado:	2022/10/05 22:21:49.458419
+#+ Editado:	2022/10/07 02:38:32.214941
 # ------------------------------------------------------------------------------
 
 # copiase o ficheiro
@@ -18,7 +18,7 @@ echo
 
 sed -i 's/lang=.*/lang='"$lang"'/g' $(pwd)/.cnf
 
-LINGUA=$(grep -w "lang" $(pwd)/.cnf | cut -d= -f2)
+LINGUA=$(grep -w "^lang" $(pwd)/.cnf | cut -d= -f2)
 
 $(pwd)/src/echo-texto -l $LINGUA -i "mensaxe.usuario.indicar_contrasinal"
 
