@@ -1,0 +1,17 @@
+#! /bin/sh
+# -*- coding: utf-8 -*-
+# ------------------------------------------------------------------------------
+#+ Autor:  	Ran#
+#+ Creado: 	2022/10/07 14:10:28.447383
+#+ Editado:	2022/10/07 14:19:46.474752
+# ------------------------------------------------------------------------------
+
+#* Script para ler o ficheiro de configuración e devolver o valor da variable pedida
+
+while getopts "v:" o; do
+    case "${o}" in
+        v)
+            echo $(grep -w "^$OPTARG=.*" $(pwd)/.cnf | cut -d= -f2)
+            ;;
+    esac
+done
