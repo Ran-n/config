@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:  	Ran#
 #+ Creado: 	2022/09/09 16:41:29.164675
-#+ Editado:	2022/10/07 12:02:27.717040
+#+ Editado:	2022/10/07 14:00:37.609494
 # ------------------------------------------------------------------------------
 
 # mirar se o script se executa como root
@@ -23,11 +23,14 @@ fi
 FICH=$(pwd)"/media/progs.csv"
 FICH2=$(pwd)"/media/progs_descs.csv"
 
+USER=${SUDO_USER:-${USER}}
+
 LINGUA=$(grep -w "^lang" $(pwd)/.cnf | cut -d= -f2)
 VERBOSE=$(grep -w "^verbose" $(pwd)/.cnf | cut -d= -f2)
 SEP=$(grep -w "^csv_separator" $(pwd)/.cnf | cut -d= -f2)
 SEP2=$(grep -w "^csv_separator2" $(pwd)/.cnf | cut -d= -f2)
 SEP_CATEX=$(grep -w "^csv_string" $(pwd)/.cnf | cut -d= -f2)
+AUR_PKG_MANAGER=$(grep -w "^aur_pkg_manager" $(pwd)/.cnf | cut -d= -f2)
 DISTRO=$(lsb_release -a | sed -n '2,+0p' | cut -d: -f2 | tr -ds '\t' '')
 NUM_PROGS=$(grep "^[^#]" $FICH | grep -E ",,|$DISTRO" | wc -l)
 
@@ -36,11 +39,17 @@ TEMP_SPACE=":-:"
 pkg_install(){
     case $repositorio in
         "")
-            pacman -S $id_nome --noconfirm --needed > /dev/null 2>&1
-            #pacman -S $id_nome --noconfirm --needed
+            case $DISTRO in
+                "ArcoLinux"\
+                |"Manjaro")
+                    pacman -S $id_nome --noconfirm --needed > /dev/null 2>&1
+                    #pacman -S $id_nome --noconfirm --needed
+                    ;;
+            esac
             ;;
         aur)
-            echo AUR
+            sudo -u $USER $AUR_PKG_MANAGER -S $id_nome --noconfirm --needed > /dev/null 2>&1
+            #sudo -u $USER $AUR_PKG_MANAGER -S $id_nome --noconfirm --needed
             ;;
         git)
             echo GIT
