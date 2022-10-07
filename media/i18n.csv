@@ -2,7 +2,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:  	Ran#
 #+ Creado: 	2022/10/06 20:04:53.668072
-#+ Editado:	2022/10/07 02:12:39.503768
+#+ Editado:	2022/10/07 02:18:10.576956
 # ------------------------------------------------------------------------------
 
 # Legend:
@@ -31,14 +31,19 @@ titulo.rconfig.operacion_inicio,en,"=== Doing the SETUP operation ==="
 titulo.rconfig.operacion_inicio,cas,"=== Haciendo la operación de INICIO ==="
 
 
-titulo.crear_carpetas,gz,"► Creando ou modificando os nomes das carpetas:"
-titulo.crear_carpetas,en,"► Creating our modifying the names of the folders:"
-titulo.crear_carpetas,cas,"► Creando o modificando los nombres de las carpetas:"
+titulo.crear_carpetas,gz,"► Creando ou modificando os nomes das carpetas"
+titulo.crear_carpetas,en,"► Creating our modifying the names of the folders"
+titulo.crear_carpetas,cas,"► Creando o modificando los nombres de las carpetas"
 
 
-titulo.baixar_scripts,gz,"► Baixando os scripts:"
-titulo.baixar_scripts,en,"► Downloading the scripts:"
-titulo.baixar_scripts,cas,"► Bajando los scripts:"
+titulo.baixar_scripts,gz,"► Baixando os scripts"
+titulo.baixar_scripts,en,"► Downloading the scripts"
+titulo.baixar_scripts,cas,"► Bajando los scripts"
+
+
+titulo.copiar_cnfichs,gz,"► Copiando os ficheiros de configuración"
+titulo.copiar_cnfichs,en,"► Copying the configuration files"
+titulo.copiar_cnfichs,cas,"► Copiando los ficheros de configuración"
 
 
 
