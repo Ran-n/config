@@ -31,9 +31,14 @@ titulo.rconfig.operacion_inicio,en,"=== Doing the SETUP operation ==="
 titulo.rconfig.operacion_inicio,cas,"=== Haciendo la operación de INICIO ==="
 
 
-titulo.crear_carpetas,gz,"► Creando ou modificando os nomes das carpetas"
-titulo.crear_carpetas,en,"► Creating our modifying the names of the folders"
-titulo.crear_carpetas,cas,"► Creando o modificando los nombres de las carpetas"
+titulo.crear_carpetas,gz,"► Creando ou modificando os nomes das carpetas:"
+titulo.crear_carpetas,en,"► Creating our modifying the names of the folders:"
+titulo.crear_carpetas,cas,"► Creando o modificando los nombres de las carpetas:"
+
+
+titulo.baixar_scripts,gz,"► Baixando os scripts:"
+titulo.baixar_scripts,en,"► Downloading the scripts:"
+titulo.baixar_scripts,cas,"► Bajando los scripts:"
 
 
 

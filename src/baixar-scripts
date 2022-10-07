@@ -24,18 +24,8 @@ VERBOSE=$(grep -w "verbose" $(pwd)/.cnf | cut -d= -f2)
 CARPETA_DESTINO=$(grep -w "scripts_folder" $(pwd)/.cnf | cut -d= -f2)
 DISTRO=$(lsb_release -a | sed -n '2,+0p' | cut -d: -f2 | tr -ds '\t' '')
 
-# mensaxe de inicio
-case $LINGUA in
-    gz)
-        echo '► Baixando os scripts:'
-        ;;
-    en)
-        echo '► Downloading the scripts:'
-        ;;
-    cas)
-        echo '► Bajando los scripts:'
-        ;;
-esac
+
+$(pwd)/src/echo-texto -l $LINGUA -i "titulo.baixar_scripts"
 
 # crear (se non existe) a carpeta
 mkdir -p $CARPETA_DESTINO
@@ -75,15 +65,4 @@ while read line; do
     fi
 done < $FICH
 
-# mensaxe de fin
-case $LINGUA in
-    gz)
-        echo '◄ BO'
-        ;;
-    en)
-        echo '◄ OK'
-        ;;
-    cas)
-        echo '◄ OK'
-        ;;
-esac
+$(pwd)/src/echo-texto -l $LINGUA -i "final.ok"
