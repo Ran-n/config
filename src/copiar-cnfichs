@@ -82,7 +82,7 @@ while read line; do
 
         [[ -n $excluir ]] && eliminar $ruta_total $excluir
 
-        if [[ $encriptar -eq $ACCEPT_ENCRIPT ]]; then
+        if [[ -n $CONTRASINAL && $encriptar -eq $ACCEPT_ENCRIPT ]]; then
             if [[ $VERBOSE -eq 1 ]]; then
                 7z a $ruta_total $ruta_total -p$CONTRASINAL -mhe=on -mx=9 -bb1
                 rm -vrf $ruta_total
