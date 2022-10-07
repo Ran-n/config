@@ -1,7 +1,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:	Ran#
 #+ Creado:	15/03/2020 14:37:28
-#+ Editado:	2022/10/06 20:08:45.433150
+#+ Editado:	2022/10/07 13:00:23.793266
 # ------------------------------------------------------------------------------
 # LEGEND:
 # Identifier    -> Identifier of the program.
@@ -12,8 +12,11 @@
 
 # IDENTIFIER, NAME, DISTRO, REPOSITORY
 
+# ******* #
+# GENERAL #
+# ******* #
+
 #dia,"Dia Diagram Editor",,
-#rambox-bin,"Rambox",ArcoLinux|Manjaro,AUR
 alacritty,"Alacritty",,
 calcurse,"Calcurse",,
 chafa,"Chafa",,
@@ -30,16 +33,13 @@ ipython,"iPython",,
 jq,"jq",,
 libnotify,"libnotify",,
 lynx,"Lynx",,
-mkvtoolnix-cli,"MKVToolNix",ArcoLinux|Manjaro,
-mkvtoolnix-gui,"MKVToolNix GUI",ArcoLinux|Manjaro,
 mlocate,"mlocate (locate/updatedb)",,
 mpv,"mpv",,
 neofetch,"Neofetch",,
+neovim,"Neovim",,
 noto-fonts-emoji,"Google's Emojis",,
-p7zip,"7-Zip",ArcoLinux|Manjaro,
 pandoc,"Pandoc",,
 pdftk,"PDFtk",,
-perl-rename,"rename",ArcoLinux|Manjaro,
 poppler,"Poppler",,
 posterazor,"PosteRazor",,
 ranger,"Ranger",,
@@ -51,8 +51,6 @@ sxhkd,"sxhkd",,
 sxiv,"sxiv",,
 telegram-desktop,"Telegram",,
 texlive-full,"TeX Live",Debian,
-texlive-lang,"TeX Live (Langs)",ArcoLinux|Manjaro,
-texlive-most,"TeX Live",ArcoLinux|Manjaro,
 tree,"tree",,
 unicode-emoji,"Unicode's Emojis",,
 xclip,"xclip",,
@@ -61,4 +59,21 @@ xwallpaper,"XWallpaper",,
 youtube-dl,"youtube-dl",,
 zathura,"Zathura",,
 zathura-pdf-mupdf,"Zathura (pdf|mupdf)",,
-neovim,"Neovim",,
+
+# ********** #
+# Arch Based #
+# ********** #
+
+mkvtoolnix-cli,"MKVToolNix",ArcoLinux|Manjaro,
+mkvtoolnix-gui,"MKVToolNix GUI",ArcoLinux|Manjaro,
+p7zip,"7-Zip",ArcoLinux|Manjaro,
+perl-rename,"rename",ArcoLinux|Manjaro,
+texlive-lang,"TeX Live (Langs)",ArcoLinux|Manjaro,
+texlive-most,"TeX Live",ArcoLinux|Manjaro,
+yay,"yay",ArcoLinux|Manjaro,
+
+## *** ##
+## AUR ##
+## *** ##
+
+#rambox-bin,"Rambox",ArcoLinux|Manjaro,AUR
