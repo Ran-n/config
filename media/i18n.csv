@@ -2,7 +2,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:  	Ran#
 #+ Creado: 	2022/10/06 20:04:53.668072
-#+ Editado:	2022/10/07 01:53:50.351944
+#+ Editado:	2022/10/07 02:12:39.503768
 # ------------------------------------------------------------------------------
 
 # Legend:
@@ -10,12 +10,60 @@
 # lang  -> Language of the text.
 # text  -> Text in question.
 
-# id, lang, text
+# ID, LANG, TEXT
 
-return.ok,gz,"◄ BO"
-return.ok,en,"◄ OK"
-return.ok,cas,"◄ OK"
+# ******* #
+# TÍTULOS #
+# ******* #
+
+titulo.rconfig.operacion_copiado,gz,"=== Realizando a operación de COPIADO ==="
+titulo.rconfig.operacion_copiado,en,"=== Doing the COPY operation ==="
+titulo.rconfig.operacion_copiado,cas,"=== Haciendo la operación de COPIADO ==="
+
+
+titulo.rconfig.operacion_pegado,gz,"=== Realizando a operación de PEGADO ==="
+titulo.rconfig.operacion_pegado,en,"=== Doing the PASTE operation ==="
+titulo.rconfig.operacion_pegado,cas,"=== Haciendo la operación de PEGADO ==="
+
+
+titulo.rconfig.operacion_inicio,gz,"=== Realizando a operación de INICIO ==="
+titulo.rconfig.operacion_inicio,en,"=== Doing the SETUP operation ==="
+titulo.rconfig.operacion_inicio,cas,"=== Haciendo la operación de INICIO ==="
+
 
 titulo.crear_carpetas,gz,"► Creando ou modificando os nomes das carpetas"
 titulo.crear_carpetas,en,"► Creating our modifying the names of the folders"
 titulo.crear_carpetas,cas,"► Creando o modificando los nombres de las carpetas"
+
+
+
+# ***** #
+# FINAL #
+# ***** #
+
+final.ok,gz,"◄ BO"
+final.ok,en,"◄ OK"
+final.ok,cas,"◄ OK"
+
+final.rconfig.operacion_copiado,gz,"=== Fin da operación de COPIADO ==="
+final.rconfig.operacion_copiado,en,"=== End of the COPY operation ==="
+final.rconfig.operacion_copiado,cas,"=== Fin de la operación de COPIADO ==="
+
+
+final.rconfig.operacion_pegado,gz,"=== Fin da operación de PEGADO ==="
+final.rconfig.operacion_pegado,en,"=== End of the PASTE operation ==="
+final.rconfig.operacion_pegado,cas,"=== Fin de la operación de PEGADO ==="
+
+
+final.rconfig.operacion_inicio,gz,"=== Fin da operación de INICIO ==="
+final.rconfig.operacion_inicio,en,"=== End of the SETUP operation ==="
+final.rconfig.operacion_inicio,cas,"=== Fin de la operación de INICIO ==="
+
+
+# **** #
+# INFO #
+# **** #
+
+info.axuda.rconfig,gz,"Hai que indicar se a operación é de copiado(-c), de pegado(-p) ou de inicio(-i)."
+info.axuda.rconfig,en,"Indicating the weather the operation is of copy(-c), paste(-p) or setup(-s) is mandatory."
+info.axuda.rconfig,cas,"Hay que indicar si es una operación de copiado(-c), pegado(-p) o inicio(-i)."
