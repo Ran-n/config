@@ -58,7 +58,7 @@ Though this repository contains my particular config files (saved in the cnfiles
 - ~~Implement whiptail or dialog (maybe not cuz requires to be installed and all that).~~
 - [X] Allow software install from the AUR.
 - [ ] Allow software install from git.
-- [ ] Allow software install from pip.
+- [X] Allow software install from pip.
 
 ### Improvements
 
