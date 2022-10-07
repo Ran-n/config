@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:  	Ran#
 #+ Creado: 	2022/09/09 16:41:29.164675
-#+ Editado:	2022/10/07 14:07:03.950057
+#+ Editado:	2022/10/07 14:30:40.370612
 # ------------------------------------------------------------------------------
 
 # mirar se o script se executa como root
@@ -22,19 +22,19 @@ fi
 
 FICH=$(pwd)"/media/progs.csv"
 FICH2=$(pwd)"/media/progs_descs.csv"
+TEMP_SPACE=":-:"
 
 USER=${SUDO_USER:-${USER}}
-
-LINGUA=$(grep -w "^lang" $(pwd)/.cnf | cut -d= -f2)
-VERBOSE=$(grep -w "^verbose" $(pwd)/.cnf | cut -d= -f2)
-SEP=$(grep -w "^csv_separator" $(pwd)/.cnf | cut -d= -f2)
-SEP2=$(grep -w "^csv_separator2" $(pwd)/.cnf | cut -d= -f2)
-SEP_CATEX=$(grep -w "^csv_string" $(pwd)/.cnf | cut -d= -f2)
-AUR_PKG_MANAGER=$(grep -w "^aur_pkg_manager" $(pwd)/.cnf | cut -d= -f2)
 DISTRO=$(lsb_release -a | sed -n '2,+0p' | cut -d: -f2 | tr -ds '\t' '')
 NUM_PROGS=$(grep "^[^#]" $FICH | grep -E ",,|$DISTRO" | wc -l)
 
-TEMP_SPACE=":-:"
+LINGUA=$($(pwd)/src/uteis/trae-var -v "lang")
+VERBOSE=$($(pwd)/src/uteis/trae-var -v "verbose")
+SEP=$($(pwd)/src/uteis/trae-var -v "csv_separator")
+SEP2=$($(pwd)/src/uteis/trae-var -v "csv_separator2")
+SEP_CATEX=$($(pwd)/src/uteis/trae-var -v "csv_string")
+AUR_PKG_MANAGER=$($(pwd)/src/uteis/trae-var -v "aur_pkg_manager")
+
 
 pkg_install(){
     case $repositorio in

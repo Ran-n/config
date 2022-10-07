@@ -1,7 +1,7 @@
 #! /bin/sh
 #+ Autor:	Ran#
 #+ Creado:	07/03/2020 22:33:09
-#+ Editado:	2022/10/07 14:06:46.815422
+#+ Editado:	2022/10/07 14:32:17.827788
 
 #* Script que me permite meter os meus ficheiros de configuración en calquera máquina na que esté a trabalhar
 
@@ -23,16 +23,16 @@ fi
 FICH=$(pwd)"/media/arquivos.csv"
 
 USER=${SUDO_USER:-${USER}}
-
-LINGUA=$(grep -w "^lang" $(pwd)/.cnf | cut -d= -f2)
-VERBOSE=$(grep -w "^verbose" $(pwd)/.cnf | cut -d= -f2)
 FOGAR=$(eval echo "~$USER")
-ACCEPT_ENCRIPT=$(grep -w "^accept_encryption" $(pwd)/.cnf | cut -d= -f2)
-CONTRASINAL=$(grep -w "^passwd" $(pwd)/.cnf | cut -d= -f2)
-SEP=$(grep -w "^csv_separator" $(pwd)/.cnf | cut -d= -f2)
-CNFOLDER=$(grep -w "^cnfolder" $(pwd)/.cnf | cut -d= -f2)
-CNFOLDER_HOME=$(grep -w "^cnfolder_home" $(pwd)/.cnf | cut -d= -f2)
-CNFOLDER_ROOT=$(grep -w "^cnfolder_root" $(pwd)/.cnf | cut -d= -f2)
+
+LINGUA=$($(pwd)/src/uteis/trae-var -v "lang")
+VERBOSE=$($(pwd)/src/uteis/trae-var -v "verbose")
+ACCEPT_ENCRIPT=$($(pwd)/src/uteis/trae-var -v "accept_encryption")
+CONTRASINAL=$($(pwd)/src/uteis/trae-var -v "passwd")
+SEP=$($(pwd)/src/uteis/trae-var -v "csv_separator")
+CNFOLDER=$($(pwd)/src/uteis/trae-var -v "cnfolder")
+CNFOLDER_HOME=$($(pwd)/src/uteis/trae-var -v "cnfolder_home")
+CNFOLDER_ROOT=$($(pwd)/src/uteis/trae-var -v "cnfolder_root")
 
 
 $(pwd)/src/uteis/echo-texto -l $LINGUA -i "titulo.pegar_cnfichs"
