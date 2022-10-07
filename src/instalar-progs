@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:  	Ran#
 #+ Creado: 	2022/09/09 16:41:29.164675
-#+ Editado:	2022/10/07 02:39:09.041443
+#+ Editado:	2022/10/07 12:02:27.717040
 # ------------------------------------------------------------------------------
 
 # mirar se o script se executa como root
@@ -33,24 +33,40 @@ NUM_PROGS=$(grep "^[^#]" $FICH | grep -E ",,|$DISTRO" | wc -l)
 
 TEMP_SPACE=":-:"
 
+pkg_install(){
+    case $repositorio in
+        "")
+            pacman -S $id_nome --noconfirm --needed > /dev/null 2>&1
+            #pacman -S $id_nome --noconfirm --needed
+            ;;
+        aur)
+            echo AUR
+            ;;
+        git)
+            echo GIT
+            ;;
+    esac
+}
+
 install_pkg(){
+    #local id_nome=$1
+    #local repositorio=$2
+    #local nome=$3
+    #local num_paquete=$4
+
     if [[ $VERBOSE -eq 1 ]]; then
         # o do temp_space é preciso porque senón o nome sae cortado polo espazo
-        nome=$(echo $2 | cut -d$SEP_CATEX -f2 | sed 's/$TEMP_SPACE/\ /g')
-        desc=$(cat $FICH2 | grep $1$SEP$LINGUA$SEP | cut -d$SEP_CATEX -f2)
-        num_paquete=$3
+        nome=$(echo $nome | cut -d$SEP_CATEX -f2 | sed 's/$TEMP_SPACE/\ /g')
+        desc=$(cat $FICH2 | grep $id_nome$SEP$LINGUA$SEP | cut -d$SEP_CATEX -f2)
 
         # mostrar ó usuario que se esta a instalar e o avance
-        [[ $num_paquete -ne 1 ]] && echo
-        echo "$num_paquete/$NUM_PROGS"
+        [[ $cont -ne 1 ]] && echo
+        echo "$cont/$NUM_PROGS"
         echo "$nome"
         echo "$desc"
-
-        pacman -S $1 --noconfirm --needed > /dev/null 2>&1
-        #pacman -S $1 --noconfirm --needed
-    else
-        pacman -S $1 --noconfirm --needed > /dev/null 2>&1
     fi
+
+    pkg_install
 }
 
 $(pwd)/src/echo-texto -l $LINGUA -i "titulo.instalar_progs"
@@ -63,19 +79,22 @@ while read line; do
         # o do temp_space é preciso porque senón o nome sae cortado polo espazo
         nome=$(echo $line | cut -d$SEP -f2 | sed 's/\ /$TEMP_SPACE/g')
         lst_distros=($(echo $line | cut -d$SEP -f3 | tr $SEP2 "\n"))
-        lst_repos=($(echo $line | cut -d$SEP -f4 | tr $SEP2 "\n"))
+        #lst_repos=($(echo $line | cut -d$SEP -f4 | tr $SEP2 "\n"))
+        repositorio=$(echo $line | cut -d$SEP -f4 | tr '[:upper:]' '[:lower:]')
 
         if [[ -n $lst_distros ]]; then
             for distro in "${lst_distros[@]}"; do
                 if [[ $distro = $DISTRO ]]; then
-                    install_pkg $id_nome $nome $cont
+                    #install_pkg $id_nome $repositorio $nome $cont
+                    install_pkg
                     let cont++
                     #pkgs=$pkgs" "$id_nome
                     break
                 fi
             done
         else
-            install_pkg $id_nome $nome $cont
+            #install_pkg $id_nome $repositorio $nome $cont
+            install_pkg
             let cont++
             #pkgs=$pkgs" "$id_nome
         fi
