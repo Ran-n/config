@@ -56,6 +56,8 @@ Though this repository contains my particular config files (saved in the cnfiles
 - [X] Divide paste into normal paste and setup so that setup makes the install of the programs and also the link and downloads the scripts.
 - [X] Set the internacionalization messages in a separate file.
 - ~~Implement whiptail or dialog (maybe not cuz requires to be installed and all that).~~
+- [ ] Allow software install from the AUR.
+- [ ] Allow software install from git.
 
 ### Improvements
 
