@@ -61,7 +61,7 @@ CNFOLDER_ROOT=$(grep -w "^cnfolder_root" $(pwd)/.cnf | cut -d= -f2)
 FOGAR=$(eval echo "~$USER")
 
 
-$(pwd)/src/echo-texto -l $LINGUA -i "titulo.copiar-cnfichs"
+$(pwd)/src/echo-texto -l $LINGUA -i "titulo.copiar_cnfichs"
 
 while read line; do
     # ignorar liñas comentadas ou baleiras
