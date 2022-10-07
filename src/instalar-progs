@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:  	Ran#
 #+ Creado: 	2022/09/09 16:41:29.164675
-#+ Editado:	2022/09/11 14:12:05.221270
+#+ Editado:	2022/10/07 02:26:23.181052
 # ------------------------------------------------------------------------------
 
 # mirar se o script se executa como root
@@ -46,24 +46,14 @@ install_pkg(){
         echo "$nome"
         echo "$desc"
 
-        pacman -S $1 --noconfirm --needed > /dev/null 2>&1 
+        pacman -S $1 --noconfirm --needed > /dev/null 2>&1
         #pacman -S $1 --noconfirm --needed
     else
-        pacman -S $1 --noconfirm --needed > /dev/null 2>&1 
+        pacman -S $1 --noconfirm --needed > /dev/null 2>&1
     fi
 }
 
-case $LINGUA in
-    gz)
-        echo '► Instalando os programas:'
-        ;;
-    en)
-        echo '► Installing the programs:'
-        ;;
-    cas)
-        echo '► Instalando los programas:'
-        ;;
-esac
+$(pwd)/src/echo-texto -l $LINGUA -i "titulo.instalar_progs"
 
 #pkgs=""
 cont=1
@@ -94,14 +84,4 @@ done < $FICH
 
 #install_pkg "$pkgs"
 
-case $LINGUA in
-    gz)
-        echo '◄ BO'
-        ;;
-    en)
-        echo '◄ OK'
-        ;;
-    cas)
-        echo '◄ OK'
-        ;;
-esac
+$(pwd)/src/echo-texto -l $LINGUA -i "final.ok"

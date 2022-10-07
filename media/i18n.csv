@@ -46,6 +46,11 @@ titulo.copiar_cnfichs,en,"► Copying the configuration files"
 titulo.copiar_cnfichs,cas,"► Copiando los ficheros de configuración"
 
 
+titulo.instalar_progs,gz,"► Instalando os programas"
+titulo.instalar_progs,en,"► Installing the programs"
+titulo.instalar_progs,cas,"► Instalando los programas"
+
+
 
 # ***** #
 # FINAL #
