@@ -2,50 +2,55 @@
 # ------------------------------------------------------------------------------
 #+ Autor:  	Ran#
 #+ Creado: 	2022/08/31 21:50:39.446534
-#+ Editado:	2022/09/08 20:19:12.187220
+#+ Editado:	2022/10/07 13:49:41.356483
 # ------------------------------------------------------------------------------
 # Non usar as palabras resevadas (antes do igual) en ningún lugar do ficheiro
 # Dont use the reserved words (before equals) on any part of the file
 # ------------------------------------------------------------------------------
-#
+
 # Language of the output messages
 # Galician  -> gz
 # English   -> en
 # Spanish   -> cas
 # gz, en, cas
 lang=gz
-# 
-#
+
+
 # Show or not progress messages on the screen
 # only equals to 1 means on
 verbose=1
-#
-#
+
+
 # What primary and secondary separators are used in the csv files,
 # the default ones are correct unless you modify them.
 csv_separator=,
 csv_separator2=|
 # default indicator of a string in a csv file, inside of it you can use any characters.
 csv_string="
-#
-#
-#
+
+
+
+# indicates wheather or not the user wants files to be encrypted on save
 accept_encryption=1
-#
-#
+
+
 # Folder where you wish to save your personal scripts.
 # If you put a path that doesnt exist like the default one
 # it will create it.
 scripts_folder=/usr/local/scripts/
-#
-#
+
+
 # The password you want to use for both encryption and decryption of personal files.
 # This files are marked in the media/arquivos.csv file in the first field and use the
 # character decided in the accept_encryption option of this config file.
 # The default character is 1 and so is set in the media/arquivos.csv file.
 passwd=
-#
-#
+
+
+# AUR helper
+aur_pkg_manager=yay
+
+
 # Structure of the config folder from where the files are pulled.
 # main folder name, the one you can see in this folder.
 cnfolder=cnfiles
