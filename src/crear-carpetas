@@ -53,4 +53,4 @@ while read line; do
     fi
 done < $FICH
 
-$(pwd)/src/echo-texto -l $LINGUA -i "return.ok"
+$(pwd)/src/echo-texto -l $LINGUA -i "final.ok"
