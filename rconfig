@@ -1,7 +1,7 @@
 #! /bin/sh
 #+ Autor:	Ran#
 #+ Creado:	08/03/2020 00:13:08
-#+ Editado:	2022/10/01 12:37:44.804092
+#+ Editado:	2022/10/07 02:12:35.916731
 
 cd $(dirname $(readlink -f $0))
 
@@ -9,116 +9,32 @@ cd $(dirname $(readlink -f $0))
 [[ -f $(pwd)/.cnf ]] || $(pwd)/src/crear-cnf
 LINGUA=$(grep -w "lang" $(pwd)/.cnf | cut -d= -f2)
 
-mensaxe_axuda(){
-    case $LINGUA in
-        gz)
-            echo 'Hai que indicar se a operación é de copiado(-c), de pegado(-p) ou de inicio(-i).'
+mensaxe_operacion_inicio(){
+    case $1 in
+        c)
+            $(pwd)/src/echo-texto -l $LINGUA -i "titulo.rconfig.operacion_copiado"
             ;;
-        en)
-            echo 'Indicating the weather the operation is of copy(-c), paste(-p) or setup(-s) is mandatory.'
+        p)
+            $(pwd)/src/echo-texto -l $LINGUA -i "titulo.rconfig.operacion_pegado"
             ;;
-        cas)
-            echo 'Hay que indicar si es una operación de copiado(-c), pegado(-p) o inicio(-i).'
+        s)
+            $(pwd)/src/echo-texto -l $LINGUA -i "titulo.rconfig.operacion_inicio"
             ;;
     esac
 }
 
-mensaxe_operacion_inicio(){
-    if [[ $1 = "c" ]]; then
-        case $LINGUA in
-            gz)
-                echo '=== Realizando a operación de COPIADO ==='
-                echo
-                ;;
-            en)
-                echo '=== Doing the COPY operation ==='
-                echo
-                ;;
-            cas)
-                echo '=== Haciendo la operación de COPIADO ==='
-                echo
-                ;;
-        esac
-    elif [[ $1 = "p" ]]; then
-        case $LINGUA in
-            gz)
-                echo '=== Realizando a operación de PEGADO ==='
-                echo
-                ;;
-            en)
-                echo '=== Doing the PASTE operation ==='
-                echo
-                ;;
-            cas)
-                echo '=== Haciendo la operación de PEGADO ==='
-                echo
-                ;;
-        esac
-    elif [[ $1 = "s" ]]; then
-        case $LINGUA in
-            gz)
-                echo '=== Realizando a operación de INICIO ==='
-                echo
-                ;;
-            en)
-                echo '=== Doing the SETUP operation ==='
-                echo
-                ;;
-            cas)
-                echo '=== Haciendo la operación de INICIO ==='
-                echo
-                ;;
-        esac
-    fi
-}
-
 mensaxe_operacion_fin(){
-    if [[ $1 = "c" ]]; then
-        case $LINGUA in
-            gz)
-                echo
-                echo '=== Fin da operación de COPIADO ==='
-                ;;
-            en)
-                echo
-                echo '=== End of the COPY operation ==='
-                ;;
-            cas)
-                echo
-                echo '=== Fin de la operación de COPIADO ==='
-                ;;
-        esac
-    elif [[ $1 = "p" ]]; then
-        case $LINGUA in
-            gz)
-                echo
-                echo '=== Fin da operación de PEGADO ==='
-                ;;
-            en)
-                echo
-                echo '=== End of the PASTE operation ==='
-                ;;
-            cas)
-                echo
-                echo '=== Fin de la operación de PEGADO ==='
-                ;;
-        esac
-    elif [[ $1 = "s" ]]; then
-        case $LINGUA in
-            gz)
-                echo
-                echo '=== Fin da operación de INICIO ==='
-                ;;
-            en)
-                echo
-                echo '=== End of the SETUP operation ==='
-                ;;
-            cas)
-                echo
-                echo '=== Fin de la operación de INICIO ==='
-                ;;
-        esac
-    fi
+    case $1 in
+        c)
+            $(pwd)/src/echo-texto -l $LINGUA -i "final.rconfig.operacion_copiado"
+            ;;
+        p)
+            $(pwd)/src/echo-texto -l $LINGUA -i "final.rconfig.operacion_pegado"
+            ;;
+        s)
+            $(pwd)/src/echo-texto -l $LINGUA -i "final.rconfig.operacion_inicio"
+            ;;
+    esac
 }
 
 mensaxe_operacion(){
@@ -152,7 +68,7 @@ inicio() {
 
 # se non meten variable pois pon mensaxe e sae
 if [ -z $1 ]; then
-    mensaxe_axuda
+    $(pwd)/src/echo-texto -l $LINGUA -i "info.axuda.rconfig"
     exit 1
 fi
 
@@ -176,6 +92,6 @@ case $1 in
         ;;
 
     *)
-        mensaxe_axuda
+        $(pwd)/src/echo-texto -l $LINGUA -i "info.axuda.rconfig"
         ;;
 esac
