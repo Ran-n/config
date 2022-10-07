@@ -6,20 +6,6 @@
 #+ Editado:	2022/10/05 22:21:49.458419
 # ------------------------------------------------------------------------------
 
-mensaxe_contrasinal(){
-    case $LINGUA in
-        gz)
-            echo 'Indica o contrasinal (baleiro para ningún)'
-            ;;
-        en)
-            echo 'Enter password (empty for none)'
-            ;;
-        cas)
-            echo 'Indica la contraseña (vacío para ninguna)'
-            ;;
-    esac
-}
-
 # copiase o ficheiro
 cp $(pwd)/cnf $(pwd)/.cnf
 
@@ -34,7 +20,7 @@ sed -i 's/lang=.*/lang='"$lang"'/g' $(pwd)/.cnf
 
 LINGUA=$(grep -w "lang" $(pwd)/.cnf | cut -d= -f2)
 
-mensaxe_contrasinal
+$(pwd)/src/echo-texto -l $LINGUA -i "mensaxe.usuario.indicar_contrasinal"
 
 read -s contrasinal
 

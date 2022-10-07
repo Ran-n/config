@@ -12,9 +12,9 @@
 
 # ID, LANG, TEXT
 
-# ******* #
-# TÍTULOS #
-# ******* #
+# ****** #
+# TÍTULO #
+# ****** #
 
 titulo.rconfig.operacion_copiado,gz,"=== Realizando a operación de COPIADO ==="
 titulo.rconfig.operacion_copiado,en,"=== Doing the COPY operation ==="
@@ -68,6 +68,17 @@ final.rconfig.operacion_pegado,cas,"=== Fin de la operación de PEGADO ==="
 final.rconfig.operacion_inicio,gz,"=== Fin da operación de INICIO ==="
 final.rconfig.operacion_inicio,en,"=== End of the SETUP operation ==="
 final.rconfig.operacion_inicio,cas,"=== Fin de la operación de INICIO ==="
+
+
+
+# ******* #
+# MENSAXE #
+# ******* #
+
+mensaxe.usuario.indicar_contrasinal,gz,"Indica o contrasinal (baleiro para ningún)"
+mensaxe.usuario.indicar_contrasinal,en,"Enter password (empty for none)"
+mensaxe.usuario.indicar_contrasinal,cas,"Indica la contraseña (vacío para ninguna)"
+
 
 
 # **** #
