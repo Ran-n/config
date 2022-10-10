@@ -1,0 +1,40 @@
+#! /bin/sh
+# -*- coding: utf-8 -*-
+# ------------------------------------------------------------------------------
+#+ Autor:  	Ran#
+#+ Creado: 	2022/10/10 20:00:45.489970
+#+ Editado:	2022/10/10 20:24:58.999535
+# ------------------------------------------------------------------------------
+
+#* Given a file path it creates it in case it doesnt exist
+
+VERBOSE=0
+while getopts "r:p:v" o; do
+    case ${o} in
+        p|r)
+            path=$OPTARG
+            ;;
+        v)
+            VERBOSE=1
+            ;;
+    esac
+done
+
+FOGAR=$($(pwd)/src/uteis/trae-elto -f)
+
+# change the ~ for the home folder in the path
+if [[ $path = \~* ]]; then
+    path=$FOGAR$(echo $path | cut -d~ -f2-)
+fi
+
+# folder
+if [[ $path = */ ]]; then
+    [[ $VERBOSE -eq 1 ]]\
+        && mkdir -vp $path\
+        || mkdir -p $path
+# file
+else
+    [[ $VERBOSE -eq 1 ]]\
+        && mkdir -vp $(dirname $path)\
+        || mkdir -p $(dirname $path)
+fi
