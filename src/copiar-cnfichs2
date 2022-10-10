@@ -1,0 +1,107 @@
+#! /bin/sh
+# -*- coding: utf-8 -*-
+# ------------------------------------------------------------------------------
+#+ Autor:	Ran#
+#+ Creado:	22/04/2020 00:23:18
+#+ Editado:	2022/10/10 19:15:36.682760
+# ------------------------------------------------------------------------------
+
+#*gz* Script que copia of ficheiros da máquina na que se executa.
+#*en* Script to copy the selected files of the machine it is run at.
+
+copiar_elemento () {
+    # carpetas
+    if [[ $2 == */ ]]; then
+        if [[ ! -d $1 ]]; then
+            [[ $VERBOSE -eq 1 ]] && mkdir -vp $1 || mkdir -p $1
+        fi
+        [[ $VERBOSE -eq 1 ]] && cp -vupfr $2. $1 || cp -upfr $2. $1
+    # ficheiros
+    else
+        if [[ ! -d $(dirname $1) ]]; then
+            [[ $VERBOSE -eq 1 ]] && mkdir -vp $(dirname $1) || mkdir -p $(dirname $1)
+        fi
+        [[ $VERBOSE -eq 1 ]] && cp -vupfr $2 $1 || cp -upfr $2 $1
+    fi
+}
+
+eliminar () {
+    array=($(echo $2 | tr $SEP2 "\n"))
+    for fich in "${array[@]}"; do
+        [[ $VERBOSE -eq 1 ]]\
+            && find "$1" -name "$fich" -exec rm -vrf {} +\
+            || find "$1" -name "$fich" -exec rm -rf {} +
+    done
+}
+
+# mirar se o script se executa como root
+# de non, facer que así sexa
+if [[ $(/usr/bin/id -u) != 0 ]]; then
+    if whereis sudo &>/dev/null; then
+        # correr o script de novo como sudo e cos parametros dados
+        sudo $0 $*
+        # para que non se execute dúas veces
+        exit 0
+    else
+        # saída con erro
+        exit 1
+    fi
+fi
+
+FICH=$(pwd)"/media/arquivos.csv"
+
+USER=$($(pwd)/src/uteis/trae-elto -u)
+FOGAR=$($(pwd)/src/uteis/trae-elto -h)
+DISTRO=$($(pwd)/src/uteis/trae-elto -d)
+
+LINGUA=$($(pwd)/src/uteis/trae-var -v "lang")
+VERBOSE=$($(pwd)/src/uteis/trae-var -v "verbose")
+ACCEPT_ENCRIPT=$($(pwd)/src/uteis/trae-var -v "accept_encryption")
+CONTRASINAL=$($(pwd)/src/uteis/trae-var -v "passwd")
+SEP=$($(pwd)/src/uteis/trae-var -v "csv_separator")
+SEP2=$($(pwd)/src/uteis/trae-var -v "csv_separator2")
+CNFOLDER=$($(pwd)/src/uteis/trae-var -v "cnfolder")
+CNFOLDER_HOME=$($(pwd)/src/uteis/trae-var -v "cnfolder_home")
+CNFOLDER_ROOT=$($(pwd)/src/uteis/trae-var -v "cnfolder_root")
+
+
+$(pwd)/src/uteis/echo-texto -l $LINGUA -i "titulo.copiar_cnfichs"
+
+while read line; do
+    # ignorar liñas comentadas ou baleiras
+    if [[ $line != \#* && -n $line ]]; then
+        encriptar=$(echo $line | cut -d$SEP -f1)
+        ruta=$(echo $line | cut -d$SEP -f2)
+        excluir=$(echo $line | cut -d$SEP -f3)
+        distros=$(echo $line | cut -d$SEP -f4)
+
+        if [[ -z $distros ]] || (echo $distros | grep -w $DISTRO > /dev/null); then
+            if [[ $ruta = \~* ]]; then
+                ruta=$(echo $ruta | cut -d~ -f2-)
+                ruta_total=$(echo $(pwd)/$CNFOLDER/$CNFOLDER_HOME$(dirname $ruta)/$(basename $ruta) | sed 's/\/\//\//g')
+                ruta=$FOGAR$ruta
+            else
+                ruta_total=$(pwd)/$CNFOLDER/$CNFOLDER_ROOT$(dirname $ruta)/$(basename $ruta)
+            fi
+
+            copiar_elemento $ruta_total $ruta
+
+            [[ -n $excluir ]] && eliminar $ruta_total $excluir
+
+            if [[ -n $CONTRASINAL && $encriptar -eq $ACCEPT_ENCRIPT ]]; then
+                if [[ $VERBOSE -eq 1 ]]; then
+                    7z a $ruta_total $ruta_total -p$CONTRASINAL -mhe=on -mx=9 -bb1
+                    rm -vrf $ruta_total
+                else
+                    7z a $ruta_total $ruta_total -p$CONTRASINAL -mhe=on -mx=9 2&>/dev/null
+                    rm -rf $ruta_total
+                fi
+            fi
+        fi
+    fi
+done < $FICH
+
+# preciso cambiar isto porque se executa como root e quedaría como owner
+chown -R $USER:$USER $(pwd)/$CNFOLDER
+
+$(pwd)/src/uteis/echo-texto -l $LINGUA -i "final.ok"
