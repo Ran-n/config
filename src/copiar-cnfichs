@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:	Ran#
 #+ Creado:	22/04/2020 00:23:18
-#+ Editado:	2022/10/10 17:50:54.265921
+#+ Editado:	2022/10/10 19:15:36.682760
 # ------------------------------------------------------------------------------
 
 #*gz* Script que copia of ficheiros da máquina na que se executa.
@@ -75,7 +75,7 @@ while read line; do
         excluir=$(echo $line | cut -d$SEP -f3)
         distros=$(echo $line | cut -d$SEP -f4)
 
-        if (echo $distros | grep -w $DISTRO > /dev/null); then
+        if [[ -z $distros ]] || (echo $distros | grep -w $DISTRO > /dev/null); then
             if [[ $ruta = \~* ]]; then
                 ruta=$(echo $ruta | cut -d~ -f2-)
                 ruta_total=$(echo $(pwd)/$CNFOLDER/$CNFOLDER_HOME$(dirname $ruta)/$(basename $ruta) | sed 's/\/\//\//g')
