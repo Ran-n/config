@@ -3,9 +3,10 @@
 
 # config
 
-BASH program made for backing up the system configuration and being able to reset the system to its previous state on a clean build.
+Setup configuration bash script program (SCiBiSPi).
+BASH written program made for backing up the system configuration and being able to reset the system to that state on a clean build.
 
-The program uses a configuracion file ".cnf" with multiple options such as verbose, language of messages and a password for sensitive content you wish to protect.
+The program uses a configuracion file ".cnf" with multiple options such as: verbose, prompt language, password for sensitive content you wish to protect, ...
 
 ## Index
 
