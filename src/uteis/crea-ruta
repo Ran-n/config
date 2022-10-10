@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:  	Ran#
 #+ Creado: 	2022/10/10 20:00:45.489970
-#+ Editado:	2022/10/10 21:04:39.437561
+#+ Editado:	2022/10/10 21:08:21.823991
 # ------------------------------------------------------------------------------
 
 #* Given a file path it creates it in case it doesnt exist
@@ -32,8 +32,10 @@ if [[ $path = \~* ]]; then
 fi
 
 # just return the same path changing the ~ simbol for the full normal path
+# if it doesnt have it, returns the same path
 if [[ $CHANGE -eq 1 ]]; then
     echo $path
+# creates the route if it doesnt already exist
 else
     # folder
     if [[ $path = */ ]]; then
