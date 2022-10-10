@@ -62,7 +62,7 @@ Though this repository contains my particular config files (saved in the cnfiles
 
 ### Improvements
 
-- [ ] Exclude Files: Instead of copying and then removing them, make it so they are not copied in the first place.
+- ~~Exclude Files: Instead of copying and then removing them, make it so they are not copied in the first place.~~
 - [ ] Check if files where changed regards to the actual version saved in 7z files before rezipping.
 - [ ] Make files have an option to be distro dependant, some like /etc/pacman.conf are only needed in arch distros and non on debian based for example. Right now theres no way of discriminating by distro like there is on progs.csv.
 
