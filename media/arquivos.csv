@@ -2,30 +2,32 @@
 # ------------------------------------------------------------------------------
 #+ Autor:  	Ran#
 #+ Creado: 	2022/09/05 16:50:33.406499
-#+ Editado:	2022/09/10 19:23:12.527169
+#+ Editado:	2022/10/10 14:16:41.893788
 # ------------------------------------------------------------------------------
 
 # Legend:
-# encrypt -> the mark for encryption is decided in the .cnf file
-# path -> files MUST end with / and files MUST NOT
-# exclude -> elementos a excluir, you can use things like *.txt
+# encrypt   -> The mark for encryption is decided in the .cnf file
+# path      -> Files MUST end with / and files MUST NOT
+# exclude   -> Elementos a excluir, you can use things like *.txt
+# distro    -> Name of the distro if it is dependent on it
 
-# encrypt, path, exclude
-,~/.bashrc,
-,~/.zshrc,
-,~/.config/zsh/,
-,~/.config/aliasrc,
-,~/.config/vim/,
-,~/.config/nvim/,
-,~/.local/share/nvim/,swap|shada
-,~/.config/sxhkd/,
-,~/.config/calcurse/,
-1,~/.local/share/calcurse/,
-1,~/.config/joplin/,
-,~/.config/alacritty/,
-,~/.gitconfig,
-,/etc/profile,
-,/root/.zshrc,
-,/root/.bashrc,
-,/root/.config/aliasrc,
-,/etc/ssh/sshd_config,
+# encrypt, path, exclude, distro
+,~/.bashrc,,
+,~/.zshrc,,
+,~/.config/zsh/,,
+,~/.config/aliasrc,,
+,~/.config/vim/,,
+,~/.config/nvim/,,
+,~/.local/share/nvim/,swap|shada,
+,~/.config/sxhkd/,,
+,~/.config/calcurse/,,
+1,~/.local/share/calcurse/,,
+1,~/.config/joplin/,,
+,~/.config/alacritty/,,
+,~/.gitconfig,,
+,/etc/profile,,
+,/root/.zshrc,,
+,/root/.bashrc,,
+,/root/.config/aliasrc,,
+,/etc/ssh/sshd_config,,
+,/etc/pacman.conf,,ArcoLinux|Manjaro
