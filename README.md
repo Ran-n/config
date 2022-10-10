@@ -7,9 +7,17 @@ BASH program made for backing up the system configuration and being able to rese
 
 The program uses a configuracion file ".cnf" with multiple options such as verbose, language of messages and a password for sensitive content you wish to protect.
 
-## Tested on Distros
+## Index
 
-ArcoLinux,
+- [Use](#use)
+    - [Normal Use](#normal-use)
+    - [Reuse for your own files](#reuse-for-your-own-personal-files)
+- [Future versions](#future-versions)
+    - [xFCR](#xfcr)
+    - [Improvements](#improvements)
+- [Tested On](#tested-on-distros)
+- [Donations](https://github.com/Ran-n/doc/blob/main/doaz%C3%B3ns.md)
+- [Frequently Asked Questions](#faq)
 
 ## Use
 ### Normal use
@@ -48,7 +56,7 @@ Though this repository contains my particular config files (saved in the cnfiles
     - "arquivos.csv" are the list of files to be saved as part of the config.
     - "i18n.csv" internacionalization file.
 
-## Future
+## Future versions
 ### xFCR
 
 - [X] Make the autoinstall packages script.
@@ -66,6 +74,10 @@ Though this repository contains my particular config files (saved in the cnfiles
 - [ ] Check if files where changed regards to the actual version saved in 7z files before rezipping.
 - [ ] Make files have an option to be distro dependant, some like /etc/pacman.conf are only needed in arch distros and non on debian based for example. Right now theres no way of discriminating by distro like there is on progs.csv.
 
+## Tested on Distros
+
+ArcoLinux,
+
 ## [Donations 🙇🙇](https://github.com/Ran-n/doc/blob/main/doaz%C3%B3ns.md)
 
 **Bitcoin** <img src="https://raw.githubusercontent.com/Ran-n/svgs/main/divisas/bitcoin/bitcoin_0.svg" width="20" alt="bitcoin logo" title="Bitcoin">
@@ -76,3 +88,8 @@ bc1q79vja8jzr27dxaf3ylu7e49ady8zq0jsm5qfk6
 
 **Wownero** <img src="https://raw.githubusercontent.com/Ran-n/svgs/main/divisas/wownero/wownero_0.svg" width="20" alt="wownero logo" title="Wownero">
 WW2RheTNrq8goAi42Dz5AKUj1qLSaTSSgiH7sHR2qRqojg238EXP3MM3xuUgswriET7UrpkEoYaCkecBhnU49oxM1dZyYoSmm
+
+## FAQ
+
+- Q: Why are the files not all encrypted and zipped in the repository?
+- A: It was decided against this so that, knowing the url, you could check and/or copy a given file easily. Only files with secrets where deemed important enough to zip (under a password).
