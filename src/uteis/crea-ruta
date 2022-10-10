@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:  	Ran#
 #+ Creado: 	2022/10/10 20:00:45.489970
-#+ Editado:	2022/10/10 20:24:58.999535
+#+ Editado:	2022/10/10 20:29:54.672124
 # ------------------------------------------------------------------------------
 
 #* Given a file path it creates it in case it doesnt exist
@@ -29,12 +29,18 @@ fi
 
 # folder
 if [[ $path = */ ]]; then
-    [[ $VERBOSE -eq 1 ]]\
-        && mkdir -vp $path\
-        || mkdir -p $path
+    # only if not exists
+    if [[ ! -d $path ]]; then
+        [[ $VERBOSE -eq 1 ]]\
+            && mkdir -vp $path\
+            || mkdir -p $path
+    fi
 # file
 else
-    [[ $VERBOSE -eq 1 ]]\
-        && mkdir -vp $(dirname $path)\
-        || mkdir -p $(dirname $path)
+    # only if not exists
+    if [[ ! -d $(dirname $path) ]]; then
+        [[ $VERBOSE -eq 1 ]]\
+            && mkdir -vp $(dirname $path)\
+            || mkdir -p $(dirname $path)
+    fi
 fi
