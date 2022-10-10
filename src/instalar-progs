@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:  	Ran#
 #+ Creado: 	2022/09/09 16:41:29.164675
-#+ Editado:	2022/10/07 16:12:11.086725
+#+ Editado:	2022/10/10 14:30:11.560150
 # ------------------------------------------------------------------------------
 
 # mirar se o script se executa como root
@@ -24,8 +24,9 @@ FICH=$(pwd)"/media/progs.csv"
 FICH2=$(pwd)"/media/progs_descs.csv"
 TEMP_SPACE=":-:"
 
-USER=${SUDO_USER:-${USER}}
-DISTRO=$(lsb_release -a | sed -n '2,+0p' | cut -d: -f2 | tr -ds '\t' '')
+USER=$($(pwd)/src/uteis/trae-elto -u)
+DISTRO=$($(pwd)/src/uteis/trae-elto -d)
+
 NUM_PROGS=$(grep "^[^#]" $FICH | grep -E ",,|$DISTRO" | wc -l)
 
 LINGUA=$($(pwd)/src/uteis/trae-var -v "lang")

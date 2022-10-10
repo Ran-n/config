@@ -1,10 +1,9 @@
 #! /bin/sh
 #+ Autor:	Ran#
 #+ Creado:	07/03/2020 22:33:09
-#+ Editado:	2022/10/07 14:32:17.827788
+#+ Editado:	2022/10/10 14:30:59.472955
 
 #* Script que me permite meter os meus ficheiros de configuración en calquera máquina na que esté a trabalhar
-
 
 # mirar se o script se executa como root
 # de non, facer que así sexa
@@ -22,8 +21,9 @@ fi
 
 FICH=$(pwd)"/media/arquivos.csv"
 
-USER=${SUDO_USER:-${USER}}
-FOGAR=$(eval echo "~$USER")
+USER=$($(pwd)/src/uteis/trae-elto -u)
+FOGAR=$($(pwd)/src/uteis/trae-elto -h)
+DISTRO=$($(pwd)/src/uteis/trae-elto -d)
 
 LINGUA=$($(pwd)/src/uteis/trae-var -v "lang")
 VERBOSE=$($(pwd)/src/uteis/trae-var -v "verbose")

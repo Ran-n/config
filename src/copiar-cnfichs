@@ -1,9 +1,13 @@
 #! /bin/sh
+# -*- coding: utf-8 -*-
+# ------------------------------------------------------------------------------
 #+ Autor:	Ran#
 #+ Creado:	22/04/2020 00:23:18
-#+ Editado:	2022/10/07 14:28:25.822619
+#+ Editado:	2022/10/10 14:32:35.148032
+# ------------------------------------------------------------------------------
 
-#* Script que copia of ficheiros de configuración da máquina na que estou
+#*gz* Script que copia of ficheiros da máquina na que se executa.
+#*en* Script to copy the selected files of the machine it is run at.
 
 copiar_elemento () {
     # carpetas
@@ -46,8 +50,9 @@ fi
 
 FICH=$(pwd)"/media/arquivos.csv"
 
-USER=${SUDO_USER:-${USER}}
-FOGAR=$(eval echo "~$USER")
+USER=$($(pwd)/src/uteis/trae-elto -u)
+FOGAR=$($(pwd)/src/uteis/trae-elto -h)
+DISTRO=$($(pwd)/src/uteis/trae-elto -d)
 
 LINGUA=$($(pwd)/src/uteis/trae-var -v "lang")
 VERBOSE=$($(pwd)/src/uteis/trae-var -v "verbose")
