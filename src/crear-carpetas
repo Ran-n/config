@@ -1,7 +1,7 @@
 #! /bin/sh
 #+ Autor:	Ran#
 #+ Creado:	08/03/2020 13:31:26
-#+ Editado:	2022/10/07 14:23:02.299970
+#+ Editado:	2022/10/10 14:27:12.278485
 
 # mirar se o script se executa como root
 # de non, facer que así sexa
@@ -17,10 +17,10 @@ if [[ $(/usr/bin/id -u) != 0 ]]; then
     fi
 fi
 
-USER=${SUDO_USER:-${USER}}
-FOGAR=$(eval echo "~$USER")
-
 FICH=$(pwd)"/media/carpetas.csv"
+
+USER=$($(pwd)/src/uteis/trae-elto -u)
+FOGAR=$($(pwd)/src/uteis/trae-elto -h)
 
 LINGUA=$($(pwd)/src/uteis/trae-var -v "lang")
 VERBOSE=$($(pwd)/src/uteis/trae-var -v "verbose")
