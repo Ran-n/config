@@ -1,0 +1,70 @@
+#! /bin/sh
+#+ Autor:	Ran#
+#+ Creado:	07/03/2020 22:33:09
+#+ Editado:	2022/10/10 23:35:10.241741
+
+#* Script que me permite meter os meus ficheiros de configuración en calquera máquina na que esté a trabalhar
+
+# mirar se o script se executa como root
+# de non, facer que así sexa
+if [[ $(/usr/bin/id -u) != 0 ]]; then
+    if whereis sudo &>/dev/null; then
+        # correr o script de novo como sudo e cos parametros dados
+        sudo $0 $*
+        # para que non se execute dúas veces
+        exit 0
+    else
+        # saída con erro
+        exit 1
+    fi
+fi
+
+FICH=$(pwd)"/media/arquivos.csv"
+
+USER=$($(pwd)/src/uteis/trae-elto -u)
+FOGAR=$($(pwd)/src/uteis/trae-elto -h)
+DISTRO=$($(pwd)/src/uteis/trae-elto -d)
+
+LINGUA=$($(pwd)/src/uteis/trae-var -v "lang")
+VERBOSE=$($(pwd)/src/uteis/trae-var -v "verbose")
+ACCEPT_ENCRIPT=$($(pwd)/src/uteis/trae-var -v "accept_encryption")
+CONTRASINAL=$($(pwd)/src/uteis/trae-var -v "passwd")
+SEP=$($(pwd)/src/uteis/trae-var -v "csv_separator")
+CNFOLDER=$($(pwd)/src/uteis/trae-var -v "cnfolder")
+CNFOLDER_HOME=$($(pwd)/src/uteis/trae-var -v "cnfolder_home")
+CNFOLDER_ROOT=$($(pwd)/src/uteis/trae-var -v "cnfolder_root")
+
+
+$(pwd)/src/uteis/echo-texto -l $LINGUA -i "titulo.pegar_cnfichs"
+
+[[ $VERBOSE -eq 1 ]]\
+    && cp -vpfr $(pwd)/$CNFOLDER/$CNFOLDER_HOME/. $FOGAR\
+    || cp -pfr $(pwd)/$CNFOLDER/$CNFOLDER_HOME/. $FOGAR
+[[ $VERBOSE -eq 1 ]]\
+    && cp -vpfr $(pwd)/$CNFOLDER/$CNFOLDER_ROOT/. /\
+    || cp -pfr $(pwd)/$CNFOLDER/$CNFOLDER_ROOT/. /root
+
+
+if [[ -n $CONTRASINAL ]]; then
+    # desencriptación
+    while read line; do
+        # ignorar todas as linhas que non comecen por 1
+        if [[ $line = \1* ]]; then
+            line=$(echo $line | cut -d$SEP -f2)
+            if [[ $line = \~* ]]; then
+                line=$FOGAR$(echo $line | cut -d~ -f2)
+            fi
+            if [[ $VERBOSE -eq 1 ]]; then
+                7z x $(echo $line | sed 's:/*$::').7z -o$(dirname $(echo $line | sed 's:/*$::')) -aoa -p$CONTRASINAL
+                chown -R $USER:$USER $(echo $line | sed 's:/*$::')
+                rm -v $(echo $line | sed 's:/*$::').7z
+            else
+                7z x $(echo $line | sed 's:/*$::').7z -o$(dirname $(echo $line | sed 's:/*$::')) -aoa -p$CONTRASINAL 2&> /dev/null
+                chown -R $USER:$USER $(echo $line | sed 's:/*$::')
+                rm $(echo $line | sed 's:/*$::').7z
+            fi
+        fi
+    done < $FICH
+fi
+
+$(pwd)/src/uteis/echo-texto -l $LINGUA -i "final.ok"
