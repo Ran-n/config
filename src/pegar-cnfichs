@@ -66,30 +66,58 @@ $(pwd)/src/uteis/echo-texto -l $LINGUA -i "titulo.pegar_cnfichs"
         #fi
     #done < $FICH
 #fi
+#
+
+unzip(){
+    l_fich=$1
+
+    if [[ $VERBOSE -eq 1 ]]; then
+        7z x $(echo $l_fich | sed 's:/*$::') -o$(dirname $(echo $l_fich | sed 's:/*$::')) -aoa -p$CONTRASINAL
+        chown -R $USER:$USER $(echo $l_fich | sed 's:/*$::')
+        rm -v $(echo $l_fich | sed 's:/*$::')
+    else
+        7z x $(echo $l_fich | sed 's:/*$::') -o$(dirname $(echo $l_fich | sed 's:/*$::')) -aoa -p$CONTRASINAL 2&> /dev/null
+        chown -R $USER:$USER $(echo $l_fich | sed 's:/*$::')
+        rm $(echo $l_fich | sed 's:/*$::')
+    fi
+}
 
 pegar(){
     l_ruta=$1
-    l_encriptar=$2
+    l_unzip=$2
 
-    [[ $l_ruta = \~* ]]\
-        && ruta_orixe="$PWD/$CNFOLDER/$CNFOLDER_HOME$(echo $l_ruta | cut -d~ -f2-)"\
-        || ruta_orixe="$PWD/$CNFOLDER/$CNFOLDER_ROOT$l_ruta"
+    if [[ $l_ruta = \~* ]]; then
+        # change chown to $USER
+        owner=1
+        ruta_orixe="$PWD/$CNFOLDER/$CNFOLDER_HOME$(echo $l_ruta | cut -d~ -f2-)"
+    else
+        owner=0
+        ruta_orixe="$PWD/$CNFOLDER/$CNFOLDER_ROOT$l_ruta"
+    fi
 
-    [[ l_encriptar -eq 1 ]]\
-        && ruta_orixe="$ruta_orixe.7z"
-
+    # change ~ to /home/$USER
     ruta_destino=$(./src/uteis/crea-ruta -cp $l_ruta)
-    ruta_destino=$(dirname $ruta_destino)/$(basename $ruta_destino)
 
+    if [[ l_unzip -eq 1 ]]; then
+        ruta_orixe=$(echo "$ruta_orixe" | rev | cut -d\/ -f2- | rev ).7z
+        ruta_destino=$(echo "$ruta_destino" | rev | cut -d\/ -f2- | rev ).7z
+    fi
+
+    # paste files
     if [[ $VERBOSE -eq 1 ]]; then
-        ruta_destino=$(echo $ruta_destino | sed 's/ran/ran\/proba/g')
         ./src/uteis/crea-ruta -vp $ruta_destino
-        cp -vupfr $ruta_orixe $ruta_destino
-        #chown -R $USER:$USER $(dirname $ruta_destino)
+        cp -vupfr $ruta_orixe $(dirname $ruta_destino)
     else
         ./src/uteis/crea-ruta -p $ruta_destino
-        cp -upfr $ruta_orixe $ruta_destino
+        cp -upfr $ruta_orixe $(dirname $ruta_destino)
     fi
+
+    # unzip files
+    if [[ l_unzip -eq 1 ]]; then
+        unzip $ruta_destino
+    fi
+
+    [[ $owner -eq 1 ]] && chown -R $USER:$USER $(dirname $ruta_destino)
 }
 
 while read line; do
@@ -98,21 +126,20 @@ while read line; do
         #encriptar=$(echo $line | cut -d$SEP -f1)
         ruta=$(echo $line | cut -d$SEP -f2)
         distros=$(echo $line | cut -d$SEP -f4)
-        encriptar=0
+        unzip=0
+        ignore=0
 
         # if its not distro dependant
         # or the correct distro
         if [[ -z $distros ]] || (echo $distros | grep -w $DISTRO > /dev/null); then
             # if starts with one
             if [[ $line = \1* ]]; then
-                encriptar=1
+                unzip=1
+                [[ -z $CONTRASINAL ]] && ignore=1
             fi
-
-            pegar $ruta $encriptar
+            [[ $ignore -eq 0 ]] && pegar $ruta $unzip
         fi
     fi
 done < $FICH
-
-chown -R $USER:$USER $FOGAR
 
 $(pwd)/src/uteis/echo-texto -l $LINGUA -i "final.ok"
