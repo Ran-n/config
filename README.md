@@ -94,3 +94,6 @@ WW2RheTNrq8goAi42Dz5AKUj1qLSaTSSgiH7sHR2qRqojg238EXP3MM3xuUgswriET7UrpkEoYaCkecB
 
 - Q: Why are the files not all encrypted and zipped in the repository?
 - A: It was decided against this so that, knowing the url, you could check and/or copy a given file easily. Only files with secrets where deemed important enough to zip (under a password).
+
+- Q: Why the ``cp`` command doesnt have the update option?
+- A: Initially it was present, but it was decided against since the decision on wheather or not the document is "updated" is looking at the file dates. This is the same for copying or pasting files into the repository for savekeeping. This way, even if the file to be copied over is newer than the to be copied from the operation goes as mandated by the user. It is, i assume, a little more resource intensive but it shouldnt be much more since the copy command is still being executed (maybe its even less since it doesnt need to compare the dates!). It goes more in tone with what the user expects as "normal behaviour". Other disadvange is that the output is more cluttered since all the files always appear, but this should be no big deal. Theres always the option of implementing a config option, but it would imply a bit more of code for something that I dont consider should be needed.
