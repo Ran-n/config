@@ -74,6 +74,7 @@ Though this repository contains my particular config files (saved in the cnfiles
 - ~~Exclude Files: Instead of copying and then removing them, make it so they are not copied in the first place.~~
 - [ ] Check if files where changed regards to the actual version saved in 7z files before rezipping.
 - [ ] Make files have an option to be distro dependant, some like /etc/pacman.conf are only needed in arch distros and non on debian based for example. Right now theres no way of discriminating by distro like there is on progs.csv.
+- [ ] Make functionality to, not copy an entire file, but search for some specific lines and change them to the desired output. This is useful for the /etc/passwd file, for example, where it doesnt make sense to copy it whole but its very interesting to be able to change the shell that the root and current user uses.
 
 ## Tested on Distros
 
