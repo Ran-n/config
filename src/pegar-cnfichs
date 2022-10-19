@@ -66,7 +66,6 @@ pegar(){
 
     # change ~ to /home/$USER
     ruta_destino=$(./src/uteis/crea-ruta -cp $l_ruta)
-    #ruta_destino=$(echo $ruta_destino | sed 's/ran/ran\/proba/g')
 
     if [[ l_unzip -eq 1 ]]; then
         ruta_orixe=$(echo "$ruta_orixe" | rev | cut -d\/ -f2- | rev ).7z
