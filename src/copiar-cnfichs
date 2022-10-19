@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:	Ran#
 #+ Creado:	22/04/2020 00:23:18
-#+ Editado:	2022/10/10 19:15:36.682760
+#+ Editado:	2022/10/19 18:57:45.771307
 # ------------------------------------------------------------------------------
 
 #*gz* Script que copia of ficheiros da máquina na que se executa.
@@ -15,13 +15,13 @@ copiar_elemento () {
         if [[ ! -d $1 ]]; then
             [[ $VERBOSE -eq 1 ]] && mkdir -vp $1 || mkdir -p $1
         fi
-        [[ $VERBOSE -eq 1 ]] && cp -vupfr $2. $1 || cp -upfr $2. $1
+        [[ $VERBOSE -eq 1 ]] && cp -vpfr $2. $1 || cp -pfr $2. $1
     # ficheiros
     else
         if [[ ! -d $(dirname $1) ]]; then
             [[ $VERBOSE -eq 1 ]] && mkdir -vp $(dirname $1) || mkdir -p $(dirname $1)
         fi
-        [[ $VERBOSE -eq 1 ]] && cp -vupfr $2 $1 || cp -upfr $2 $1
+        [[ $VERBOSE -eq 1 ]] && cp -vpfr $2 $1 || cp -pfr $2 $1
     fi
 }
 
