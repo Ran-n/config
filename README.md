@@ -13,9 +13,10 @@ The program uses a configuracion file ".cnf" with multiple options such as: verb
 - [Use](#use)
     - [Normal Use](#normal-use)
     - [Reuse for your own files](#reuse-for-your-own-personal-files)
-- [Future versions](#future-versions)
-    - [xFCR](#xfcr)
-    - [Improvements](#improvements)
+- [Changelog](#changelog)
+    - [Future versions](#future-versions)
+        - [xFCR](#xfcr)
+        - [Improvements](#improvements)
 - [Tested On](#tested-on-distros)
 - [Donations](https://github.com/Ran-n/doc/blob/main/doaz%C3%B3ns.md)
 - [Frequently Asked Questions](#faq)
@@ -57,8 +58,14 @@ Though this repository contains my particular config files (saved in the cnfiles
     - "arquivos.csv" are the list of files to be saved as part of the config.
     - "i18n.csv" internacionalization file.
 
-## Future versions
-### xFCR
+## Version Control
+
+### Changelog
+
+[CHANGELOG.md](#changelog.md)
+
+### Future versions
+#### xFCR
 
 - [X] Make the autoinstall packages script.
 - [X] Create a soft link to rconfig to wherever in the path you want it to be.
@@ -69,7 +76,7 @@ Though this repository contains my particular config files (saved in the cnfiles
 - [ ] Allow software install from git.
 - [X] Allow software install from pip.
 
-### Improvements
+#### Improvements
 
 - ~~Exclude Files: Instead of copying and then removing them, make it so they are not copied in the first place.~~
 - [ ] Check if files where changed regards to the actual version saved in 7z files before rezipping.
