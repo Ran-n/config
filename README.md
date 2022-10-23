@@ -62,7 +62,7 @@ Though this repository contains my particular config files (saved in the cnfiles
 
 ### Changelog
 
-[CHANGELOG.md](#changelog.md)
+[CHANGELOG](CHANGELOG.md)
 
 ### Future versions
 #### xFCR
