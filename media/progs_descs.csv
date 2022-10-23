@@ -1,7 +1,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:	Ran#
 #+ Creado:	2022/10/01 16:08:29.411662
-#+ Editado:	2022/10/19 18:57:31.415236
+#+ Editado:	2022/10/19 19:35:41.170749
 # ------------------------------------------------------------------------------
 #
 # LEGEND:
@@ -13,270 +13,236 @@
 
 # NAME, LANGUAGE, DESCRIPTION
 
-pandoc,gz,"Conversor entre tipos de documentos como md, html, latex, etc"
-pandoc,en,"File conversor between different types of documents like md, html, latex, etc"
-pandoc,cas,"Conversor entre tipos de documentos como md, html, latex, etc"
-
-
-sxiv,gz,"Visualizador de fotos."
-sxiv,en,"Simple X image viewer."
-sxiv,cas,"Visualizador de fotos."
-
-
-mpv,gz,"Visualizador multimedia."
-mpv,en,"Media player."
-mpv,cas,"Visualizador multimedia."
-
-
-youtube-dl,gz,"Descargador de vídeos."
-youtube-dl,en,"Video downloader."
-youtube-dl,cas,"Descargador de vídeos."
-
-
-erlang,gz,"Linguaxe e intérprete de programación."
-erlang,en,"Programming language."
-erlang,cas,"Lengua e intérprete de programación."
-
+# ******* #
+# GENERAL #
+# ******* #
 
 dia,gz,"Programa de creación de diagramas, UMLs, esquemas, etc."
 dia,en,"Program for the creation of diagrams, UMLs, schemas, etc."
 dia,cas,"Programa de creación de diagramas, UMLs, esquemas, etc."
 
+alacritty,gz,"Emulador de terminal."
+alacritty,en,"Terminal emulator."
+alacritty,cas,"Emulador de terminal."
 
-ffmpeg,gz,"Programa para a conversión e gravación de audio e vídeo."
-ffmpeg,en,"Program for the conversion and recording of audio an video."
-ffmpeg,cas,"Programa para la conversión y gravación de audio y vídeo."
+pandoc,gz,"Conversor entre tipos de documentos como md, html, latex, etc"
+pandoc,en,"File conversor between different types of documents like md, html, latex, etc"
+pandoc,cas,"Conversor entre tipos de documentos como md, html, latex, etc"
 
+sxiv,gz,"Visualizador de fotos."
+sxiv,en,"Simple X image viewer."
+sxiv,cas,"Visualizador de fotos."
 
 neofetch,gz,"Ferramenta de mostrado da información do sistema para o terminal."
 neofetch,en,"Terminal system information tool."
 neofetch,cas,"Herramienta de mostrado de información del sistema para la terminal."
 
+erlang,gz,"Linguaxe e intérprete de programación."
+erlang,en,"Programming language."
+erlang,cas,"Lengua e intérprete de programación."
+
+mpv,gz,"Visualizador multimedia."
+mpv,en,"Media player."
+mpv,cas,"Visualizador multimedia."
+
+youtube-dl,gz,"Descargador de vídeos."
+youtube-dl,en,"Video downloader."
+youtube-dl,cas,"Descargador de vídeos."
+
+ffmpeg,gz,"Programa para a conversión e gravación de audio e vídeo."
+ffmpeg,en,"Program for the conversion and recording of audio an video."
+ffmpeg,cas,"Programa para la conversión y gravación de audio y vídeo."
 
 slock,gz,"Pantalla de bloqueo minimalista."
 slock,en,"Simple lock screen."
 slock,cas,"Pantalla de bloqueo minimalista."
 
-
 dos2unix,gz,"Conversor de ficheiros DOS/MAC a UNIX."
 dos2unix,en,"DOS/MAC to UNIX text file format converter."
 dos2unix,cas,"Conversor de ficheros DOS/MAC a UNIX."
-
 
 dosfstools,gz,"Programas para crear, comprobar e etiquetar os sistemas de ficheiros da familia FAT."
 dosfstools,en,"Programs to create, check and label file systems of the FAT family."
 dosfstools,cas,"Programas para crear, comprobar y etiquetar los sistemas de ficheros de la familia FAT."
 
-
 libnotify,gz,"Libraría para o envío de notificacións ó escritorio."
 libnotify,en,"Library for sending desktop notifications."
 libnotify,cas,"Librería para el envío de notificaciones al escritorio."
-
 
 xwallpaper,gz,"Ferramenta de control de fondo de escritorio con pouco uso de CPU."
 xwallpaper,en,"Live wallpaper engine with low CPU usage."
 xwallpaper,cas,"Herramienta de control de fondo de escritorio con poco uso de CPU."
 
-
 xclip,gz,"Programa de terminal para copiar e pegar texto do portapapeis."
 xclip,en,"Terminal program por copy pasting text from the clipboard."
 xclip,cas,"Programa de terminal para copiar y pegar texto del portapapeles."
-
 
 zathura,gz,"Visualizador de documentos."
 zathura,en,"Document viewer."
 zathura,cas,"Visualizador de documentos."
 
-
 zathura-pdf-mupdf,gz,"Permite compatibilidade dos pdf e mupdf con Zathura."
 zathura-pdf-mupdf,en,"Allows Zathura to read pdf and mupdf files."
 zathura-pdf-mupdf,cas,"Permite la compatibilidad de los pdf y mupdf con Zathura."
-
 
 poppler,gz,"Manipula, previsualiza e dalle outras funcións a ficheros pdf."
 poppler,en,"Manipulates, gives previews and gives other functions to pdf files."
 poppler,cas,"Manipula, previsualiza y le da otras funciones a ficheros pdf."
 
-
 telegram-desktop,gz,"Aplicación de mensaxería instantánea, versión de escritorio."
 telegram-desktop,en,"Instant messaging app, desktop version."
 telegram-desktop,cas,"Aplicación de mensajería instantánea, versión de escritorio."
-
 
 sqlitebrowser,gz,"Sistema de xestión de base de datos gráfico para SQLite."
 sqlitebrowser,en,"Graphical Data Base Management System for SQLite."
 sqlitebrowser,cas,"Sistema de gestión de base de datos gráfico para SQLite."
 
-
 speedtest-cli,gz,"Programa para terminal para testar a conexión a internet usando speedtest.net."
 speedtest-cli,en,"Program for the terminal for testing the internet conection using speedtest.net."
 speedtest-cli,cas,"Programa para terminal para testear la conexión a internet usando speedtest.net."
-
 
 jq,gz,"Procesador e embelecedor de JSON para linha de comandos."
 jq,en,"Command line JSON processor and prettifier"
 jq,cas,"Procesador y embellecedor de JSON para línea de comandos."
 
-
 xorg-xdpyinfo,gz,"Ferramenta de terminal para mostrar información do servidor X tal que as capacidades do servidor, os valores predefinidos dos parámetros usados para a comunicación servidor cliente e as pantallas e visuais existentes."
 xorg-xdpyinfo,en,"Terminal tool for showing information about a X server such as server capabilities, the predefined values of parameters used in the server client communication and the screens and visuals that are available."
 xorg-xdpyinfo,cas,"Herramienta de terminal para mostrar información del servidor X tal que las capacidades del servidor, los valores predefinidos do los parámetros usados para la comunicación servidor cliente y las pantallas y visuales existentes."
-
 
 ranger,gz,"Manexador de ficheiros visual para terminal."
 ranger,en,"Terminal file manager"
 ranger,cas,"Explorador de ficheros visual para terminal."
 
-
 noto-fonts-emoji,gz,"Fonte para emojis de Google."
 noto-fonts-emoji,en,"Google's emoji font."
 noto-fonts-emoji,cas,"Fuente para emojis de Google."
-
 
 unicode-emoji,gz,"Fonte para emojis de Unicode."
 unicode-emoji,en,"Unicode's emoji font.'
 unicode-emoji,cas,"Fuente para emojis de Unicode."
 
-
 gimp,gz,"Editor de fotos."
 gimp,en,"Photo editor."
 gimp,cas,"Editor de fotos."
-
-
-alacritty,gz,"Emulador de terminal."
-alacritty,en,"Terminal emulator."
-alacritty,cas,"Emulador de terminal."
-
 
 cmatrix,gz,"Chuvia de letras ó estilo Matrix no terminal."
 cmatrix,en,"Letter rain Matrix style for the terminal."
 cmatrix,cas,"Lluvia de letras al estilo Matrix en el terminal"
 
-
 posterazor,gz,"Programa para cortar unha imaxe ou un pdf nas dimensións desexadas para despois imprimir este resultado e conformar un poster."
 posterazor,en,"Program for cutting an image or pdf into pieces of a desired size which can afterwards be printed out and assembled into a poster."
 posterazor,cas,"Programa para cortar una image o un pdf en las dimensiones deseadas para después imprimir este resultado y conformar un poster."
-
 
 mlocate,gz,"Paquete que contén os programas para terminal de locate e updatedb."
 mlocate,en,"Package containing the command line programs locate and updatedb."
 mlocate,cas,"Paquete que contiene los programas para terminal de locate y updatedb."
 
-
 tree,gz,"Programa de terminal para listar ficheiros nunha estructura de árbore."
 tree,en,"Terminal program for listing directories in a tree-like format."
 tree,cas,"Programa de terminal para listar ficheros en una estructura de árbol."
-
 
 figlet,gz,"Programa para facer letras grandes a partir de caracteres de texto."
 figlet,en,"Program for making large letters out of ordinary text."
 figlet,cas,"Programa para hacer letras grandes a partir de caracteres de texto."
 
-
 lynx,gz,"Buscador de internet tipo texto para o terminal."
 lynx,en,"Text browser for the terminal."
 lynx,cas,"Buscador de internet tipo texto para el terminal."
-
 
 pdftk,gz,"Programa de terminal para manipular pdfs."
 pdftk,en,"Terminal toolkit for manipulating pdfs."
 pdftk,cas,"Programa de terminal para manipular pdfs."
 
-
 enscript,gz,"Convertidor de ficheiros ASCII a PostScript, HTML ou RTF."
 enscript,en,"Converter of ASCII files to PostScript, HTML or RTF."
 enscript,cas,"Convertidor de ficheros ASCII a PostScript, HTML o RTF."
-
 
 chafa,gz,"Visualizador de imaxes no terminal."
 chafa,en,"Image viewer in the terminal."
 chafa,cas,"Visualizador de imágenes en el terminal."
 
-
 ipython,gz,"Shell de Python interactivo."
 ipython,en,"Python interactive shell."
 ipython,cas,"Shell de Python interactivo."
-
 
 calcurse,gz,"Aplicación para terminal de organización e calendario."
 calcurse,en,"Calendar and scheduling application for the command line."
 calcurse,cas,"Aplicación para terminal de organización y calendario."
 
-
 sxhkd,gz,"Ligador te combinacións de teclas a accións."
 sxhkd,en,"Simple X daemon that reacts to input events by executing commands."
 sxhkd,cas,"Ligador de combinaciones de teclas a acciones."
-
-
-perl-rename,gz,"Comando para o renomeo masivo de arquivos usando expresións de perl."
-perl-rename,en,"Command for mass renaming files using perl expresions."
-perl-rename,cas,"Comando apra ele renombrado masivo de ficheros usando expresiones de perl."
-
 
 rename,gz,"Commando para o renomeo masivo de arquivos."
 rename,en,"Command for mass renaming files."
 rename,cas,"Comando para el renombrado masivo de ficheros."
 
-
-mkvtoolnix-cli,gz,"Ferramentas de edición de ficheiros mkv para terminal."
-mkvtoolnix-cli,en,"Terminal tools for mkv video editing."
-mkvtoolnix-cli,cas,"Herramientas de edición de ficheiros mkv para terminal."
-
-
-mkvtoolnix-gui,gz,"Ferramentas de edición de ficheiros mkv con interfaz gráfica."
-mkvtoolnix-gui,en,"Graphical interfaced tools for mkv video editing."
-mkvtoolnix-gui,cas,"Herramientas de edición de ficheros mkv con interfaz gráfica."
-
-
-p7zip,gz,"Ferramenta para a compresión e decompresión de ficheiros."
-p7zip,en,"Tool for file compression and decompression."
-p7zip,cas,"Herramienta para a compresión y decompresión de ficheros."
-
-
-rambox-bin,gz,"Unificador de servizos de comunicación nunha soa aplicación."
-rambox-bin,en,"Unifier of services for communication in a single app."
-rambox-bin,cas,"Unificador de servicios de comunicación en una sola aplicación."
-
-
 texlive-full,gz,"Compliación de paquetes de TeX Live."
 texlive-full,en,"Package bundle of TeX Live."
 texlive-full,cas,"Compliación de paquetes de TeX Live."
-
-
-texlive-most,gz,"Compliación de paquetes de TeX Live."
-texlive-most,en,"Package bundle of TeX Live."
-texlive-most,cas,"Compliación de paquetes de TeX Live."
-
-
-texlive-lang,gz,"Compilación de paquetes de idiomas para TeX Live."
-texlive-lang,en,"Language package bundle for TeX Live."
-texlive-lang,cas,"Compilación de paquetes de idiomas para TeX Live."
-
 
 hugo,gz,"Xerador de páxinas web estáticas."
 hugo,en,"Static website generator."
 hugo,cas,"Generador de páginas web estáticas."
 
-
 neovim,gz,"Mellora do editor de texto vim."
 neovim,en,"Hyperextensible vim based text editor."
 neovim,cas,"Mejora del editor de texto vim."
-
-
-yay,gz,"Manexador de paquetes AUR."
-yay,en,"AUR package manager."
-yay,cas,"Manejador de paquetes AUR."
-
 
 python-pip,gz,"Manexador de paquetes de Python."
 python-pip,en,"Python's package installer.'
 python-pip,cas,"Manejador de paquetes de Python."
 
 
+# ********** #
+# Arch Based #
+# ********** #
+
+mkvtoolnix-cli,gz,"Ferramentas de edición de ficheiros mkv para terminal."
+mkvtoolnix-cli,en,"Terminal tools for mkv video editing."
+mkvtoolnix-cli,cas,"Herramientas de edición de ficheiros mkv para terminal."
+
+mkvtoolnix-gui,gz,"Ferramentas de edición de ficheiros mkv con interfaz gráfica."
+mkvtoolnix-gui,en,"Graphical interfaced tools for mkv video editing."
+mkvtoolnix-gui,cas,"Herramientas de edición de ficheros mkv con interfaz gráfica."
+
+p7zip,gz,"Ferramenta para a compresión e decompresión de ficheiros."
+p7zip,en,"Tool for file compression and decompression."
+p7zip,cas,"Herramienta para a compresión y decompresión de ficheros."
+
+perl-rename,gz,"Comando para o renomeo masivo de arquivos usando expresións de perl."
+perl-rename,en,"Command for mass renaming files using perl expresions."
+perl-rename,cas,"Comando apra ele renombrado masivo de ficheros usando expresiones de perl."
+
+texlive-lang,gz,"Compilación de paquetes de idiomas para TeX Live."
+texlive-lang,en,"Language package bundle for TeX Live."
+texlive-lang,cas,"Compilación de paquetes de idiomas para TeX Live."
+
+texlive-most,gz,"Compliación de paquetes de TeX Live."
+texlive-most,en,"Package bundle of TeX Live."
+texlive-most,cas,"Compliación de paquetes de TeX Live."
+
+yay,gz,"Manexador de paquetes AUR."
+yay,en,"AUR package manager."
+yay,cas,"Manejador de paquetes AUR."
+
+
+## *** ##
+## AUR ##
+## *** ##
+
+rambox-bin,gz,"Unificador de servizos de comunicación nunha soa aplicación."
+rambox-bin,en,"Unifier of services for communication in a single app."
+rambox-bin,cas,"Unificador de servicios de comunicación en una sola aplicación."
+
+
+# ****** #
+# Python #
+# ****** #
+
 pipreqs,gz,"Xerador do documento requirements.txt baseándose nos imports do proxecto."
 pipreqs,en,"Generator of requirements.txt based on the project's imports"
 pipreqs,cas,"Generador del documento requirements.txt basándose en los imports del proyecto."
-
 
 uteis,gz,"Libraría auxiliar de Python feita por Ran#."
 uteis,en,"Auxiliary Python library made by Ran#."
