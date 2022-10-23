@@ -6,7 +6,8 @@
 #+ Editado:	2022/10/07 02:38:49.311816
 # ------------------------------------------------------------------------------
 
-#* Script para sacar o texto correcto no idioma correcto
+#* Script para sacar o texto correcto no idioma correcto.
+#* Script to prompt text in the correct language.
 
 FICH=$(pwd)"/media/i18n.csv"
 

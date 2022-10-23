@@ -6,7 +6,8 @@
 #+ Editado:	2022/10/07 14:19:46.474752
 # ------------------------------------------------------------------------------
 
-#* Script para ler o ficheiro de configuración e devolver o valor da variable pedida
+#* Script para ler o ficheiro de configuración e devolver o valor da variable pedida.
+#* Script that reads the config file and returns the requested variable.
 
 while getopts "v:" o; do
     case "${o}" in
