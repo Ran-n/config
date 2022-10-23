@@ -13,7 +13,8 @@ The program uses a configuracion file ".cnf" with multiple options such as: verb
 - [Use](#use)
     - [Normal Use](#normal-use)
     - [Reuse for your own files](#reuse-for-your-own-personal-files)
-- [Changelog](#changelog)
+- [Version Control](#version-control)
+    - [Changelog](#changelog)
     - [Future versions](#future-versions)
         - [xFCR](#xfcr)
         - [Improvements](#improvements)
@@ -59,7 +60,6 @@ Though this repository contains my particular config files (saved in the cnfiles
     - "i18n.csv" internacionalization file.
 
 ## Version Control
-
 ### Changelog
 
 [CHANGELOG](CHANGELOG.md)
