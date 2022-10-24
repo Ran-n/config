@@ -17,24 +17,24 @@ if [[ $(/usr/bin/id -u) != 0 ]]; then
     fi
 fi
 
-FICH=$(pwd)"/media/scripts.csv"
+FICH="media/scripts.csv"
 
-DISTRO=$($(pwd)/src/uteis/trae-elto -d)
+DISTRO=$(src/uteis/trae-elto -d)
 
-LINGUA=$($(pwd)/src/uteis/trae-var -v "lang")
-VERBOSE=$($(pwd)/src/uteis/trae-var -v "verbose")
-CARPETA_DESTINO=$($(pwd)/src/uteis/trae-var -v "scripts_folder")
+LINGUA=$(src/uteis/trae-var -v "lang")
+VERBOSE=$(src/uteis/trae-var -v "verbose")
+CARPETA_DESTINO=$(src/uteis/trae-var -v "scripts_folder")
 
 
-$(pwd)/src/uteis/echo-texto -l $LINGUA -i "titulo.baixar_scripts"
+src/uteis/echo-texto -l $LINGUA -i "titulo.baixar_scripts"
 
 # crear (se non existe) a carpeta
 mkdir -p $CARPETA_DESTINO
 
 # link ó ficheiro principal
 [[ $VERBOSE -eq 1 ]]\
-    && ln -sfv $(pwd)"/rconfig" $CARPETA_DESTINO\
-    || ln -sf $(pwd)"/rconfig" $CARPETA_DESTINO
+    && ln -sfv "rconfig" $CARPETA_DESTINO\
+    || ln -sf "rconfig" $CARPETA_DESTINO
 
 # ir á carpeta onde se van descargar os scripts
 cd $CARPETA_DESTINO
@@ -66,4 +66,4 @@ while read line; do
     fi
 done < $FICH
 
-$(pwd)/src/uteis/echo-texto -l $LINGUA -i "final.ok"
+src/uteis/echo-texto -l $LINGUA -i "final.ok"

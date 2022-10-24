@@ -1,7 +1,7 @@
 #! /bin/sh
 #+ Autor:	Ran#
 #+ Creado:	08/03/2020 13:31:26
-#+ Editado:	2022/10/10 14:27:12.278485
+#+ Editado:	2022/10/24 18:35:44.364483
 
 # mirar se o script se executa como root
 # de non, facer que así sexa
@@ -17,16 +17,16 @@ if [[ $(/usr/bin/id -u) != 0 ]]; then
     fi
 fi
 
-FICH=$(pwd)"/media/carpetas.csv"
+FICH="media/carpetas.csv"
 
-USER=$($(pwd)/src/uteis/trae-elto -u)
-FOGAR=$($(pwd)/src/uteis/trae-elto -h)
+USER=$(src/uteis/trae-elto -u)
+FOGAR=$(src/uteis/trae-elto -h)
 
-LINGUA=$($(pwd)/src/uteis/trae-var -v "lang")
-VERBOSE=$($(pwd)/src/uteis/trae-var -v "verbose")
+LINGUA=$(src/uteis/trae-var -v "lang")
+VERBOSE=$(src/uteis/trae-var -v "verbose")
 
 
-$(pwd)/src/uteis/echo-texto -l $LINGUA -i "titulo.crear_carpetas"
+src/uteis/echo-texto -l $LINGUA -i "titulo.crear_carpetas"
 
 # rename dos nomes usuais por defecto
 mv $FOGAR/Desktop $FOGAR/Escritorio 2> /dev/null
@@ -54,4 +54,4 @@ while read line; do
     fi
 done < $FICH
 
-$(pwd)/src/uteis/echo-texto -l $LINGUA -i "final.ok"
+src/uteis/echo-texto -l $LINGUA -i "final.ok"

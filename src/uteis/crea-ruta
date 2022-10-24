@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:  	Ran#
 #+ Creado: 	2022/10/10 20:00:45.489970
-#+ Editado:	2022/10/10 23:31:18.753732
+#+ Editado:	2022/10/24 18:25:12.780268
 # ------------------------------------------------------------------------------
 
 #* Given a file path it creates it in case it doesnt exist
@@ -24,7 +24,7 @@ while getopts "r:p:vc" o; do
     esac
 done
 
-FOGAR=$(./src/uteis/trae-elto -f)
+FOGAR=$(src/uteis/trae-elto -f)
 
 # change the ~ for the home folder in the path
 if [[ $path = \~* ]]; then

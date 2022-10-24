@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:  	Ran#
 #+ Creado: 	2022/09/09 16:41:29.164675
-#+ Editado:	2022/10/10 14:30:11.560150
+#+ Editado:	2022/10/24 18:36:21.773756
 # ------------------------------------------------------------------------------
 
 # mirar se o script se executa como root
@@ -20,21 +20,21 @@ if [[ $(/usr/bin/id -u) != 0 ]]; then
     fi
 fi
 
-FICH=$(pwd)"/media/progs.csv"
-FICH2=$(pwd)"/media/progs_descs.csv"
+FICH="media/progs.csv"
+FICH2="media/progs_descs.csv"
 TEMP_SPACE=":-:"
 
-USER=$($(pwd)/src/uteis/trae-elto -u)
-DISTRO=$($(pwd)/src/uteis/trae-elto -d)
+USER=$(src/uteis/trae-elto -u)
+DISTRO=$(src/uteis/trae-elto -d)
 
 NUM_PROGS=$(grep "^[^#]" $FICH | grep -E ",,|$DISTRO" | wc -l)
 
-LINGUA=$($(pwd)/src/uteis/trae-var -v "lang")
-VERBOSE=$($(pwd)/src/uteis/trae-var -v "verbose")
-SEP=$($(pwd)/src/uteis/trae-var -v "csv_separator")
-SEP2=$($(pwd)/src/uteis/trae-var -v "csv_separator2")
-SEP_CATEX=$($(pwd)/src/uteis/trae-var -v "csv_string")
-AUR_PKG_MANAGER=$($(pwd)/src/uteis/trae-var -v "aur_pkg_manager")
+LINGUA=$(src/uteis/trae-var -v "lang")
+VERBOSE=$(src/uteis/trae-var -v "verbose")
+SEP=$(src/uteis/trae-var -v "csv_separator")
+SEP2=$(src/uteis/trae-var -v "csv_separator2")
+SEP_CATEX=$(src/uteis/trae-var -v "csv_string")
+AUR_PKG_MANAGER=$(src/uteis/trae-var -v "aur_pkg_manager")
 
 
 pkg_install(){
@@ -83,7 +83,7 @@ install_pkg(){
     pkg_install
 }
 
-$(pwd)/src/uteis/echo-texto -l $LINGUA -i "titulo.instalar_progs"
+src/uteis/echo-texto -l $LINGUA -i "titulo.instalar_progs"
 
 #pkgs=""
 cont=1
@@ -117,4 +117,4 @@ done < $FICH
 
 #install_pkg "$pkgs"
 
-$(pwd)/src/uteis/echo-texto -l $LINGUA -i "final.ok"
+src/uteis/echo-texto -l $LINGUA -i "final.ok"

@@ -1,7 +1,7 @@
 #! /bin/sh
 #+ Autor:	Ran#
 #+ Creado:	07/03/2020 22:33:09
-#+ Editado:	2022/10/10 23:35:10.241741
+#+ Editado:	2022/10/24 18:24:39.637856
 
 #* Script que me permite meter os meus ficheiros de configuración en calquera máquina na que esté a trabalhar
 
@@ -19,23 +19,23 @@ if [[ $(/usr/bin/id -u) != 0 ]]; then
     fi
 fi
 
-FICH=$(pwd)"/media/arquivos.csv"
+FICH="media/arquivos.csv"
 
-USER=$($(pwd)/src/uteis/trae-elto -u)
-FOGAR=$($(pwd)/src/uteis/trae-elto -h)
-DISTRO=$($(pwd)/src/uteis/trae-elto -d)
+USER=$(src/uteis/trae-elto -u)
+FOGAR=$(src/uteis/trae-elto -h)
+DISTRO=$(src/uteis/trae-elto -d)
 
-LINGUA=$($(pwd)/src/uteis/trae-var -v "lang")
-VERBOSE=$($(pwd)/src/uteis/trae-var -v "verbose")
-ACCEPT_ENCRIPT=$($(pwd)/src/uteis/trae-var -v "accept_encryption")
-CONTRASINAL=$($(pwd)/src/uteis/trae-var -v "passwd")
-SEP=$($(pwd)/src/uteis/trae-var -v "csv_separator")
-CNFOLDER=$($(pwd)/src/uteis/trae-var -v "cnfolder")
-CNFOLDER_HOME=$($(pwd)/src/uteis/trae-var -v "cnfolder_home")
-CNFOLDER_ROOT=$($(pwd)/src/uteis/trae-var -v "cnfolder_root")
+LINGUA=$(src/uteis/trae-var -v "lang")
+VERBOSE=$(src/uteis/trae-var -v "verbose")
+ACCEPT_ENCRIPT=$(src/uteis/trae-var -v "accept_encryption")
+CONTRASINAL=$(src/uteis/trae-var -v "passwd")
+SEP=$(src/uteis/trae-var -v "csv_separator")
+CNFOLDER=$(src/uteis/trae-var -v "cnfolder")
+CNFOLDER_HOME=$(src/uteis/trae-var -v "cnfolder_home")
+CNFOLDER_ROOT=$(src/uteis/trae-var -v "cnfolder_root")
 
 
-$(pwd)/src/uteis/echo-texto -l $LINGUA -i "titulo.pegar_cnfichs"
+src/uteis/echo-texto -l $LINGUA -i "titulo.pegar_cnfichs"
 
 unzip(){
     l_fich=$1
@@ -58,14 +58,14 @@ pegar(){
     if [[ $l_ruta = \~* ]]; then
         # change chown to $USER
         owner=1
-        ruta_orixe="$PWD/$CNFOLDER/$CNFOLDER_HOME$(echo $l_ruta | cut -d~ -f2-)"
+        ruta_orixe="$CNFOLDER/$CNFOLDER_HOME$(echo $l_ruta | cut -d~ -f2-)"
     else
         owner=0
-        ruta_orixe="$PWD/$CNFOLDER/$CNFOLDER_ROOT$l_ruta"
+        ruta_orixe="$CNFOLDER/$CNFOLDER_ROOT$l_ruta"
     fi
 
     # change ~ to /home/$USER
-    ruta_destino=$(./src/uteis/crea-ruta -cp $l_ruta)
+    ruta_destino=$(src/uteis/crea-ruta -cp $l_ruta)
 
     if [[ l_unzip -eq 1 ]]; then
         ruta_orixe=$(echo "$ruta_orixe" | rev | cut -d\/ -f2- | rev ).7z
@@ -111,4 +111,4 @@ while read line; do
     fi
 done < $FICH
 
-$(pwd)/src/uteis/echo-texto -l $LINGUA -i "final.ok"
+src/uteis/echo-texto -l $LINGUA -i "final.ok"

@@ -3,16 +3,16 @@
 # ------------------------------------------------------------------------------
 #+ Autor:  	Ran#
 #+ Creado: 	2022/10/06 20:14:30.260275
-#+ Editado:	2022/10/07 02:38:49.311816
+#+ Editado:	2022/10/24 18:25:43.581059
 # ------------------------------------------------------------------------------
 
 #* Script para sacar o texto correcto no idioma correcto.
 #* Script to prompt text in the correct language.
 
-FICH=$(pwd)"/media/i18n.csv"
+FICH="media/i18n.csv"
 
-SEP=$(grep -w "^csv_separator" $(pwd)/.cnf | cut -d= -f2)
-SEP_CATEX=$(grep -w "^csv_string" $(pwd)/.cnf | cut -d= -f2)
+SEP=$(grep -w "^csv_separator" .cnf | cut -d= -f2)
+SEP_CATEX=$(grep -w "^csv_string" .cnf | cut -d= -f2)
 
 while getopts "l:i:" o; do
     case "${o}" in

@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:	Ran#
 #+ Creado:	22/04/2020 00:23:18
-#+ Editado:	2022/10/19 18:57:45.771307
+#+ Editado:	2022/10/24 18:38:26.640931
 # ------------------------------------------------------------------------------
 
 #*gz* Script que copia of ficheiros da máquina na que se executa.
@@ -48,24 +48,24 @@ if [[ $(/usr/bin/id -u) != 0 ]]; then
     fi
 fi
 
-FICH=$(pwd)"/media/arquivos.csv"
+FICH="media/arquivos.csv"
 
-USER=$($(pwd)/src/uteis/trae-elto -u)
-FOGAR=$($(pwd)/src/uteis/trae-elto -h)
-DISTRO=$($(pwd)/src/uteis/trae-elto -d)
+USER=$(src/uteis/trae-elto -u)
+FOGAR=$(src/uteis/trae-elto -h)
+DISTRO=$(src/uteis/trae-elto -d)
 
-LINGUA=$($(pwd)/src/uteis/trae-var -v "lang")
-VERBOSE=$($(pwd)/src/uteis/trae-var -v "verbose")
-ACCEPT_ENCRIPT=$($(pwd)/src/uteis/trae-var -v "accept_encryption")
-CONTRASINAL=$($(pwd)/src/uteis/trae-var -v "passwd")
-SEP=$($(pwd)/src/uteis/trae-var -v "csv_separator")
-SEP2=$($(pwd)/src/uteis/trae-var -v "csv_separator2")
-CNFOLDER=$($(pwd)/src/uteis/trae-var -v "cnfolder")
-CNFOLDER_HOME=$($(pwd)/src/uteis/trae-var -v "cnfolder_home")
-CNFOLDER_ROOT=$($(pwd)/src/uteis/trae-var -v "cnfolder_root")
+LINGUA=$(src/uteis/trae-var -v "lang")
+VERBOSE=$(src/uteis/trae-var -v "verbose")
+ACCEPT_ENCRIPT=$(src/uteis/trae-var -v "accept_encryption")
+CONTRASINAL=$(src/uteis/trae-var -v "passwd")
+SEP=$(src/uteis/trae-var -v "csv_separator")
+SEP2=$(src/uteis/trae-var -v "csv_separator2")
+CNFOLDER=$(src/uteis/trae-var -v "cnfolder")
+CNFOLDER_HOME=$(src/uteis/trae-var -v "cnfolder_home")
+CNFOLDER_ROOT=$(src/uteis/trae-var -v "cnfolder_root")
 
 
-$(pwd)/src/uteis/echo-texto -l $LINGUA -i "titulo.copiar_cnfichs"
+src/uteis/echo-texto -l $LINGUA -i "titulo.copiar_cnfichs"
 
 while read line; do
     # ignorar liñas comentadas ou baleiras
@@ -78,10 +78,10 @@ while read line; do
         if [[ -z $distros ]] || (echo $distros | grep -w $DISTRO > /dev/null); then
             if [[ $ruta = \~* ]]; then
                 ruta=$(echo $ruta | cut -d~ -f2-)
-                ruta_total=$(echo $(pwd)/$CNFOLDER/$CNFOLDER_HOME$(dirname $ruta)/$(basename $ruta) | sed 's/\/\//\//g')
+                ruta_total=$(echo $CNFOLDER/$CNFOLDER_HOME$(dirname $ruta)/$(basename $ruta) | sed 's/\/\//\//g')
                 ruta=$FOGAR$ruta
             else
-                ruta_total=$(pwd)/$CNFOLDER/$CNFOLDER_ROOT$(dirname $ruta)/$(basename $ruta)
+                ruta_total=$CNFOLDER/$CNFOLDER_ROOT$(dirname $ruta)/$(basename $ruta)
             fi
 
             copiar_elemento $ruta_total $ruta
@@ -90,7 +90,9 @@ while read line; do
 
             if [[ -n $CONTRASINAL && $encriptar -eq $ACCEPT_ENCRIPT ]]; then
                 if [[ $VERBOSE -eq 1 ]]; then
+                    echo
                     7z a $ruta_total $ruta_total -p$CONTRASINAL -mhe=on -mx=9 -bb1
+                    echo
                     rm -vrf $ruta_total
                 else
                     7z a $ruta_total $ruta_total -p$CONTRASINAL -mhe=on -mx=9 2&>/dev/null
@@ -102,6 +104,6 @@ while read line; do
 done < $FICH
 
 # preciso cambiar isto porque se executa como root e quedaría como owner
-chown -R $USER:$USER $(pwd)/$CNFOLDER
+chown -R $USER:$USER $CNFOLDER
 
-$(pwd)/src/uteis/echo-texto -l $LINGUA -i "final.ok"
+src/uteis/echo-texto -l $LINGUA -i "final.ok"
