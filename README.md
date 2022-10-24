@@ -75,6 +75,7 @@ Though this repository contains my particular config files (saved in the cnfiles
 - [X] Allow software install from the AUR.
 - [ ] Allow software install from git.
 - [X] Allow software install from pip.
+- [ ] Make all scripts in src folder executable if the are not already.
 
 #### Improvements
 
