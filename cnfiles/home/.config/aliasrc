@@ -2,7 +2,7 @@
 #+ Autor:	Ran#
 #+ Creado:	03/2020
 #+ Recreado:11/09/2020 17:50:30
-#+ Editado:	2022/10/02 09:50:03.078718
+#+ Editado:	2022/10/25 20:34:39.501776
 
 #        _ _
 #   __ _| (_) __ _ ___ _ __ ___
@@ -74,7 +74,7 @@ alias mdc='metadata -c'
 
 alias gfolder='pwd | rev | cut -d/ -f1 | rev | copia'
 
-alias rcc='rconfig copia' # só ten sentido pra min
+#alias rcc='rconfig copia' # só ten sentido pra min
 
 ## cds no sistema
 ### Carpetas base
@@ -87,25 +87,25 @@ alias imxs='cd ~/Imaxes; ls'
 alias vids='cd ~/Vídeos; ls'
 alias sw='cd ~/Programas; ls'
 
-alias scripts='cd ~/Programas/scripts; ls'
-alias sc='cd ~/Programas/scripts; ls'
+#alias scripts='cd ~/Programas/scripts; ls'
+#alias sc='cd ~/Programas/scripts; ls'
 alias congit='cd ~/Programas/config; ls'
 alias cnf='cd ~/Programas/config; ls'
-alias tutos='cd ~/Programas/tutos; ls'
+#alias tutos='cd ~/Programas/tutos; ls'
 #alias ledo='cd ~/Programas/ledo; ls'
 
-alias ulb="cd /usr/local/bin; ls"
+alias uls="cd /usr/local/scripts; ls"
 
 # Carpetas de Descargas específicas
-alias telegram='cd ~/Descargas/Telegram\ Desktop; ls'
-alias tele='cd ~/Descargas/Telegram\ Desktop; ls'
-alias brave='cd ~/Descargas/Brave; ls'
-alias torrente='cd ~/Descargas/Torrente; ls'
-alias torrent='cd ~/Descargas/Torrente; ls'
+#alias telegram='cd ~/Descargas/Telegram\ Desktop; ls'
+#alias tele='cd ~/Descargas/Telegram\ Desktop; ls'
+#alias brave='cd ~/Descargas/Brave; ls'
+#alias torrente='cd ~/Descargas/Torrente; ls'
+#alias torrent='cd ~/Descargas/Torrente; ls'
 
 ### clase
-alias fric='cd ~/Documentos/FrIC; ls'
-alias fic6='cd ~/Documentos/FrIC/6º\ ano; ls'
-alias tfg='cd ~/Documentos/FrIC/tfg; ls'
+#alias fric='cd ~/Documentos/FrIC; ls'
+#alias fic6='cd ~/Documentos/FrIC/6º\ ano; ls'
+#alias tfg='cd ~/Documentos/FrIC/tfg; ls'
 
-alias toxtrac='conda activate toxtrac; ls'
+#alias toxtrac='conda activate toxtrac; ls'
