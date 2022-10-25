@@ -3,8 +3,25 @@
 # ------------------------------------------------------------------------------
 #+ Autor:  	Ran#
 #+ Creado: 	2022/10/05 21:58:48.495625
-#+ Editado:	2022/10/24 18:36:10.022773
+#+ Editado:	2022/10/25 21:53:27.200647
 # ------------------------------------------------------------------------------
+
+get_passwd(){
+
+    read -s -p "$(src/uteis/echo-texto -l $LINGUA -i "mensaxe.usuario.indicar_contrasinal")" passwd1
+    echo
+    read -s -p "$(src/uteis/echo-texto -l $LINGUA -i "mensaxe.usuario.reindicar_contrasinal")" passwd2
+    echo
+
+    if [[ "$passswd1" == "$passwd2" ]]; then
+        echo "$passwd1"
+    else
+        echo
+        src/uteis/echo-texto -l $LINGUA -i "mensaxe.erro.contrasinal.distintas"
+        echo
+        get_passwd
+    fi
+}
 
 # copiase o ficheiro
 cp cnf .cnf
@@ -20,9 +37,7 @@ sed -i 's/lang=.*/lang='"$lang"'/g' .cnf
 
 LINGUA=$(src/uteis/trae-var -v "lang")
 
-src/uteis/echo-texto -l $LINGUA -i "mensaxe.usuario.indicar_contrasinal"
-
-read -s contrasinal
+contrasinal=$(get_passwd)
 
 sed -i 's/passwd=.*/passwd='"$contrasinal"'/g' .cnf
 
