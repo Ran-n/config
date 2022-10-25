@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:  	Ran#
 #+ Creado: 	2022/10/06 20:14:30.260275
-#+ Editado:	2022/10/24 18:25:43.581059
+#+ Editado:	2022/10/25 21:46:06.578315
 # ------------------------------------------------------------------------------
 
 #* Script para sacar o texto correcto no idioma correcto.
@@ -29,4 +29,4 @@ done
     && texto=$(grep ^$id$SEP$lang $FICH | cut -d$SEP_CATEX -f2)
 
 [[ -n $texto ]]\
-    && echo $texto
+    && echo -e "$texto"
