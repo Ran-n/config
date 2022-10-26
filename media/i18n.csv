@@ -2,7 +2,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:  	Ran#
 #+ Creado: 	2022/10/06 20:04:53.668072
-#+ Editado:	2022/10/07 02:29:08.929009
+#+ Editado:	2022/10/25 21:55:40.518714
 # ------------------------------------------------------------------------------
 
 # Legend:
@@ -85,11 +85,21 @@ final.rconfig.operacion_inicio,cas,"=== Fin de la operación de INICIO ==="
 # MENSAXE #
 # ******* #
 
-mensaxe.usuario.indicar_contrasinal,gz,"Indica o contrasinal (baleiro para ningún)"
-mensaxe.usuario.indicar_contrasinal,en,"Enter password (empty for none)"
-mensaxe.usuario.indicar_contrasinal,cas,"Indica la contraseña (vacío para ninguna)"
+mensaxe.usuario.indicar_contrasinal,gz,"Indica o contrasinal (baleiro para ningún): "
+mensaxe.usuario.indicar_contrasinal,en,"Enter password (empty for none): "
+mensaxe.usuario.indicar_contrasinal,cas,"Indica la contraseña (vacío para ninguna): "
 
+mensaxe.usuario.reindicar_contrasinal,gz,"Volve indicar o contrasinal: "
+mensaxe.usuario.reindicar_contrasinal,en,"Retype the password: "
+mensaxe.usuario.reindicar_contrasinal,cas,"Vuelve a indicar la contraseña: "
 
+## **** ##
+## ERRO ##
+## **** ##
+
+mensaxe.erro.contrasinal.non_coincide,gz,"[ERRO] Os contrasinais son distintos, volve inserilos."
+mensaxe.erro.contrasinal.non_coincide,en,"[ERROR] The passwords do not match, retype them."
+mensaxe.erro.contrasinal.non_coincide,cas,"[ERROR] Las contraseñas no coinciden, vuelve a introducirlas."
 
 # **** #
 # INFO #
