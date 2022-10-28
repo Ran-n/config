@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:  	Ran#
 #+ Creado: 	2022/10/06 20:14:30.260275
-#+ Editado:	2022/10/25 21:46:06.578315
+#+ Editado:	2022/10/28 20:27:37.271417
 # ------------------------------------------------------------------------------
 
 #* Script para sacar o texto correcto no idioma correcto.
@@ -22,11 +22,22 @@ while getopts "l:i:" o; do
         i)
             id=$OPTARG
             ;;
+        #s)
     esac
 done
 
 [[ -n $lang && -n id ]]\
-    && texto=$(grep ^$id$SEP$lang $FICH | cut -d$SEP_CATEX -f2)
+    && texto=$(grep ^$id$SEP$lang $FICH | cut -d$SEP_CATEX -f2- | rev | cut -d$SEP_CATEX -f2- | rev)
+    # se mete " dentro do string ^
 
-[[ -n $texto ]]\
-    && echo -e "$texto"
+# se hai texto
+if [[ -n $texto ]]; then
+    precomando=$(echo -e "$texto" | cut -d\\ -f1)
+    comando=$(echo -e "$texto" | cut -d\\ -f2)
+    poscomando=$(echo -e "$texto" | cut -d\\ -f3-)
+
+    # se o pre e o pos son iguais, non hai comando
+    [[ "$precomando" == "$poscomando" ]]\
+        && echo -e "$texto"\
+        || echo -e "$precomando"$($comando)"$poscomando"
+fi
