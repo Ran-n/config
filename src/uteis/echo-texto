@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:  	Ran#
 #+ Creado: 	2022/10/06 20:14:30.260275
-#+ Editado:	2022/10/28 20:27:37.271417
+#+ Editado:	2022/10/29 01:20:16.873260
 # ------------------------------------------------------------------------------
 
 #* Script para sacar o texto correcto no idioma correcto.
@@ -40,4 +40,6 @@ if [[ -n $texto ]]; then
     [[ "$precomando" == "$poscomando" ]]\
         && echo -e "$texto"\
         || echo -e "$precomando"$($comando)"$poscomando"
+else
+    echo -e $(grep ^mensaxe.erro.non_existe$SEP$lang $FICH | cut -d$SEP_CATEX -f2- | rev | cut -d$SEP_CATEX -f2- | rev)
 fi
