@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:  	Ran#
 #+ Creado: 	2022/10/06 20:14:30.260275
-#+ Editado:	2022/10/29 01:20:16.873260
+#+ Editado:	2022/10/29 02:13:51.543667
 # ------------------------------------------------------------------------------
 
 #* Script para sacar o texto correcto no idioma correcto.
@@ -30,16 +30,19 @@ done
     && texto=$(grep ^$id$SEP$lang $FICH | cut -d$SEP_CATEX -f2- | rev | cut -d$SEP_CATEX -f2- | rev)
     # se mete " dentro do string ^
 
-# se hai texto
-if [[ -n $texto ]]; then
-    precomando=$(echo -e "$texto" | cut -d\\ -f1)
-    comando=$(echo -e "$texto" | cut -d\\ -f2)
-    poscomando=$(echo -e "$texto" | cut -d\\ -f3-)
+mostrar() {
+    # se hai texto
+    if [[ -n $1 ]]; then
+        precomando=$(echo -e "$1" | cut -d\\ -f1)
+        comando=$(echo -e "$1" | cut -d\\ -f2)
+        poscomando=$(echo -e "$1" | cut -d\\ -f3-)
 
-    # se o pre e o pos son iguais, non hai comando
-    [[ "$precomando" == "$poscomando" ]]\
-        && echo -e "$texto"\
-        || echo -e "$precomando"$($comando)"$poscomando"
-else
-    echo -e $(grep ^mensaxe.erro.non_existe$SEP$lang $FICH | cut -d$SEP_CATEX -f2- | rev | cut -d$SEP_CATEX -f2- | rev)
-fi
+        # se o pre e o pos son iguais, non hai comando
+        [[ "$precomando" == "$poscomando" ]]\
+            && echo -e "$1"\
+            || echo -e "$precomando"$($comando)"$(mostrar "$poscomando")"
+    else
+        echo -e $(grep ^mensaxe.erro.non_existe$SEP$lang $FICH | cut -d$SEP_CATEX -f2- | rev | cut -d$SEP_CATEX -f2- | rev)
+    fi
+}
+mostrar "$texto"
