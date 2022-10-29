@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:  	Ran#
 #+ Creado: 	2022/10/07 14:10:28.447383
-#+ Editado:	2022/10/28 20:38:48.038120
+#+ Editado:	2022/10/29 22:56:38.922765
 # ------------------------------------------------------------------------------
 
 #* Script para ler o ficheiro de configuración e devolver o valor da variable pedida.
@@ -22,4 +22,4 @@ done
 
 [[ -z $file ]] && file=".cnf"
 # desta forma non fai un echo baleiro cando non mete a opción -v
-[[ -n $var ]] && echo $(grep -w "^""$var""=.*" "$file" | cut -d= -f2-)
+[[ -f $file && -n $var ]] && echo $(grep -w "^""$var""=.*" "$file" | cut -d= -f2-)
