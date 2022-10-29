@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:  	Ran#
 #+ Creado: 	2022/10/06 20:14:30.260275
-#+ Editado:	2022/10/29 02:13:51.543667
+#+ Editado:	2022/10/29 14:07:37.325497
 # ------------------------------------------------------------------------------
 
 #* Script para sacar o texto correcto no idioma correcto.
@@ -27,7 +27,7 @@ while getopts "l:i:" o; do
 done
 
 [[ -n $lang && -n id ]]\
-    && texto=$(grep ^$id$SEP$lang $FICH | cut -d$SEP_CATEX -f2- | rev | cut -d$SEP_CATEX -f2- | rev)
+    && texto=$(grep ^$id$SEP$lang $FICH | cut -d$SEP -f3 | cut -d$SEP_CATEX -f2- | rev | cut -d$SEP_CATEX -f2- | rev)
     # se mete " dentro do string ^
 
 mostrar() {
@@ -42,7 +42,7 @@ mostrar() {
             && echo -e "$1"\
             || echo -e "$precomando"$($comando)"$(mostrar "$poscomando")"
     else
-        echo -e $(grep ^mensaxe.erro.non_existe$SEP$lang $FICH | cut -d$SEP_CATEX -f2- | rev | cut -d$SEP_CATEX -f2- | rev)
+        echo -e $(grep ^mensaxe.erro.non_existe$SEP$lang $FICH | cut -d$SEP -f3 | cut -d$SEP_CATEX -f2- | rev | cut -d$SEP_CATEX -f2- | rev)
     fi
 }
 mostrar "$texto"
