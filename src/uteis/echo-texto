@@ -47,7 +47,7 @@ mostrar() {
             && echo -e "$1"\
             || echo -e "$precomando"$($comando)"$(mostrar "$poscomando")"
     else
-        echo -e $(grep ^mensaxe.erro.non_existe$SEP$lang $FICH | cut -d$SEP -f3 | cut -d$SEP_CATEX -f2- | rev | cut -d$SEP_CATEX -f2- | rev)
+        echo -e $(grep ^mensaxe.erro.non_existe$SEP$lang $FICH | cut -d$SEP -f$position | cut -d$SEP_CATEX -f2- | rev | cut -d$SEP_CATEX -f2- | rev)
     fi
 }
 mostrar "$texto"
