@@ -32,7 +32,7 @@ done
 [[ -z $position ]] && position=3
 
 [[ -n $lang && -n id ]]\
-    && texto=$(grep ^$id$SEP$lang $FICH | cut -d$SEP -f$position | cut -d$SEP_CATEX -f2- | rev | cut -d$SEP_CATEX -f2- | rev)
+    && texto=$(grep ^"$id$SEP$lang" "$FICH" | cut -d$SEP -f$position | cut -d$SEP_CATEX -f2- | rev | cut -d$SEP_CATEX -f2- | rev)
     # se mete " dentro do string ^
 
 mostrar() {
