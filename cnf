@@ -2,7 +2,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:  	Ran#
 #+ Creado: 	2022/08/31 21:50:39.446534
-#+ Editado:	2022/10/07 13:49:41.356483
+#+ Editado:	2022/10/29 01:00:35.444659
 # ------------------------------------------------------------------------------
 # Non usar as palabras resevadas (antes do igual) en ningún lugar do ficheiro
 # Dont use the reserved words (before equals) on any part of the file
@@ -27,7 +27,6 @@ csv_separator=,
 csv_separator2=|
 # default indicator of a string in a csv file, inside of it you can use any characters.
 csv_string="
-
 
 
 # indicates wheather or not the user wants files to be encrypted on save
