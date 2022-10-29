@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:  	Ran#
 #+ Creado: 	2022/10/06 20:14:30.260275
-#+ Editado:	2022/10/29 14:07:37.325497
+#+ Editado:	2022/10/29 14:16:39.525687
 # ------------------------------------------------------------------------------
 
 #* Script para sacar o texto correcto no idioma correcto.
@@ -14,7 +14,7 @@ FICH="media/i18n.csv"
 SEP=$(grep -w "^csv_separator" .cnf | cut -d= -f2)
 SEP_CATEX=$(grep -w "^csv_string" .cnf | cut -d= -f2)
 
-while getopts "l:i:" o; do
+while getopts "l:i:p:" o; do
     case "${o}" in
         l)
             lang=$OPTARG
@@ -22,12 +22,17 @@ while getopts "l:i:" o; do
         i)
             id=$OPTARG
             ;;
+        p)
+            position=$OPTARG
+            ;;
         #s)
     esac
 done
 
+[[ -z $position ]] && position=3
+
 [[ -n $lang && -n id ]]\
-    && texto=$(grep ^$id$SEP$lang $FICH | cut -d$SEP -f3 | cut -d$SEP_CATEX -f2- | rev | cut -d$SEP_CATEX -f2- | rev)
+    && texto=$(grep ^$id$SEP$lang $FICH | cut -d$SEP -f$position | cut -d$SEP_CATEX -f2- | rev | cut -d$SEP_CATEX -f2- | rev)
     # se mete " dentro do string ^
 
 mostrar() {
