@@ -2,7 +2,7 @@
 [//]: # ( ---------------------------------------------------------------------- )
 [//]: # (+ Autor:  	Ran# )
 [//]: # (+ Creado: 	2022/10/30 15:09:50.600992 )
-[//]: # (+ Editado:	2022/10/30 15:51:42.226759 )
+[//]: # (+ Editado:	2022/10/30 16:54:50.837163 )
 [//]: # ( ---------------------------------------------------------------------- )
 
 [![GitHub license](https://img.shields.io/github/license/Ran-n/config)](https://github.com/Ran-n/config/blob/master/LICENSE)
@@ -61,10 +61,11 @@ Though this repository contains my particular config files (saved in the cnfiles
 - Editing the files in the media folder containing varios types of configuration:
     - "carpetas.csv" is the file where the folders of the home directory are designed.
     - "progs.csv" are the list of programs to be installed.
-    - "progs_csv.csv" are the list of program descriptions to be installed in different languages.
+    - "progs\_descs.csv" are the list of program descriptions to be installed in different languages.
     - "scripts.csv" are the list of scripts to be downloaded.
     - "arquivos.csv" are the list of files to be saved as part of the config.
     - "i18n.csv" internacionalization file.
+    - "linguas.csv" file where all the available languages are listed.
 
 ### Add new languages
 
