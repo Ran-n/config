@@ -1,7 +1,7 @@
 #! /bin/sh
 #+ Autor:	Ran#
 #+ Creado:	07/03/2020 22:33:09
-#+ Editado:	2022/10/24 18:24:39.637856
+#+ Editado:	2022/10/30 12:58:52.920734
 
 #* Script que me permite meter os meus ficheiros de configuración en calquera máquina na que esté a trabalhar
 
@@ -41,7 +41,9 @@ unzip(){
     l_fich=$1
 
     if [[ $VERBOSE -eq 1 ]]; then
-        7z x $(echo $l_fich | sed 's:/*$::') -o$(dirname $(echo $l_fich | sed 's:/*$::')) -aoa -p$CONTRASINAL
+        [[ -n $CONTRASINAL ]]\
+            && 7z x $(echo "$l_fich" | sed 's:/*$::') -o$(dirname $(echo "$l_fich" | sed 's:/*$::')) -aoa -p"$CONTRASINAL"\
+            || 7z x $(echo "$l_fich" | sed 's:/*$::') -o$(dirname $(echo "$l_fich" | sed 's:/*$::')) -aoa
         chown -R $USER:$USER $(echo $l_fich | sed 's:/*$::')
         rm -v $(echo $l_fich | sed 's:/*$::')
     else

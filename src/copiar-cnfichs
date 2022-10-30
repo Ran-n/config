@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:	Ran#
 #+ Creado:	22/04/2020 00:23:18
-#+ Editado:	2022/10/24 18:38:26.640931
+#+ Editado:	2022/10/30 13:15:20.384108
 # ------------------------------------------------------------------------------
 
 #*gz* Script que copia of ficheiros da máquina na que se executa.
@@ -68,7 +68,7 @@ CNFOLDER_ROOT=$(src/uteis/trae-var -v "cnfolder_root")
 src/uteis/echo-texto -l $LINGUA -i "titulo.copiar_cnfichs"
 
 while read line; do
-    # ignorar liñas comentadas ou baleiras
+    # ignorar linhas comentadas ou baleiras
     if [[ $line != \#* && -n $line ]]; then
         encriptar=$(echo $line | cut -d$SEP -f1)
         ruta=$(echo $line | cut -d$SEP -f2)
@@ -88,14 +88,25 @@ while read line; do
 
             [[ -n $excluir ]] && eliminar $ruta_total $excluir
 
-            if [[ -n $CONTRASINAL && $encriptar -eq $ACCEPT_ENCRIPT ]]; then
+            if [[ $encriptar -eq $ACCEPT_ENCRIPT ]]; then
                 if [[ $VERBOSE -eq 1 ]]; then
                     echo
-                    7z a $ruta_total $ruta_total -p$CONTRASINAL -mhe=on -mx=9 -bb1
+                    [[ -n "$CONTRASINAL" ]]\
+                        && 7z a "$ruta_total" "$ruta_total" -p"$CONTRASINAL" -mhe=on -mx=9 -bb1\
+                        || {
+                                [[ -f "$ruta_total".7z ]] && rm "$ruta_total".7z
+                                7z a "$ruta_total" "$ruta_total" -mhe=on -mx=9 -bb1
+                            }
                     echo
                     rm -vrf $ruta_total
                 else
-                    7z a $ruta_total $ruta_total -p$CONTRASINAL -mhe=on -mx=9 2&>/dev/null
+                    [[ -n "$CONTRASINAL" ]]\
+                        && 7z a "$ruta_total" "$ruta_total" -p"$CONTRASINAL" -mhe=on -mx=9 2&>/dev/null\
+                        || {
+                                [[ -f "$ruta_total".7z ]] && rm "$ruta_total".7z
+                                7z a "$ruta_total" "$ruta_total" -mhe=on -mx=9 2&>/dev/null
+                            }
+
                     rm -rf $ruta_total
                 fi
             fi
