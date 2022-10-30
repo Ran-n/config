@@ -3,18 +3,17 @@
 # ------------------------------------------------------------------------------
 #+ Autor:  	Ran#
 #+ Creado: 	2022/10/06 20:14:30.260275
-#+ Editado:	2022/10/30 15:54:57.343022
+#+ Editado:	2022/10/30 16:50:31.198938
 # ------------------------------------------------------------------------------
 
 #* Script para sacar o texto correcto no idioma correcto.
 #* Script to prompt text in the correct language.
 
 FICH="media/i18n.csv"
+FICH_LINGUAS="media/linguas.csv"
 
-#SEP=$(grep -w "^csv_separator" .cnf | cut -d= -f2)
 SEP=$(src/uteis/trae-var -v csv_separator)
 SEP_CATEX=$(src/uteis/trae-var -v csv_string)
-#SEP_CATEX=$(grep -w "^csv_string" .cnf | cut -d= -f2)
 
 while getopts "l:i:p:" o; do
     case "${o}" in
@@ -31,11 +30,11 @@ while getopts "l:i:p:" o; do
     esac
 done
 
-[[ -z "$position" ]] && position=3
 
-[[ -n "$lang" && -n id ]]\
-    && texto=$(grep ^"$id$SEP$lang" "$FICH" | cut -d$SEP -f"$position" | cut -d$SEP_CATEX -f2- | rev | cut -d$SEP_CATEX -f2- | rev)
-    # se mete " dentro do string ^
+sacar_catex(){
+    # se mete " dentro do string
+    echo $(grep ^"$1$SEP$lang" "$FICH" | cut -d$SEP -f"$position" | cut -d$SEP_CATEX -f2- | rev | cut -d$SEP_CATEX -f2- | rev)
+}
 
 mostrar() {
     # se hai texto
@@ -49,7 +48,14 @@ mostrar() {
             && echo -e "$1"\
             || echo -e "$precomando"$($comando)"$(mostrar "$poscomando")"
     else
-        echo -e $(grep ^mensaxe.erro.non_existe"$SEP$lang" "$FICH" | cut -d$SEP -f"$position" | cut -d$SEP_CATEX -f2- | rev | cut -d$SEP_CATEX -f2- | rev)
+        [[ -z "$lang" ]] && sacar_catex "mensaxe.erro.non_existe_mensaxe"
+        [[ -z $(grep "^""$lang" "$FICH") ]] && unset lang && sacar_catex "mensaxe.erro.non_existe_lingua"
     fi
 }
+
+[[ -z "$position" ]] && position=3
+
+[[ -n "$lang" && -n "$id" ]]\
+    && texto="$(sacar_catex "$id")"
+
 mostrar "$texto"
