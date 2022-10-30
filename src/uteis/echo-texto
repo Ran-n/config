@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:  	Ran#
 #+ Creado: 	2022/10/06 20:14:30.260275
-#+ Editado:	2022/10/29 14:16:39.525687
+#+ Editado:	2022/10/30 15:53:37.429562
 # ------------------------------------------------------------------------------
 
 #* Script para sacar o texto correcto no idioma correcto.
@@ -17,27 +17,27 @@ SEP_CATEX=$(grep -w "^csv_string" .cnf | cut -d= -f2)
 while getopts "l:i:p:" o; do
     case "${o}" in
         l)
-            lang=$OPTARG
+            lang="$OPTARG"
             ;;
         i)
-            id=$OPTARG
+            id="$OPTARG"
             ;;
         p)
-            position=$OPTARG
+            position="$OPTARG"
             ;;
         #s)
     esac
 done
 
-[[ -z $position ]] && position=3
+[[ -z "$position" ]] && position=3
 
-[[ -n $lang && -n id ]]\
-    && texto=$(grep ^"$id$SEP$lang" "$FICH" | cut -d$SEP -f$position | cut -d$SEP_CATEX -f2- | rev | cut -d$SEP_CATEX -f2- | rev)
+[[ -n "$lang" && -n id ]]\
+    && texto=$(grep ^"$id$SEP$lang" "$FICH" | cut -d$SEP -f"$position" | cut -d$SEP_CATEX -f2- | rev | cut -d$SEP_CATEX -f2- | rev)
     # se mete " dentro do string ^
 
 mostrar() {
     # se hai texto
-    if [[ -n $1 ]]; then
+    if [[ -n "$1" ]]; then
         precomando=$(echo -e "$1" | cut -d\\ -f1)
         comando=$(echo -e "$1" | cut -d\\ -f2)
         poscomando=$(echo -e "$1" | cut -d\\ -f3-)
@@ -47,7 +47,7 @@ mostrar() {
             && echo -e "$1"\
             || echo -e "$precomando"$($comando)"$(mostrar "$poscomando")"
     else
-        echo -e $(grep ^mensaxe.erro.non_existe"$SEP$lang" "$FICH" | cut -d$SEP -f$position | cut -d$SEP_CATEX -f2- | rev | cut -d$SEP_CATEX -f2- | rev)
+        echo -e $(grep ^mensaxe.erro.non_existe"$SEP$lang" "$FICH" | cut -d$SEP -f"$position" | cut -d$SEP_CATEX -f2- | rev | cut -d$SEP_CATEX -f2- | rev)
     fi
 }
 mostrar "$texto"
