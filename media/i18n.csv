@@ -2,7 +2,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:  	Ran#
 #+ Creado: 	2022/10/06 20:04:53.668072
-#+ Editado:	2022/10/29 01:57:47.979332
+#+ Editado:	2022/10/30 16:31:57.399213
 # ------------------------------------------------------------------------------
 
 # Legend:
@@ -154,9 +154,12 @@ mensaxe.erro.contrasinal.non_coincide,cas,"[ERROR] Las contraseñas no coinciden
 #mensaxe.erro.lingua.non_engadida,en,"[ERROR] The language is not available among the given options."
 #mensaxe.erro.lingua.non_engadida,cas,"[ERROR] La lengua no está disponible entre las opciones."
 
-mensaxe.erro.non_existe,gz,"[ERRO] A mensaxe á que tentas acceder non existe."
-mensaxe.erro.non_existe,en,"[ERROR] The message you are trying to access does not exist."
-mensaxe.erro.non_existe,cas,"[ERROR] El mensage al que intentas acceder no existe."
+mensaxe.erro.non_existe_mensaxe,gz,"[ERRO] A mensaxe á que tentas acceder non existe."
+mensaxe.erro.non_existe_mensaxe,en,"[ERROR] The message you are trying to access does not exist."
+mensaxe.erro.non_existe_mensaxe,cas,"[ERROR] El mensage al que intentas acceder no existe."
+
+mensaxe.erro.non_existe_lingua,,"∄ LANG"
+mensaxe.erro.non_existe_lingua:,,"∄ LANG : "
 
 # **** #
 # INFO #
