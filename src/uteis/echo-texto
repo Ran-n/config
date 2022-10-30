@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:  	Ran#
 #+ Creado: 	2022/10/06 20:14:30.260275
-#+ Editado:	2022/10/30 15:53:37.429562
+#+ Editado:	2022/10/30 15:54:57.343022
 # ------------------------------------------------------------------------------
 
 #* Script para sacar o texto correcto no idioma correcto.
@@ -11,8 +11,10 @@
 
 FICH="media/i18n.csv"
 
-SEP=$(grep -w "^csv_separator" .cnf | cut -d= -f2)
-SEP_CATEX=$(grep -w "^csv_string" .cnf | cut -d= -f2)
+#SEP=$(grep -w "^csv_separator" .cnf | cut -d= -f2)
+SEP=$(src/uteis/trae-var -v csv_separator)
+SEP_CATEX=$(src/uteis/trae-var -v csv_string)
+#SEP_CATEX=$(grep -w "^csv_string" .cnf | cut -d= -f2)
 
 while getopts "l:i:p:" o; do
     case "${o}" in
