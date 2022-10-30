@@ -1,3 +1,10 @@
+[//]: # ( -*- coding: utf-8 -*- )
+[//]: # ( ---------------------------------------------------------------------- )
+[//]: # (+ Autor:  	Ran# )
+[//]: # (+ Creado: 	2022/10/30 15:09:50.600992 )
+[//]: # (+ Editado:	2022/10/30 15:51:42.226759 )
+[//]: # ( ---------------------------------------------------------------------- )
+
 [![GitHub license](https://img.shields.io/github/license/Ran-n/config)](https://github.com/Ran-n/config/blob/master/LICENSE)
 ![PowerShell Gallery](https://img.shields.io/badge/plataforma-LiGNUx-lightgrey)
 
@@ -58,6 +65,15 @@ Though this repository contains my particular config files (saved in the cnfiles
     - "scripts.csv" are the list of scripts to be downloaded.
     - "arquivos.csv" are the list of files to be saved as part of the config.
     - "i18n.csv" internacionalization file.
+
+### Add new languages
+
+Only two steps:
+- Edit the "media/linguas.csv" file and add the code and name of the new language (codes must be unique).
+- In "media/i18n" add the translation for each id indicating the language code, like in the examples in the file.
+
+Now, when you set that language code in the ".cnf" file the program will pick it automatically.
+Remember to translate all ids, otherwise it will print the error message of not finding it.
 
 ## Version Control
 ### Changelog
