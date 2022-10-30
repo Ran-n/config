@@ -17,7 +17,7 @@ map <leader>p :!opout <c-r>%<CR><CR>
 map <leader>gc :w! <bar> !gc <c-r>%<CR><CR>
 
 " editar a metadata co meu script
-nnoremap <leader>me :w! <bar> !metadata -e <c-r>%<CR> <bar> :e <CR>
+nnoremap <leader>me :w! <bar> !metadata -e <c-r>%<CR> <bar> :mkview <bar> :e <CR>
 
 " copiar e pegar global
 vnoremap <C-c> "*y :let @+=@*<CR>

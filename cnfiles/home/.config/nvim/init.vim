@@ -34,6 +34,13 @@ source ~/.config/nvim/modulos/ui.vim
 " consideracións para ficheiros
 source ~/.config/nvim/modulos/fichs.vim
 
+" recordar os folds
+augroup recordar_folds
+    autocmd!
+    autocmd BufWinLeave * mkview
+    autocmd BufWinEnter * silent! loadview
+augroup END
+
 " folding
 "    set foldmethod=indent
 "    set foldnestmax=10
