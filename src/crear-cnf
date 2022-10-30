@@ -3,43 +3,186 @@
 # ------------------------------------------------------------------------------
 #+ Autor:  	Ran#
 #+ Creado: 	2022/10/05 21:58:48.495625
-#+ Editado:	2022/10/26 18:53:42.906173
+#+ Editado:	2022/10/30 14:59:00.346984
 # ------------------------------------------------------------------------------
 
+FICH='media/languages.csv'
+CNFICH='.cnf'
+CNFICH_ORIX='cnf'
+CNFICH_CAMBIOS='.renames'
+
+get_lang(){
+    while read line; do
+        # ignorar linhas comentadas ou baleiras
+        if [[ "$line" != \#* && -n "$line" ]]; then
+            code=$(echo "$line" | cut -d "$SEP" -f1)
+            name=$(echo "$line" | cut -d "$SEP" -f2)
+            echo "$name ($code)"
+        fi
+    done < "$FICH"
+    read -p "LANG: " lang
+
+    # se está baleiro
+    if [[ -z "$lang" ]]; then
+        echo
+        get_lang
+    else
+        num_linguas=$(grep -w "$lang" "$FICH" | wc -l)
+        # se hai algún código de lingua repetido
+        [[ "$num_linguas" -gt 1 ]] && printf "\n$num_linguas != 1\n"
+        # se o código da lingua non está dentro das posibilidades
+        if [[ "$num_linguas" != 1 ]]; then
+            echo
+            get_lang
+        fi
+    fi
+}
+
 get_passwd(){
-    read -s -p "$(src/uteis/echo-texto -l $LINGUA -i "mensaxe.usuario.indicar_contrasinal")" passwd
+    read -s -p "$(src/uteis/echo-texto -l "$LINGUA" -i "mensaxe.usuario.indicar_contrasinal")" passwd
+    echo
 
     if [[ -n "$passwd" ]]; then
-        echo
-        read -s -p "$(src/uteis/echo-texto -l $LINGUA -i "mensaxe.usuario.reindicar_contrasinal")" passwd2
+        read -s -p "$(src/uteis/echo-texto -l "$LINGUA" -i "mensaxe.usuario.reindicar_contrasinal")" passwd2
         echo
 
         if [[ "$passwd" != "$passwd2" ]]; then
             echo
-            src/uteis/echo-texto -l $LINGUA -i "mensaxe.erro.contrasinal.non_coincide"
+            src/uteis/echo-texto -l "$LINGUA" -i "mensaxe.erro.contrasinal.non_coincide"
             echo
             get_passwd
         fi
     fi
 }
 
-# copiase o ficheiro
-cp cnf .cnf
+check_yn_question(){
+    local resposta=$(echo "$1" | tr '[:upper:]' '[:lower:]')
+    local aceptar=$(src/uteis/echo-texto -l "$LINGUA" -i "input.aceptar.curto")
+    [[ -n "$1" && "$resposta" == "$aceptar" ]]\
+        && echo 1\
+        || echo 0
+}
+
+cnfolder_x() {
+    local cnfolder_cambios=$(src/uteis/trae-var -v cnfolder -f "$CNFICH_CAMBIOS")
+    local cnfolder_orix=$(src/uteis/trae-var -v cnfolder -f "$CNFICH_ORIX")
+    local cnfolder_x_cambios=$(src/uteis/trae-var -v "$2" -f "$CNFICH_CAMBIOS")
+    local cnfolder_x_orix=$(src/uteis/trae-var -v "$2" -f "$CNFICH_ORIX")
+    local dende=""
+    local ata=""
+
+    # se mete valor
+    if [[ -n "$1" ]]; then
+        sed -i 's/'"$2"'=.*/'"$2"'='"$1"'/g' "$CNFICH"
+        ata="$3"/"$1"
+        # se houbo cambios dos nomes por defecto
+        if [[ -n "$cnfolder_x_cambios" ]]; then
+            # se a carpeta pai tivo cambio de nome
+            [[ -n "$cnfolder_cambios" ]]\
+                && dende="$cnfolder_cambios"/"$cnfolder_x_cambios"\
+                || dende="$cnfolder_orix"/"$cnfolder_x_cambios"
+            sed -i '/'"$2"'=.*/d' "$CNFICH_CAMBIOS"
+        else
+            # se a carpeta pai tivo cambio de nome
+            [[ -n "$cnfolder_cambios" ]]\
+                && dende="$cnfolder_cambios"/"$cnfolder_x_orix"\
+                || dende="$cnfolder_orix"/"$cnfolder_x_orix"
+        fi
+        echo "$2"'='"$(src/uteis/trae-var -v "$2")" >> "$CNFICH_CAMBIOS"
+    else
+        if [[ -n "$cnfolder_x_cambios" ]]; then
+            [[ -n "$cnfolder_cambios" ]] && {
+                dende="$cnfolder_cambios"/"$cnfolder_x_cambios"
+                ata="$cnfolder_cambios"/"$cnfolder_x_orix"
+            } || {
+                dende="$cnfolder_orix"/"$cnfolder_x_cambios"
+                ata="$cnfolder_orix"/"$cnfolder_x_orix"
+            }
+            sed -i '/'"$2"'=.*/d' "$CNFICH_CAMBIOS"
+        fi
+    fi
+
+    # se é da carpeta pai
+    if [[ "$cnfolder_orix" == "$cnfolder_x_orix" ]]; then
+        dende=$(echo "$dende" | cut -d/ -f2)
+        ata=$(echo "$ata" | cut -d/ -f2)
+    fi
+
+    [[ -n "$dende" && -n "$ata" && "$dende" != "$ata" ]] && mv "$dende" "$ata"
+}
+
+# cópiase o ficheiro
+cp "$CNFICH_ORIX" "$CNFICH"
+SEP=$(src/uteis/trae-var -v csv_separator)
 
 echo
-echo "Galego (gz)"
-echo "English (en)"
-echo "Castellano (cas)"
-read -p "LANG: " lang
+# lang
+get_lang
+sed -i 's/lang=.*/lang='"$lang"'/g' "$CNFICH"
 echo
 
-sed -i 's/lang=.*/lang='"$lang"'/g' .cnf
+LINGUA=$(src/uteis/trae-var -v lang)
 
-LINGUA=$(src/uteis/trae-var -v "lang")
-#LINGUA="gz"
+src/uteis/echo-texto -l "$LINGUA" -i "titulo.crear_cnf"
 
+echo
+# passwd
 get_passwd
+sed -i 's/passwd=.*/passwd='"$passwd"'/g' "$CNFICH"
+echo
 
-sed -i 's/passwd=.*/passwd='"$passwd"'/g' .cnf
+read -p "$(src/uteis/echo-texto -l "$LINGUA" -i 'mensaxe.usuario.configuracion_completa')" full_cnf
+# bash 4.0
+#if [[ -n $full_cnf && "${full_cnf^^}" == "S" ]]; then
+if [[ $(check_yn_question $full_cnf) -eq 1 ]]; then
+    # verbose
+    read -p "$(src/uteis/echo-texto -l "$LINGUA" -i 'mensaxe.usuario.verbose')" verbose
+    # csv_separator
+    read -p "$(src/uteis/echo-texto -l "$LINGUA" -i 'mensaxe.usuario.csv_separator')" csv_separator
+    # csv_separator2
+    read -p "$(src/uteis/echo-texto -l "$LINGUA" -i 'mensaxe.usuario.csv_separator2')" csv_separator2
+    # csv_string
+    read -p "$(src/uteis/echo-texto -l "$LINGUA" -i 'mensaxe.usuario.csv_string')" csv_string
+    # accept_encryption
+    read -p "$(src/uteis/echo-texto -l "$LINGUA" -i 'mensaxe.usuario.accept_encryption')" accept_encryption
+    # scripts_folder
+    read -p "$(src/uteis/echo-texto -l "$LINGUA" -i 'mensaxe.usuario.scripts_folder')" scripts_folder
+    # aur_pkg_manager
+    read -p "$(src/uteis/echo-texto -l "$LINGUA" -i 'mensaxe.usuario.aur_pkg_manager')" aur_pkg_manager
+    # cnfolder
+    read -p "$(src/uteis/echo-texto -l "$LINGUA" -i 'mensaxe.usuario.cnfolder')" cnfolder
+    # cnfolder_home
+    read -p "$(src/uteis/echo-texto -l "$LINGUA" -i 'mensaxe.usuario.cnfolder_home')" cnfolder_home
+    # cnfolder_root
+    read -p "$(src/uteis/echo-texto -l "$LINGUA" -i 'mensaxe.usuario.cnfolder_root')" cnfolder_root
+fi
 
 echo
+src/uteis/echo-texto -l "$LINGUA" -i "final.ok"
+echo
+
+# SET DAS VARIABLES #
+# verbose
+sed -i 's/verbose=.*/verbose='"$(check_yn_question "$verbose")"'/g' "$CNFICH"
+# csv_separator
+[[ -n "$csv_separator" ]] && sed -i 's/csv_separator=.*/csv_separator='"$csv_separator"'/g' "$CNFICH"
+# csv_separator2
+[[ -n "$csv_separator2" ]] && sed -i 's/csv_separator2=.*/csv_separator2='"$csv_separator2"'/g' "$CNFICH"
+# csv_string
+[[ -n "$csv_string" ]] && sed -i 's/csv_string=.*/csv_string='"$csv_string"'/g' "$CNFICH"
+# accept_encryption
+sed -i 's/accept_encryption=.*/accept_encryption='"$(check_yn_question "$accept_encryption")"'/g' "$CNFICH"
+# scripts_folder
+[[ -n "$scripts_folder" ]] && sed -i 's/scripts_folder=.*/scripts_folder='"$scripts_folder"'/g' "$CNFICH"
+# aur_pkg_manager
+[[ -n "$aur_pkg_manager" ]] && sed -i 's/aur_pkg_manager=.*/aur_pkg_manager='"$aur_pkg_manager"'/g' "$CNFICH"
+# cnfolder
+cnfolder_x "$cnfolder" "cnfolder"
+# cnfolder_home
+cnfolder_x "$cnfolder_home" "cnfolder_home" "$cnfolder"
+# cnfolder_root
+cnfolder_x "$cnfolder_root" "cnfolder_root" "$cnfolder"
+# SET DAS VARIABLES #
+
+# se o fich de cambios existe e está baleiro, eliminar
+[[ -f "$CNFICH_CAMBIOS" && $(cat "$CNFICH_CAMBIOS" | wc -l) == 0 ]] && rm "$CNFICH_CAMBIOS"
