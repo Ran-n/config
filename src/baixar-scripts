@@ -1,7 +1,7 @@
 #! /bin/sh
 #+ Autor:	Ran#
 #+ Creado:	19/06/2020 22:17:35
-#+ Editado:	2022/10/30 22:06:24.707494
+#+ Editado:	2022/11/01 20:22:45.350071
 
 # mirar se o script se executa como root
 # de non, facer que así sexa
@@ -33,8 +33,8 @@ mkdir -p "$CARPETA_DESTINO"
 
 # link ó ficheiro principal
 [[ "$VERBOSE" -eq 1 ]]\
-    && ln -sfv "rconfig" "$CARPETA_DESTINO"\
-    || ln -sf "rconfig" "$CARPETA_DESTINO"
+    && ln -sfv "$PWD""/rconfig" "$CARPETA_DESTINO"\
+    || ln -sf "$PWD""/rconfig" "$CARPETA_DESTINO"
 
 # ir á carpeta onde se van descargar os scripts
 cd "$CARPETA_DESTINO"
