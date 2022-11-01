@@ -2,7 +2,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:  	Ran#
 #+ Creado: 	2022/10/06 20:04:53.668072
-#+ Editado:	2022/11/01 22:50:59.124112
+#+ Editado:	2022/11/01 23:01:44.610382
 # ------------------------------------------------------------------------------
 
 # Legend:
@@ -117,6 +117,10 @@ mensaxe.usuario.csv_separator2,cas,"¿Que símbolo se debería usar como separad
 mensaxe.usuario.csv_string,gz,"Que símbolo se debería usar como separador de catexs nos ficheiros csv? [$src/uteis/trae-var -v csv_string$]: "
 mensaxe.usuario.csv_string,en,"What symbol should be used as a string separator in csv files? [$src/uteis/trae-var -v csv_string$]: "
 mensaxe.usuario.csv_string,cas,"¿Que símbolo se debería usar como separador de catexs en los ficheiros csv? [$src/uteis/trae-var -v csv_string$]: "
+
+mensaxe.usuario.execute_indicator,gz,"Que símbolo se debería usar como indicador de variables/comandos dentro dos catex a mostrar ó usuario? [$src/uteis/trae-var -v execute_indicator$]: "
+mensaxe.usuario.execute_indicator,en,"What symbol should be used as a command indicator inside of the strings to show the user? [$src/uteis/trae-var -v execute_indicator$]: "
+mensaxe.usuario.execute_indicator,cas,"¿Que símbolo se debería usar como indicador de variables/comandos dentro de los catex a mostrar al usuario? [$src/uteis/trae-var -v execute_indicator$]: "
 
 mensaxe.usuario.accept_encryption,gz,"Queres que os documentos marcados se fagan un zip co contrasinal dado? (s/[n]): "
 mensaxe.usuario.accept_encryption,en,"Should marked files be zipped using the given password? (y/[n]): "

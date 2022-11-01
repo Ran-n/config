@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:  	Ran#
 #+ Creado: 	2022/10/05 21:58:48.495625
-#+ Editado:	2022/10/30 15:59:47.255712
+#+ Editado:	2022/11/01 22:58:49.469382
 # ------------------------------------------------------------------------------
 
 FICH='media/linguas.csv'
@@ -143,6 +143,8 @@ if [[ $(check_yn_question "$full_cnf") -eq 1 ]]; then
     read -p "$(src/uteis/echo-texto -l "$LINGUA" -i 'mensaxe.usuario.csv_separator2')" csv_separator2
     # csv_string
     read -p "$(src/uteis/echo-texto -l "$LINGUA" -i 'mensaxe.usuario.csv_string')" csv_string
+    # execute_indicator
+    read -p "$(src/uteis/echo-texto -l "$LINGUA" -i 'mensaxe.usuario.execute_indicator')" execute_indicator
     # accept_encryption
     read -p "$(src/uteis/echo-texto -l "$LINGUA" -i 'mensaxe.usuario.accept_encryption')" accept_encryption
     # scripts_folder
@@ -170,6 +172,8 @@ sed -i 's/verbose=.*/verbose='"$(check_yn_question "$verbose")"'/g' "$CNFICH"
 [[ -n "$csv_separator2" ]] && sed -i 's/csv_separator2=.*/csv_separator2='"$csv_separator2"'/g' "$CNFICH"
 # csv_string
 [[ -n "$csv_string" ]] && sed -i 's/csv_string=.*/csv_string='"$csv_string"'/g' "$CNFICH"
+# execute_indicator
+[[ -n "$execute_indicator" ]] && sed -i 's/execute_indicator=.*/execute_indicator='"$execute_indicator"'/g' "$CNFICH"
 # accept_encryption
 sed -i 's/accept_encryption=.*/accept_encryption='"$(check_yn_question "$accept_encryption")"'/g' "$CNFICH"
 # scripts_folder
