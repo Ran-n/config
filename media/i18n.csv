@@ -2,7 +2,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:  	Ran#
 #+ Creado: 	2022/10/06 20:04:53.668072
-#+ Editado:	2022/11/01 20:46:56.983917
+#+ Editado:	2022/11/01 20:50:55.227203
 # ------------------------------------------------------------------------------
 
 # Legend:
@@ -139,7 +139,7 @@ mensaxe.usuario.cnfolder_home,en,"How do you want to name the folder where the c
 mensaxe.usuario.cnfolder_home,cas,"¿Como quieres llamar a la ruta en la que serán guardados los ficheros de configuración de la ruta "/home/$src/uteis/trae-elto -u$"? [$src/uteis/trae-var -v cnfolder_home$]: "
 
 mensaxe.usuario.cnfolder_root,gz,"Como queres nomear a de gardado dos ficheiros de configuración da ruta "/"? [$src/uteis/trae-var -v cnfolder_root$]: "
-mensaxe.usuario.cnfolder_root,en,"How do you want to name the folder whre the config files of the path "/" will be saved? [$src/uteis/trae-var -v cnfolder_root$]: "
+mensaxe.usuario.cnfolder_root,en,"How do you want to name the folder where the config files of the path "/" will be saved? [$src/uteis/trae-var -v cnfolder_root$]: "
 mensaxe.usuario.cnfolder_root,cas,"¿Como quieres llamar a la ruta en la que serán guardados los ficheiros de configuración de la ruta "/"? [$src/uteis/trae-var -v cnfolder_root$]: "
 
 ## **** ##
