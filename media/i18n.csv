@@ -2,7 +2,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:  	Ran#
 #+ Creado: 	2022/10/06 20:04:53.668072
-#+ Editado:	2022/10/30 16:31:57.399213
+#+ Editado:	2022/11/01 20:41:16.273088
 # ------------------------------------------------------------------------------
 
 # Legend:
@@ -165,9 +165,9 @@ mensaxe.erro.non_existe_lingua:,,"∄ LANG : "
 # INFO #
 # **** #
 
-info.axuda.rconfig,gz,"Hai que indicar se a operación é de copiado(-c), de pegado(-p) ou de inicio(-i)."
-info.axuda.rconfig,en,"Indicating the weather the operation is of copy(-c), paste(-p) or setup(-s) is mandatory."
-info.axuda.rconfig,cas,"Hay que indicar si es una operación de copiado(-c), pegado(-p) o inicio(-i)."
+info.axuda.rconfig,gz,"Hai que indicar se a operación é de copiado(-c)$coma$ de pegado(-p) ou de inicio(-i)."
+info.axuda.rconfig,en,"Indicating the weather the operation is of copy(-c)$coma$ paste(-p) or setup(-s) is mandatory."
+info.axuda.rconfig,cas,"Hay que indicar si es una operación de copiado(-c)$coma$ pegado(-p) o inicio(-i)."
 
 
 # ***** #

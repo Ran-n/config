@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:  	Ran#
 #+ Creado: 	2022/10/06 20:14:30.260275
-#+ Editado:	2022/11/01 14:54:22.586270
+#+ Editado:	2022/11/01 20:40:48.864281
 # ------------------------------------------------------------------------------
 
 #* Script para sacar o texto correcto no idioma correcto.
@@ -33,7 +33,7 @@ done
 
 sacar_catex(){
     # se mete " dentro do string
-    echo "$(grep ^"$1$SEP$lang" "$FICH" | cut -d$SEP -f"$position" | cut -d$SEP_CATEX -f2- | rev | cut -d$SEP_CATEX -f2- | rev)"
+    echo "$(grep ^"$1$SEP$lang" "$FICH" | cut -d$SEP -f"$position" | cut -d$SEP_CATEX -f2- | rev | cut -d$SEP_CATEX -f2- | rev)" | sed 's/\$coma\$/,/g'
 }
 
 mostrar() {
