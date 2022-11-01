@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:	Ran#
 #+ Creado:	22/04/2020 00:23:18
-#+ Editado:	2022/10/30 13:15:20.384108
+#+ Editado:	2022/10/30 21:51:51.338116
 # ------------------------------------------------------------------------------
 
 #*gz* Script que copia of ficheiros da máquina na que se executa.
@@ -11,24 +11,24 @@
 
 copiar_elemento () {
     # carpetas
-    if [[ $2 == */ ]]; then
-        if [[ ! -d $1 ]]; then
-            [[ $VERBOSE -eq 1 ]] && mkdir -vp $1 || mkdir -p $1
+    if [[ "$2" == */ ]]; then
+        if [[ ! -d "$1" ]]; then
+            [[ "$VERBOSE" -eq 1 ]] && mkdir -vp "$1" || mkdir -p "$1"
         fi
-        [[ $VERBOSE -eq 1 ]] && cp -vpfr $2. $1 || cp -pfr $2. $1
+        [[ "$VERBOSE" -eq 1 ]] && cp -vpfr "$2". "$1" || cp -pfr "$2". "$1"
     # ficheiros
     else
-        if [[ ! -d $(dirname $1) ]]; then
-            [[ $VERBOSE -eq 1 ]] && mkdir -vp $(dirname $1) || mkdir -p $(dirname $1)
+        if [[ ! -d $(dirname "$1") ]]; then
+            [[ "$VERBOSE" -eq 1 ]] && mkdir -vp $(dirname "$1") || mkdir -p $(dirname "$1")
         fi
-        [[ $VERBOSE -eq 1 ]] && cp -vpfr $2 $1 || cp -pfr $2 $1
+        [[ "$VERBOSE" -eq 1 ]] && cp -vpfr "$2" "$1" || cp -pfr "$2" "$1"
     fi
 }
 
 eliminar () {
-    array=($(echo $2 | tr $SEP2 "\n"))
+    array=($(echo "$2" | tr "$SEP2" "\n"))
     for fich in "${array[@]}"; do
-        [[ $VERBOSE -eq 1 ]]\
+        [[ "$VERBOSE" -eq 1 ]]\
             && find "$1" -name "$fich" -exec rm -vrf {} +\
             || find "$1" -name "$fich" -exec rm -rf {} +
     done
@@ -65,31 +65,31 @@ CNFOLDER_HOME=$(src/uteis/trae-var -v "cnfolder_home")
 CNFOLDER_ROOT=$(src/uteis/trae-var -v "cnfolder_root")
 
 
-src/uteis/echo-texto -l $LINGUA -i "titulo.copiar_cnfichs"
+src/uteis/echo-texto -l "$LINGUA" -i "titulo.copiar_cnfichs"
 
 while read line; do
     # ignorar linhas comentadas ou baleiras
-    if [[ $line != \#* && -n $line ]]; then
-        encriptar=$(echo $line | cut -d$SEP -f1)
-        ruta=$(echo $line | cut -d$SEP -f2)
-        excluir=$(echo $line | cut -d$SEP -f3)
-        distros=$(echo $line | cut -d$SEP -f4)
+    if [[ "$line" != \#* && -n "$line" ]]; then
+        encriptar=$(echo "$line" | cut -d$SEP -f1)
+        ruta=$(echo "$line" | cut -d$SEP -f2)
+        excluir=$(echo "$line" | cut -d$SEP -f3)
+        distros=$(echo "$line" | cut -d$SEP -f4)
 
-        if [[ -z $distros ]] || (echo $distros | grep -w $DISTRO > /dev/null); then
-            if [[ $ruta = \~* ]]; then
-                ruta=$(echo $ruta | cut -d~ -f2-)
-                ruta_total=$(echo $CNFOLDER/$CNFOLDER_HOME$(dirname $ruta)/$(basename $ruta) | sed 's/\/\//\//g')
-                ruta=$FOGAR$ruta
+        if [[ -z "$distros" ]] || (echo "$distros" | grep -w "$DISTRO" > /dev/null); then
+            if [[ "$ruta" = \~* ]]; then
+                ruta=$(echo "$ruta" | cut -d~ -f2-)
+                ruta_total=$(echo "$CNFOLDER"/"$CNFOLDER_HOME"$(dirname "$ruta")/$(basename "$ruta") | sed 's/\/\//\//g')
+                ruta="$FOGAR$ruta"
             else
-                ruta_total=$CNFOLDER/$CNFOLDER_ROOT$(dirname $ruta)/$(basename $ruta)
+                ruta_total="$CNFOLDER"/"$CNFOLDER_ROOT"$(dirname "$ruta")/$(basename "$ruta")
             fi
 
-            copiar_elemento $ruta_total $ruta
+            copiar_elemento "$ruta_total" "$ruta"
 
-            [[ -n $excluir ]] && eliminar $ruta_total $excluir
+            [[ -n "$excluir" ]] && eliminar "$ruta_total" "$excluir"
 
-            if [[ $encriptar -eq $ACCEPT_ENCRIPT ]]; then
-                if [[ $VERBOSE -eq 1 ]]; then
+            if [[ "$encriptar" -eq "$ACCEPT_ENCRIPT" ]]; then
+                if [[ "$VERBOSE" -eq 1 ]]; then
                     echo
                     [[ -n "$CONTRASINAL" ]]\
                         && 7z a "$ruta_total" "$ruta_total" -p"$CONTRASINAL" -mhe=on -mx=9 -bb1\
@@ -98,7 +98,7 @@ while read line; do
                                 7z a "$ruta_total" "$ruta_total" -mhe=on -mx=9 -bb1
                             }
                     echo
-                    rm -vrf $ruta_total
+                    rm -vrf "$ruta_total"
                 else
                     [[ -n "$CONTRASINAL" ]]\
                         && 7z a "$ruta_total" "$ruta_total" -p"$CONTRASINAL" -mhe=on -mx=9 2&>/dev/null\
@@ -107,14 +107,14 @@ while read line; do
                                 7z a "$ruta_total" "$ruta_total" -mhe=on -mx=9 2&>/dev/null
                             }
 
-                    rm -rf $ruta_total
+                    rm -rf "$ruta_total"
                 fi
             fi
         fi
     fi
-done < $FICH
+done < "$FICH"
 
 # preciso cambiar isto porque se executa como root e quedaría como owner
-chown -R $USER:$USER $CNFOLDER
+chown -R "$USER":"$USER" "$CNFOLDER"
 
-src/uteis/echo-texto -l $LINGUA -i "final.ok"
+src/uteis/echo-texto -l "$LINGUA" -i "final.ok"

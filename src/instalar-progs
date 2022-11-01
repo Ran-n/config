@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:  	Ran#
 #+ Creado: 	2022/09/09 16:41:29.164675
-#+ Editado:	2022/10/24 18:36:21.773756
+#+ Editado:	2022/10/30 22:00:26.740642
 # ------------------------------------------------------------------------------
 
 # mirar se o script se executa como root
@@ -27,7 +27,7 @@ TEMP_SPACE=":-:"
 USER=$(src/uteis/trae-elto -u)
 DISTRO=$(src/uteis/trae-elto -d)
 
-NUM_PROGS=$(grep "^[^#]" $FICH | grep -E ",,|$DISTRO" | wc -l)
+NUM_PROGS=$(grep "^[^#]" "$FICH" | grep -E ",,|""$DISTRO" | wc -l)
 
 LINGUA=$(src/uteis/trae-var -v "lang")
 VERBOSE=$(src/uteis/trae-var -v "verbose")
@@ -38,22 +38,22 @@ AUR_PKG_MANAGER=$(src/uteis/trae-var -v "aur_pkg_manager")
 
 
 pkg_install(){
-    case $repositorio in
+    case "$repositorio" in
         "")
-            case $DISTRO in
+            case "$DISTRO" in
                 "ArcoLinux"\
                 |"Manjaro")
-                    pacman -S $id_nome --noconfirm --needed > /dev/null 2>&1
+                    pacman -S "$id_nome" --noconfirm --needed > /dev/null 2>&1
                     #pacman -S $id_nome --noconfirm --needed
                     ;;
             esac
             ;;
         aur)
-            sudo -u $USER $AUR_PKG_MANAGER -S $id_nome --noconfirm --needed > /dev/null 2>&1
+            sudo -u "$USER" "$AUR_PKG_MANAGER" -S "$id_nome" --noconfirm --needed > /dev/null 2>&1
             #sudo -u $USER $AUR_PKG_MANAGER -S $id_nome --noconfirm --needed
             ;;
         pip)
-            sudo -u $USER pip install $id_nome > /dev/null 2>&1
+            sudo -u "$USER" pip install "$id_nome" > /dev/null 2>&1
             #sudo -u $USER pip install $id_nome
             ;;
         git)
@@ -68,14 +68,14 @@ install_pkg(){
     #local nome=$3
     #local num_paquete=$4
 
-    if [[ $VERBOSE -eq 1 ]]; then
+    if [[ "$VERBOSE" -eq 1 ]]; then
         # o do temp_space é preciso porque senón o nome sae cortado polo espazo
-        nome=$(echo $nome | cut -d$SEP_CATEX -f2 | sed 's/$TEMP_SPACE/\ /g')
-        desc=$(cat $FICH2 | grep $id_nome$SEP$LINGUA$SEP | cut -d$SEP_CATEX -f2)
+        nome=$(echo "$nome" | cut -d$SEP_CATEX -f2 | sed 's/$TEMP_SPACE/\ /g')
+        desc=$(cat "$FICH2" | grep "$id_nome$SEP$LINGUA$SEP" | cut -d$SEP_CATEX -f2)
 
         # mostrar ó usuario que se esta a instalar e o avance
-        [[ $cont -ne 1 ]] && echo
-        echo "$cont/$NUM_PROGS"
+        [[ "$cont" -ne 1 ]] && echo
+        echo "$cont"/"$NUM_PROGS"
         echo "$nome"
         echo "$desc"
     fi
@@ -83,22 +83,22 @@ install_pkg(){
     pkg_install
 }
 
-src/uteis/echo-texto -l $LINGUA -i "titulo.instalar_progs"
+src/uteis/echo-texto -l "$LINGUA" -i "titulo.instalar_progs"
 
 #pkgs=""
 cont=1
 while read line; do
-    if [[ $line != \#* && -n $line ]]; then
-        id_nome=$(echo $line | cut -d$SEP -f1)
+    if [[ "$line" != \#* && -n "$line" ]]; then
+        id_nome=$(echo "$line" | cut -d$SEP -f1)
         # o do temp_space é preciso porque senón o nome sae cortado polo espazo
-        nome=$(echo $line | cut -d$SEP -f2 | sed 's/\ /$TEMP_SPACE/g')
-        lst_distros=($(echo $line | cut -d$SEP -f3 | tr $SEP2 "\n"))
+        nome=$(echo "$line" | cut -d$SEP -f2 | sed 's/\ /$TEMP_SPACE/g')
+        lst_distros=($(echo "$line" | cut -d$SEP -f3 | tr $SEP2 "\n"))
         #lst_repos=($(echo $line | cut -d$SEP -f4 | tr $SEP2 "\n"))
-        repositorio=$(echo $line | cut -d$SEP -f4 | tr '[:upper:]' '[:lower:]')
+        repositorio=$(echo "$line" | cut -d$SEP -f4 | tr '[:upper:]' '[:lower:]')
 
-        if [[ -n $lst_distros ]]; then
+        if [[ -n "$lst_distros" ]]; then
             for distro in "${lst_distros[@]}"; do
-                if [[ $distro = $DISTRO ]]; then
+                if [[ "$distro" = "$DISTRO" ]]; then
                     #install_pkg $id_nome $repositorio $nome $cont
                     install_pkg
                     let cont++
@@ -113,8 +113,8 @@ while read line; do
             #pkgs=$pkgs" "$id_nome
         fi
     fi
-done < $FICH
+done < "$FICH"
 
 #install_pkg "$pkgs"
 
-src/uteis/echo-texto -l $LINGUA -i "final.ok"
+src/uteis/echo-texto -l "$LINGUA" -i "final.ok"

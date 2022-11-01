@@ -134,7 +134,7 @@ echo
 read -p "$(src/uteis/echo-texto -l "$LINGUA" -i 'mensaxe.usuario.configuracion_completa')" full_cnf
 # bash 4.0
 #if [[ -n $full_cnf && "${full_cnf^^}" == "S" ]]; then
-if [[ $(check_yn_question $full_cnf) -eq 1 ]]; then
+if [[ $(check_yn_question "$full_cnf") -eq 1 ]]; then
     # verbose
     read -p "$(src/uteis/echo-texto -l "$LINGUA" -i 'mensaxe.usuario.verbose')" verbose
     # csv_separator

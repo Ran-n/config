@@ -1,7 +1,7 @@
 #! /bin/sh
 #+ Autor:	Ran#
 #+ Creado:	08/03/2020 13:31:26
-#+ Editado:	2022/10/24 18:35:44.364483
+#+ Editado:	2022/10/30 21:52:54.173326
 
 # mirar se o script se executa como root
 # de non, facer que así sexa
@@ -26,32 +26,31 @@ LINGUA=$(src/uteis/trae-var -v "lang")
 VERBOSE=$(src/uteis/trae-var -v "verbose")
 
 
-src/uteis/echo-texto -l $LINGUA -i "titulo.crear_carpetas"
+src/uteis/echo-texto -l "$LINGUA" -i "titulo.crear_carpetas"
 
 # rename dos nomes usuais por defecto
-mv $FOGAR/Desktop $FOGAR/Escritorio 2> /dev/null
-mv $FOGAR/Documents $FOGAR/Documentos 2> /dev/null
-mv $FOGAR/Downloads $FOGAR/Descargas 2> /dev/null
-mv $FOGAR/Music $FOGAR/Música 2> /dev/null
-mv $FOGAR/Pictures $FOGAR/Imaxes 2> /dev/null
-#mv $FOGAR/Public $FOGAR/Público 2> /dev/null
-#mkdir -p $FOGAR/Público
-rm -rf $FOGAR/Public
-mv $FOGAR/Software $FOGAR/Programas 2> /dev/null
-mv $FOGAR/Videos $FOGAR/Vídeos 2> /dev/null
-
+mv "$FOGAR"/Desktop "$FOGAR"/Escritorio 2> /dev/null
+mv "$FOGAR"/Documents "$FOGAR"/Documentos 2> /dev/null
+mv "$FOGAR"/Downloads "$FOGAR"/Descargas 2> /dev/null
+mv "$FOGAR"/Music "$FOGAR"/Música 2> /dev/null
+mv "$FOGAR"/Pictures "$FOGAR"/Imaxes 2> /dev/null
+#mv "$FOGAR"/Public "$FOGAR"/Público 2> /dev/null
+#mkdir -p "$FOGAR"/Público
+rm -rf "$FOGAR"/Public
+mv "$FOGAR"/Software "$FOGAR"/Programas 2> /dev/null
+mv "$FOGAR"/Videos "$FOGAR"/Vídeos 2> /dev/null
 
 while read line; do
-    if [[ $line != \#* && -n $line ]]; then
-        if [[ $line = \~* ]]; then
-            carpeta=$FOGAR$(echo $line | cut -d~ -f2)
+    if [[ "$line" != \#* && -n "$line" ]]; then
+        if [[ "$line" = \~* ]]; then
+            carpeta="$FOGAR"$(echo "$line" | cut -d~ -f2)
         else
-            carpeta=$line
+            carpeta="$line"
         fi
 
-        [[ $VERBOSE -eq 1 ]] && echo $line
-        mkdir -p $carpeta
+        [[ "$VERBOSE" -eq 1 ]] && echo "$line"
+        mkdir -p "$carpeta"
     fi
-done < $FICH
+done < "$FICH"
 
-src/uteis/echo-texto -l $LINGUA -i "final.ok"
+src/uteis/echo-texto -l "$LINGUA" -i "final.ok"

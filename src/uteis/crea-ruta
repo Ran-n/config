@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:  	Ran#
 #+ Creado: 	2022/10/10 20:00:45.489970
-#+ Editado:	2022/10/24 18:25:12.780268
+#+ Editado:	2022/10/30 21:38:07.951752
 # ------------------------------------------------------------------------------
 
 #* Given a file path it creates it in case it doesnt exist
@@ -13,7 +13,7 @@ CHANGE=0
 while getopts "r:p:vc" o; do
     case ${o} in
         p|r)
-            path=$OPTARG
+            path="$OPTARG"
             ;;
         v)
             VERBOSE=1
@@ -27,31 +27,31 @@ done
 FOGAR=$(src/uteis/trae-elto -f)
 
 # change the ~ for the home folder in the path
-if [[ $path = \~* ]]; then
-    path=$FOGAR$(echo $path | cut -d~ -f2-)
+if [[ "$path" = \~* ]]; then
+    path="$FOGAR""$(echo "$path" | cut -d~ -f2-)"
 fi
 
 # just return the same path changing the ~ simbol for the full normal path
 # if it doesnt have it, returns the same path
-if [[ $CHANGE -eq 1 ]]; then
-    echo $path
+if [[ "$CHANGE" -eq 1 ]]; then
+    echo "$path"
 # creates the route if it doesnt already exist
 else
     # folder
-    if [[ $path = */ ]]; then
+    if [[ "$path" = */ ]]; then
         # only if not exists
-        if [[ ! -d $path ]]; then
-            [[ $VERBOSE -eq 1 ]]\
-                && mkdir -vp $path\
-                || mkdir -p $path
+        if [[ ! -d "$path" ]]; then
+            [[ "$VERBOSE" -eq 1 ]]\
+                && mkdir -vp "$path"\
+                || mkdir -p "$path"
         fi
     # file
     else
         # only if not exists
-        if [[ ! -d $(dirname $path) ]]; then
-            [[ $VERBOSE -eq 1 ]]\
-                && mkdir -vp $(dirname $path)\
-                || mkdir -p $(dirname $path)
+        if [[ ! -d $(dirname "$path") ]]; then
+            [[ "$VERBOSE" -eq 1 ]]\
+                && mkdir -vp $(dirname "$path")\
+                || mkdir -p $(dirname "$path")
         fi
     fi
 fi

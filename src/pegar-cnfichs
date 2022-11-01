@@ -1,7 +1,7 @@
 #! /bin/sh
 #+ Autor:	Ran#
 #+ Creado:	07/03/2020 22:33:09
-#+ Editado:	2022/10/30 12:58:52.920734
+#+ Editado:	2022/10/30 22:05:20.534658
 
 #* Script que me permite meter os meus ficheiros de configuración en calquera máquina na que esté a trabalhar
 
@@ -35,82 +35,83 @@ CNFOLDER_HOME=$(src/uteis/trae-var -v "cnfolder_home")
 CNFOLDER_ROOT=$(src/uteis/trae-var -v "cnfolder_root")
 
 
-src/uteis/echo-texto -l $LINGUA -i "titulo.pegar_cnfichs"
+src/uteis/echo-texto -l "$LINGUA" -i "titulo.pegar_cnfichs"
 
+# xFCR
 unzip(){
-    l_fich=$1
+    l_fich="$1"
 
-    if [[ $VERBOSE -eq 1 ]]; then
-        [[ -n $CONTRASINAL ]]\
+    if [[ "$VERBOSE" -eq 1 ]]; then
+        [[ -n "$CONTRASINAL" ]]\
             && 7z x $(echo "$l_fich" | sed 's:/*$::') -o$(dirname $(echo "$l_fich" | sed 's:/*$::')) -aoa -p"$CONTRASINAL"\
             || 7z x $(echo "$l_fich" | sed 's:/*$::') -o$(dirname $(echo "$l_fich" | sed 's:/*$::')) -aoa
-        chown -R $USER:$USER $(echo $l_fich | sed 's:/*$::')
-        rm -v $(echo $l_fich | sed 's:/*$::')
+        chown -R "$USER":"$USER" $(echo "$l_fich" | sed 's:/*$::')
+        rm -v $(echo "$l_fich" | sed 's:/*$::')
     else
-        7z x $(echo $l_fich | sed 's:/*$::') -o$(dirname $(echo $l_fich | sed 's:/*$::')) -aoa -p$CONTRASINAL 2&> /dev/null
-        chown -R $USER:$USER $(echo $l_fich | sed 's:/*$::')
-        rm $(echo $l_fich | sed 's:/*$::')
+        7z x $(echo "$l_fich" | sed 's:/*$::') -o$(dirname $(echo "$l_fich" | sed 's:/*$::')) -aoa -p"$CONTRASINAL" 2&> /dev/null
+        chown -R "$USER":"$USER" $(echo "$l_fich" | sed 's:/*$::')
+        rm $(echo "$l_fich" | sed 's:/*$::')
     fi
 }
 
 pegar(){
-    l_ruta=$1
-    l_unzip=$2
+    l_ruta="$1"
+    l_unzip="$2"
 
-    if [[ $l_ruta = \~* ]]; then
+    if [[ "$l_ruta" = \~* ]]; then
         # change chown to $USER
         owner=1
-        ruta_orixe="$CNFOLDER/$CNFOLDER_HOME$(echo $l_ruta | cut -d~ -f2-)"
+        ruta_orixe=""$CNFOLDER"/"$CNFOLDER_HOME"$(echo "$l_ruta" | cut -d~ -f2-)"
     else
         owner=0
-        ruta_orixe="$CNFOLDER/$CNFOLDER_ROOT$l_ruta"
+        ruta_orixe="$CNFOLDER"/"$CNFOLDER_ROOT$l_ruta"
     fi
 
     # change ~ to /home/$USER
-    ruta_destino=$(src/uteis/crea-ruta -cp $l_ruta)
+    ruta_destino=$(src/uteis/crea-ruta -cp "$l_ruta")
 
-    if [[ l_unzip -eq 1 ]]; then
+    if [[ "$l_unzip" -eq 1 ]]; then
         ruta_orixe=$(echo "$ruta_orixe" | rev | cut -d\/ -f2- | rev ).7z
         ruta_destino=$(echo "$ruta_destino" | rev | cut -d\/ -f2- | rev ).7z
     fi
 
     # paste files
-    if [[ $VERBOSE -eq 1 ]]; then
-        ./src/uteis/crea-ruta -vp $ruta_destino
-        cp -vpfr $ruta_orixe $(dirname $ruta_destino)
+    if [[ "$VERBOSE" -eq 1 ]]; then
+        ./src/uteis/crea-ruta -vp "$ruta_destino"
+        cp -vpfr "$ruta_orixe" $(dirname "$ruta_destino")
     else
-        ./src/uteis/crea-ruta -p $ruta_destino
-        cp -pfr $ruta_orixe $(dirname $ruta_destino)
+        ./src/uteis/crea-ruta -p "$ruta_destino"
+        cp -pfr "$ruta_orixe" $(dirname "$ruta_destino")
     fi
 
     # unzip files
-    if [[ l_unzip -eq 1 ]]; then
-        unzip $ruta_destino
+    if [[ "$l_unzip" -eq 1 ]]; then
+        unzip "$ruta_destino"
     fi
 
-    [[ $owner -eq 1 ]] && chown -R $USER:$USER $(dirname $ruta_destino)
+    [[ "$owner" -eq 1 ]] && chown -R "$USER":"$USER" $(dirname "$ruta_destino")
 }
 
 while read line; do
     # ignore comments and empty lines
-    if [[ $line != \#* && -n $line ]]; then
+    if [[ "$line" != \#* && -n "$line" ]]; then
         #encriptar=$(echo $line | cut -d$SEP -f1)
-        ruta=$(echo $line | cut -d$SEP -f2)
-        distros=$(echo $line | cut -d$SEP -f4)
+        ruta=$(echo "$line" | cut -d$SEP -f2)
+        distros=$(echo "$line" | cut -d$SEP -f4)
         unzip=0
         ignore=0
 
         # if its not distro dependant
         # or the correct distro
-        if [[ -z $distros ]] || (echo $distros | grep -w $DISTRO > /dev/null); then
+        if [[ -z "$distros" ]] || (echo "$distros" | grep -w "$DISTRO" > /dev/null); then
             # if starts with one
-            if [[ $line = \1* ]]; then
+            if [[ "$line" = \1* ]]; then
                 unzip=1
-                [[ -z $CONTRASINAL ]] && ignore=1
+                [[ -z "$CONTRASINAL" ]] && ignore=1
             fi
-            [[ $ignore -eq 0 ]] && pegar $ruta $unzip
+            [[ "$ignore" -eq 0 ]] && pegar "$ruta" "$unzip"
         fi
     fi
-done < $FICH
+done < "$FICH"
 
-src/uteis/echo-texto -l $LINGUA -i "final.ok"
+src/uteis/echo-texto -l "$LINGUA" -i "final.ok"

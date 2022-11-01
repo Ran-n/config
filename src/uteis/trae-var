@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:  	Ran#
 #+ Creado: 	2022/10/07 14:10:28.447383
-#+ Editado:	2022/10/29 22:56:38.922765
+#+ Editado:	2022/10/30 21:40:15.860759
 # ------------------------------------------------------------------------------
 
 #* Script para ler o ficheiro de configuración e devolver o valor da variable pedida.
@@ -12,14 +12,14 @@
 while getopts "v:f:" o; do
     case "${o}" in
         v)
-            var=$OPTARG
+            var="$OPTARG"
             ;;
         f)
-            file=$OPTARG
+            file="$OPTARG"
             ;;
     esac
 done
 
-[[ -z $file ]] && file=".cnf"
+[[ -z "$file" ]] && file=".cnf"
 # desta forma non fai un echo baleiro cando non mete a opción -v
-[[ -f $file && -n $var ]] && echo $(grep -w "^""$var""=.*" "$file" | cut -d= -f2-)
+[[ -f "$file" && -n "$var" ]] && echo $(grep -w "^""$var""=.*" "$file" | cut -d= -f2-)
