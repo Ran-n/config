@@ -2,7 +2,7 @@
 [//]: # ( ---------------------------------------------------------------------- )
 [//]: # (+ Autor:  	Ran# )
 [//]: # (+ Creado: 	2022/10/30 15:09:50.600992 )
-[//]: # (+ Editado:	2022/10/30 16:54:50.837163 )
+[//]: # (+ Editado:	2022/11/01 20:54:01.183566 )
 [//]: # ( ---------------------------------------------------------------------- )
 
 [![GitHub license](https://img.shields.io/github/license/Ran-n/config)](https://github.com/Ran-n/config/blob/master/LICENSE)
@@ -92,7 +92,8 @@ Remember to translate all ids, otherwise it will print the error message of not 
 - [X] Allow software install from the AUR.
 - [ ] Allow software install from git.
 - [X] Allow software install from pip.
-- [ ] Make all scripts in src folder executable if the are not already.
+- [X] Make all scripts in src folder executable if the are not already.
+- [ ] Create a file to pull from and a loop to substitute variables in "src/uteis/echo-texto".
 
 #### Improvements
 
