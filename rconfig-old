@@ -1,0 +1,101 @@
+#! /bin/sh
+# -*- coding: utf-8 -*-
+# ------------------------------------------------------------------------------
+#+ Autor:	Ran#
+#+ Creado:	08/03/2020 00:13:08
+#+ Editado:	2022/10/25 20:46:21.259668
+# ------------------------------------------------------------------------------
+
+cd $(dirname $(readlink -f $0))
+
+# se non existe o fich de cnf creao da base
+[[ -f .cnf ]] || src/crear-cnf
+LINGUA=$(grep -w "lang" .cnf | cut -d= -f2)
+
+mensaxe_operacion_inicio(){
+    case $1 in
+        c)
+            src/uteis/echo-texto -l $LINGUA -i "titulo.rconfig.operacion_copiado"
+            ;;
+        p)
+            src/uteis/echo-texto -l $LINGUA -i "titulo.rconfig.operacion_pegado"
+            ;;
+        s)
+            src/uteis/echo-texto -l $LINGUA -i "titulo.rconfig.operacion_inicio"
+            ;;
+    esac
+}
+
+mensaxe_operacion_fin(){
+    case $1 in
+        c)
+            src/uteis/echo-texto -l $LINGUA -i "final.rconfig.operacion_copiado"
+            ;;
+        p)
+            src/uteis/echo-texto -l $LINGUA -i "final.rconfig.operacion_pegado"
+            ;;
+        s)
+            src/uteis/echo-texto -l $LINGUA -i "final.rconfig.operacion_inicio"
+            ;;
+    esac
+}
+
+mensaxe_operacion(){
+    case $1 in
+        inicio)
+            mensaxe_operacion_inicio $2
+            ;;
+        fin)
+            mensaxe_operacion_fin $2
+            ;;
+    esac
+}
+
+copiar(){
+    src/copiar-cnfichs
+}
+
+pegar() {
+    src/pegar-cnfichs
+}
+
+inicio() {
+    find src -type f -exec chmod +x -- {} +
+    src/crear-carpetas
+    echo
+    src/baixar-scripts
+    echo
+    src/instalar-progs
+    echo
+    pegar
+}
+
+# se non meten variable pois pon mensaxe e sae
+if [ -z $1 ]; then
+    src/uteis/echo-texto -l $LINGUA -i "info.axuda.rconfig"
+    exit 1
+fi
+
+case $1 in
+    -c|--copiar|--copy)
+        mensaxe_operacion "inicio" "c"
+        copiar
+        mensaxe_operacion "fin" "c"
+        ;;
+
+    -p|--pegar|--paste)
+        mensaxe_operacion "inicio" "p"
+        pegar
+        mensaxe_operacion "fin" "p"
+        ;;
+
+    -s|--setup|-i|--inicio)
+        mensaxe_operacion "inicio" "s"
+        inicio
+        mensaxe_operacion "fin" "s"
+        ;;
+
+    *)
+        src/uteis/echo-texto -l $LINGUA -i "info.axuda.rconfig"
+        ;;
+esac

@@ -3,98 +3,76 @@
 # ------------------------------------------------------------------------------
 #+ Autor:	Ran#
 #+ Creado:	08/03/2020 00:13:08
-#+ Editado:	2022/10/07 02:12:35.916731
+#+ Editado:	2022/11/01 20:15:25.297680
 # ------------------------------------------------------------------------------
 
 cd $(dirname $(readlink -f $0))
 
 # se non existe o fich de cnf creao da base
-[[ -f $(pwd)/.cnf ]] || $(pwd)/src/crear-cnf
-LINGUA=$(grep -w "lang" $(pwd)/.cnf | cut -d= -f2)
+[[ -f .cnf ]] || src/crear-cnf
+LINGUA=$(src/uteis/trae-var -v "lang")
 
-mensaxe_operacion_inicio(){
-    case $1 in
-        c)
-            $(pwd)/src/uteis/echo-texto -l $LINGUA -i "titulo.rconfig.operacion_copiado"
-            ;;
-        p)
-            $(pwd)/src/uteis/echo-texto -l $LINGUA -i "titulo.rconfig.operacion_pegado"
-            ;;
-        s)
-            $(pwd)/src/uteis/echo-texto -l $LINGUA -i "titulo.rconfig.operacion_inicio"
-            ;;
-    esac
+operacion_copiado() {
+    src/uteis/echo-texto -l $LINGUA -i "titulo.rconfig.operacion_copiado"
+    copiar
+    src/uteis/echo-texto -l $LINGUA -i "final.rconfig.operacion_copiado"
 }
 
-mensaxe_operacion_fin(){
-    case $1 in
-        c)
-            $(pwd)/src/uteis/echo-texto -l $LINGUA -i "final.rconfig.operacion_copiado"
-            ;;
-        p)
-            $(pwd)/src/uteis/echo-texto -l $LINGUA -i "final.rconfig.operacion_pegado"
-            ;;
-        s)
-            $(pwd)/src/uteis/echo-texto -l $LINGUA -i "final.rconfig.operacion_inicio"
-            ;;
-    esac
+operacion_pegado() {
+    src/uteis/echo-texto -l "$LINGUA" -i "titulo.rconfig.operacion_pegado"
+    pegar
+    src/uteis/echo-texto -l "$LINGUA" -i "final.rconfig.operacion_pegado"
 }
 
-mensaxe_operacion(){
-    case $1 in
-        inicio)
-            mensaxe_operacion_inicio $2
-            ;;
-        fin)
-            mensaxe_operacion_fin $2
-            ;;
-    esac
+operacion_inicio() {
+    src/uteis/echo-texto -l "$LINGUA" -i "titulo.rconfig.operacion_inicio"
+    inicio
+    src/uteis/echo-texto -l "$LINGUA" -i "final.rconfig.operacion_inicio"
 }
 
-copiar(){
-    $(pwd)/src/copiar-cnfichs
+operacion_axuda() {
+    src/uteis/echo-texto -l "$LINGUA" -i "info.axuda.rconfig"
+}
+
+copiar() {
+    src/copiar-cnfichs
 }
 
 pegar() {
-    $(pwd)/src/pegar-cnfichs
+    src/pegar-cnfichs
 }
 
 inicio() {
-    $(pwd)/src/crear-carpetas
+    # facer todos os scripts executables
+    find src -type f -exec chmod +x -- {} +
+
+    src/crear-carpetas
     echo
-    $(pwd)/src/baixar-scripts
+
+    src/baixar-scripts
     echo
-    $(pwd)/src/instalar-progs
+
+    src/instalar-progs
     echo
+
     pegar
 }
 
-# se non meten variable pois pon mensaxe e sae
-if [ -z $1 ]; then
-    $(pwd)/src/uteis/echo-texto -l $LINGUA -i "info.axuda.rconfig"
-    exit 1
-fi
+while getopts "cpsi" o; do
+    case ${o} in
+        s|i)
+            operacion_inicio
+            ;;
+        c)
+            operacion_copiado
+            ;;
+        p)
+            operacion_pegado
+            ;;
+        \?)
+            operacion_axuda
+            ;;
+    esac
+done
 
-case $1 in
-    -c|--copiar|--copy)
-        mensaxe_operacion "inicio" "c"
-        copiar
-        mensaxe_operacion "fin" "c"
-        ;;
-
-    -p|--pegar|--paste)
-        mensaxe_operacion "inicio" "p"
-        pegar
-        mensaxe_operacion "fin" "p"
-        ;;
-
-    -s|--setup|-i|--inicio)
-        mensaxe_operacion "inicio" "s"
-        inicio
-        mensaxe_operacion "fin" "s"
-        ;;
-
-    *)
-        $(pwd)/src/uteis/echo-texto -l $LINGUA -i "info.axuda.rconfig"
-        ;;
-esac
+[ "$OPTIND" -eq 1 ] && operacion_axuda
