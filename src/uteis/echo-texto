@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:  	Ran#
 #+ Creado: 	2022/10/06 20:14:30.260275
-#+ Editado:	2022/10/30 16:50:31.198938
+#+ Editado:	2022/11/01 14:53:17.345463
 # ------------------------------------------------------------------------------
 
 #* Script para sacar o texto correcto no idioma correcto.
@@ -33,7 +33,7 @@ done
 
 sacar_catex(){
     # se mete " dentro do string
-    echo $(grep ^"$1$SEP$lang" "$FICH" | cut -d$SEP -f"$position" | cut -d$SEP_CATEX -f2- | rev | cut -d$SEP_CATEX -f2- | rev)
+    echo "$(grep ^"$1$SEP$lang" "$FICH" | cut -d$SEP -f"$position" | cut -d$SEP_CATEX -f2- | rev | cut -d$SEP_CATEX -f2- | rev)"
 }
 
 mostrar() {
@@ -48,14 +48,19 @@ mostrar() {
             && echo -e "$1"\
             || echo -e "$precomando"$($comando)"$(mostrar "$poscomando")"
     else
-        [[ -z "$lang" ]] && sacar_catex "mensaxe.erro.non_existe_mensaxe"
-        [[ -z $(grep "^""$lang" "$FICH") ]] && unset lang && sacar_catex "mensaxe.erro.non_existe_lingua"
+        [[ -z $(grep "^""$lang" "$FICH_LINGUAS") ]] && {
+            unset lang
+            sacar_catex "mensaxe.erro.non_existe_lingua"
+        } || {
+            sacar_catex "mensaxe.erro.non_existe_mensaxe"
+        }
     fi
 }
 
 [[ -z "$position" ]] && position=3
 
-[[ -n "$lang" && -n "$id" ]]\
-    && texto="$(sacar_catex "$id")"
+#[[ -n "$lang" && -n "$id" ]]\
+[[ -n "$id" ]]\
+    && texto=$(sacar_catex "$id")
 
 mostrar "$texto"
