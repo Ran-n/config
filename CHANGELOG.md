@@ -2,7 +2,7 @@
 [//]: # ( ------------------------------------------------------------------------------ )
 [//]: # (+ Autor:  	Ran# )
 [//]: # (+ Creado: 	2022/10/2 )
-[//]: # (+ Editado:	2022/11/01 20:54:32.788251 )
+[//]: # (+ Editado:	2022/11/01 21:27:29.964462 )
 [//]: # ( ------------------------------------------------------------------------------ )
 
 # Changelog
@@ -52,6 +52,6 @@
 
 - Improved "README.md" file.
 - Added new lines to "media/i18n.csv"
-- Added new programs and its descriptions to "media/progs.csv" and "media/progs_descs.csv".
+- Added new programs and its descriptions to "media/progs.csv" and "media/progs\_descs.csv".
 
 - Kept old paste script code named as "pegar-cnfichs-old".
