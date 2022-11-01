@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:  	Ran#
 #+ Creado: 	2022/10/06 20:14:30.260275
-#+ Editado:	2022/11/01 20:40:48.864281
+#+ Editado:	2022/11/01 20:49:30.906795
 # ------------------------------------------------------------------------------
 
 #* Script para sacar o texto correcto no idioma correcto.
@@ -39,9 +39,9 @@ sacar_catex(){
 mostrar() {
     # se hai texto
     if [[ -n "$1" ]]; then
-        precomando=$(echo -e "$1" | cut -d\\ -f1)
-        comando=$(echo -e "$1" | cut -d\\ -f2)
-        poscomando=$(echo -e "$1" | cut -d\\ -f3-)
+        precomando=$(echo "$1" | cut -d$ -f1)
+        comando=$(echo "$1" | cut -d$ -f2)
+        poscomando=$(echo "$1" | cut -d$ -f3-)
 
         # se o pre e o pos son iguais, non hai comando
         [[ "$precomando" == "$poscomando" ]]\
@@ -58,9 +58,5 @@ mostrar() {
 }
 
 [[ -z "$position" ]] && position=3
-
-#[[ -n "$lang" && -n "$id" ]]\
-[[ -n "$id" ]]\
-    && texto=$(sacar_catex "$id")
-
+[[ -n "$id" ]] && texto=$(sacar_catex "$id")
 mostrar "$texto"

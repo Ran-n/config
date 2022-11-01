@@ -2,7 +2,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:  	Ran#
 #+ Creado: 	2022/10/06 20:04:53.668072
-#+ Editado:	2022/11/01 20:41:16.273088
+#+ Editado:	2022/11/01 20:46:56.983917
 # ------------------------------------------------------------------------------
 
 # Legend:
@@ -106,41 +106,41 @@ mensaxe.usuario.verbose,gz,"Mostrar a información de avance do programa? (s/[n]
 mensaxe.usuario.verbose,en,"Should verbose be on? (y/[n]): "
 mensaxe.usuario.verbose,cas,"¿Mostrar la información de avance del programa? (s/[n]): "
 
-mensaxe.usuario.csv_separator,gz,"Que símbolo se debería usar como separador dos ficheiros csv? [\\src/uteis/trae-var -v csv_separator\\]: "
-mensaxe.usuario.csv_separator,en,"What symbol should be used as separator of csv files? [\\src/uteis/trae-var -v csv_separator\\]: "
-mensaxe.usuario.csv_separator,cas,"¿Que símbolo se debería usar como separador de los ficheiros csv? [\\src/uteis/trae-var -v csv_separator\\]: "
+mensaxe.usuario.csv_separator,gz,"Que símbolo se debería usar como separador dos ficheiros csv? [$src/uteis/trae-var -v csv_separator$]: "
+mensaxe.usuario.csv_separator,en,"What symbol should be used as separator of csv files? [$src/uteis/trae-var -v csv_separator$]: "
+mensaxe.usuario.csv_separator,cas,"¿Que símbolo se debería usar como separador de los ficheiros csv? [$src/uteis/trae-var -v csv_separator$]: "
 
-mensaxe.usuario.csv_separator2,gz,"Que símbolo se debería usar como separador secundario dos ficheiros csv? [\\src/uteis/trae-var -v csv_separator2\\]: "
-mensaxe.usuario.csv_separator2,en,"What symbol should be used as secondary separator of csv files? [\\src/uteis/trae-var -v csv_separator2\\]: "
-mensaxe.usuario.csv_separator2,cas,"¿Que símbolo se debería usar como separador secundario de los ficheiros csv? [\\src/uteis/trae-var -v csv_separator2\\]: "
+mensaxe.usuario.csv_separator2,gz,"Que símbolo se debería usar como separador secundario dos ficheiros csv? [$src/uteis/trae-var -v csv_separator2$]: "
+mensaxe.usuario.csv_separator2,en,"What symbol should be used as secondary separator of csv files? [$src/uteis/trae-var -v csv_separator2$]: "
+mensaxe.usuario.csv_separator2,cas,"¿Que símbolo se debería usar como separador secundario de los ficheiros csv? [$src/uteis/trae-var -v csv_separator2$]: "
 
-mensaxe.usuario.csv_string,gz,"Que símbolo se debería usar como separador de catexs nos ficheiros csv? [\\src/uteis/trae-var -v csv_string\\]: "
-mensaxe.usuario.csv_string,en,"What symbol should be used as a string separator in csv files? [\\src/uteis/trae-var -v csv_string\\]: "
-mensaxe.usuario.csv_string,cas,"¿Que símbolo se debería usar como separador de catexs en los ficheiros csv? [\\src/uteis/trae-var -v csv_string\\]: "
+mensaxe.usuario.csv_string,gz,"Que símbolo se debería usar como separador de catexs nos ficheiros csv? [$src/uteis/trae-var -v csv_string$]: "
+mensaxe.usuario.csv_string,en,"What symbol should be used as a string separator in csv files? [$src/uteis/trae-var -v csv_string$]: "
+mensaxe.usuario.csv_string,cas,"¿Que símbolo se debería usar como separador de catexs en los ficheiros csv? [$src/uteis/trae-var -v csv_string$]: "
 
 mensaxe.usuario.accept_encryption,gz,"Queres que os documentos marcados se fagan un zip co contrasinal dado? (s/[n]): "
 mensaxe.usuario.accept_encryption,en,"Should marked files be zipped using the given password? (y/[n]): "
 mensaxe.usuario.accept_encryption,cas,"¿Quieres que los documentos marcados se hagan un zip con la contraseña dada? (s/[n]): "
 
-mensaxe.usuario.scripts_folder,gz,"Cal queres que sexa a carpeta onde se garden os scripts? [\\src/uteis/trae-var -v scripts_folder\\]: "
-mensaxe.usuario.scripts_folder,en,"Which folder should scripts be saved in? [\\src/uteis/trae-var -v scripts_folder\\]: "
-mensaxe.usuario.scripts_folder,cas,"¿En que carpeta quieres que se guarden los scripts? [\\src/uteis/trae-var -v scripts_folder\\]): "
+mensaxe.usuario.scripts_folder,gz,"Cal queres que sexa a carpeta onde se garden os scripts? [$src/uteis/trae-var -v scripts_folder$]: "
+mensaxe.usuario.scripts_folder,en,"Which folder should scripts be saved in? [$src/uteis/trae-var -v scripts_folder$]: "
+mensaxe.usuario.scripts_folder,cas,"¿En que carpeta quieres que se guarden los scripts? [$src/uteis/trae-var -v scripts_folder$]): "
 
-mensaxe.usuario.aur_pkg_manager,gz,"Que manexador de paquetes AUR queres usar? [\\src/uteis/trae-var -v aur_pkg_manager\\]: "
-mensaxe.usuario.aur_pkg_manager,en,"What AUR package manager do you want to use? [\\src/uteis/trae-var -v aur_pkg_manager\\]: "
-mensaxe.usuario.aur_pkg_manager,cas,"¿Que manejador de paquetes AUR quieres usar? [\\src/uteis/trae-var -v aur_pkg_manager\\]: "
+mensaxe.usuario.aur_pkg_manager,gz,"Que manexador de paquetes AUR queres usar? [$src/uteis/trae-var -v aur_pkg_manager$]: "
+mensaxe.usuario.aur_pkg_manager,en,"What AUR package manager do you want to use? [$src/uteis/trae-var -v aur_pkg_manager$]: "
+mensaxe.usuario.aur_pkg_manager,cas,"¿Que manejador de paquetes AUR quieres usar? [$src/uteis/trae-var -v aur_pkg_manager$]: "
 
-mensaxe.usuario.cnfolder,gz,"Como queres nomear a carpeta base de gardado dos ficheiros de configuración? [\\src/uteis/trae-var -v cnfolder\\]: "
-mensaxe.usuario.cnfolder,en,"How would you like to name the base folder of the configuration files? [\\src/uteis/trae-var -v cnfolder\\]: "
-mensaxe.usuario.cnfolder,cas,"¿Como quieres nombrar la carpeta base de guardado de los ficheros de configuración? [\\src/uteis/trae-var -v cnfolder\\]: "
+mensaxe.usuario.cnfolder,gz,"Como queres nomear a carpeta base de gardado dos ficheiros de configuración? [$src/uteis/trae-var -v cnfolder$]: "
+mensaxe.usuario.cnfolder,en,"How would you like to name the base folder of the configuration files? [$src/uteis/trae-var -v cnfolder$]: "
+mensaxe.usuario.cnfolder,cas,"¿Como quieres nombrar la carpeta base de guardado de los ficheros de configuración? [$src/uteis/trae-var -v cnfolder$]: "
 
-mensaxe.usuario.cnfolder_home,gz,"Como queres nomear a carpeta de gardado dos ficheiros de configuración da ruta "/home/\\src/uteis/trae-elto -u\\"? [\\src/uteis/trae-var -v cnfolder_home\\]: "
-mensaxe.usuario.cnfolder_home,en,"How do you want to name the folder where the config files of the path "/home/\\src/uteis/trae-elto -u\\" will be saved? [\\src/uteis/trae-var -v cnfolder_home\\]: "
-mensaxe.usuario.cnfolder_home,cas,"¿Como quieres llamar a la ruta en la que serán guardados los ficheros de configuración de la ruta "/home/\\src/uteis/trae-elto -u\\"? [\\src/uteis/trae-var -v cnfolder_home\\]: "
+mensaxe.usuario.cnfolder_home,gz,"Como queres nomear a carpeta de gardado dos ficheiros de configuración da ruta "/home/$src/uteis/trae-elto -u$"? [$src/uteis/trae-var -v cnfolder_home$]: "
+mensaxe.usuario.cnfolder_home,en,"How do you want to name the folder where the config files of the path "/home/$src/uteis/trae-elto -u$" will be saved? [$src/uteis/trae-var -v cnfolder_home$]: "
+mensaxe.usuario.cnfolder_home,cas,"¿Como quieres llamar a la ruta en la que serán guardados los ficheros de configuración de la ruta "/home/$src/uteis/trae-elto -u$"? [$src/uteis/trae-var -v cnfolder_home$]: "
 
-mensaxe.usuario.cnfolder_root,gz,"Como queres nomear a de gardado dos ficheiros de configuración da ruta "/"? [\\src/uteis/trae-var -v cnfolder_root\\]: "
-mensaxe.usuario.cnfolder_root,en,"How do you want to name the folder whre the config files of the path "/" will be saved? [\\src/uteis/trae-var -v cnfolder_root\\]: "
-mensaxe.usuario.cnfolder_root,cas,"¿Como quieres llamar a la ruta en la que serán guardados los ficheiros de configuración de la ruta "/"? [\\src/uteis/trae-var -v cnfolder_root\\]: "
+mensaxe.usuario.cnfolder_root,gz,"Como queres nomear a de gardado dos ficheiros de configuración da ruta "/"? [$src/uteis/trae-var -v cnfolder_root$]: "
+mensaxe.usuario.cnfolder_root,en,"How do you want to name the folder whre the config files of the path "/" will be saved? [$src/uteis/trae-var -v cnfolder_root$]: "
+mensaxe.usuario.cnfolder_root,cas,"¿Como quieres llamar a la ruta en la que serán guardados los ficheiros de configuración de la ruta "/"? [$src/uteis/trae-var -v cnfolder_root$]: "
 
 ## **** ##
 ## ERRO ##
