@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:  	Ran#
 #+ Creado: 	2022/10/06 20:14:30.260275
-#+ Editado:	2022/11/01 20:49:30.906795
+#+ Editado:	2022/11/01 22:51:40.050584
 # ------------------------------------------------------------------------------
 
 #* Script para sacar o texto correcto no idioma correcto.
@@ -11,9 +11,11 @@
 
 FICH="media/i18n.csv"
 FICH_LINGUAS="media/linguas.csv"
+FICH_VARS="media/variables.tsv"
 
 SEP=$(src/uteis/trae-var -v csv_separator)
 SEP_CATEX=$(src/uteis/trae-var -v csv_string)
+EXECUTE_INDICATOR=$(src/uteis/trae-var -v execute_indicator)
 
 while getopts "l:i:p:" o; do
     case "${o}" in
@@ -33,15 +35,23 @@ done
 
 sacar_catex(){
     # se mete " dentro do string
-    echo "$(grep ^"$1$SEP$lang" "$FICH" | cut -d$SEP -f"$position" | cut -d$SEP_CATEX -f2- | rev | cut -d$SEP_CATEX -f2- | rev)" | sed 's/\$coma\$/,/g'
+    local texto=$(grep ^"$1$SEP$lang" "$FICH" | cut -d$SEP -f"$position" | cut -d$SEP_CATEX -f2- | rev | cut -d$SEP_CATEX -f2- | rev)
+    while read line; do
+        if [[ -n "$line" && "$line" != \#* ]]; then
+            local var=$(echo "$line" | cut -d$EXECUTE_INDICATOR -f2)
+            local valor=$(echo "$line" | cut -d$SEP_CATEX -f2- | sed s'/.$//')
+            texto=$(echo "$texto" | sed 's/\$'"$var"'\$/'"$valor"'/g')
+        fi
+    done < "$FICH_VARS"
+    echo "$texto"
 }
 
 mostrar() {
     # se hai texto
     if [[ -n "$1" ]]; then
-        precomando=$(echo "$1" | cut -d$ -f1)
-        comando=$(echo "$1" | cut -d$ -f2)
-        poscomando=$(echo "$1" | cut -d$ -f3-)
+        precomando=$(echo "$1" | cut -d$EXECUTE_INDICATOR -f1)
+        comando=$(echo "$1" | cut -d$EXECUTE_INDICATOR -f2)
+        poscomando=$(echo "$1" | cut -d$EXECUTE_INDICATOR -f3-)
 
         # se o pre e o pos son iguais, non hai comando
         [[ "$precomando" == "$poscomando" ]]\
