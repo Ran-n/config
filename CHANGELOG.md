@@ -2,7 +2,7 @@
 [//]: # ( ------------------------------------------------------------------------------ )
 [//]: # (+ Autor:  	Ran# )
 [//]: # (+ Creado: 	2022/10/2 )
-[//]: # (+ Editado:	2022/10/30 16:52:40.719482 )
+[//]: # (+ Editado:	2022/11/01 16:37:48.151414 )
 [//]: # ( ------------------------------------------------------------------------------ )
 
 # Changelog
@@ -15,8 +15,7 @@
 - Now able to write commands and scripts to be executed inside of the text strings in the "media/i18n.csv" file when using the "src/uteis/echo-texto" script.
 - Now you have the option to fully customize the ".cnf" file on creation if so chosen.
 - New utils scripts to help mantain modular code.
-
-- [ ] Now, uppon setting the "encryption" to on and the password to null, a .7z file will be created with no password.
+- Now, uppon setting the "encryption" to on and the password to empty, a .7z file will be created with no password.
 
 ### Fixes
 
@@ -29,6 +28,8 @@
 - Improved "src/copiar-cnfichs":
     - Added functionality to only copy the files based on the distro as per set in the "media/progs.csv" file.
     - Removed the update option on the cp command.
+    - Now it can create a zip file with no password if the "encrypt" option is on.
+    - Fixed bug where not putting any character in the encrypt field of "media/arquivos.csv" was interpreted as a 0. Making it so, if the user put the option "accept\_encryption" to 0 it would zip all files that are never supposed to be zipped.
 - Added new english descriptions to some scripts.
 - Created scripts:
     - "src/uteis/crea-ruta" to create the path if it doesnt already exist.
@@ -45,6 +46,7 @@
     - Now allows the use of both files and vars to search in said file with spacing.
     - If the given file doesnt exist, returns nothing instead of crashing.
 - Changed variables in all files to use the new "src/uteis/trae-elto" script.
+- Changed all variables to be surrounded by double quotes.
 - Improved the script "src/crear-cnf" by now allowing all options in the ".cnf" file to be configured during its execution".
 
 - Improved "README.md" file.
