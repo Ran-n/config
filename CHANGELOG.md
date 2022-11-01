@@ -2,7 +2,7 @@
 [//]: # ( ------------------------------------------------------------------------------ )
 [//]: # (+ Autor:  	Ran# )
 [//]: # (+ Creado: 	2022/10/2 )
-[//]: # (+ Editado:	2022/11/01 21:27:29.964462 )
+[//]: # (+ Editado:	2022/11/01 22:57:09.496123 )
 [//]: # ( ------------------------------------------------------------------------------ )
 
 # Changelog
@@ -13,6 +13,7 @@
 
 - Now able to declare files as distro dependant in the "media/arquivos.csv" file.
 - Now able to write variables, commands and scripts to be executed and or replaced inside of the text strings in the "media/i18n.csv" file when using the "src/uteis/echo-texto" script.
+- New file for users to create variables to show in the strings.
 - Now you have the option to fully customize the ".cnf" file on creation if so chosen.
 - New utils scripts to help mantain modular code.
 - Now, uppon setting the "encryption" to on and the password to empty, a .7z file will be created with no password.
@@ -36,7 +37,7 @@
     - "src/uteis/trae-elto" to use it to bring some frequently used variables such as distro, username or home folder.
 - Improved "src/uteis/echo-texto" to be more powerful:
     - Hability to execute one or more commands inside of the string.
-    - Hability to determine "variables" to be substituted for the value within the string.
+    - Hability to determine "variables" to be substituted for the value within the string, those variables are read from a definitions file ("media/variables.tsv").
     - Hability to reuse the reserved char for indicating strings inside of the string delimited by the reserved char.
     - Now shows a default not found message.
     - Now shows a default not found language message.

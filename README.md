@@ -2,7 +2,7 @@
 [//]: # ( ---------------------------------------------------------------------- )
 [//]: # (+ Autor:  	Ran# )
 [//]: # (+ Creado: 	2022/10/30 15:09:50.600992 )
-[//]: # (+ Editado:	2022/11/01 20:54:01.183566 )
+[//]: # (+ Editado:	2022/11/01 22:55:30.450452 )
 [//]: # ( ---------------------------------------------------------------------- )
 
 [![GitHub license](https://img.shields.io/github/license/Ran-n/config)](https://github.com/Ran-n/config/blob/master/LICENSE)
@@ -66,6 +66,7 @@ Though this repository contains my particular config files (saved in the cnfiles
     - "arquivos.csv" are the list of files to be saved as part of the config.
     - "i18n.csv" internacionalization file.
     - "linguas.csv" file where all the available languages are listed.
+    - "variables.tsv" file where all the available variables and each value are listed at.
 
 ### Add new languages
 
@@ -93,7 +94,7 @@ Remember to translate all ids, otherwise it will print the error message of not 
 - [ ] Allow software install from git.
 - [X] Allow software install from pip.
 - [X] Make all scripts in src folder executable if the are not already.
-- [ ] Create a file to pull from and a loop to substitute variables in "src/uteis/echo-texto".
+- [X] Create a file to pull from and a loop to substitute variables in "src/uteis/echo-texto".
 
 #### Improvements
 
