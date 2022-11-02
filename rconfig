@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:	Ran#
 #+ Creado:	08/03/2020 00:13:08
-#+ Editado:	2022/11/01 20:15:25.297680
+#+ Editado:	2022/11/02 22:50:45.273393
 # ------------------------------------------------------------------------------
 
 cd $(dirname $(readlink -f $0))
@@ -53,6 +53,11 @@ inicio() {
     echo
 
     src/instalar-progs
+    echo
+
+    # só o inicio porque é algo que se executa
+    # a primeira vez, seguindo o ficheiro, e xa
+    src/editar-cnfichs
     echo
 
     pegar
