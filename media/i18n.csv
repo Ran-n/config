@@ -2,7 +2,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:  	Ran#
 #+ Creado: 	2022/10/06 20:04:53.668072
-#+ Editado:	2022/11/01 23:01:44.610382
+#+ Editado:	2022/11/02 22:35:48.051939
 # ------------------------------------------------------------------------------
 
 # Legend:
@@ -20,46 +20,41 @@ titulo.rconfig.operacion_copiado,gz,"=== Realizando a operación de COPIADO ==="
 titulo.rconfig.operacion_copiado,en,"=== Doing the COPY operation ==="
 titulo.rconfig.operacion_copiado,cas,"=== Haciendo la operación de COPIADO ==="
 
-
 titulo.rconfig.operacion_pegado,gz,"=== Realizando a operación de PEGADO ==="
 titulo.rconfig.operacion_pegado,en,"=== Doing the PASTE operation ==="
 titulo.rconfig.operacion_pegado,cas,"=== Haciendo la operación de PEGADO ==="
-
 
 titulo.rconfig.operacion_inicio,gz,"=== Realizando a operación de INICIO ==="
 titulo.rconfig.operacion_inicio,en,"=== Doing the SETUP operation ==="
 titulo.rconfig.operacion_inicio,cas,"=== Haciendo la operación de INICIO ==="
 
-
 titulo.crear_cnf,gz,"► Creando o ficheiro '.cnf' de configuración"
 titulo.crear_cnf,en,"► Creating the config file '.cnf'"
 titulo.crear_cnf,cas,"► Creando el fichero '.cnf' de configuración"
-
 
 titulo.crear_carpetas,gz,"► Creando ou modificando os nomes das carpetas"
 titulo.crear_carpetas,en,"► Creating our modifying the names of the folders"
 titulo.crear_carpetas,cas,"► Creando o modificando los nombres de las carpetas"
 
-
 titulo.baixar_scripts,gz,"► Baixando os scripts"
 titulo.baixar_scripts,en,"► Downloading the scripts"
 titulo.baixar_scripts,cas,"► Bajando los scripts"
-
 
 titulo.copiar_cnfichs,gz,"► Copiando os ficheiros de configuración"
 titulo.copiar_cnfichs,en,"► Copying the configuration files"
 titulo.copiar_cnfichs,cas,"► Copiando los ficheros de configuración"
 
-
 titulo.instalar_progs,gz,"► Instalando os programas"
 titulo.instalar_progs,en,"► Installing the programs"
 titulo.instalar_progs,cas,"► Instalando los programas"
-
 
 titulo.pegar_cnfichs,gz,"► Pegando os ficheiros de configuración"
 titulo.pegar_cnfichs,en,"► Pasting the configuration files"
 titulo.pegar_cnfichs,cas,"► Pegando los ficheros de configuación"
 
+titulo.editar_cnfichs,gz,"► Editando os ficheiros de configuración"
+titulo.editar_cnfichs,en,"► Editando the configuration files"
+titulo.editar_cnfichs,cas,"► Editando los ficheros de configuación"
 
 
 # ***** #
@@ -89,6 +84,10 @@ final.rconfig.operacion_inicio,cas,"=== Fin de la operación de INICIO ==="
 # ******* #
 # MENSAXE #
 # ******* #
+
+mensaxe.editar-cnfichs.ningunha_edicion,gz,"Non fixo falla editar ningún ficheiro."
+mensaxe.editar-cnfichs.ningunha_edicion,en,"No need to edit any file."
+mensaxe.editar-cnfichs.ningunha_edicion,cas,"No hizo falta editar ningún fichero."
 
 mensaxe.usuario.indicar_contrasinal,gz,"Indica o contrasinal (baleiro para ningún): "
 mensaxe.usuario.indicar_contrasinal,en,"Enter password (empty for none): "

@@ -1,0 +1,75 @@
+#! /bin/sh
+# -*- coding: utf-8 -*-
+# ------------------------------------------------------------------------------
+#+ Autor:  	Ran#
+#+ Creado: 	2022/11/02 21:30:38.162700
+#+ Editado:	2022/11/02 22:45:30.445079
+# ------------------------------------------------------------------------------
+
+#* Script for editing files instead of copying them.
+
+# mirar se o script se executa como root
+# de non, facer que así sexa
+if [[ $(/usr/bin/id -u) != 0 ]]; then
+    if whereis sudo &>/dev/null; then
+        # correr o script de novo como sudo e cos parametros dados
+        sudo $0 $*
+        # para que non se execute dúas veces
+        exit 0
+    else
+        # saída con erro
+        exit 1
+    fi
+fi
+
+FICH="media/arquivos_editar.csv"
+
+#USER=$(src/uteis/trae-elto -u)
+FOGAR=$(src/uteis/trae-elto -h)
+DISTRO=$(src/uteis/trae-elto -d)
+
+LINGUA=$(src/uteis/trae-var -v "lang")
+VERBOSE=$(src/uteis/trae-var -v "verbose")
+SEP=$(src/uteis/trae-var -v "csv_separator")
+SEP2=$(src/uteis/trae-var -v "csv_separator2")
+
+
+src/uteis/echo-texto -l "$LINGUA" -i "titulo.editar_cnfichs"
+
+fichs_editados=0
+while read line; do
+    # ignorar linhas comentadas ou baleiras
+    if [[ "$line" != \#* && -n "$line" ]]; then
+        distros=$(echo "$line" | cut -d$SEP -f5)
+
+        if [[ -z "$distros" ]] || (echo "$distros" | grep -w "$DISTRO" > /dev/null); then
+            ruta=$(echo "$line" | cut -d$SEP -f1)
+
+            [[ "$ruta" = \~* ]] && ruta=$FOGAR$(echo "$ruta" | cut -d~ -f2-)
+
+            keywords=($(echo "$line" | cut -d$SEP -f2 | tr "$SEP2" ' ' ))
+            txt_from=$(echo "$line" | cut -d$SEP -f3)
+            txt_to=$(echo "$line" | cut -d$SEP -f4)
+            txt_busqueda='.*'
+
+            for keyword in "${keywords[@]}"; do
+                txt_busqueda="$txt_busqueda""$keyword"".*"
+            done
+
+            linha_orix=$(grep "$txt_busqueda" "$ruta")
+            if [[ -n "$linha_orix" ]]; then
+                linha_final=$(echo "$linha_orix" | sed 's/'"$txt_from"'/'"$txt_to"'/g')
+                sed -i 's|'"$linha_orix"'|'"$linha_final"'|g' "$ruta" 2&>/dev/null
+
+                if [[ "$VERBOSE" -eq 1 ]]; then
+                    echo '['"$ruta"']: "'"$linha_orix"'" > '"$linha_final"
+                fi
+                let "fichs_editados++"
+            fi
+        fi
+    fi
+done < "$FICH"
+
+[[ "$fichs_editados" -eq 0 ]] && src/uteis/echo-texto -l "$LINGUA" -i "mensaxe.editar-cnfichs.ningunha_edicion"
+
+src/uteis/echo-texto -l "$LINGUA" -i "final.ok"

@@ -1,0 +1,17 @@
+# -*- coding: utf-8 -*-
+# ------------------------------------------------------------------------------
+#+ Autor:  	Ran#
+#+ Creado: 	2022/11/02 21:34:05.757641
+#+ Editado:	2022/11/02 22:42:05.072402
+# ------------------------------------------------------------------------------
+
+# Legend:
+# path      -> Physical location of the file to edit.
+# keywords  -> Words that will identify this line in particular over the whole file.
+# text from -> Text to be replaced.
+# text to   -> Text that will be used to replace the former.
+# distro    -> Distro in wich this should be done.
+
+# path, keywords, text from, text to, distro
+/etc/passwd,ran|bash,bash,zsh,
+/etc/passwd,root|bash,bash,zsh,
