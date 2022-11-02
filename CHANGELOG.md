@@ -2,7 +2,7 @@
 [//]: # ( ------------------------------------------------------------------------------ )
 [//]: # (+ Autor:  	Ran# )
 [//]: # (+ Creado: 	2022/10/2 )
-[//]: # (+ Editado:	2022/11/01 22:57:09.496123 )
+[//]: # (+ Editado:	2022/11/02 22:48:19.258794 )
 [//]: # ( ------------------------------------------------------------------------------ )
 
 # Changelog
@@ -17,6 +17,7 @@
 - Now you have the option to fully customize the ".cnf" file on creation if so chosen.
 - New utils scripts to help mantain modular code.
 - Now, uppon setting the "encryption" to on and the password to empty, a .7z file will be created with no password.
+- Added functionality not copy an entire file, but search for some specific lines and change them to the desired output. This is useful for the /etc/passwd file, for example, where it doesnt make sense to copy it whole but its very interesting to be able to change the shell that the root and current user uses.
 
 ### Fixes
 
@@ -50,6 +51,8 @@
 - Changed variables in all files to use the new "src/uteis/trae-elto" script.
 - Changed all variables to be surrounded by double quotes.
 - Improved the script "src/crear-cnf" by now allowing all options in the ".cnf" file to be configured during its execution".
+- Created file "media/arquivos\_editar.csv"
+- Created the script "src/editar-cnfichs" for editing some lines of files.
 
 - Improved "README.md" file.
 - Added new lines to "media/i18n.csv"
