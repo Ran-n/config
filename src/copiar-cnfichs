@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:	Ran#
 #+ Creado:	22/04/2020 00:23:18
-#+ Editado:	2022/11/01 15:29:39.269252
+#+ Editado:	2022/11/03 18:30:52.014280
 # ------------------------------------------------------------------------------
 
 #*gz* Script que copia of ficheiros da máquina na que se executa.
@@ -32,6 +32,18 @@ eliminar () {
             && find "$1" -name "$fich" -exec rm -vrf {} +\
             || find "$1" -name "$fich" -exec rm -rf {} +
     done
+}
+
+zip() {
+    echo
+    [[ -n "$CONTRASINAL" ]]\
+        && 7z a "$ruta_total" "$ruta_total" -p"$CONTRASINAL" -mhe=on -mx=9 -bb1\
+        || {
+                [[ -f "$ruta_total".7z ]] && rm "$ruta_total".7z
+                7z a "$ruta_total" "$ruta_total" -mhe=on -mx=9 -bb1
+            }
+    echo
+    rm -vrf "$ruta_total"
 }
 
 # mirar se o script se executa como root
@@ -89,26 +101,9 @@ while read line; do
             [[ -n "$excluir" ]] && eliminar "$ruta_total" "$excluir"
 
         if [[ -n "$encriptar" && "$encriptar" -eq "$ACCEPT_ENCRIPT" ]]; then
-                if [[ "$VERBOSE" -eq 1 ]]; then
-                    echo
-                    [[ -n "$CONTRASINAL" ]]\
-                        && 7z a "$ruta_total" "$ruta_total" -p"$CONTRASINAL" -mhe=on -mx=9 -bb1\
-                        || {
-                                [[ -f "$ruta_total".7z ]] && rm "$ruta_total".7z
-                                7z a "$ruta_total" "$ruta_total" -mhe=on -mx=9 -bb1
-                            }
-                    echo
-                    rm -vrf "$ruta_total"
-                else
-                    [[ -n "$CONTRASINAL" ]]\
-                        && 7z a "$ruta_total" "$ruta_total" -p"$CONTRASINAL" -mhe=on -mx=9 2&>/dev/null\
-                        || {
-                                [[ -f "$ruta_total".7z ]] && rm "$ruta_total".7z
-                                7z a "$ruta_total" "$ruta_total" -mhe=on -mx=9 2&>/dev/null
-                            }
-
-                    rm -rf "$ruta_total"
-                fi
+                [[ "$VERBOSE" -eq 1 ]]\
+                    && zip\
+                    || zip 2&>/dev/null
             fi
         fi
     fi
