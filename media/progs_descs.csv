@@ -1,7 +1,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:	Ran#
 #+ Creado:	2022/10/01 16:08:29.411662
-#+ Editado:	2022/10/19 19:35:41.170749
+#+ Editado:	2022/11/03 17:23:11.991583
 # ------------------------------------------------------------------------------
 #
 # LEGEND:
@@ -247,3 +247,7 @@ pipreqs,cas,"Generador del documento requirements.txt basándose en los imports 
 uteis,gz,"Libraría auxiliar de Python feita por Ran#."
 uteis,en,"Auxiliary Python library made by Ran#."
 uteis,cas,"Libería auxiliar de Python hecha por Ran#."
+
+kivy,gz,"Libraría Python para a creación de aplicacións de interfaz gráfica."
+kivy,en,"Open Source Python library for creating user interface apps"
+kivy,cas,"Librería Python para la creación de aplicaciones de interfaz gráfica"
