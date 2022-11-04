@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:	Ran#
 #+ Creado:	22/04/2020 00:23:18
-#+ Editado:	2022/11/04 18:46:13.941091
+#+ Editado:	2022/11/04 18:48:42.364870
 # ------------------------------------------------------------------------------
 
 #*gz* Script que copia of ficheiros da máquina na que se executa.
@@ -32,26 +32,6 @@ eliminar () {
             && find "$1" -name "$fich" -exec rm -vrf {} +\
             || find "$1" -name "$fich" -exec rm -rf {} +
     done
-}
-
-zip_old() {
-    echo
-    # se puxo contrasinal
-    if [[ -n "$CONTRASINAL" ]]; then
-        [[ -f "$ruta_total".7z ]]\
-            && 7z u "$ruta_total" "$ruta_total" -p"$CONTRASINAL" -mhe=on -mx=9 -bb1\
-            || 7z a "$ruta_total" "$ruta_total" -p"$CONTRASINAL" -mhe=on -mx=9 -bb1
-    else
-        # ∃ ficheiro, esta sen contrasinal
-        # e se meteu contrasinal
-        # xFCR podo facer un mv en lugar dun rm
-        # que sexa pendente dunha variable de .cnf
-        [[ -f "$ruta_total".7z ]] && rm "$ruta_total".7z
-        7z a "$ruta_total" "$ruta_total" -mhe=on -mx=9 -bb1
-    fi
-    echo
-    # elimino a carpeta, deixando soamente o .7z
-    rm -vrf "$ruta_total"
 }
 
 zip() {
