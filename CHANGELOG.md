@@ -2,7 +2,7 @@
 [//]: # ( ------------------------------------------------------------------------------ )
 [//]: # (+ Autor:  	Ran# )
 [//]: # (+ Creado: 	2022/10/2 )
-[//]: # (+ Editado:	2022/11/06 17:05:42.448240 )
+[//]: # (+ Editado:	2022/11/06 19:46:39.295166 )
 [//]: # ( ------------------------------------------------------------------------------ )
 
 # Changelog
@@ -60,3 +60,11 @@
 - Added new programs and its descriptions to "media/progs.csv" and "media/progs\_descs.csv".
 
 - Kept old paste script code named as "pegar-cnfichs-old".
+
+## 2.4
+
+Bug Fixes
+
+### Fixes
+
+- Path error in "src/baixar-scripts" file.
