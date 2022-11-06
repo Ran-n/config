@@ -2,7 +2,7 @@
 [//]: # ( ---------------------------------------------------------------------- )
 [//]: # (+ Autor:  	Ran# )
 [//]: # (+ Creado: 	2022/10/30 15:09:50.600992 )
-[//]: # (+ Editado:	2022/11/02 22:46:29.661717 )
+[//]: # (+ Editado:	2022/11/06 17:07:03.021936 )
 [//]: # ( ---------------------------------------------------------------------- )
 
 [![GitHub license](https://img.shields.io/github/license/Ran-n/config)](https://github.com/Ran-n/config/blob/master/LICENSE)
@@ -99,7 +99,7 @@ Remember to translate all ids, otherwise it will print the error message of not 
 #### Improvements
 
 - ~~Exclude Files: Instead of copying and then removing them, make it so they are not copied in the first place.~~
-- [ ] Check if files where changed regards to the actual version saved in 7z files before rezipping.
+- ~~[X] Check if files where changed regards to the actual version saved in 7z files before rezipping.~~
 - [X] Make files have an option to be distro dependant, some like /etc/pacman.conf are only needed in arch distros and non on debian based for example. Right now theres no way of discriminating by distro like there is on progs.csv.
 - [X] Make functionality to, not copy an entire file, but search for some specific lines and change them to the desired output. This is useful for the /etc/passwd file, for example, where it doesnt make sense to copy it whole but its very interesting to be able to change the shell that the root and current user uses.
 
