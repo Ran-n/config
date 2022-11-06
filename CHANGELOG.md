@@ -2,7 +2,7 @@
 [//]: # ( ------------------------------------------------------------------------------ )
 [//]: # (+ Autor:  	Ran# )
 [//]: # (+ Creado: 	2022/10/2 )
-[//]: # (+ Editado:	2022/11/02 22:48:19.258794 )
+[//]: # (+ Editado:	2022/11/06 17:05:42.448240 )
 [//]: # ( ------------------------------------------------------------------------------ )
 
 # Changelog
@@ -53,6 +53,7 @@
 - Improved the script "src/crear-cnf" by now allowing all options in the ".cnf" file to be configured during its execution".
 - Created file "media/arquivos\_editar.csv"
 - Created the script "src/editar-cnfichs" for editing some lines of files.
+- Improved/Created zip and unzip functions in the copy and paste scripts.
 
 - Improved "README.md" file.
 - Added new lines to "media/i18n.csv"
