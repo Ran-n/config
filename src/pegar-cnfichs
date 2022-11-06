@@ -1,7 +1,7 @@
 #! /bin/sh
 #+ Autor:	Ran#
 #+ Creado:	07/03/2020 22:33:09
-#+ Editado:	2022/10/30 22:05:20.534658
+#+ Editado:	2022/11/06 17:04:45.962151
 
 #* Script que me permite meter os meus ficheiros de configuración en calquera máquina na que esté a trabalhar
 
@@ -37,21 +37,14 @@ CNFOLDER_ROOT=$(src/uteis/trae-var -v "cnfolder_root")
 
 src/uteis/echo-texto -l "$LINGUA" -i "titulo.pegar_cnfichs"
 
-# xFCR
 unzip(){
     l_fich="$1"
 
-    if [[ "$VERBOSE" -eq 1 ]]; then
-        [[ -n "$CONTRASINAL" ]]\
-            && 7z x $(echo "$l_fich" | sed 's:/*$::') -o$(dirname $(echo "$l_fich" | sed 's:/*$::')) -aoa -p"$CONTRASINAL"\
-            || 7z x $(echo "$l_fich" | sed 's:/*$::') -o$(dirname $(echo "$l_fich" | sed 's:/*$::')) -aoa
-        chown -R "$USER":"$USER" $(echo "$l_fich" | sed 's:/*$::')
-        rm -v $(echo "$l_fich" | sed 's:/*$::')
-    else
-        7z x $(echo "$l_fich" | sed 's:/*$::') -o$(dirname $(echo "$l_fich" | sed 's:/*$::')) -aoa -p"$CONTRASINAL" 2&> /dev/null
-        chown -R "$USER":"$USER" $(echo "$l_fich" | sed 's:/*$::')
-        rm $(echo "$l_fich" | sed 's:/*$::')
-    fi
+    [[ -n "$CONTRASINAL" ]]\
+        && 7z x $(echo "$l_fich" | sed 's:/*$::') -o$(dirname $(echo "$l_fich" | sed 's:/*$::')) -aoa -p"$CONTRASINAL"\
+        || 7z x $(echo "$l_fich" | sed 's:/*$::') -o$(dirname $(echo "$l_fich" | sed 's:/*$::')) -aoa
+    chown -R "$USER":"$USER" $(echo "$l_fich" | sed 's:/*$::')
+    rm -v $(echo "$l_fich" | sed 's:/*$::')
 }
 
 pegar(){
@@ -86,7 +79,9 @@ pegar(){
 
     # unzip files
     if [[ "$l_unzip" -eq 1 ]]; then
-        unzip "$ruta_destino"
+        [[ "$VERBOSE" -eq 1 ]]\
+            && unzip "$ruta_destino"\
+            || unzip "$ruta_destino" 2&>/dev/null
     fi
 
     [[ "$owner" -eq 1 ]] && chown -R "$USER":"$USER" $(dirname "$ruta_destino")

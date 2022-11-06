@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:	Ran#
 #+ Creado:	22/04/2020 00:23:18
-#+ Editado:	2022/11/04 18:48:42.364870
+#+ Editado:	2022/11/06 17:03:28.632988
 # ------------------------------------------------------------------------------
 
 #*gz* Script que copia of ficheiros da máquina na que se executa.
@@ -36,10 +36,13 @@ eliminar () {
 
 zip() {
     echo
+    echo $ruta_total
+    echo $ruta
+    echo
     [[ -f "$ruta_total".7z ]] && rm "$ruta_total".7z
     [[ -n "$CONTRASINAL" ]]\
-        && 7z a "$ruta_total" "$ruta_total" -p"$CONTRASINAL" -mhe=on -mx=9 -bb1\
-        || 7z a "$ruta_total" "$ruta_total" -mhe=on -mx=9 -bb1
+        && 7z a "$ruta_total" "$ruta" -p"$CONTRASINAL" -mhe=on -mx=9 -bb1\
+        || 7z a "$ruta_total" "$ruta" -mhe=on -mx=9 -bb1
     echo
     # elimino a carpeta, deixando soamente o .7z
     rm -vrf "$ruta_total"
