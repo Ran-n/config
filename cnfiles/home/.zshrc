@@ -1,7 +1,7 @@
 #! ZSHRC
 #+ Autor:	Ran#
 #+ Creado:	11/09/2020 16:55:34
-#+ Editado:	2022/09/10 22:46:57.952034
+#+ Editado:	2022/12/26 19:27:59.695096
 
 #
 #            _
@@ -15,7 +15,7 @@
 autoload -U colors && colors
 PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 
-PATH=$PATH:/usr/local/scripts
+PATH=$PATH:/usr/local/scripts:$HOME/.local/bin
 
 export EDITOR='nvim'
 
