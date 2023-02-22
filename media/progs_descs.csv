@@ -1,7 +1,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:	Ran#
 #+ Creado:	2022/10/01 16:08:29.411662
-#+ Editado:	2022/11/03 17:23:11.991583
+#+ Editado:	2023/02/22 21:16:36.852308
 # ------------------------------------------------------------------------------
 #
 # LEGEND:
@@ -221,6 +221,10 @@ texlive-lang,cas,"Compilación de paquetes de idiomas para TeX Live."
 texlive-most,gz,"Compliación de paquetes de TeX Live."
 texlive-most,en,"Package bundle of TeX Live."
 texlive-most,cas,"Compliación de paquetes de TeX Live."
+
+tk,gz,"Paquete de creación de interfaces gráficas para Python."
+tk,en,"Package for user interface creation for Python"
+tk,cas,"Paquete para la creación de interfaces gráficas para Python."
 
 yay,gz,"Manexador de paquetes AUR."
 yay,en,"AUR package manager."

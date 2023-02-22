@@ -71,7 +71,7 @@ install_pkg(){
     if [[ "$VERBOSE" -eq 1 ]]; then
         # o do temp_space é preciso porque senón o nome sae cortado polo espazo
         nome=$(echo "$nome" | cut -d$SEP_CATEX -f2 | sed 's/$TEMP_SPACE/\ /g')
-        desc=$(cat "$FICH2" | grep "$id_nome$SEP$LINGUA$SEP" | cut -d$SEP_CATEX -f2)
+        desc=$(cat "$FICH2" | grep "^$id_nome$SEP$LINGUA$SEP" | cut -d$SEP_CATEX -f2)
 
         # mostrar ó usuario que se esta a instalar e o avance
         [[ "$cont" -ne 1 ]] && echo
