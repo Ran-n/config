@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:  	Ran#
 #+ Creado: 	2022/09/09 16:41:29.164675
-#+ Editado:	2022/10/30 22:00:26.740642
+#+ Editado:	2023/02/23 16:56:22.032515
 # ------------------------------------------------------------------------------
 
 # mirar se o script se executa como root
@@ -50,11 +50,9 @@ pkg_install(){
             ;;
         aur)
             sudo -u "$USER" "$AUR_PKG_MANAGER" -S "$id_nome" --noconfirm --needed > /dev/null 2>&1
-            #sudo -u $USER $AUR_PKG_MANAGER -S $id_nome --noconfirm --needed
             ;;
         pip)
             sudo -u "$USER" pip install "$id_nome" > /dev/null 2>&1
-            #sudo -u $USER pip install $id_nome
             ;;
         git)
             echo GIT
