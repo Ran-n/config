@@ -1,7 +1,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:	Ran#
 #+ Creado:	15/03/2020 14:37:28
-#+ Editado:	2023/02/23 16:30:22.132660
+#+ Editado:	2023/02/23 16:37:27.672898
 # ------------------------------------------------------------------------------
 # LEGEND:
 # Identifier    -> Identifier of the program.
@@ -88,4 +88,5 @@ yay,"yay",ArcoLinux|Manjaro,
 coverage,"coverage",,
 kivy,"Kivy",PIP
 pipreqs,"pipreqs",,PIP
+pytest,"pytest",,
 uteis,"uteis",,PIP
