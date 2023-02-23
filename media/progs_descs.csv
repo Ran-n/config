@@ -1,7 +1,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:	Ran#
 #+ Creado:	2022/10/01 16:08:29.411662
-#+ Editado:	2023/02/22 21:16:36.852308
+#+ Editado:	2023/02/23 16:31:40.049082
 # ------------------------------------------------------------------------------
 #
 # LEGEND:
@@ -243,6 +243,10 @@ rambox-bin,cas,"Unificador de servicios de comunicación en una sola aplicación
 # ****** #
 # Python #
 # ****** #
+
+coverage,gz,"Libraría para a implementación de probas automáticas en Python."
+coverage,en,"Library for the implementation of automatic testing in Python."
+coverage,cas,"Librería para la implementación de pruebas automáticas en Python."
 
 pipreqs,gz,"Xerador do documento requirements.txt baseándose nos imports do proxecto."
 pipreqs,en,"Generator of requirements.txt based on the project's imports"
