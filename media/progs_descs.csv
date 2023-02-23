@@ -1,7 +1,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:	Ran#
 #+ Creado:	2022/10/01 16:08:29.411662
-#+ Editado:	2023/02/23 16:37:44.919888
+#+ Editado:	2023/02/23 17:08:20.506127
 # ------------------------------------------------------------------------------
 #
 # LEGEND:
@@ -244,13 +244,25 @@ rambox-bin,cas,"Unificador de servicios de comunicación en una sola aplicación
 # Python #
 # ****** #
 
+bandit,gz,"Analizador de código estático centrado en seguridade para o linguaxe Python."
+bandit,en,"Security oriented static analyser for Python code."
+bandit,cas,"Analizador de código estático centrado en seguridad para el lenguaje Python."
+
 coverage,gz,"Libraría para a implementación de probas automáticas en Python."
 coverage,en,"Library for the implementation of automatic testing in Python."
 coverage,cas,"Librería para la implementación de pruebas automáticas en Python."
 
+flake8,gz,"Un comprobador de código fonte modular para Python: pep8, pyflakes e compañía."
+flake8,en,"A modular source code checker for Python: pep8, pyflakes and co."
+flake8,cas,"Un comprobador de código fuente modular para Python: pep8, pyflakes y compañía"
+
 pipreqs,gz,"Xerador do documento requirements.txt baseándose nos imports do proxecto."
 pipreqs,en,"Generator of requirements.txt based on the project's imports"
 pipreqs,cas,"Generador del documento requirements.txt basándose en los imports del proyecto."
+
+pylint,gz,"Analizador de código estático para Python 2 ou 3."
+pylint,en,"Static code analyzer for Python 2 or 3."
+pylint,cas,"Analizador de código estático para Python 2 o 3."
 
 pytest,gz,"Libraría para a implementación de probas automáticas en Python."
 pytest,en,"Library for the implementation of automatic testing in Python."
