@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------------
 #+ Autor:  	Ran#
 #+ Creado: 	2022/10/10 14:12:56.082178
-#+ Editado:	2022/10/10 14:24:52.289940
+#+ Editado:	2024/05/05 13:30:52.289940
 # ------------------------------------------------------------------------------
 
 #* Usual info needed for the scripts put up all in the same file for convenience.
@@ -12,7 +12,7 @@ while getopts "udhf" o; do
     case "${o}" in
         # distro name
         d)
-            echo $(lsb_release -a | sed -n '2,+0p' | cut -d: -f2 | tr -ds '\t' '')
+            echo $(lsb_release -i | cut -d$'\t' -f2)
             ;;
 
         # user name
